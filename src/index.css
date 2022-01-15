@@ -955,7 +955,19 @@ form button {
   align-items: stretch;
   font-weight: 200;
 }
+
+#top h1 {
+  /* height: 20ppx; */
+  padding: 5px;
+  display: inline-flex;
+  flex-direction: row;
+  font-size: xx-large;
+  justify-content: flex-end;
+  align-items: stretch;
+  font-weight: 550;
+}
 #top {
+  font-size: x-large;
   padding: 29px;
   color: aliceblue;
   background: #09705a;
@@ -967,10 +979,11 @@ form button {
   flex-direction: row;
   grid-column-gap: 500px;
   grid-column-gap: 500px;
+  grid-column-gap: 500px;
   column-gap: 500px;
   font-family: system-ui;
-  font-weight: 300;
-  margin-top: 0px;
+  /* font-weight: 200; */
+  /* margin-top: 0px; */
   width: -webkit-fill-available;
 }
 .Home {

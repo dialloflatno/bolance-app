@@ -69,6 +69,7 @@ console.log(user);
             <div>
                 <BookForm user ={user} placeBook={placeBook} />
             </div>
+            <footer>Bolance App | Your Best Budget ! </footer>
 
 
         </div>

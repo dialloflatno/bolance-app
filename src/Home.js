@@ -30,6 +30,8 @@ function Home() {
             <br/>
             {/* <SignIn />  */}
              <Welcome/>
+             <footer>Bolance App | Your Best Budget ! </footer>
+
         </div>
     )
 }
