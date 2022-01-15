@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import TotalExp from "./TotalExp";
 import List from "./List";
 import Form from "./Form";
+import Map from "./Map";
 // import Form from "./Form";
 // import Item from "./Item"
 // import TotalExp from "./TotalExp";
@@ -103,7 +104,7 @@ function Book({ user, setUser }) {
                     }
                     { toggle ?
                      (  
-                        <button onClick={handlesDisapperacance} className='drpfrm'>▼</button> 
+                        <button onClick={handlesDisapperacance} className='drpfrm-close'>▼</button> 
                         ) : (  
                         <button onClick={handlesApperacance} className='drpfrm'>▼</button>)
                     }
@@ -128,7 +129,10 @@ function Book({ user, setUser }) {
                 <option value="Travel" >Travel</option>
                 <option value="Food">Food</option>
             </select>
-            <List />
+            <div>
+            <List user ={user} />
+            </div>
+            {/* <Map/> */}
 
         </>
 

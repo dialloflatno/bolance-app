@@ -83,7 +83,6 @@ function Nav({ user, setUser }) {
                     </div>
                 </div>
             </div>
-            <footer></footer>
         </div>
     );
 }

@@ -29,13 +29,14 @@ header {
   padding-top: 1%;
   z-index: 100;
 }
+
 .page_lay {
   display: flex;
   word-break: unset;
   padding: 7px;
   /* justify-items: stretch; */
   align-items: center;
-  width: 101%;
+  width: 96%;
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
@@ -377,9 +378,16 @@ img {
   opacity: 26%;
   font-weight: bold;
 }
+.vhm {
+  width: -webkit-fill-available;
+  display: flex;
+  height: -webkit-fill-available;
+}
+
 .base {
   display: block;
   width: inherit;
+  overflow: scroll;
 }
 .Container_PL {
   box-shadow: inset 0px 0px 0px 1px #21595b;
@@ -441,11 +449,22 @@ img {
   grid-area: 90px;
 }
 
-.drpfrm{
+.drpfrm {
   margin-top: 20px;
   width: 20px;
   background: none;
-  border:none;
+  border: none;
+  color: gray;
+  font-weight: bold;
+  cursor: pointer;
+}
+.drpfrm-close {
+  margin-right: -41px;
+  margin-left: 50px;
+  margin-top: 20px;
+  width: 20px;
+  background: none;
+  border: none;
   color: gray;
   font-weight: bold;
   cursor: pointer;
@@ -640,16 +659,19 @@ legend {
 }
 fieldset {
   backdrop-filter: blur(1px);
-  width: -webkit-fill-available;
+  width: 105%;
+  margin-top: 10px;
   display: flex;
   position: static;
+  box-shadow: -3px 0px 20px #0a1f5a61;
   flex-direction: column;
   align-content: flex-end;
   align-items: stretch;
   justify-content: flex-start;
-  background: #fff8dce0;
+  background: #4b618a85;
   border: none;
   border-radius: 5px;
+  padding: 17px;
 }
 /* flex-direction: row;
   justify-content: center;
@@ -662,7 +684,6 @@ fieldset {
   margin: 30px 4px 12px -13px;
   align-items: center;
 }
-
 
 .addButton {
   display: flex;
@@ -679,8 +700,12 @@ fieldset {
   transition: background-color 0.125s, box-shadow 0.125s;
   width: 4%;
   padding: 0px 18px;
+  margin: 7px;
+  cursor: pointer;
 }
-
+.addButton button:hover {
+  background: green;
+}
 .delete {
   border: 0px;
   color: rgba(190, 188, 188, 0.753);
@@ -719,8 +744,14 @@ select.Form {
   padding: 2px;
 }
 #dropdown {
+  margin: 10px;
   background: none;
-  /* color: antiquewhite; */
+  color: antiquewhite;
+  /* background-color: #0063cc; */
+  border: none;
+}
+#dropdown option {
+  color: antiquewhite;
   /* background-color: #0063cc; */
   border: none;
 }
@@ -734,7 +765,26 @@ select.Form {
   float: left;
   justify-content: space-between;
 }
+.p {
+  margin-bottom: 43px;
+  height: 45%;
+    background: black;
+    margin: 0px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px;
+ }
 
+ .p h5{  margin-bottom: 48px;
+ }
+
+#maPGL  {
+  width: min-content;
+  z-index: -1;
+
+}
 .ReactMap {
   display: inline-flex;
   position: absolute;
@@ -852,7 +902,6 @@ form button {
 .bookslot {
   display: inline-flex;
   margin: 19px 42px auto;
-
 }
 .bookbind {
   margin: 60px;
@@ -920,4 +969,12 @@ form button {
   height: 50px;
   margin: 20px 0px 0px;
   background-color: rgba(128, 128, 128, 0.24);
+}
+footer {
+  font-weight: 600;
+  padding: 25px;
+  height: 2vh;
+  /* margin: 20px 0px 0px; */
+  background-color: #1f2939;
+  color: aliceblue;
 }

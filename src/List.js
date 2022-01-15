@@ -2,7 +2,7 @@ import Info from "./Info";
 import Map from './Map.js'
 
 
-function List({ List, handleDeleteItem }) {
+function List({ List, handleDeleteItem,user}) {
 
 
 
@@ -18,8 +18,10 @@ function List({ List, handleDeleteItem }) {
 
 
   return (
+    <div>
     <div className="List">
       <br></br>
+      <div className='vhm'>
       <div className="base">
         {/* <h3>My Transaction Should Show Here</h3> */}
         <Info />
@@ -29,10 +31,18 @@ function List({ List, handleDeleteItem }) {
         <Info />
         <Info />
         <Info />
+        <Info />
+        <Info />
+        <Info />
+        <Info />
+        <Info />
       </div>
-      <Map />
-      <footer/>
+      <Map user ={user}/>
+
     </div>
+    </div>
+      <footer>Bolance App | Your Best Budget ! </footer>
+      </div>
   );
 }
 
