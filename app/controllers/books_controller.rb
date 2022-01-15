@@ -27,6 +27,6 @@ def book_params
 end
 
 def book
-    user = User.find_by(id: params[:id])
-    user.books
+    book = Book.find_by(id: params[:id])
+    # user.books
 end
