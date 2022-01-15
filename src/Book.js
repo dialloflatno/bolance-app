@@ -82,8 +82,11 @@ function Book({ user, setUser }) {
 
     function handlesApperacance() {
         setToggle(true)
-        debugger
-        { !toggle && <Form /> }
+      
+    }
+    function handlesDisapperacance() {
+        setToggle(false)
+      
     }
 
 
@@ -96,10 +99,15 @@ function Book({ user, setUser }) {
                 <div className="page_lay">
 
                     { toggle ?
-                     (   <Form />) : ( '')
-
+                     (   <Form /> ) : ( '')
                     }
-                    <button onClick={handlesApperacance} className='drpfrm'>▼</button>
+                    { toggle ?
+                     (  
+                        <button onClick={handlesDisapperacance} className='drpfrm'>▼</button> 
+                        ) : (  
+                        <button onClick={handlesApperacance} className='drpfrm'>▼</button>)
+                    }
+                   
                     <label className="perTitle">{book?.title} | {expense ? expense : 'Great Work Budgeting !'}</label>
 
                     <form className='cats'>
