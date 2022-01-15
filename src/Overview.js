@@ -61,7 +61,7 @@ console.log(user);
                 {/* <h2>{user.full_name}</h2> */}
                 <h1>Overview</h1>
 
-                <h1>Expense:{totalBookExpenses}</h1>
+                <h5>Expense:{totalBookExpenses}</h5>
             </div>
             <div className='m'>
                 <BookShelf view={books} bookExp={totalBookExpenses} />

@@ -768,22 +768,22 @@ select.Form {
 .p {
   margin-bottom: 43px;
   height: 45%;
-    background: black;
-    margin: 0px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 28px;
- }
+  background: black;
+  margin: 0px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px;
+}
 
- .p h5{  margin-bottom: 48px;
- }
+.p h5 {
+  margin-bottom: 48px;
+}
 
-#maPGL  {
+#maPGL {
   width: min-content;
   z-index: -1;
-
 }
 .ReactMap {
   display: inline-flex;
@@ -897,19 +897,28 @@ form button {
 }
 .m {
   overflow: scroll;
-  width: 91%;
+  /* width: fit-content; */
 }
 .bookslot {
+  padding: 18px;
+  overflow: scroll;
   display: inline-flex;
-  margin: 19px 42px auto;
+  margin: 19px auto;
+  position: static;
+  margin-left: -43px;
 }
 .bookbind {
-  margin: 60px;
+  padding: 17px;
+  background: black;
+  /* margin: 60px; */
   font-weight: 550;
   font-size: xx-large;
   display: grid;
   justify-content: start;
   justify-items: start;
+  color: whitesmoke;
+  width: -webkit-fill-available;
+  height: 182px;
 }
 .bookbind .bvpharse {
   margin-top: -5px;
@@ -932,17 +941,37 @@ form button {
   color: #5353ce;
   font-weight: 500;
 }
-.signUplink h5 {
+.signUplink h1 {
   font-size: small;
   font-weight: 200;
 }
+
+#top h5 {
+  height: 20px;
+  display: inline-flex;
+  flex-direction: row;
+  font-size: large;
+  justify-content: flex-end;
+  align-items: stretch;
+  font-weight: 200;
+}
 #top {
+  padding: 29px;
+  color: aliceblue;
+  background: #09705a;
+  /* padding: 10px; */
+  height: 33px;
+  align-items: center;
   display: inline-flex;
   justify-content: space-between;
   flex-direction: row;
+  grid-column-gap: 500px;
+  grid-column-gap: 500px;
   column-gap: 500px;
   font-family: system-ui;
-  font-weight: lighter;
+  font-weight: 300;
+  margin-top: 0px;
+  width: -webkit-fill-available;
 }
 .Home {
   background-color: aliceblue;

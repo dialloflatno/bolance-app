@@ -42,7 +42,7 @@ function Map({ user }) {
                             </defs>
                         </svg>
 
-                    </div>
+Í                    </div>
                 </Marker>
             </ReactMapGL>
 
@@ -51,7 +51,7 @@ function Map({ user }) {
                 <p> We are Working on
                     improving your visuals
                 <h3>  Show you Credit Score
-                    Keeping Track of it growth!
+                    Keeping Track of it'sgrowth!
                 </h3>
                 <h5>Coming Soon</h5>
                 </p>
