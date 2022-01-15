@@ -440,6 +440,16 @@ img {
   gap: 90%;
   grid-area: 90px;
 }
+
+.drpfrm{
+  margin-top: 20px;
+  width: 20px;
+  background: none;
+  border:none;
+  color: gray;
+  font-weight: bold;
+  cursor: pointer;
+}
 #addNEW {
   display: flex;
   padding: 1%;
@@ -841,6 +851,8 @@ form button {
 }
 .bookslot {
   display: inline-flex;
+  margin: 19px 42px auto;
+
 }
 .bookbind {
   margin: 60px;

@@ -78,11 +78,13 @@ function Book({ user, setUser }) {
 
 
 
-function handlesApperacance() {
-    console.log('ooo');
-  <Form style = "visibility:hidden"/>
-    
-}
+    const [toggle, setToggle] = useState('')
+
+    function handlesApperacance() {
+        setToggle(true)
+        debugger
+        { !toggle && <Form /> }
+    }
 
 
     return (
@@ -92,8 +94,12 @@ function handlesApperacance() {
             <div className='bckg'>
 
                 <div className="page_lay">
-                    <Form />
-                    <button onClick={handlesApperacance}>x</button>
+
+                    { toggle ?
+                     (   <Form />) : ( '')
+
+                    }
+                    <button onClick={handlesApperacance} className='drpfrm'>▼</button>
                     <label className="perTitle">{book?.title} | {expense ? expense : 'Great Work Budgeting !'}</label>
 
                     <form className='cats'>
