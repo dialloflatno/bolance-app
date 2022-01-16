@@ -140,6 +140,14 @@ function Book({ user, setUser }) {
         )
     })
 
+    // const expDropDown = categoriesArr?.map((n) => {
+    //     return (
+    //         <>
+    //             <option>{n.name}</option>
+    //         </>
+    //     )
+    // })
+
 
 
     return (
