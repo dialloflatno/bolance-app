@@ -80,6 +80,12 @@ function Book({ user, setUser }) {
     };
 
 
+    function handleReportListClick(e) {
+        const category = e.target.value;
+        console.log('rescrusive list');
+        const showExpenses = categoriesArr.find(categoryName => categoryName.name == category).expenses
+        console.log(showExpenses);
+    }
 
 
     // console.log(category_id.id);
@@ -140,15 +146,8 @@ function Book({ user, setUser }) {
         )
     })
 
-    // const expDropDown = categoriesArr?.map((n) => {
-    //     return (
-    //         <>
-    //             <option>{n.name}</option>
-    //         </>
-    //     )
-    // })
 
-
+    
 
     return (
 
@@ -180,12 +179,12 @@ function Book({ user, setUser }) {
                 </div>
             </div>
 
-            <select onChange= {(e)=> console.log(e.target.value)} className="category-dropdown">
+            <select onChange= {handleReportListClick} className="category-dropdown">
                 <option value="All" display="All">All</option>
                 {expDropDown}
             </select>
             <div>
-                <List user={user} newEntry={newEntry} />
+                <List user={user} categoriesArr ={categoriesArr} />
             </div>
             {/* <Map/> */}
 

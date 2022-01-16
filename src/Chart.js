@@ -9,7 +9,7 @@ class Chart extends Component {
     this.state = {
       chartData: {
         // labels: ["Clothing", "Food", "Outting", "Travel"],
-        labels: categoriesArr,
+        labels: categoriesArr.expense,
         datasets: [
           {
             label: "Expenses",
