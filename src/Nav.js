@@ -40,6 +40,7 @@ function Nav({ user, setUser }) {
 
 
     const dropDown = user.books.map(book => {
+        // debugger
         return (
             <>
                 <option >{book.title}</option>

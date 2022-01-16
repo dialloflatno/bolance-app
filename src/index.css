@@ -314,7 +314,7 @@ img {
   width: -webkit-fill-available;
   padding: 11px;
   box-sizing: content-box;
-  background: #0063cc;
+  background: #102133;
   color: white;
   font-weight: bolder;
   flex-shrink: inherit;
@@ -972,9 +972,7 @@ form button {
 #top {
   font-size: x-large;
   padding: 29px;
-  color: aliceblue;
-  background: #3071a3;
-  /* padding: 10px; */
+  color: #899199;
   height: 33px;
   align-items: center;
   display: inline-flex;
@@ -983,10 +981,9 @@ form button {
   grid-column-gap: 500px;
   grid-column-gap: 500px;
   grid-column-gap: 500px;
+  grid-column-gap: 500px;
   column-gap: 500px;
   font-family: system-ui;
-  /* font-weight: 200; */
-  /* margin-top: 0px; */
   width: -webkit-fill-available;
 }
 .Home {

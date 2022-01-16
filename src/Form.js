@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Form({ entryHandled, urlList }) {
+function Form({ entryHandled }) {
 
 
 
@@ -10,9 +10,10 @@ function Form({ entryHandled, urlList }) {
     const [date, setDate] = useState("")
     const [payment, PaymentType] = useState("")
 
-
+    const urlList = '/expenses'
 
     const handleItemChange = (e) => {
+        
         const capitalize = () => e.target.value[0] + e.target.value.slice(1);
         if (0 > capitalize.length) {
             alert("input required")
@@ -43,7 +44,7 @@ function Form({ entryHandled, urlList }) {
         PaymentType(e.target.value)
     }
 
-    const handleSubmit = (e) => {
+    const handleEntry = (e) => {
         e.preventDefault();
 
         fetch(urlList, {
@@ -68,11 +69,12 @@ function Form({ entryHandled, urlList }) {
 
 
 
+
     return (
         <div className="mainForm">
             <fieldset>
                 <legend>Add expense</legend>
-                <form onSubmit={handleSubmit} className="formEntry">
+                <form onSubmit={handleEntry} className="formEntry">
                     <input onChange={handleItemChange} className="Form" name="Item " placeholder="Ex:Tools">
                     </input>
                     <input onChange={handleStoreChange} className="Form" name="Store" placeholder="Ex:Lowe's">
@@ -94,7 +96,7 @@ function Form({ entryHandled, urlList }) {
                         <option value="Food">Food</option>
                         <option value="JustCause">Add New</option>
                     </select>
-                    <button className='addButton'>+</button>
+                    <button className='addButton' type='submit'>+</button>
                 </form>
             </fieldset>
         </div>

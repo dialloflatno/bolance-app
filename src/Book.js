@@ -5,7 +5,6 @@ import TotalExp from "./TotalExp";
 import List from "./List";
 import Form from "./Form";
 import Map from "./Map";
-// import Form from "./Form";
 // import Item from "./Item"
 // import TotalExp from "./TotalExp";
 
@@ -16,7 +15,17 @@ function Book({ user, setUser }) {
 
     const url = `/books/${book_id}`;
     const [book, setBook] = useState()
+    const [name, setCategoryName] = useState('')
+    const [category_id, setPlaceCategory] = useState('')
+    const [toggle, setToggle] = useState('')
 
+    function handlesApperacance() {
+        setToggle(true)
+    }
+    function handlesDisapperacance() {
+        setToggle(false)
+    }
+    console.log(name);
     useEffect(() => {
         fetch(url)
             .then(r => r.json())
@@ -31,7 +40,61 @@ function Book({ user, setUser }) {
 
     // const reducer = (prev,current) => prev + current
 
-    const categoriesArr = book?.categories
+    const categoriesArr = book?.categories;
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        fetch('/categories', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({
+
+                name: name,
+                book_id: book_id
+
+            }),
+        })
+            .then((r) => r.json())
+            .then((info) => setPlaceCategory(info))
+
+        fetch('/book_categories', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                category_id: category_id.id,
+                book_id: book_id
+            }),
+        })
+            .then((r) => r.json())
+            .then((match) => console.log(match))
+    };
+
+
+
+
+
+
+    // console.log(category_id.id);
+
+//BOOK Drop DOWN Menu
+
+
+// const categoryDropDown = book.map(booking => {
+//     // debugger
+//     return ( {booking}
+//     )
+// })
+
+// console.log(categoryDropDown);
+
+
+    
 
     // if (book.length > 0) {
 
@@ -43,10 +106,6 @@ function Book({ user, setUser }) {
     //         return parseInt(item);
     //     }).reduce(reducer)
     // }
-
-
-
-
 
     //   console.log(book.title);
 
@@ -79,16 +138,10 @@ function Book({ user, setUser }) {
 
 
 
-    const [toggle, setToggle] = useState('')
 
-    function handlesApperacance() {
-        setToggle(true)
-      
-    }
-    function handlesDisapperacance() {
-        setToggle(false)
-      
-    }
+    // console.log(category_id.id);
+
+
 
 
     return (
@@ -99,20 +152,20 @@ function Book({ user, setUser }) {
 
                 <div className="page_lay">
 
-                    { toggle ?
-                     (   <Form /> ) : ( '')
+                    {toggle ?
+                        (<Form />) : ('')
                     }
-                    { toggle ?
-                     (  
-                        <button onClick={handlesDisapperacance} className='drpfrm-close'>▼</button> 
-                        ) : (  
-                        <button onClick={handlesApperacance} className='drpfrm'>▼</button>)
+                    {toggle ?
+                        (
+                            <button onClick={handlesDisapperacance} className='drpfrm-close'>▼</button>
+                        ) : (
+                            <button onClick={handlesApperacance} className='drpfrm'>▼</button>)
                     }
-                   
+
                     <label className="perTitle">{book?.title} | {expense ? expense : 'Great Work Budgeting !'}</label>
 
-                    <form className='cats'>
-                        <input placeholder=' new category' />
+                    <form onSubmit={handleSubmit} className='cats'>
+                        <input placeholder=' new category' onChange={(e) => setCategoryName(e.target.value)} />
                         <button className='ahd' type='submit'>ADD</button>
                     </form>
                 </div>
@@ -130,7 +183,7 @@ function Book({ user, setUser }) {
                 <option value="Food">Food</option>
             </select>
             <div>
-            <List user ={user} />
+                <List user={user} />
             </div>
             {/* <Map/> */}
 
