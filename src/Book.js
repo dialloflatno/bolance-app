@@ -38,8 +38,8 @@ function Book({ user, setUser }) {
 
     let expense = 'Great Work Budgeting !'
 
-    
-/// Categories show with this one vvvvvv
+
+    /// Categories show with this one vvvvvv
     // console.log(book.categories);
 
     // const reducer = (prev,current) => prev + current
@@ -87,9 +87,9 @@ function Book({ user, setUser }) {
     //BOOK Drop DOWN Menu
 
 
-  
+
     // const catList = categoryOfBook?.map(category => {
-        
+
     //     return (
     //         <>
     //             <option >{category.name}</option>
@@ -132,6 +132,13 @@ function Book({ user, setUser }) {
     }
 
 
+    const expDropDown = categoriesArr?.map((n) => {
+        return (
+            <>
+                <option>{n.name}</option>
+            </>
+        )
+    })
 
 
 
@@ -144,7 +151,7 @@ function Book({ user, setUser }) {
                 <div className="page_lay">
 
                     {toggle ?
-                        (<Form entryHandled={entryHandled} catList ={categoriesArr}  />) : ('')
+                        (<Form entryHandled={entryHandled} catList={expDropDown} />) : ('')
                     }
                     {toggle ?
                         (
@@ -166,12 +173,8 @@ function Book({ user, setUser }) {
             </div>
 
             <select className="category-dropdown">
-                {/* {dropDown} */}
                 <option value="All" display="All">All</option>
-                <option value="Clothing" display="Clothing">Clothing</option>
-                <option value="Outting" >Outting</option>
-                <option value="Travel" >Travel</option>
-                <option value="Food">Food</option>
+                {expDropDown}
             </select>
             <div>
                 <List user={user} newEntry={newEntry} />

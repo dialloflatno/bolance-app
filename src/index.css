@@ -603,7 +603,7 @@ img {
   background-color: aliceblue;
   padding: 1%;
   color: gray;
-  /* width: 30%; */
+  width: 100%;
   /* margin: 0px 10px 0px; */
   font-weight: 600;
 }

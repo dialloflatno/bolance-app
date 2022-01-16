@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Form({ entryHandled, catList }) {
+function Form({ entryHandled, expDropDown }) {
 
 
 
@@ -65,14 +65,6 @@ function Form({ entryHandled, catList }) {
             .then(data => entryHandled(data))
     }
 
-
-    const expDropDown = catList.map((n) => {
-        return (
-            <>
-                <option>{n.name}</option>
-            </>
-        )
-    })
 
 
     return (
