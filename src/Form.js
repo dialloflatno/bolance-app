@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Form({ entryHandled }) {
+function Form({ entryHandled, catList }) {
 
 
 
@@ -13,7 +13,7 @@ function Form({ entryHandled }) {
     const urlList = '/expenses'
 
     const handleItemChange = (e) => {
-        
+
         const capitalize = () => e.target.value[0] + e.target.value.slice(1);
         if (0 > capitalize.length) {
             alert("input required")
@@ -66,8 +66,13 @@ function Form({ entryHandled }) {
     }
 
 
-
-
+    const expDropDown = catList.map((n) => {
+        return (
+            <>
+                <option>{n.name}</option>
+            </>
+        )
+    })
 
 
     return (
@@ -90,11 +95,8 @@ function Form({ entryHandled }) {
                     <input onChange={handleCostChange} className="Form" type="number" name="Cost" min="0.01" step="0.01" max="2500" placeholder="Ex:$0.00">
                     </input>
                     <select id="dropdown">
-                        <option value="Choose">Choose</option>
-                        <option value="Clothing">Clothing</option>
-                        <option value="Outting">Outtings</option>
-                        <option value="Food">Food</option>
-                        <option value="JustCause">Add New</option>
+                        <option>Category </option>
+                        {expDropDown}
                     </select>
                     <button className='addButton' type='submit'>+</button>
                 </form>

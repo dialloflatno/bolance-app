@@ -64,7 +64,10 @@ function Nav({ user, setUser }) {
                                         <Search />
                                         <Link to='/home' className="dropgo-NAV">Home</Link>
                                         <a onChange={(handleRedirectClick)} className="dropgo-NAV" >
-                                            <select> {dropDown}</select>
+                                            <select>
+                                                <option>Books </option>
+                                                {dropDown}
+                                            </select>
                                         </a>
                                         <Link to='/home' className="dropgo-NAV ">PMR</Link>
                                         <Link className="dropgo-NAV">Reciepts</Link>

@@ -16,9 +16,10 @@ function Book({ user, setUser }) {
     const url = `/books/${book_id}`;
     const [book, setBook] = useState()
     const [name, setCategoryName] = useState('')
+    const [categoryOfBook, setMatch] = useState('')
     const [category_id, setPlaceCategory] = useState('')
     const [toggle, setToggle] = useState('')
-    const [newEntry,setNewEntry] =useState('')
+    const [newEntry, setNewEntry] = useState('')
 
     function handlesApperacance() {
         setToggle(true)
@@ -37,7 +38,9 @@ function Book({ user, setUser }) {
 
     let expense = 'Great Work Budgeting !'
 
-    console.log(book?.categories);
+    
+/// Categories show with this one vvvvvv
+    // console.log(book.categories);
 
     // const reducer = (prev,current) => prev + current
 
@@ -73,29 +76,31 @@ function Book({ user, setUser }) {
             }),
         })
             .then((r) => r.json())
-            .then((match) => console.log(match))
+            .then((match) => setMatch(match))
     };
-
-
 
 
 
 
     // console.log(category_id.id);
 
-//BOOK Drop DOWN Menu
+    //BOOK Drop DOWN Menu
 
 
-// const categoryDropDown = book.map(booking => {
-//     // debugger
-//     return ( {booking}
-//     )
-// })
+  
+    // const catList = categoryOfBook?.map(category => {
+        
+    //     return (
+    //         <>
+    //             <option >{category.name}</option>
+    //         </>
+    //     )
+    // })
 
-// console.log(categoryDropDown);
+    // console.log(categoryDropDown);
 
 
-    
+
 
     // if (book.length > 0) {
 
@@ -122,8 +127,8 @@ function Book({ user, setUser }) {
 
 
     function entryHandled(entry) {
-      console.log("new entry slotted");;
-      setNewEntry(entry);
+        console.log("new entry slotted");;
+        setNewEntry(entry);
     }
 
 
@@ -139,7 +144,7 @@ function Book({ user, setUser }) {
                 <div className="page_lay">
 
                     {toggle ?
-                        (<Form entryHandled ={entryHandled} />) : ('')
+                        (<Form entryHandled={entryHandled} catList ={categoriesArr}  />) : ('')
                     }
                     {toggle ?
                         (
@@ -169,7 +174,7 @@ function Book({ user, setUser }) {
                 <option value="Food">Food</option>
             </select>
             <div>
-                <List user={user} newEntry ={newEntry} />
+                <List user={user} newEntry={newEntry} />
             </div>
             {/* <Map/> */}
 
