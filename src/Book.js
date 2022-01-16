@@ -151,7 +151,7 @@ function Book({ user, setUser }) {
                 <div className="page_lay">
 
                     {toggle ?
-                        (<Form entryHandled={entryHandled} catList={expDropDown} />) : ('')
+                        (<Form entryHandled={entryHandled} expDropDown = {expDropDown} />) : ('')
                     }
                     {toggle ?
                         (
@@ -172,7 +172,7 @@ function Book({ user, setUser }) {
                 </div>
             </div>
 
-            <select className="category-dropdown">
+            <select onChange= {(e)=> console.log(e.target.value)} className="category-dropdown">
                 <option value="All" display="All">All</option>
                 {expDropDown}
             </select>

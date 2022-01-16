@@ -63,6 +63,24 @@ function Form({ entryHandled, expDropDown }) {
         })
             .then(res => res.json())
             .then(data => entryHandled(data))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
@@ -86,7 +104,7 @@ function Form({ entryHandled, expDropDown }) {
                     </select>
                     <input onChange={handleCostChange} className="Form" type="number" name="Cost" min="0.01" step="0.01" max="2500" placeholder="Ex:$0.00">
                     </input>
-                    <select id="dropdown">
+                    <select onChange= {(e)=> console.log(e.target.value)} id="dropdown">
                         <option>Category </option>
                         {expDropDown}
                     </select>
