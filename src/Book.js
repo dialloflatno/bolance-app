@@ -126,11 +126,13 @@ function Book({ user, setUser }) {
     //   setList(clothing)
     // }
 
-    // function entryHandled(entry) {
-    //   console.log("new entry slotted");
+    function entryHandled(entry) {
+      console.log("new entry slotted");
+      console.log(entry);
+
     //   const addEntry = [...List, entry]
     //   setList(addEntry)
-    // }
+    }
 
     //   const values = Object.values(book);
 
@@ -153,7 +155,7 @@ function Book({ user, setUser }) {
                 <div className="page_lay">
 
                     {toggle ?
-                        (<Form />) : ('')
+                        (<Form entryHandled ={entryHandled} />) : ('')
                     }
                     {toggle ?
                         (

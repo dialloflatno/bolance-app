@@ -5,7 +5,7 @@ function Form({ entryHandled }) {
 
 
     const [item, setItem] = useState("")
-    const [store, setStore] = useState("")
+    const [storle, setStore] = useState("")
     const [cost, setCost] = useState("")
     const [date, setDate] = useState("")
     const [payment, PaymentType] = useState("")
@@ -55,10 +55,10 @@ function Form({ entryHandled }) {
             body: JSON.stringify(
                 {
                     item: item,
-                    store: store,
                     cost: cost,
-                    date: date,
-                    payment: payment
+                    store_name: storle,
+                    store_address: "InPlace",
+                    payment_type: payment
                 })
         })
             .then(res => res.json())
