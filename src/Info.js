@@ -4,7 +4,7 @@
 
 function Info({ handleDeleteItem, info, category }) {
 
-    // const urlDelete = `/transactions/${info.id}`
+    // const urlDelete = `/expenses/${info.id}`
 
 
 

@@ -35,7 +35,7 @@ console.log(books)
 
     //   totalBookExpenses = books.map(book => {
     //         return (
-    //             book.categories.map(category => { return category.transactions.map(t => { return (t.cost) }) })
+    //             book.categories.map(category => { return category.expenses.map(t => { return (t.cost) }) })
     //         )
     //     }).reduce(reducer).split(',').map(function (item) {
     //         return parseInt(item);

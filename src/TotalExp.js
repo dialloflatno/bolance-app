@@ -6,7 +6,7 @@ function TotalExp({ categoriesArr }) {
 
     // const clothing = List.map(n => <CategoryList category_name = {n.category.name} > <button id ="addNEW"> + Add New</button></CategoryList>)
 
-    // const valueCost = List.map(item => item.transactions.map( c => (c.cost))).reduce((prev, curr) => prev + curr, 0);
+    // const valueCost = List.map(item => item.expenses.map( c => (c.cost))).reduce((prev, curr) => prev + curr, 0);
 
 
     return (

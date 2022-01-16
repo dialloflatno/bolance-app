@@ -71,7 +71,7 @@ function Form({ entryHandled, urlList }) {
     return (
         <div className="mainForm">
             <fieldset>
-                <legend>Add Transaction</legend>
+                <legend>Add expense</legend>
                 <form onSubmit={handleSubmit} className="formEntry">
                     <input onChange={handleItemChange} className="Form" name="Item " placeholder="Ex:Tools">
                     </input>

@@ -2,7 +2,7 @@
 
 // function Item({ List }) {
 
-//     const purchase = List.map(purch => purch.transactions.map(pur => <ItemCard
+//     const purchase = List.map(purch => purch.expenses.map(pur => <ItemCard
 //         key={pur.id}
 //         store={pur.store_name} 
 //         address = {pur.store_address}

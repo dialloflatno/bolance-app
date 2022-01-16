@@ -11,14 +11,14 @@ books.map(book => {
 
 books.map(book => {
     return (
-        book.categories.map(category => { return category.transactions.map(t => { return ( t.cost)}) })
+        book.categories.map(category => { return category.expenses.map(t => { return ( t.cost)}) })
     )
 })
 
 
 books.map(book => {
     return (
-        book.categories.map(category => { return category.transactions.map(t => { return ( t.cost)}) })
+        book.categories.map(category => { return category.expenses.map(t => { return ( t.cost)}) })
     )
 }).map(function(item) {
     return parseInt(item, 10);
@@ -29,14 +29,14 @@ reducer = (previousValue, currentValue) => previousValue + currentValue;
 
 parseInt(books.map(book => {
     return (
-        book.categories.map(category => { return category.transactions.map(t => { return ( t.cost)}) })
+        book.categories.map(category => { return category.expenses.map(t => { return ( t.cost)}) })
     )
 }))
 
 
 books.map(book => {
     return (
-        book.categories.map(category => { return category.transactions.map(t => { return ( t.cost)}) })
+        book.categories.map(category => { return category.expenses.map(t => { return ( t.cost)}) })
     )
 }).reduce(reducer).split(',').map(function(item) {
     return parseInt(item);
@@ -45,7 +45,7 @@ books.map(book => {
 /// Cost ---------------------------------------------------------------------------------
 books.map(book => {
     return (
-        book.categories.map(category => { return category.transactions.map(t => { return ( t.cost)}) })
+        book.categories.map(category => { return category.expenses.map(t => { return ( t.cost)}) })
     )
 }).reduce(reducer).split(',').map(function(item) {
     return parseInt(item);
@@ -56,7 +56,7 @@ books.map(book => {
 
 view.map(book => {
     return (
-        book.categories.map(category => { return category.transactions.map(t => { return ( t)}) })
+        book.categories.map(category => { return category.expenses.map(t => { return ( t)}) })
         )
     })[1].map(cat => { return ( cat )})[1].map(c => {return ( c.cost)}).reduce(reducer);
     

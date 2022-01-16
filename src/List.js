@@ -6,9 +6,9 @@ function List({ List, handleDeleteItem,user}) {
 
 
 
-  // const mappedList = List.map(pmo => pmo.transactions.map(tmo => <Info
+  // const mappedList = List.map(pmo => pmo.expenses.map(tmo => <Info
   //   key = {tmo.id}
-  //   transactions ={tmo.transactions}
+  //   expenses ={tmo.expenses}
   //   handleDeleteItem={handleDeleteItem}
   //   Info ={tmo}
 
@@ -23,7 +23,7 @@ function List({ List, handleDeleteItem,user}) {
       <br></br>
       <div className='vhm'>
       <div className="base">
-        {/* <h3>My Transaction Should Show Here</h3> */}
+        {/* <h3>My expense Should Show Here</h3> */}
         <Info />
         <Info />
         <Info />
