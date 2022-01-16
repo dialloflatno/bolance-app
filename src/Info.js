@@ -2,7 +2,7 @@
 
 
 
-function Info({ handleDeleteItem, info, category }) {
+function Info({ handleDeleteItem, item, cost, store, store_address, payment,date}) {
 
     // const urlDelete = `/expenses/${info.id}`
 
@@ -26,11 +26,11 @@ function Info({ handleDeleteItem, info, category }) {
             <a onClick={() => console.log("hey")}>
 
                 <p>
-                    <td><span>01/03/22</span></td>
-                    <td> <span>Sneakers</span> </td>
-                    <td><span>Cash</span></td>
-                    <td><span>$40.00</span></td>
-                    <td><span>Nike</span></td>
+                    <td><span>{date}</span></td>
+                    <td> <span>{item}</span> </td>
+                    <td><span>{payment}</span></td>
+                    <td><span>${cost}</span></td>
+                    <td><span>{store}</span></td>
                     {/* <hr className="lenght"></hr> */}
                     {/* <div className="FOOD"> */}
                     {/* <thead>{category_name}</thead> */}

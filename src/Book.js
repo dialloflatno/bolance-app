@@ -18,6 +18,7 @@ function Book({ user, setUser }) {
     const [name, setCategoryName] = useState('')
     const [category_id, setPlaceCategory] = useState('')
     const [toggle, setToggle] = useState('')
+    const [newEntry,setNewEntry] =useState('')
 
     function handlesApperacance() {
         setToggle(true)
@@ -119,29 +120,12 @@ function Book({ user, setUser }) {
     //   setList(presentList)
     // }
 
-    // function entryHandled(entry) {
-    //   console.log("new clothing entry slotted");
-    //   const redirectedForm = List.filter(p => p.name.toLowercase().includes(entry) === "clothing");
-    //   const clothing = [...List, <div>Clothing</div>, <ul>{redirectedForm}</ul>]
-    //   setList(clothing)
-    // }
 
     function entryHandled(entry) {
-      console.log("new entry slotted");
-      console.log(entry);
-
-    //   const addEntry = [...List, entry]
-    //   setList(addEntry)
+      console.log("new entry slotted");;
+      setNewEntry(entry);
     }
 
-    //   const values = Object.values(book);
-
-    //  console.log(values);
-
-
-
-
-    // console.log(category_id.id);
 
 
 
@@ -185,7 +169,7 @@ function Book({ user, setUser }) {
                 <option value="Food">Food</option>
             </select>
             <div>
-                <List user={user} />
+                <List user={user} newEntry ={newEntry} />
             </div>
             {/* <Map/> */}
 

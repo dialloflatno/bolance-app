@@ -2,47 +2,46 @@ import Info from "./Info";
 import Map from './Map.js'
 
 
-function List({ List, handleDeleteItem,user}) {
+function List({ newEntry, handleDeleteItem, user }) {
 
 
 
-  // const mappedList = List.map(pmo => pmo.expenses.map(tmo => <Info
-  //   key = {tmo.id}
-  //   expenses ={tmo.expenses}
-  //   handleDeleteItem={handleDeleteItem}
-  //   Info ={tmo}
+  const mappedList = 'Expenses Cleared'
 
-  // />
-  // ))
+  if(newEntry.lenght > 0) { return(
 
+    mappedList = newEntry.map(tmo =>
+       <Info
+    key={tmo.id}
+    item={tmo.item}
+    cost={tmo.cost}
+    store={tmo.store_name}
+    store_address={tmo.store_address}
+    date ={tmo.created_at}
+    payment={tmo.payment_type}
+    handleDeleteItem={handleDeleteItem}
+    Info={tmo}
+  />
+  ))}
+    
+// console.log(mappedList);
 
 
   return (
     <div>
-    <div className="List">
-      <br></br>
-      <div className='vhm'>
-      <div className="base">
-        {/* <h3>My expense Should Show Here</h3> */}
-        <Info />
-        <Info />
-        <Info />
-        <Info />
-        <Info />
-        <Info />
-        <Info />
-        <Info />
-        <Info />
-        <Info />
-        <Info />
-        <Info />
-      </div>
-      <Map user ={user}/>
+      <div className="List">
+        <br></br>
+        <div className='vhm'>
+          <div className="base">
+            {mappedList}
+    
+          </div>
+          <Map user={user} />
 
-    </div>
-    </div>
-      <footer>Bolance App | Your Best Budget ! </footer>
+        </div>
       </div>
+      <footer>Bolance App | Your Best Budget ! </footer>
+    </div>
   );
 }
 

@@ -10,6 +10,7 @@ body {
 }
 html,
 body {
+  height: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -36,7 +37,7 @@ header {
   padding: 7px;
   /* justify-items: stretch; */
   align-items: center;
-  width: 96%;
+  /* width: 96%; */
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
@@ -160,6 +161,76 @@ img {
   height: 93vh;
   left: 123%;
   /* margin-top: -62%; */
+}
+.mainForm {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+@media only screen and (max-width: 600px) {
+  .formEntry {
+    display: flex;
+    margin: 30px 4px 12px -13px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .formEntry input {
+    margin: 10px;
+  }
+  .formEntry select {
+    margin: 20px;
+  }
+
+  fieldset {
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    width: 155%;
+    margin-top: 10px;
+    display: flex;
+    position: static;
+    box-shadow: -3px 0px 20px #0a1f5a61;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: center;
+    justify-content: flex-start;
+    background: #4b618a85;
+    border: none;
+    border-radius: 5px;
+    padding: 17px;
+  }
+
+  .page_lay {
+    /* height: 29px; */
+    display: flex;
+    word-break: unset;
+    padding: 7px;
+    /* justify-items: stretch; */
+    align-items: center;
+    width: 88%;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .drpfrm-close {
+    margin-right: -41px;
+    margin-left: -16px;
+  }
+
+  .vhm {
+    width: -webkit-fill-available;
+    display: flex;
+    height: -webkit-fill-available;
+    flex-direction: column;
+  }
+  .category-dropdown {
+    /* height: 40px; */
+    background-color: aliceblue;
+    padding: 5%;
+    color: gray;
+    width: 100%;
+    /* margin: 0px -1px 3px; */
+    /* font-weight: 600; */
+  }
 }
 
 .box-text {
@@ -766,8 +837,6 @@ select.Form {
   justify-content: space-between;
 }
 
-
-
 .p {
   margin-bottom: 43px;
   height: 45%;
@@ -1016,7 +1085,7 @@ footer {
   font-weight: 600;
   padding: 25px;
   height: 2vh;
-  /* margin: 20px 0px 0px; */
+  margin: 47px 0px 0px;
   background-color: #1f2939;
   color: aliceblue;
 }

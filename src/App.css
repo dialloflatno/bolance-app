@@ -1,8 +1,8 @@
 .App {
   text-align: center;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-content: stretch;
   background: hsl(220deg 43% 91%);
   justify-content: space-evenly;
@@ -42,4 +42,8 @@
   to {
     transform: rotate(360deg);
   }
+
+
+
+  
 }
