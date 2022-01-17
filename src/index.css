@@ -443,6 +443,7 @@ img {
 }
 
 
+
 .stack{
   display: none;
 }
@@ -926,6 +927,22 @@ td {
   align-items: baseline;
   align-content: stretch;
 }
+
+
+.card:hover {
+  display: flow-root;
+  height: 415px;
+  width: 305px;
+  left: 356px;
+  top: 234px;
+  border-radius: 12px;
+  bottom: 63.77%;
+  background: #fbfefe;
+  box-shadow: 0px 3px 17px rgb(0 8 0 / 64%);
+  border-radius: 12px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
 /* 
 .Form {
   border-radius:
@@ -1292,7 +1309,7 @@ form button {
 
 .card {
   display: flow-root;
-  height: 358px;
+  height: 408px;
   width: 297px;
   left: 356px;
   top: 234px;
