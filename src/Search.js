@@ -11,7 +11,7 @@ const search = (e) => {
     return (
 
 
-        <div>
+        <div className='sBar'>
             <input className="SearchBar"  onChange = {search} name = "search">
            
             </input>

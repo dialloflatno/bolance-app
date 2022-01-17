@@ -19,6 +19,7 @@ function Book({ user, setUser }) {
     const [categoryOfBook, setMatch] = useState('')
     const [category_id, setPlaceCategory] = useState('')
     const [toggle, setToggle] = useState('')
+    const[listOfExpenses,setList] = useState('')
     const [newEntry, setNewEntry] = useState('')
 
     function handlesApperacance() {
@@ -83,8 +84,9 @@ function Book({ user, setUser }) {
     function handleReportListClick(e) {
         const category = e.target.value;
         console.log('rescrusive list');
-        const showExpenses = categoriesArr.find(categoryName => categoryName.name == category).expenses
-        console.log(showExpenses);
+        const showExpenses = categoriesArr?.find(categoryName => categoryName.name == category).expenses
+        console.log(showExpenses.id);
+        setList(showExpenses);
     }
 
 
@@ -184,7 +186,7 @@ function Book({ user, setUser }) {
                 {expDropDown}
             </select>
             <div>
-                <List user={user} categoriesArr ={categoriesArr} />
+                <List user={user} categoriesArr ={categoriesArr} listOfExpenses={listOfExpenses} />
             </div>
             {/* <Map/> */}
 

@@ -125,8 +125,12 @@ a {
   align-items: center;
   height: 20px;
 }
+.sBar {
+  margin-right: 32px;
+}
 
 .SearchBar {
+  width: 100%;
   background: transparent;
   border-radius: 4px;
   border: none;
@@ -138,6 +142,7 @@ a {
   padding: 6px 9px;
   border-radius: 4px;
   height: 15px !important;
+  margin-right: 65px;
 }
 
 .abstract {
@@ -791,8 +796,9 @@ fieldset {
   width: 40%;
 }
 .navUl {
-  margin-left: 53px;
+  margin-left: -28px;
   display: flex;
+  grid-column-gap: 912px;
   grid-column-gap: 912px;
   column-gap: 912px;
   height: 35px;
@@ -803,10 +809,11 @@ fieldset {
   color: aliceblue;
   font-size: large;
   grid-column-gap: 41px;
+  grid-column-gap: 45px;
   column-gap: 45px;
   align-items: baseline;
   align-content: center;
-  width: max-content;
+  width: 111%;
   flex-direction: row;
 }
 

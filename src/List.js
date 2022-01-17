@@ -3,17 +3,16 @@ import Info from "./Info";
 import Map from './Map.js'
 
 
-function List({ categoriesArr, handleDeleteItem, user }) {
+function List({ handleDeleteItem, user, listOfExpenses }) {
 
 
-const expenseList = 'Expenses Cleared'
+  const expenseList = 'Expenses Cleared'
+  console.log(expenseList);
 
-console.log(expenseList);
 
-
-  if(expenseList?.length < 4) {
-    expenseList = categoriesArr?.map((r)=> { return (r.expense)})
-    }
+  if (listOfExpenses?.length > 0) {
+return(listOfExpenses)
+  }
   //   mappedList = newEntry.map(tmo =>
   //      <Info
   //   key={tmo.id}
@@ -27,8 +26,8 @@ console.log(expenseList);
   //   Info={tmo}
   // />
   // ))}
-    
-// console.log(mappedList);
+
+  // console.log(mappedList);
 
 
   return (
@@ -37,7 +36,7 @@ console.log(expenseList);
         <br></br>
         <div className='vhm'>
           <div className="base">
-    
+            {listOfExpenses}
           </div>
           <Map user={user} />
 
