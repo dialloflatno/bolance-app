@@ -14,12 +14,7 @@ class Chart extends Component {
           {
             label: "Expenses",
             data: [
-              617594,
-              181045,
-              153060,
-              106519,
-              105162,
-              950732
+              props.dataList
             ],
             backgroundColor: [
               'rgba(39, 123, 245, 0.8)',
