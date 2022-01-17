@@ -37,15 +37,23 @@ function Book({ user, setUser }) {
 
 
 
-    let expense = 'Great Work Budgeting !'
-
-
+    
+    const categoriesArr = book?.categories;
+    const labels = categoriesArr?.map((o) => o.name)
+    const dataList = categoriesArr?.map((o) => o.expenses?.map((x) => x.cost))
+    
+    const valueCost = dataList?.reduce((prev, curr) => prev + curr).split(",");
+    
+    console.log(parseInt(valueCost));
+   const expense = parseInt(valueCost)
+    
     /// Categories show with this one vvvvvv
+    
+   
     // console.log(book.categories);
 
     // const reducer = (prev,current) => prev + current
 
-    const categoriesArr = book?.categories;
 
 
     //// POST to Category the POST to BookCategory//////////////////
@@ -80,7 +88,7 @@ function Book({ user, setUser }) {
                 .then((match) => setMatch(match))
             )
     }
-//// OLD WAY---------vvvvvvvvvvvvvvvvv------------------
+    //// OLD WAY---------vvvvvvvvvvvvvvvvv------------------
 
     // const handleSubmit = (e) => {
     //     e.preventDefault()
@@ -121,10 +129,10 @@ function Book({ user, setUser }) {
 
 
 
-// function handleAddList(addEntry) {
-    
-    
-// }
+    // function handleAddList(addEntry) {
+
+
+    // }
 
 
 
@@ -137,9 +145,9 @@ function Book({ user, setUser }) {
         console.log(showExpenses.id);
         setList(showExpenses);
     }
-console.log(listOfExpenses.expenses);
+    console.log(listOfExpenses.expenses);
 
-const display = listOfExpenses.expenses
+    const display = listOfExpenses.expenses
 
     // console.log(category_id.id);
 
@@ -228,7 +236,7 @@ const display = listOfExpenses.expenses
                     </form>
                 </div>
                 <div>
-                    <TotalExp categoriesArr={categoriesArr} />
+                    <TotalExp labels={labels} dataList={dataList} />
                 </div>
             </div>
 
