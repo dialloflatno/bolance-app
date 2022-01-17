@@ -8,13 +8,13 @@ class Chart extends Component {
     super(props);
     this.state = {
       chartData: {
-        // labels: ["Clothing", "Food", "Outting", "Travel"],
+        // labels: ["Clothing", "Food", "utting", "Travel"],
         labels: props.names,
         datasets: [
           {
             label: "Expenses",
-            data: [
-              props.dataList
+            data: [ props.dataList
+              // console.log(props.expenses)
             ],
             backgroundColor: [
               'rgba(39, 123, 245, 0.8)',

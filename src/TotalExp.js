@@ -19,7 +19,7 @@ function TotalExp({ categoriesArr }) {
 
 
     
-
+console.log(dataList);
     
     console.log(labels);
 

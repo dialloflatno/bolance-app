@@ -131,7 +131,7 @@ function Book({ user, setUser }) {
 
     function handleReportListClick(e) {
         const category = e.target.value;
-        debugger
+        // debugger
         console.log('rescrusive list');
         const showExpenses = categoriesArr?.find(categoryName => categoryName.name == category)
         console.log(showExpenses.id);
