@@ -2,7 +2,7 @@ import {Doughnut} from 'react-chartjs-2';
 
 function DoughnutChart() {
     const data = {
-        labels: ['Mon','Tue','Wed','Thurs','Fri'],
+        labels: [],
         datasets: [
             {
                 label: 'Attendance for Week 1',
@@ -26,14 +26,17 @@ function DoughnutChart() {
         plugins: {
             title: {
                 display: true,
-                text: 'Doughnut Chart',
                 color:'blue',
                 font: {
                     size:34
                 },
                 padding:{
-                    top:30,
+                    top:0,
                     bottom:30
+
+                },
+                margin:{
+                    margin: 20
                 },
                 responsive:true,
                 animation:{

@@ -19,7 +19,7 @@ function Book({ user, setUser }) {
     const [categoryOfBook, setMatch] = useState('')
     const [category_id, setPlaceCategory] = useState('')
     const [toggle, setToggle] = useState('')
-    const[listOfExpenses,setList] = useState('')
+    const [listOfExpenses, setList] = useState('')
     const [newEntry, setNewEntry] = useState('')
 
     function handlesApperacance() {
@@ -48,6 +48,8 @@ function Book({ user, setUser }) {
     const categoriesArr = book?.categories;
 
 
+    //// POST to Category the POST to BookCategory//////////////////
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -64,21 +66,64 @@ function Book({ user, setUser }) {
             }),
         })
             .then((r) => r.json())
-            .then((info) => setPlaceCategory(info))
+            .then((info) => fetch('/book_categories', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    category_id: info.id,
+                    book_id: book_id
+                }),
+            })
+                .then((r) => r.json())
+                .then((match) => setMatch(match))
+            )
+    }
+//// OLD WAY---------vvvvvvvvvvvvvvvvv------------------
 
-        fetch('/book_categories', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify({
-                category_id: category_id.id,
-                book_id: book_id
-            }),
-        })
-            .then((r) => r.json())
-            .then((match) => setMatch(match))
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+
+    //     fetch('/categories', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+
+    //             name: name,
+    //             book_id: book_id
+
+    //         }),
+    //     })
+    //     .then((r) => r.json())
+    //     .then((info) => setPlaceCategory(info))
+
+    //     fetch('/book_categories', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             category_id: category_id.id,
+    //             book_id: book_id
+    //         }),
+    //     })
+    //     .then((r) => r.json())
+    //     .then((match) => setMatch(match))
+    // };
+
+    //// POST to Category the POST to BookCategory//////////////////
+
+
+
+
+
+
+
+
+
 
 
     function handleReportListClick(e) {
@@ -149,7 +194,7 @@ function Book({ user, setUser }) {
     })
 
 
-    
+
 
     return (
 
@@ -160,7 +205,7 @@ function Book({ user, setUser }) {
                 <div className="page_lay">
 
                     {toggle ?
-                        (<Form entryHandled={entryHandled} expDropDown = {expDropDown} />) : ('')
+                        (<Form entryHandled={entryHandled} expDropDown={expDropDown} />) : ('')
                     }
                     {toggle ?
                         (
@@ -181,12 +226,12 @@ function Book({ user, setUser }) {
                 </div>
             </div>
 
-            <select onChange= {handleReportListClick} className="category-dropdown">
+            <select onChange={handleReportListClick} className="category-dropdown">
                 <option value="All" display="All">All</option>
                 {expDropDown}
             </select>
             <div>
-                <List user={user} categoriesArr ={categoriesArr} listOfExpenses={listOfExpenses} />
+                <List user={user} categoriesArr={categoriesArr} listOfExpenses={listOfExpenses} />
             </div>
             {/* <Map/> */}
 

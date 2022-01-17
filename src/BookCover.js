@@ -11,11 +11,12 @@ function BookCover({ title, bookExp
 
         <div>
             <div className='card '>
-                <DoughnutChart/>
-                
-                <h3>{bookExp}</h3>
+                <div className='cardInfo'>
+                    <DoughnutChart />
+                    <h3>{bookExp}</h3>
 
-                <h4>{title}</h4>
+                    <h4>{title}</h4>
+                </div>
             </div>
 
 
