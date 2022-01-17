@@ -8,6 +8,7 @@ function Form({ entryHandled, expDropDown }) {
     const [storle, setStore] = useState("")
     const [cost, setCost] = useState("")
     const [date, setDate] = useState("")
+    const[choose,setChoose] = useState('')
     const [payment, PaymentType] = useState("")
 
     const urlList = '/expenses'
@@ -62,7 +63,18 @@ function Form({ entryHandled, expDropDown }) {
                 })
         })
             .then(res => res.json())
-            .then(data => entryHandled(data))
+            .then(data => fetch('/cateo_transaction_reports',{
+                method:"POST",
+                headers:{
+                    "Content-Type": " application/json",
+                },
+                body: JSON.stringify(
+                    {
+                        expense_id: data.id,
+                        category_id: choose.id
+                    })
+                })).then((r)=>r.json())
+                .then((cat_repo)=> console.log(cat_repo))
 
 
 
@@ -104,7 +116,7 @@ function Form({ entryHandled, expDropDown }) {
                     </select>
                     <input onChange={handleCostChange} className="Form" type="number" name="Cost" min="0.01" step="0.01" max="2500" placeholder="Ex:$0.00">
                     </input>
-                    <select onChange= {(e)=> console.log(e.target.value)} id="dropdown">
+                    <select onChange= {(e)=> setChoose(e.target.value)} id="dropdown">
                         <option>Category </option>
                         {expDropDown}
                     </select>

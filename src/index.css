@@ -373,6 +373,20 @@ img {
     box-shadow: 0px 2px 10px rgb(0 0 0 / 25%);
     border-radius: 12px;
   }
+  .card:hover {
+    display: flow-root;
+    height: 415px;
+    width: 305px;
+    left: 356px;
+    top: 234px;
+    border-radius: 12px;
+    bottom: 63.77%;
+    background: #fbfefe;
+    box-shadow: 0px 3px 17px rgb(0 8 0 / 64%);
+    border-radius: 12px;
+    opacity: 0.6;
+    transition: 0.3s;
+  }
   fieldset {
     -webkit-backdrop-filter: blur(1px);
     backdrop-filter: blur(1px);
