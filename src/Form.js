@@ -19,7 +19,6 @@ function Form({ entryHandled, expDropDown ,categoriesArr}) {
     const choosen = categoriesArr?.find(categoryName => categoryName.name == choice)
 
 
-console.log(choosen.id);
 
 
     const urlList = '/expenses'
@@ -82,7 +81,7 @@ console.log(choosen.id);
                 body: JSON.stringify(
                     {
                         expense_id: data.id,
-                        category_id: choosen.id
+                        category_id: choosen?.id
                     })
                 })).then((r)=>r.json())
                 .then((cat_repo)=> console.log(cat_repo))

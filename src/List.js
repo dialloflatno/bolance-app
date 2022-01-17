@@ -3,29 +3,36 @@ import Info from "./Info";
 import Map from './Map.js'
 
 
-function List({ handleDeleteItem, user, listOfExpenses }) {
+function List({ user, listOfExpenses }) {
 
 
-  const expenseList = 'Expenses Cleared'
-  console.log(expenseList);
+  const exp = listOfExpenses?.map((x) => { return (x) })
+  console.log(exp);
 
+  //return me each array that has a lenght value great the zero 
+  //if the lenght value is less than zero return No Expense///
 
-  if (listOfExpenses?.length > 0) {
-return(listOfExpenses)
+  let mappedList = 'No Expense'
+
+  if (exp?.length > 0) {
+    return (
+
+      mappedList = exp?.map(row =>
+        <Info
+          key={row.id}
+          item={row.item}
+          cost={row.cost}
+          store={row.store_name}
+          store_address={row.store_address}
+          date={row.created_at}
+          payment={row.payment_type}
+          Info={row}
+        />))
+
+      // mappedList = exp?.map(row => console.log(row))
+    
   }
-  //   mappedList = newEntry.map(tmo =>
-  //      <Info
-  //   key={tmo.id}
-  //   item={tmo.item}
-  //   cost={tmo.cost}
-  //   store={tmo.store_name}
-  //   store_address={tmo.store_address}
-  //   date ={tmo.created_at}
-  //   payment={tmo.payment_type}
-  //   handleDeleteItem={handleDeleteItem}
-  //   Info={tmo}
-  // />
-  // ))}
+
 
   // console.log(mappedList);
 
@@ -36,7 +43,7 @@ return(listOfExpenses)
         <br></br>
         <div className='vhm'>
           <div className="base">
-            {listOfExpenses}
+            {mappedList}
           </div>
           <Map user={user} />
 

@@ -121,19 +121,25 @@ function Book({ user, setUser }) {
 
 
 
-
+// function handleAddList(addEntry) {
+    
+    
+// }
 
 
 
 
     function handleReportListClick(e) {
         const category = e.target.value;
+        debugger
         console.log('rescrusive list');
-        const showExpenses = categoriesArr?.find(categoryName => categoryName.name == category).expenses
+        const showExpenses = categoriesArr?.find(categoryName => categoryName.name == category)
         console.log(showExpenses.id);
         setList(showExpenses);
     }
+console.log(listOfExpenses.expenses);
 
+const display = listOfExpenses.expenses
 
     // console.log(category_id.id);
 
@@ -231,7 +237,7 @@ function Book({ user, setUser }) {
                 {expDropDown}
             </select>
             <div>
-                <List user={user} categoriesArr={categoriesArr} listOfExpenses={listOfExpenses} />
+                <List user={user} categoriesArr={categoriesArr} listOfExpenses={display} />
             </div>
             {/* <Map/> */}
 

@@ -181,6 +181,8 @@ img {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  transition: 5.5s;
+
 }
 @media only screen and (max-width: 600px) {
 
@@ -420,8 +422,12 @@ img {
   .drpfrm-close {
     margin-right: -41px;
     margin-left: -16px;
+    transition: 0.3s;
   }
+.drpfrm-close:toggle{
+  transition: 0.3s;
 
+}
   .vhm {
     width: -webkit-fill-available;
     display: flex;
@@ -1306,7 +1312,9 @@ form button {
   background-color: aliceblue;
   height: 125vh;
 }
-
+.toggle{
+transition: 03ms;
+}
 .card {
   display: flow-root;
   height: 408px;
