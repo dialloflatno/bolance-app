@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Form({ entryHandled, expDropDown }) {
+function Form({ entryHandled, expDropDown ,categoriesArr}) {
 
 
 
@@ -8,8 +8,19 @@ function Form({ entryHandled, expDropDown }) {
     const [storle, setStore] = useState("")
     const [cost, setCost] = useState("")
     const [date, setDate] = useState("")
-    const[choose,setChoose] = useState('')
+    const[choice,setChoice] = useState('')
     const [payment, PaymentType] = useState("")
+
+
+
+
+    // const choosen = titleBook.find(book => book.title == title).id
+
+    const choosen = categoriesArr?.find(categoryName => categoryName.name == choice)
+
+
+console.log(choosen.id);
+
 
     const urlList = '/expenses'
 
@@ -71,7 +82,7 @@ function Form({ entryHandled, expDropDown }) {
                 body: JSON.stringify(
                     {
                         expense_id: data.id,
-                        category_id: choose.id
+                        category_id: choosen.id
                     })
                 })).then((r)=>r.json())
                 .then((cat_repo)=> console.log(cat_repo))
@@ -95,7 +106,7 @@ function Form({ entryHandled, expDropDown }) {
 
     }
 
-
+console.log(expDropDown);
 
     return (
         <div className="mainForm">
@@ -116,7 +127,7 @@ function Form({ entryHandled, expDropDown }) {
                     </select>
                     <input onChange={handleCostChange} className="Form" type="number" name="Cost" min="0.01" step="0.01" max="2500" placeholder="Ex:$0.00">
                     </input>
-                    <select onChange= {(e)=> setChoose(e.target.value)} id="dropdown">
+                    <select onChange= {(e)=> setChoice(e.target.value)} id="dropdown">
                         <option>Category </option>
                         {expDropDown}
                     </select>

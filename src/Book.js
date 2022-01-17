@@ -205,7 +205,7 @@ function Book({ user, setUser }) {
                 <div className="page_lay">
 
                     {toggle ?
-                        (<Form entryHandled={entryHandled} expDropDown={expDropDown} />) : ('')
+                        (<Form entryHandled={entryHandled} expDropDown={expDropDown} categoriesArr={categoriesArr} />) : ('')
                     }
                     {toggle ?
                         (
