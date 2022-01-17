@@ -36,10 +36,10 @@ function App() {
 
       {user ? (
         <Switch>
-          <Route path="/home" exact>
-            <Overview user={user} setUser={setUser} exact/>
+          <Route exact path="/home" >
+            <Overview user={user} setUser={setUser} />
           </Route>
-          <Route  exact path ="/books/:book_id">
+          <Route  exact  path ="/books/:book_id">
             <Book user={user} setUser={setUser}/>
           </Route>
         </Switch>
@@ -48,10 +48,10 @@ function App() {
           <Route path="/signup">
             <SignUp setUser={setUser} />
           </Route>
-          <Route path="/signin">
+          <Route path="/">
             <SignIn handleLogin={handleLogin} />
           </Route>
-          <Route path="/">
+          <Route  path="/">
             <Home />
           </Route>
         </Switch>

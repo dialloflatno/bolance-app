@@ -14,6 +14,15 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+.hambuger{
+  display: none;
+  background-color: transparent;
+  border:0;
+  color: floralwhite;
+  cursor: pointer;
+  font-size:20px;
+}
+
 
 header {
   box-shadow: 6px 2px 22px 5px rgb(66 80 94 / 19%);
@@ -160,6 +169,7 @@ a {
   background: #52bdc4;
   padding: 10px;
 }
+
 img {
   position: absolute;
   margin-top: -98%;
@@ -176,20 +186,37 @@ img {
 
 .navBar .userName{
   padding: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.SearchBar{
   display: none;
 }
 .dropgo-NAV {
-    display: none;
+    display: flex;
 }
 .dropgo-LOGOUT {
-    display: none;
+    display: flex;
 }
-.stack {
-    display: block;
-    cursor: pointer;
-}
+
 .navUl {
  display: block;
+ width: 100%;
+ margin-left: -28px;
+ display: flex;
+ grid-column-gap: 912px;
+ grid-column-gap: 912px;
+ grid-column-gap: 912px;
+ column-gap: 912px;
+ flex-wrap: nowrap;
+ margin-block-start: auto;
+ font-weight: bold;
+ color: aliceblue;
+ font-size: large;
+ align-items: none;
+ grid-column-gap: 45px;
+ column-gap: 45px;
 
 }
 
@@ -205,6 +232,7 @@ img {
   .formEntry select {
     margin: 20px;
   }
+  
   #top {
     font-size: x-large;
     padding: 26px;
@@ -213,29 +241,17 @@ img {
     align-items: center;
     display: inline-flex;
     justify-content: flex-start;
-    /* flex-direction: row; */
     grid-column-gap: 61px;
-    /* grid-column-gap: 500px; */
-    /* grid-column-gap: 500px; */
-    /* grid-column-gap: 500px; */
-    /* grid-column-gap: 500px; */
-    /* column-gap: 500px; */
     font-family: system-ui;
     width: -webkit-fill-available;
     flex-wrap: wrap;
   }
   .perTitle {
-    /* float: left; */
-    /* padding: 10px; */
-    /* color: #6bed7b; */
-    /* font-weight: bolder; */
     font: optional;
     font-size: xx-large;
     margin-left: 69px;
     padding: 17px;
-    /* top: 200%; */
-    /* bottom: 400%; */
-    /* font-weight: 600; */
+   
   }
 
   form input {
@@ -398,6 +414,9 @@ img {
     height: -webkit-fill-available;
     flex-direction: column;
   }
+  .stack{
+    display: flex;
+  }
   .category-dropdown {
     /* height: 40px; */
     background-color: aliceblue;
@@ -409,6 +428,14 @@ img {
   }
 }
 
+
+.stack{
+  display: none;
+}
+.OverView{
+  margin: 60px auto;
+
+}
 .box-text {
   box-shadow: inset 0px 10px 40px 40px #5dcfff30;
   z-index: 2;
@@ -554,6 +581,8 @@ img {
   align-items: flex-start;
 }
 .Contanier_BO {
+  z-index: 12;
+  position: fixed;
   float: left;
   height: 40px;
   width: 100%;
@@ -1260,6 +1289,7 @@ form button {
   border-radius: 12px;
 }
 .bckg {
+  margin: 56px auto;
   background-color: #2d3244;
   color: antiquewhite;
 }

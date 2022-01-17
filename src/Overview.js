@@ -17,7 +17,7 @@ function Overview({ user, setUser }) {
     //         .then((r) => r.json())
     //         .then((bookcase) => setBooks(bookcase))
     // }, []);
-console.log(books)
+    console.log(books)
 
     function placeBook(newBook) {
         console.log('Book Packed');
@@ -50,28 +50,28 @@ console.log(books)
 
 
 
-console.log(user);
+    console.log(user);
 
 
     return (
 
         <div>
-            <Nav user ={user}setUser={setUser} />
-            <div id='top'>
-                {/* <h2>{user.full_name}</h2> */}
-                <h1>Overview</h1>
+            <Nav user={user} setUser={setUser} />
+            <div className='OverView'>
+                <div id='top'>
+                    {/* <h2>{user.full_name}</h2> */}
+                    <h1>Overview</h1>
 
-                <h5>Expense:{totalBookExpenses}</h5>
+                    <h5>Expense:{totalBookExpenses}</h5>
+                </div>
+                <div className='m'>
+                    <BookShelf view={books} bookExp={totalBookExpenses} />
+                </div>
+                <div>
+                    <BookForm user={user} placeBook={placeBook} />
+                </div>
+                <footer>Bolance App | Your Best Budget ! </footer>
             </div>
-            <div className='m'>
-                <BookShelf view={books} bookExp={totalBookExpenses} />
-            </div>
-            <div>
-                <BookForm user ={user} placeBook={placeBook} />
-            </div>
-            <footer>Bolance App | Your Best Budget ! </footer>
-
-
         </div>
     )
 
