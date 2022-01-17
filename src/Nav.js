@@ -71,8 +71,13 @@ function Nav({ user, setUser }) {
                                         </a>
                                         <Link to='/home' className="dropgo-NAV ">PMR</Link>
                                         <Link className="dropgo-NAV">Reciepts</Link>
-                                        <span>{user.full_name}</span>
+                                        <span className='userName'>{user.full_name}</span>
                                         <Link to='/logout' className='dropgo-LOGOUT' onClick={handleLogoutClick}>Logout</Link>
+                                        <div className='stack'>
+                                            <span className='bar'></span>
+                                            <span className='bar'></span>
+                                            <span className='bar'></span>
+                                        </div>
                                     </ul>
                                 </div>
                                 <div>
