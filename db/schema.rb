@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_21_230112) do
+ActiveRecord::Schema.define(version: 2022_01_16_011910) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "book_categories", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_book_categories_on_book_id"
+    t.index ["category_id"], name: "index_book_categories_on_category_id"
+  end
 
   create_table "books", force: :cascade do |t|
     t.string "title"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_books_on_user_id"
@@ -26,18 +38,23 @@ ActiveRecord::Schema.define(version: 2021_12_21_230112) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "cateo_transaction_reports", force: :cascade do |t|
+    t.bigint "expense_id"
+    t.bigint "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_cateo_transaction_reports_on_category_id"
+    t.index ["expense_id"], name: "index_cateo_transaction_reports_on_expense_id"
+  end
+
+  create_table "expenses", force: :cascade do |t|
     t.string "item"
     t.string "payment_type"
     t.string "store_name"
     t.string "store_address"
     t.integer "cost"
-    t.integer "book_id"
-    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_transactions_on_book_id"
-    t.index ["category_id"], name: "index_transactions_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-    belongs_to :user
-    has_many :transactions, dependent: :destroy
-    has_many :categories , through: :transactions
+   belongs_to :user
+   has_many :book_categories
+   has_many :categories, through: :book_categories
 end

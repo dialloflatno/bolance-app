@@ -1,11 +1,13 @@
 class BooksController < ApplicationController
 
     def index
-        render json: books , status: :ok
+        books = Book.all
+        render json: books, status: :ok
     end
 
     def show
-        render json: book , status: :ok
+        book = Book.find_by(id: params[:id])
+        render json: book, status: :ok
     end
 
     def create
@@ -13,20 +15,25 @@ class BooksController < ApplicationController
         # byebug
         render json: new_book , status: :ok
     end
+    def update
+        book = Book.find_by(id: params[:id])
+        new_title = book.update(book_params)
+        render json: new_title,status: :ok
+    end
+
 
     def destroy
+        book = Book.find_by(id: params[:id])
+        find_book = book
+        find_book.destroy
         render json: trash_book, status: :no_content
     end
-end
-
+    
 private
-
-
-def book_params
-    params.permit(:book ,:title)
-end
-
-def book
-    book = Book.find_by(id: params[:id])
-    # user.books
+    
+    
+    def book_params
+        params.permit( :user_id, :book ,:title)
+    end
+    
 end

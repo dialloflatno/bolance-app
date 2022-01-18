@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    render json: users , status: :ok
+    users = User.all
+    render json: users, status: :ok
   end
   
-  # def show
-  #     render json: book , status: :ok
-  # end
-
   def create 
     user = User.create(user_params)
     if user
@@ -28,11 +25,11 @@ class UsersController < ApplicationController
     end
   end
 
+private
+  
+  def user_params
+    params.permit(:full_name, :email, :username, :password)
+  end
     
 end
 
-private
-
-def user_params
-  params.permit(:full_name, :email, :username, :password)
-end

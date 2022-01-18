@@ -1,6 +1,10 @@
-class Category < ApplicationRecordB
-    belongs_to:book
-    has_many :transactions, dependent: :destroy
-    # has_many :book , through: :transactions
+class Category < ApplicationRecord
+
+    has_many :book_categories
+    has_many :books, through: :book_categories
+
+
+    has_many :cateo_transaction_reports
+    has_many :expenses, through: :cateo_transaction_reports
 
 end
