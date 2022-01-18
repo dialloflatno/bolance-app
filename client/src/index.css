@@ -209,9 +209,7 @@ img {
     flex-direction: column;
   }
   .art-wall {
-    width: 176%;
     background: #0aabde;
-    margin-left: -168px;
     height: 88vh;
     display: flex;
     flex-direction: column;

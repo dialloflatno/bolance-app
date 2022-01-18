@@ -8,9 +8,9 @@ import SignUp from "./SignUp"
 import './App.css';
 import Overview from "./Overview";
 import Book from "./Book";
-import Reports from "./Reports";
+// import Reports from "./Reports";
 import Nav from "./Nav";
-import ErrorPage from "./ErrorPage";
+// import ErrorPage from "./ErrorPage";
 
 
 function App() {
@@ -46,10 +46,6 @@ function App() {
           <Route exact path="/books/:book_id">
             <Nav user={user} setUser={setUser} />
             <Book user={user} setUser={setUser} />
-          </Route>
-          <Route exact path='/reports'>
-            <Nav user={user} setUser={setUser} />
-            <Reports />
           </Route>
         </Switch>
       ) : (
