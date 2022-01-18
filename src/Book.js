@@ -14,11 +14,12 @@ function Book({ user, setUser }) {
 
 
     const url = `/books/${book_id}`;
-    const [book, setBook] = useState()
+    const [book, setBook] = useState('')
     const [name, setCategoryName] = useState('')
+    const [newTitle, setNewTitle] = useState('')
     const [categoryOfBook, setMatch] = useState('')
-    const [category_id, setPlaceCategory] = useState('')
     const [toggle, setToggle] = useState('')
+    const [update, setUpdate] = useState(false)
     const [listOfExpenses, setList] = useState('')
     const [newEntry, setNewEntry] = useState('')
 
@@ -44,10 +45,16 @@ function Book({ user, setUser }) {
     const dataListOfCosts = categoriesArr?.map((o) => o.expenses?.map((x) => x.cost))
     /// dataList = [[202],[20],[1]] <<<----- What im getting
     // debugger
-    const dataList = dataListOfCosts?.map((o)=> o.reduce((prev,curr) => prev + curr))
 
-    const valueCost = dataListOfCosts?.reduce((prev, curr) => prev + curr).split(",");
+    let dataList = ''
+    if (dataListOfCosts?.length < 0) {
+        dataList = dataListOfCosts.map((o) => o.reduce((prev, curr) => prev + curr))
+    }
+    let valueCost = ''
 
+    if (dataListOfCosts?.length < 0) {
+        valueCost = dataListOfCosts?.reduce((prev, curr) => prev + curr).split(",");
+    }
     console.log(parseInt(valueCost));
     const expense = parseInt(valueCost)
 
@@ -85,6 +92,31 @@ function Book({ user, setUser }) {
                 .then((match) => setMatch(match))
             )
     }
+
+
+
+
+    /////PATCH ____
+
+    function handleUpdatedName(e) {
+        e.preventDefault()
+
+
+        fetch(`/books/${book_id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                title: newTitle
+            })
+        })
+            .then(r => r.json())
+            .then(data => setBook(data))
+
+    }
+
+
 
     //// OLD WAY---------vvvvvvvvvvvvvvvvv------------------
 
@@ -124,6 +156,7 @@ function Book({ user, setUser }) {
 
 
 
+
     function handleReportListClick(e) {
         const category = e.target.value;
         // debugger
@@ -132,12 +165,8 @@ function Book({ user, setUser }) {
         console.log(showExpenses.id);
         setList(showExpenses);
     }
-    console.log(listOfExpenses.expenses);
 
     const display = listOfExpenses.expenses
-
-
-
     function entryHandled(entry) {
         console.log("new entry slotted");;
         setNewEntry(entry);
@@ -158,38 +187,41 @@ function Book({ user, setUser }) {
 
         <>
             <Nav user={user} setUser={setUser} book={book} />
-                <div className='bckg'>
-                    <div className="page_lay">
-                        {toggle ?
-                            (<Form entryHandled={entryHandled} expDropDown={expDropDown} categoriesArr={categoriesArr} />) : ('')
-                        }
-                        {toggle ?
-                            (
-                                <button onClick={handlesDisapperacance} className='drpfrm-close'>▼</button>
-                            ) : (
-                                <button onClick={handlesApperacance} className='drpfrm'>▼</button>)
-                        }
+            <div className='bckg'>
+                <div className="page_lay">
+                    {toggle ?
+                        (<Form entryHandled={entryHandled} className='tranv' expDropDown={expDropDown} categoriesArr={categoriesArr} />) : ('')
+                    }
+                    {toggle ?
+                        (
+                            <button onClick={handlesDisapperacance} className='drpfrm-close'>▼</button>
+                        ) : (
+                            <button onClick={handlesApperacance} className='drpfrm'>▼</button>)
+                    }
 
-                        <label className="perTitle">{book?.title} | {expense ? expense : 'Great Work Budgeting !'}</label>
-
-                        <form onSubmit={handleSubmit} className='cats'>
-                            <input placeholder=' new category' onChange={(e) => setCategoryName(e.target.value)} />
-                            <button className='ahd' type='submit'>ADD</button>
-                        </form>
-                    </div>
-                    <div>
-                        <TotalExp labels={labels} dataList={dataList} />
-                    </div>
+                    {toggle ?
+                        (<label className="perTitle" ><form id="titlePATCH" onSubmit={handleUpdatedName} ><input placeholder='new title' type="text" onChange={(e) => setNewTitle(e.target.value)} /></form> {expense ? expense : 'Great Work Budgeting !'}</label>
+                        ) : (
+                            <label className="perTitle" ><h6>{book?.title}</h6>  | <h9>{expense ? expense : 'Great Work Budgeting !'}</h9></label>
+                        )}
+                    <form onSubmit={handleSubmit} className='cats'>
+                        <input placeholder=' new category' onChange={(e) => setCategoryName(e.target.value)} />
+                        <button className='ahd' type='submit'>ADD</button>
+                    </form>
                 </div>
-
-                <select onChange={handleReportListClick} className="category-dropdown">
-                    <option value="All" display="All">All</option>
-                    {expDropDown}
-                </select>
                 <div>
-                    <List user={user} categoriesArr={categoriesArr} listOfExpenses={display} />
+                    <TotalExp labels={labels} dataList={dataList} />
                 </div>
-                {/* <Map/> */}
+            </div>
+
+            <select onChange={handleReportListClick} className="category-dropdown">
+                <option value="All" display="All">All</option>
+                {expDropDown}
+            </select>
+            <div>
+                <List user={user} categoriesArr={categoriesArr} listOfExpenses={display} />
+            </div>
+            {/* <Map/> */}
         </>
     );
 }

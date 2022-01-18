@@ -1,37 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Bar as ChartJS } from 'chart.js/auto'
 import { Bar, Doughnut } from "react-chartjs-2";
 import categoriesArr from './TotalExp'
 
 
-class Chart extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      chartData: {
-        // labels: ["Clothing", "Food", "utting", "Travel"],
-        labels: props.names,
-        datasets: [
-          {
-            label: "Expenses",
-            data: [ props.dataList
-            ],
+function Chart({dataList,names}){
+  const [barData, setBarData] = useState ({
+    labels: names? (names):(""),
+    datasets: [
+        {
+            label: 'test label',
+            data: dataList,
             backgroundColor: [
-              'rgba(39, 123, 245, 0.8)',
-              'rgba(93, 155, 248, 0.8)',
-              'rgba(45, 123, 239, 0.8)'
-            ]
-          }
-        ]
-      }
-    }
-  }
-  render() {
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)'
+            ],
+            borderWidth: 3
+        }
+    ]
+});
+
+
+  
     return (
       <div className="chart">
         <Bar
-          data={this.state.chartData}
+          data={barData}
           width={100}
           height={50}
           options={{
@@ -39,7 +35,7 @@ class Chart extends Component {
           }} />
       </div>
     )
-  }
+  
 }
 export default Chart;
 

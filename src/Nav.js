@@ -19,13 +19,9 @@ function Nav({ user, setUser }) {
         });
     }
 
-    // const titleBook = user.books.map(book => {
-    //     return (book.title)
-    // });
-    // console.log(titleBook);
+    
 
     const titleBook = user.books
-
 
     //map through my users books for an title that matchs the e.target.value to redirect your to the books.id
 
@@ -60,17 +56,17 @@ function Nav({ user, setUser }) {
                             <nav className="navBar">
                                 <div>
                                     <ul className="navUl">
-                                        <Link to='/home'><li className="logo">Bolance</li></Link>
+                                        <Link to='/'><li className="logo">Bolance</li></Link>
                                         <Search />
-                                        <Link to='/home' className="dropgo-NAV">Home</Link>
+                                        <Link to='/' className="dropgo-NAV">Home</Link>
                                         <a onChange={(handleRedirectClick)} className="dropgo-NAV" >
                                             <select>
                                                 <option>Books </option>
                                                 {dropDown}
                                             </select>
                                         </a>
-                                        <Link to='/home' className="dropgo-NAV ">PMR</Link>
-                                        <Link className="dropgo-NAV">Reciepts</Link>
+                                        <Link to='/reports' className="dropgo-NAV ">PMR</Link>
+                                        {/* <Link className="dropgo-NAV">Reciepts</Link> */}
                                         <span className='userName'>{user.full_name}</span>
                                         <Link to='/logout' className='dropgo-LOGOUT' onClick={handleLogoutClick}>Logout</Link>
                                     </ul>

@@ -25,10 +25,9 @@ function Overview({ user, setUser }) {
         setBooks(addBook)
     };
 
-    const reducer = (prev,current) => prev + current
     let totalBookExpenses = 'Great Work Budgeting !'
 
-console.log(books);
+
 
 
     // if (books.length > 0) {
@@ -41,10 +40,7 @@ console.log(books);
     //         return parseInt(item);
     //     }).reduce(reducer)
     // }
-
-
-    // console.log(totalBookExpenses);
-    // // else {
+    // else {
     //     return ( 'hey' )
     // }
 
@@ -53,11 +49,12 @@ console.log(books);
 
 
 
+    console.log(user);
 
 
     return (
 
-        <div>
+        <div className='appback'>
             <Nav user={user} setUser={setUser} />
             <div className='OverView'>
                 <div id='top'>

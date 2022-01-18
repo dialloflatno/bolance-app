@@ -45,7 +45,7 @@ function List({ user, listOfExpenses }) {
           <div className="base">
             {mappedList}
           </div>
-          <Map user={user} />
+          {/* <Map user={user} /> */}
 
         </div>
       </div>

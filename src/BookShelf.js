@@ -13,7 +13,7 @@ function BookShelf({ bookExp, view }) {
 
         layed = view.map((archBook) => {
             return (
-                <BookCover
+                <BookCover 
                     bookExp={bookExp}
                     title={archBook.title}
 
@@ -30,7 +30,7 @@ function BookShelf({ bookExp, view }) {
 
     return (
         <div className='bookslot'>
-            {layed}
+           {layed}
         </div>
     )
 

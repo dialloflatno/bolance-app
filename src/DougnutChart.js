@@ -1,6 +1,6 @@
 import {Doughnut} from 'react-chartjs-2';
 
-function DoughnutChart() {
+function DoughnutChart({}) {
     const data = {
         labels: [],
         datasets: [

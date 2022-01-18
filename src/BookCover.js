@@ -2,9 +2,13 @@ import DoughnutChart from "./DougnutChart";
 
 
 
+function handleDestory(e) {
+    console.log(e.target.value);
+    alert('Are Your Sure You Want to Delete Your Book')
+}
 
 
-function BookCover({ title, bookExp
+function BookCover({ datLo, title, bookExp
 }) {
 
     return (
@@ -15,10 +19,10 @@ function BookCover({ title, bookExp
                     <DoughnutChart />
                     <h3>{bookExp}</h3>
 
-                    <h4>{title}</h4>
+                    <button className='cardGo' onDoubleClick={handleDestory} onChange={(e) => console.log(e.target.value)}>
+                        {title}</button>
                 </div>
             </div>
-
 
         </div>
     )
