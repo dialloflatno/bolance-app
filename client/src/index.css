@@ -208,7 +208,73 @@ img {
     display: flex;
     flex-direction: column;
   }
+  .art-wall {
+    width: 136%;
+    background: #0aabde;
+    margin-left: -168px;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .to-form {
+    line-height: 28px;
+    /* position: fixed; */
+    margin-top: -48%;
+    display: flex;
+    font-size: larger;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: space-evenly;
+  }
+
+  form .ph,
+  form h3 {
+    color: whitesmoke;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: left;
+  }
+  .signin-title {
+    font-size: xx-large;
+    font-weight: 600;
+    font-family: system-ui;
+    color: antiquewhite;
+  }
+  .wall {
+    margin: -17px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: -webkit-fill-available;
+  }
+  .to-form {
+    /* line-height: 28px; */
+    position: absolute;
+    display: flex;
+    font-size: larger;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: space-evenly;
+  }
+  form h3 {
+    /* font-weight: 600; */
+    margin: 3px;
+  }
+  .art-wall svg {
+    height: 53%;
+    /* position: absolute; */
+    margin: 5px auto -50px 131px;
+    display: none;
+  }
   .SearchBar {
     display: none;
   }
@@ -270,7 +336,6 @@ img {
     margin-left: 69px;
     padding: 17px;
     column-gap: 10px;
-
   }
   h6 {
     padding: 10px;
@@ -1148,12 +1213,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-alert{
-
+alert {
 }
 
-
-.cardGo{
+.cardGo {
   background: none;
   border: none;
 }
@@ -1172,11 +1235,12 @@ alert{
 
 #titlePATCH {
   border: none;
-  color: white
-  ;
+  color: white;
 }
 
-#titlePATCH input, select, textarea{
+#titlePATCH input,
+select,
+textarea {
   color: white;
 }
 #titlePATCH input {
