@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Bar as ChartJS } from 'chart.js/auto'
 import { Bar, Doughnut } from "react-chartjs-2";
 import categoriesArr from './TotalExp'
+
+
 class Chart extends Component {
   
   constructor(props) {

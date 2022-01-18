@@ -25,10 +25,10 @@ function Overview({ user, setUser }) {
         setBooks(addBook)
     };
 
-    // const reducer = (prev,current) => prev + current
+    const reducer = (prev,current) => prev + current
     let totalBookExpenses = 'Great Work Budgeting !'
 
-
+console.log(books);
 
 
     // if (books.length > 0) {
@@ -41,16 +41,18 @@ function Overview({ user, setUser }) {
     //         return parseInt(item);
     //     }).reduce(reducer)
     // }
+
+
+    // console.log(totalBookExpenses);
     // // else {
-    // //     return ( 'hey' )
-    // // }
+    //     return ( 'hey' )
+    // }
 
 
 
 
 
 
-    console.log(user);
 
 
     return (

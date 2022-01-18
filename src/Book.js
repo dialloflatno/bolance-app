@@ -37,22 +37,19 @@ function Book({ user, setUser }) {
 
 
 
-    
+
     const categoriesArr = book?.categories;
     const labels = categoriesArr?.map((o) => o.name)
-    const dataList = categoriesArr?.map((o) => o.expenses?.map((x) => x.cost))
-    
-    const valueCost = dataList?.reduce((prev, curr) => prev + curr).split(",");
-    
-    console.log(parseInt(valueCost));
-   const expense = parseInt(valueCost)
-    
-    /// Categories show with this one vvvvvv
-    
-   
-    // console.log(book.categories);
+    /// dataList = [202,20,1]
+    const dataListOfCosts = categoriesArr?.map((o) => o.expenses?.map((x) => x.cost))
+    /// dataList = [[202],[20],[1]] <<<----- What im getting
+    // debugger
+    const dataList = dataListOfCosts?.map((o)=> o.reduce((prev,curr) => prev + curr))
 
-    // const reducer = (prev,current) => prev + current
+    const valueCost = dataListOfCosts?.reduce((prev, curr) => prev + curr).split(",");
+
+    console.log(parseInt(valueCost));
+    const expense = parseInt(valueCost)
 
 
 
@@ -88,6 +85,7 @@ function Book({ user, setUser }) {
                 .then((match) => setMatch(match))
             )
     }
+
     //// OLD WAY---------vvvvvvvvvvvvvvvvv------------------
 
     // const handleSubmit = (e) => {
@@ -126,17 +124,6 @@ function Book({ user, setUser }) {
 
 
 
-
-
-
-    // function handleAddList(addEntry) {
-
-
-    // }
-
-
-
-
     function handleReportListClick(e) {
         const category = e.target.value;
         // debugger
@@ -149,48 +136,6 @@ function Book({ user, setUser }) {
 
     const display = listOfExpenses.expenses
 
-    // console.log(category_id.id);
-
-    //BOOK Drop DOWN Menu
-
-
-
-    // const catList = categoryOfBook?.map(category => {
-
-    //     return (
-    //         <>
-    //             <option >{category.name}</option>
-    //         </>
-    //     )
-    // })
-
-    // console.log(categoryDropDown);
-
-
-
-
-    // if (book.length > 0) {
-
-    //   expense = book.map(bookx => {
-    //         return (
-    //             bookx.categories.map(category => { return category.expenses.map(t => { return (t.cost) }) })
-    //         )
-    //     }).reduce(reducer).split(',').map(function (item) {
-    //         return parseInt(item);
-    //     }).reduce(reducer)
-    // }
-
-    //   console.log(book.title);
-
-    //  const openedBook = user.books.map(bookPile => bookPile.books.map( book =>{ console.log(book.title)}));
-    //  const stuff = bookshelf.map(bookPile => bookPile.categories.map( category =>{ return (category)}));
-    //  const stuffMore = bookshelf.map(stuff => stuff.categories.map( category =>{ return (category.name)}));
-
-
-    // function handleDeleteItem(act) {
-    //   const presentList = List.filter((entry) => entry.id !== act.id);
-    //   setList(presentList)
-    // }
 
 
     function entryHandled(entry) {
@@ -209,52 +154,51 @@ function Book({ user, setUser }) {
 
 
 
-
     return (
 
         <>
             <Nav user={user} setUser={setUser} book={book} />
-            <div className='bckg'>
+                <div className='bckg'>
+                    <div className="page_lay">
+                        {toggle ?
+                            (<Form entryHandled={entryHandled} expDropDown={expDropDown} categoriesArr={categoriesArr} />) : ('')
+                        }
+                        {toggle ?
+                            (
+                                <button onClick={handlesDisapperacance} className='drpfrm-close'>▼</button>
+                            ) : (
+                                <button onClick={handlesApperacance} className='drpfrm'>▼</button>)
+                        }
 
-                <div className="page_lay">
+                        <label className="perTitle">{book?.title} | {expense ? expense : 'Great Work Budgeting !'}</label>
 
-                    {toggle ?
-                        (<Form entryHandled={entryHandled} expDropDown={expDropDown} categoriesArr={categoriesArr} />) : ('')
-                    }
-                    {toggle ?
-                        (
-                            <button onClick={handlesDisapperacance} className='drpfrm-close'>▼</button>
-                        ) : (
-                            <button onClick={handlesApperacance} className='drpfrm'>▼</button>)
-                    }
-
-                    <label className="perTitle">{book?.title} | {expense ? expense : 'Great Work Budgeting !'}</label>
-
-                    <form onSubmit={handleSubmit} className='cats'>
-                        <input placeholder=' new category' onChange={(e) => setCategoryName(e.target.value)} />
-                        <button className='ahd' type='submit'>ADD</button>
-                    </form>
+                        <form onSubmit={handleSubmit} className='cats'>
+                            <input placeholder=' new category' onChange={(e) => setCategoryName(e.target.value)} />
+                            <button className='ahd' type='submit'>ADD</button>
+                        </form>
+                    </div>
+                    <div>
+                        <TotalExp labels={labels} dataList={dataList} />
+                    </div>
                 </div>
+
+                <select onChange={handleReportListClick} className="category-dropdown">
+                    <option value="All" display="All">All</option>
+                    {expDropDown}
+                </select>
                 <div>
-                    <TotalExp labels={labels} dataList={dataList} />
+                    <List user={user} categoriesArr={categoriesArr} listOfExpenses={display} />
                 </div>
-            </div>
-
-            <select onChange={handleReportListClick} className="category-dropdown">
-                <option value="All" display="All">All</option>
-                {expDropDown}
-            </select>
-            <div>
-                <List user={user} categoriesArr={categoriesArr} listOfExpenses={display} />
-            </div>
-            {/* <Map/> */}
-
+                {/* <Map/> */}
         </>
-
     );
 }
 
 export default Book;
+
+
+
+
 
 //  <Form urlList={url} entryHandled={entryHandled} /> 
     // <label className="perTitle">BOOK</label>
