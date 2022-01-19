@@ -24,9 +24,9 @@ class BooksController < ApplicationController
 
     def destroy
         book = Book.find_by(id: params[:id])
-        find_book = book
-        find_book.destroy
-        render json: trash_book, status: :no_content
+        find_book = book.destroy
+        # byebug
+        render json: find_book, status: :no_content
     end
     
 private
@@ -35,5 +35,6 @@ private
     def book_params
         params.permit( :user_id, :book ,:title)
     end
+    end
     
-end
+

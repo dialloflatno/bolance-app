@@ -8,11 +8,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
 html,
 body {
+  scroll-behavior: smooth;
   height: 100%;
   max-width: 100%;
   overflow-x: hidden;
+}
+
+
+.toggle_update{
+  color:#a1afd6;
+  margin-right: 75px;
+}
+
+.toggle_update:hover{
+  transition: 0.5s;
+  color: #dee0e4;
+  margin-right: 75px;
+  cursor: pointer;
+  font-weight: 100;
 }
 .appback {
   background-color: gainsboro;
@@ -221,7 +238,7 @@ img {
   }
   .to-form {
     row-gap: 9px;
-    margin-top: -30%;
+    margin-top: -5%;
     display: flex;
     font-size: larger;
     flex-direction: column;
@@ -255,6 +272,7 @@ img {
     color: antiquewhite;
   }
   .wall {
+    background: #0baade;
     margin: -17px;
     position: fixed;
     display: flex;
@@ -1230,6 +1248,7 @@ alert {
   border: none;
 }
 .wall {
+  background: #0baade;
   position: fixed;
   display: flex;
   flex-direction: row;

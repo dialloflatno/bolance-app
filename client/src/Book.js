@@ -16,40 +16,46 @@ function Book({ user, setUser }) {
     
     const url = `/books/${book_id}`;
     const [book, setBook] = useState('')
-    const [newTitle, setNewTitle] = useState('')
+    const [show, setShow] = useState(false)
     const [toggle, setToggle] = useState('')
-    const [update, setUpdate] = useState([])
+    const [update, setUpdate] = useState('')
     const [listOfExpenses, setList] = useState([])
     const [newEntry, setNewEntry] = useState('')
     // const [categoriesArr,setArrayCategories] = useState(book?.categories)
     const [categoriesArr,setArrayCategories] = useState([])
     /////PATCH ____
     
-    function handleUpdatedName(e) {
+
+
+
+    
+
+
+
+
+    
+    function whileUpdatingName(e) {
         e.preventDefault()
-    
-    
+        alert("Change Your Title ?")
         fetch(`/books/${book_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                title: newTitle
+                title: update
             })
         })
             .then(r => r.json())
-            .then(data => console.log(data))
-    
+            .then(data =>console.log(data))
     }
-
-    
     useEffect(() => {
         fetch(url)
         .then(r => r.json())
         .then(shelf => setBook(shelf))
     }, [])
 
+   
 
     
     function handlesApperacance() {
@@ -99,86 +105,6 @@ function Book({ user, setUser }) {
 
 
 
-
-
-
-    //// EDITING CODE //////////////////
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-
-    //     fetch('/categories', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-
-    //             name: name,
-    //             book_id: book_id
-
-    //         }),
-    //     })
-    //         .then((r) => r.json())
-    //         .then((info) => fetch('/book_categories', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-type': 'application/json',
-    //             },
-    //             body: JSON.stringify({
-    //                 category_id: info.id,
-    //                 book_id: book_id
-    //             }),
-    //         })
-    //             .then((r) => r.json())
-    //             .then((match) => setMatch(match))
-    //         )
-    // }
-
-
-
-
-
-
-
-    //// OLD WAY---------vvvvvvvvvvvvvvvvv------------------
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-
-    //     fetch('/categories', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-
-    //             name: name,
-    //             book_id: book_id
-
-    //         }),
-    //     })
-    //     .then((r) => r.json())
-    //     .then((info) => setPlaceCategory(info))
-
-    //     fetch('/book_categories', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             category_id: category_id.id,
-    //             book_id: book_id
-    //         }),
-    //     })
-    //     .then((r) => r.json())
-    //     .then((match) => setMatch(match))
-    // };
-
-    //// POST to Category the POST to BookCategory//////////////////
-
-
-
-
     function handleReportListClick(e) {
         const category = e.target.value;
         console.log('rescrusive list');
@@ -202,7 +128,24 @@ function Book({ user, setUser }) {
         )
     })
 
+    function handleSwitch() {
+          setShow(true)
+    }
 
+    function handleToss(e) {
+        alert('Are Your Sure You Want to  permenatly delete your Book? this will destory all of your files ')
+        console.log(e.target.value);
+
+        fetch(`/books/${book_id}`, {
+            method: "DELETE",
+          })
+            .then((r) => r.json())
+            .then(() => console.log("deleted!"));
+        }
+    
+
+
+console.log(show);
 
     return (
 
@@ -210,6 +153,8 @@ function Book({ user, setUser }) {
             <Nav user={user} setUser={setUser} book={book} />
             <div className='bckg'>
                 <div className="page_lay">
+
+                    <button onClick={handleToss}>Toss</button>
                     {toggle ?
                         (<Form entryHandled={entryHandled} className='tranv' expDropDown={expDropDown} categoriesArr={categoriesArr} />) : ('')
                     }
@@ -220,11 +165,11 @@ function Book({ user, setUser }) {
                             <button onClick={handlesApperacance} className='drpfrm'>▼</button>)
                     }
 
-                    {toggle ?
-                        (<label className="perTitle" ><form id="titlePATCH" onSubmit={handleUpdatedName} ><input placeholder='new title' type="text" onChange={(e) => setNewTitle(e.target.value)} /></form> {expense ? expense : 'Great Work Budgeting !'}</label>
-                        ) : (
-                            <label className="perTitle" ><h6>{book?.title}</h6>  | <h9>{expense ? expense : 'Great Work Budgeting !'}</h9></label>
-                        )}
+                    
+                        { show ? (<label className="perTitle" ><form id="titlePATCH" onSubmit={whileUpdatingName} ><input placeholder='new title' type="text" onChange={(e)=> setUpdate(e.target.value)} /></form> </label>):( <><label className="perTitle"><h6>{book?.title}</h6>  | <h9>{expense ? expense : 'Great Work Budgeting !'}</h9></label><h5 onClick={handleSwitch} className='toggle_update'>Change Book Title</h5></>) }
+                        
+                            
+                    
                 <CategoriesForm addCategories ={addCategories} book_id={book_id}/>
                 </div>
                 <div>
@@ -247,33 +192,3 @@ function Book({ user, setUser }) {
 export default Book;
 
 
-
-
-
-//  <Form urlList={url} entryHandled={entryHandled} /> 
-    // <label className="perTitle">BOOK</label>
-    // <br></br>
-    // <div className="ExpCard">
-    //   {/* <TotalExp List={list} /> */}
-    // </div>
-    //  <select className="category-dropdown">
-    //      {dropDown}
-    //   {/* <option value="All" display="All">All</option>
-    //   <option value="Clothing" display="Clothing">{user.categories[0].name}</option>
-    //   <option value="Outting" >{user.categories.name}</option>
-    //   <option value="Travel" >{user.categories.name}</option>
-    //   <option value="Food">{user.categories.name} </option> */}
-    // </select>
-
-    // <div className="contain_list">
-    //   <div className="Container_PL">
-    //     <div className="List" >
-    //       {/* <List List={list} handleDeleteItem={handleDeleteItem} /> */}
-    //     </div>
-    //   </div>
-    //   <div className="card">
-    //     {/* <Item List={list} /> */}
-    //   </div>
-
-    // </div>
-    // <p></p>

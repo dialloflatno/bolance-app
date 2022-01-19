@@ -45,7 +45,7 @@ function App() {
           </Route>
           <Route exact path="/books/:book_id">
             <Nav user={user} setUser={setUser} />
-            <Book user={user} setUser={setUser} />
+            <Book user={user} setUser={setUser}  />
           </Route>
         </Switch>
       ) : (
