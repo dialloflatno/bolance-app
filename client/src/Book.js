@@ -44,32 +44,32 @@ function Book({ user, setUser }) {
       .then((shelf) => setBook(shelf))
   }, [])
 
-  function handlesApperacance() {
-    setToggle(true)
-  }
-  function handlesDisapperacance() {
-    setToggle(false)
-  }
-
+  
   console.log(categoriesArr)
-
+  
   function addCategories(new_cat) {
-    console.log('Category Added')
-    console.log(new_cat.category)
-    const nameOfACategory = new_cat.category
-    const addCat = [...categoriesArr, nameOfACategory]
-    console.log(addCat)
-    setArrayCategories(addCat)
-  }
-
-  function entryHandled(entry) {
-    console.log('new entry slotted')
-    const singleExpense = entry.expense
-    const plusOne = [...listOfExpenses, singleExpense]
-    console.log(plusOne);
-    setNewEntry(plusOne)
-  }
-
+      console.log('Category Added')
+      console.log(new_cat.category)
+      const nameOfACategory = new_cat.category
+      const addCat = [...categoriesArr, nameOfACategory]
+      console.log(addCat)
+      setArrayCategories(addCat)
+    }
+    
+    function entryHandled(entry) {
+        console.log('new entry slotted')
+        const singleExpense = entry.expense
+        const plusOne = [...listOfExpenses, singleExpense]
+        console.log(plusOne);
+        setNewEntry(plusOne)
+    }
+    
+    function handlesApperacance() {
+      setToggle(true)
+    }
+    function handlesDisapperacance() {
+      setToggle(false)
+    }
   // const categoriesArr = book?.categories;
   const labels = categoriesArr?.map((o) => o.name)
   /// dataList = [202,20,1]
