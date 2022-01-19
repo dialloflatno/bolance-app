@@ -5,41 +5,77 @@ import TotalExp from "./TotalExp";
 import List from "./List";
 import Form from "./Form";
 import Map from "./Map";
+import CategoriesForm from "./CategoriesForm";
 // import Item from "./Item"
 // import TotalExp from "./TotalExp";
 
 function Book({ user, setUser }) {
-
+    
     const { book_id } = useParams()
-
-
+    
+    
     const url = `/books/${book_id}`;
     const [book, setBook] = useState('')
-    const [name, setCategoryName] = useState('')
     const [newTitle, setNewTitle] = useState('')
-    const [categoryOfBook, setMatch] = useState('')
     const [toggle, setToggle] = useState('')
-    const [update, setUpdate] = useState(false)
-    const [listOfExpenses, setList] = useState('')
+    const [update, setUpdate] = useState([])
+    const [listOfExpenses, setList] = useState([])
     const [newEntry, setNewEntry] = useState('')
+    // const [categoriesArr,setArrayCategories] = useState(book?.categories)
+    const [categoriesArr,setArrayCategories] = useState([])
+    /////PATCH ____
+    
+    function handleUpdatedName(e) {
+        e.preventDefault()
+    
+    
+        fetch(`/books/${book_id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                title: newTitle
+            })
+        })
+            .then(r => r.json())
+            .then(data => console.log(data))
+    
+    }
 
+    
+    useEffect(() => {
+        fetch(url)
+        .then(r => r.json())
+        .then(shelf => setBook(shelf))
+    }, [])
+
+
+    
     function handlesApperacance() {
         setToggle(true)
     }
     function handlesDisapperacance() {
         setToggle(false)
     }
-    console.log(name);
-    useEffect(() => {
-        fetch(url)
-            .then(r => r.json())
-            .then(shelf => setBook(shelf))
-    }, [])
+
+
+    console.log(categoriesArr);
+
+
+    function addCategories(new_cat) {
+        console.log('Category Added');
+        console.log(new_cat.category);
+        const nameOfACategory = new_cat.category
+        const addCat = [...categoriesArr, nameOfACategory];
+        console.log(addCat);
+        setArrayCategories(addCat)
+
+    };
 
 
 
-
-    const categoriesArr = book?.categories;
+    // const categoriesArr = book?.categories;
     const labels = categoriesArr?.map((o) => o.name)
     /// dataList = [202,20,1]
     const dataListOfCosts = categoriesArr?.map((o) => o.expenses?.map((x) => x.cost))
@@ -60,61 +96,47 @@ function Book({ user, setUser }) {
 
 
 
-    //// POST to Category the POST to BookCategory//////////////////
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        fetch('/categories', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify({
-
-                name: name,
-                book_id: book_id
-
-            }),
-        })
-            .then((r) => r.json())
-            .then((info) => fetch('/book_categories', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json',
-                },
-                body: JSON.stringify({
-                    category_id: info.id,
-                    book_id: book_id
-                }),
-            })
-                .then((r) => r.json())
-                .then((match) => setMatch(match))
-            )
-    }
 
 
 
 
-    /////PATCH ____
-
-    function handleUpdatedName(e) {
-        e.preventDefault()
 
 
-        fetch(`/books/${book_id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                title: newTitle
-            })
-        })
-            .then(r => r.json())
-            .then(data => setBook(data))
+    //// EDITING CODE //////////////////
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
 
-    }
+    //     fetch('/categories', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+
+    //             name: name,
+    //             book_id: book_id
+
+    //         }),
+    //     })
+    //         .then((r) => r.json())
+    //         .then((info) => fetch('/book_categories', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-type': 'application/json',
+    //             },
+    //             body: JSON.stringify({
+    //                 category_id: info.id,
+    //                 book_id: book_id
+    //             }),
+    //         })
+    //             .then((r) => r.json())
+    //             .then((match) => setMatch(match))
+    //         )
+    // }
+
+
+
+
 
 
 
@@ -203,10 +225,7 @@ function Book({ user, setUser }) {
                         ) : (
                             <label className="perTitle" ><h6>{book?.title}</h6>  | <h9>{expense ? expense : 'Great Work Budgeting !'}</h9></label>
                         )}
-                    <form onSubmit={handleSubmit} className='cats'>
-                        <input placeholder=' new category' onChange={(e) => setCategoryName(e.target.value)} />
-                        <button className='ahd' type='submit'>ADD</button>
-                    </form>
+                <CategoriesForm addCategories ={addCategories} book_id={book_id}/>
                 </div>
                 <div>
                     <TotalExp labels={labels} dataList={dataList} />

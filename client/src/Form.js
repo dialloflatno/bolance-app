@@ -87,22 +87,6 @@ function Form({ entryHandled, expDropDown ,categoriesArr}) {
                 .then((cat_repo)=> console.log(cat_repo))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 console.log(expDropDown);

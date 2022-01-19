@@ -9,6 +9,7 @@ class BookCategoriesController < ApplicationController
         # byebug
         render json: matching, status: :created
     end
+end
 
 private
 
@@ -16,6 +17,3 @@ private
     def bc_param
         params.permit(:book_category, :book_id, :category_id)
     end
-
-
-end

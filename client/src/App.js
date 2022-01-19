@@ -56,7 +56,7 @@ function App() {
           <Route path="/signin">
             <SignIn handleLogin={handleLogin} />
           </Route>
-          <Route path="/welcome">
+          <Route path="/home">
             <Home />
           </Route>
         </Switch>
