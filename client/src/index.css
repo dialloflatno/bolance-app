@@ -2,13 +2,11 @@
 body {
   margin: 0;
 
-  background: #0ade9e;
   /* background-color: #075066; */
   font-family: 'M PLUS 2', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 html,
 body {
@@ -18,13 +16,12 @@ body {
   overflow-x: hidden;
 }
 
-
-.toggle_update{
-  color:#a1afd6;
+.toggle_update {
+  color: #a1afd6;
   margin-right: 75px;
 }
 
-.toggle_update:hover{
+.toggle_update:hover {
   transition: 0.5s;
   color: #dee0e4;
   margin-right: 75px;
@@ -142,6 +139,22 @@ header {
   list-style: none;
   font-size: large;
   font-weight: bold;
+}
+.toss {
+  color: antiquewhite;
+  background: coral;
+  transition: 0.3s;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: 60px;
+}
+.toss:focus {
+  display: contents;
+}
+
+.toss:hover {
+  background-color: rgb(92, 1, 1);
 }
 a {
   text-decoration: none;
@@ -271,6 +284,22 @@ img {
     font-family: system-ui;
     color: antiquewhite;
   }
+  .toss {
+    color: antiquewhite;
+    background: coral;
+    transition: 0.3s;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 60px;
+  }
+  .toss:focus {
+    display: contents;
+  }
+
+  .toss:hover {
+    background-color: rgb(92, 1, 1);
+  }
   .wall {
     background: #0baade;
     margin: -17px;
@@ -390,6 +419,7 @@ img {
     margin: 0px;
   }
   .ahd {
+    transition: 0.3s;
     font-style: normal;
     font-weight: 300;
     line-height: 14px;
@@ -415,6 +445,7 @@ img {
     text-align: center;
   }
   .ahd button {
+    transition: 0.4s;
     color: aliceblue;
     background: #0aa2e2;
     border-radius: 10px;
@@ -428,6 +459,9 @@ img {
     font-size: 12px;
     line-height: 14px;
     text-align: center;
+  }
+  .ahd button {
+    background: rgb(6, 134, 81);
   }
 
   .cats {
@@ -505,9 +539,10 @@ img {
     transition: 0.3s;
   }
   fieldset {
+    -webkit-animation-direction: alternate;
     -webkit-backdrop-filter: blur(1px);
     backdrop-filter: blur(1px);
-    width: 155%;
+    /* width: 155%; */
     margin-top: 10px;
     display: flex;
     position: static;
@@ -541,6 +576,12 @@ img {
   }
   .drpfrm-close:toggle {
     transition: 0.3s;
+    margin-top: 20px;
+    background: none;
+    border: none;
+    color: gray;
+    font-weight: bold;
+    cursor: pointer;
   }
   .vhm {
     width: -webkit-fill-available;
@@ -712,6 +753,25 @@ img {
   justify-content: space-evenly;
   align-items: flex-start;
 }
+.ahd button {
+  transition: 0.4s;
+  color: aliceblue;
+  background: #0aa2e2;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 12px;
+  border: none;
+  height: 28px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+}
+.ahd button {
+  background: rgb(6, 134, 81);
+}
 .Contanier_BO {
   z-index: 12;
   position: fixed;
@@ -861,8 +921,8 @@ img {
 }
 
 .drpfrm {
+  transition: 0.3s;
   margin-top: 20px;
-  width: 20px;
   background: none;
   border: none;
   color: gray;
@@ -1091,10 +1151,13 @@ legend {
   position: absolute;
   color: cadetblue;
   font-weight: 600;
+  transition: 0.3s;
+
 }
 fieldset {
+  transition: 0.5s;
   backdrop-filter: blur(1px);
-  width: 105%;
+  /* width: 105%; */
   margin-top: 10px;
   display: flex;
   position: static;
@@ -1115,12 +1178,15 @@ fieldset {
 } */
 
 .formEntry {
+  transition: 0.3s;
+
   display: flex;
   margin: 30px 4px 12px -13px;
   align-items: center;
 }
 
 .addButton {
+  transition: 0.3s;
   display: flex;
   align-items: center;
   align-content: stretch;
@@ -1177,6 +1243,7 @@ fieldset {
 }
 
 select.Form {
+  color: #4b618a;
   height: 30px;
   padding: 2px;
 }
@@ -1350,6 +1417,7 @@ form .ph {
 }
 
 form button {
+  transition: 0.3s;
   font-style: normal;
   font-weight: 300;
   line-height: 14px;
@@ -1371,6 +1439,12 @@ form button {
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
+}
+
+
+form button:hover {
+  transition: 0.3s;
+background-color: rgb(9, 104, 80);
 }
 .m {
   overflow: scroll;
@@ -1485,9 +1559,16 @@ form button {
   color: antiquewhite;
 }
 .footer {
-  height: 50px;
-  margin: 20px 0px 0px;
-  background-color: rgba(128, 128, 128, 0.24);
+  font-weight: 600;
+  padding: 25px;
+  height: 65vh;
+  margin: 47px 0px 0px;
+  background-color: #1f2939;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 footer {
   font-weight: 600;
