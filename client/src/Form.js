@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Form({ entryHandled, expDropDown ,categoriesArr}) {
+function Form({ entryHandled, expDropDown, categoriesArr }) {
 
 
 
@@ -8,7 +8,7 @@ function Form({ entryHandled, expDropDown ,categoriesArr}) {
     const [storle, setStore] = useState("")
     const [cost, setCost] = useState("")
     const [date, setDate] = useState("")
-    const[choice,setChoice] = useState('')
+    const [choice, setChoice] = useState('')
     const [payment, PaymentType] = useState("")
 
 
@@ -32,9 +32,8 @@ function Form({ entryHandled, expDropDown ,categoriesArr}) {
         else {
             setItem(capitalize)
         }
-
-
     }
+
     const handleStoreChange = (e) => {
         const capitalize = () => e.target.value[0] + e.target.value.slice(1);
         setStore(capitalize)
@@ -73,9 +72,9 @@ function Form({ entryHandled, expDropDown ,categoriesArr}) {
                 })
         })
             .then(res => res.json())
-            .then(data => fetch('/cateo_transaction_reports',{
-                method:"POST",
-                headers:{
+            .then(data => fetch('/cateo_transaction_reports', {
+                method: "POST",
+                headers: {
                     "Content-Type": " application/json",
                 },
                 body: JSON.stringify(
@@ -83,40 +82,39 @@ function Form({ entryHandled, expDropDown ,categoriesArr}) {
                         expense_id: data.id,
                         category_id: choosen?.id
                     })
-                })).then((r)=>r.json())
-                .then((cat_repo)=> entryHandled(cat_repo))
-
-
+            })).then((r) => r.json())
+            .then((cat_repo) => console.log(cat_repo))
     }
 
-console.log(expDropDown);
 
     return (
         <div className="mainForm">
-            <fieldset>
-                <legend>Add expense</legend>
-                <form onSubmit={handleEntry} className="formEntry">
-                    <input onChange={handleItemChange} className="Form" name="Item " placeholder="Ex:Tools">
-                    </input>
-                    <input onChange={handleStoreChange} className="Form" name="Store" placeholder="Ex:Lowe's">
-                    </input>
-                    <input onChange={handleDateChange} className="Form" type="date" name="Date" placeholder="Ex:02/20/30">
-                    </input>
-                    <select onChange={handlePaymentChange} className="Form" type="text" name="method" placeholder="Ex:AMEX/CASH/CRYPTO">
-                        <option>PaymentType</option>
-                        <option>Credit Card</option>
-                        <option>Cash</option>
-                        <option>Crypto</option>
-                    </select>
-                    <input onChange={handleCostChange} className="Form" type="number" name="Cost" min="0.01" step="0.01" max="2500" placeholder="Ex:$0.00">
-                    </input>
-                    <select onChange= {(e)=> setChoice(e.target.value)} id="dropdown">
-                        <option>Category </option>
-                        {expDropDown}
-                    </select>
-                    <button className='addButton' type='submit'>+</button>
-                </form>
-            </fieldset>
+            <div>
+                <fieldset>
+                    <form onSubmit={handleEntry} className="formEntry">
+                        <legend>Add expense</legend>
+                        <input onChange={handleItemChange} className="Form" name="Item " placeholder="Ex:Tools">
+                        </input>
+                        <input onChange={handleStoreChange} className="Form" name="Store" placeholder="Ex:Lowe's">
+                        </input>
+                        <input onChange={handleDateChange} className="Form" type="date" name="Date" placeholder="Ex:02/20/30">
+                        </input>
+                        <select onChange={handlePaymentChange} className="Form" type="text" name="method" placeholder="Ex:AMEX/CASH/CRYPTO">
+                            <option>PaymentType</option>
+                            <option>Credit Card</option>
+                            <option>Cash</option>
+                            <option>Crypto</option>
+                        </select>
+                        <input onChange={handleCostChange} className="Form" type="number" name="Cost" min="0.01" step="0.01" max="2500" placeholder="Ex:$0.00">
+                        </input>
+                        <select onChange={(e) => setChoice(e.target.value)} id="dropdown">
+                            <option>Category </option>
+                            {expDropDown}
+                        </select>
+                        <button className='addButton' type='submit'>+</button>
+                    </form>
+                </fieldset>
+            </div>
         </div>
     );
 }

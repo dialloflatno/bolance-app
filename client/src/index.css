@@ -103,31 +103,54 @@ header {
 .dropgo-NAV select {
   border: none;
   background: none;
-  color: aliceblue;
-  font-size: smaller;
-  font-weight: 100;
-  color: aliceblue;
+  font-size: medium;
+  font-weight: 400;
+  color: #282c34;
   background-position-x: inherit;
   background: none;
   box-sizing: border-box;
   border-radius: 10px;
 }
 .dropgo-NAV {
+  height: 7px;
   border: none;
   background: none;
-  color: aliceblue;
   font-size: smaller;
   font-weight: 400;
-  color: aliceblue;
+  color: #282c34;
   background-position-x: inherit;
   background: none;
   box-sizing: border-box;
   border-radius: 10px;
 }
 
+.profileInfo{
+  backdrop-filter: drop-shadow(2px 4px 5px black);
+  border-end-start-radius: 7px;
+  margin-top: 10px;
+  margin-left: -237px;
+  font-size: 12px;
+  position: absolute;
+  border-block-end: 20px;
+  padding: 20px;
+  display: flex;
+  /* display: block; */
+  color: black;
+  /* column-count: auto; */
+  flex-direction: column;
+  align-items: baseline;
+  /* margin: 20px auto; */
+  background: rgb(248 255 252);
+  height: 144px;
+  width: 137px;
+  border-end-end-radius: 7px;
+  font-family: inherit;
+  font-weight: 400;
+}
 .dropgo-LOGOUT {
-  font-size: small;
-  color: aliceblue;
+  font-weight: 400;
+  font-size: 12px;
+  color:black;
   border: none;
   background: none;
 }
@@ -196,7 +219,7 @@ a {
   font-size: large;
   margin-left: 20px;
   transition: background-color 0.125s, box-shadow 0.125s;
-  box-shadow: inset 0 0 0 1px #bccbd7;
+  box-shadow: inset 0px 0px 4px -1px #808080a6;
   padding: 6px 9px;
   border-radius: 4px;
   height: 15px !important;
@@ -232,7 +255,14 @@ img {
   flex-direction: column;
   transition: 5.5s;
 }
-@media only screen and (max-width: 600px) {
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
+
   .navBar .userName {
     padding: none;
     display: flex;
@@ -359,15 +389,30 @@ img {
     grid-column-gap: 45px;
     column-gap: 45px;
   }
-
+  .noos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
   .formEntry {
+    transition: 0.3s;
     display: flex;
     margin: 30px 4px 12px -13px;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
+    row-gap: 9px;
+
   }
+  
   .formEntry input {
-    margin: 10px;
+    transition: 0.3s;
+    display: flex;
+    margin: 30px 4px 12px -13px;
+    align-items: center;
+    flex-direction: column;
+  row-gap: 9px;
   }
   .formEntry select {
     margin: 20px;
@@ -387,11 +432,10 @@ img {
     flex-wrap: wrap;
   }
   .perTitle {
+    display: flex;
     font: optional;
-    font-size: xx-large;
-    margin-left: 69px;
-    padding: 17px;
-    column-gap: 10px;
+    font-size: x-large;
+    align-items: center;
   }
   h6 {
     padding: 10px;
@@ -512,11 +556,9 @@ img {
     /* width: fit-content; */
   }
   .card {
-    margin-left: 129px;
-    /* display: flex; */
     display: flow-root;
-    height: 318px;
-    width: 71px;
+    height: 326px;
+    width: 206px;
     left: 356px;
     top: 234px;
     border-radius: 12px;
@@ -527,25 +569,22 @@ img {
   }
   .card:hover {
     display: flow-root;
-    height: 415px;
-    width: 305px;
+    height: 346px;
+    width: 226px;
     left: 356px;
     top: 234px;
     border-radius: 12px;
     bottom: 63.77%;
-    background: #e4f6f6;
-    box-shadow: 0px 3px 17px rgb(0 8 0 / 64%);
+    background: #fbfefe;
+    box-shadow: 0px 2px 10px rgb(0 0 0 / 25%);
     border-radius: 12px;
-    transition: 0.3s;
   }
   fieldset {
-    -webkit-animation-direction: alternate;
+    transition: 0.5s;
     -webkit-backdrop-filter: blur(1px);
     backdrop-filter: blur(1px);
-    /* width: 155%; */
     margin-top: 10px;
     display: flex;
-    position: static;
     box-shadow: -3px 0px 20px #0a1f5a61;
     flex-direction: column;
     align-content: flex-end;
@@ -776,18 +815,28 @@ img {
   z-index: 12;
   position: fixed;
   float: left;
-  height: 40px;
+  height: 27px;
   width: 100%;
   -webkit-font-smoothing: antialiased;
   width: -webkit-fill-available;
-  padding: 11px;
+  padding: 9px;
   box-sizing: content-box;
-  background: #102133;
+  background: rgb(247 248 243);
   color: white;
   font-weight: bolder;
   flex-shrink: inherit;
-  font-size: 24px;
+  box-shadow: 0px 1px 9px 0px #0000003b;
   align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  margin-bottom: 8px;
+  width: -moz-fit-content;
+  color: rgb(34 23 7);
+  list-style: none;
+  font-size: large;
+  font-weight: bold;
 }
 .perTitle {
   column-gap: 10px;
@@ -1147,12 +1196,18 @@ td {
   width: 77%;
 }
 
+.name {
+  display: inline-flex;
+  color: #4a4f5c;
+  font-size: smaller;
+  font-family: revert;
+  font-weight: 500;
+
+}
 legend {
-  position: absolute;
   color: cadetblue;
   font-weight: 600;
   transition: 0.3s;
-
 }
 fieldset {
   transition: 0.5s;
@@ -1260,6 +1315,7 @@ select.Form {
   border: none;
 }
 .navBar {
+  margin: -11px auto;
   padding: 10px;
   margin-top: -6px;
   width: 84%;
@@ -1441,10 +1497,9 @@ form button {
   line-height: 14px;
 }
 
-
 form button:hover {
   transition: 0.3s;
-background-color: rgb(9, 104, 80);
+  background-color: rgb(9, 104, 80);
 }
 .m {
   overflow: scroll;

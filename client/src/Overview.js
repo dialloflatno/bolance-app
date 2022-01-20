@@ -8,16 +8,7 @@ import { useEffect, useState } from "react";
 
 function Overview({ user, setUser }) {
 
-    const [books, setBooks] = useState(user.books)
-    // const booksUrl = '/books'
-
-
-    // useEffect(() => {
-    //     fetch(booksUrl)
-    //         .then((r) => r.json())
-    //         .then((bookcase) => setBooks(bookcase))
-    // }, []);
-    console.log(books)
+    const [books, setBooks] = useState(user.books) /// data is for the books of the user //////
 
     function placeBook(newBook) {
         console.log('Book Packed');
@@ -25,7 +16,7 @@ function Overview({ user, setUser }) {
         setBooks(addBook)
     };
 
-    let totalBookExpenses = 'Great Work Budgeting !'
+    let totalBookExpenses = 'Great Work Budgeting !' /// error message ////
 
 
 
@@ -43,13 +34,13 @@ function Overview({ user, setUser }) {
     // else {
     //     return ( 'hey' )
     // }
+    
+        console.log(user);
 
 
 
 
 
-
-    console.log(user);
 
 
     return (

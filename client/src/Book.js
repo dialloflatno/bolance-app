@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Nav from './Nav'
 import TotalExp from './TotalExp'
 import List from './List'
 import Form from './Form'
-import Map from './Map'
 import CategoriesForm from './CategoriesForm'
-// import Item from "./Item"
-// import TotalExp from "./TotalExp";
 
 function Book({ user, setUser }) {
   const { book_id } = useParams()
@@ -19,13 +15,11 @@ function Book({ user, setUser }) {
   const [update, setUpdate] = useState('')
   const [listOfExpenses, setList] = useState([])
   const [newEntry, setNewEntry] = useState('')
-  // const [categoriesArr,setArrayCategories] = useState(book?.categories)
   const [categoriesArr, setArrayCategories] = useState([])
   /////PATCH ____
 
   function whileUpdatingName(e) {
     e.preventDefault()
-    alert('Change Your Title ?')
     fetch(`/books/${book_id}`, {
       method: 'PATCH',
       headers: {
@@ -36,7 +30,7 @@ function Book({ user, setUser }) {
       }),
     })
       .then((r) => r.json())
-      .then((data) => console.log(data))
+      .then((data) =>  window.location.reload(data))
   }
   useEffect(() => {
     fetch(url)
@@ -44,32 +38,32 @@ function Book({ user, setUser }) {
       .then((shelf) => setBook(shelf))
   }, [])
 
-  
+
   console.log(categoriesArr)
-  
+
   function addCategories(new_cat) {
-      console.log('Category Added')
-      console.log(new_cat.category)
-      const nameOfACategory = new_cat.category
-      const addCat = [...categoriesArr, nameOfACategory]
-      console.log(addCat)
-      setArrayCategories(addCat)
-    }
-    
-    function entryHandled(entry) {
-        console.log('new entry slotted')
-        const singleExpense = entry.expense
-        const plusOne = [...listOfExpenses, singleExpense]
-        console.log(plusOne);
-        setNewEntry(plusOne)
-    }
-    
-    function handlesApperacance() {
-      setToggle(true)
-    }
-    function handlesDisapperacance() {
-      setToggle(false)
-    }
+    console.log('Category Added')
+    console.log(new_cat.category)
+    const nameOfACategory = new_cat.category
+    const addCat = [...categoriesArr, nameOfACategory]
+    console.log(addCat)
+    setArrayCategories(addCat)
+  }
+
+  function handlesApperacance() {
+    setToggle(true)
+  }
+  function handlesDisapperacance() {
+    setToggle(false)
+  }
+  function entryHandled(entry) {
+    console.log('new entry slotted')
+    const singleExpense = entry.expense
+    const plusOne = [...listOfExpenses, singleExpense]
+    console.log(plusOne);
+    setNewEntry(plusOne)
+  }
+
   // const categoriesArr = book?.categories;
   const labels = categoriesArr?.map((o) => o.name)
   /// dataList = [202,20,1]
@@ -134,36 +128,37 @@ function Book({ user, setUser }) {
 
   return (
     <>
-      <Nav user={user} setUser={setUser} book={book} />
       <div className="bckg">
         <div className="page_lay">
-          <button className="toss" onClick={handleToss}>
-            Toss
-          </button>
-          {toggle ? (
-            <Form
-              entryHandled={entryHandled}
-              className="tranv"
-              expDropDown={expDropDown}
-              categoriesArr={categoriesArr}
-            />
-          ) : (
-            ''
-          )}
-          {toggle ? (
-            <button onClick={handlesDisapperacance} className="drpfrm-close">
-              ▼
+          <div className='noos'>
+            <button className="toss" onClick={handleToss}>
+              Toss
             </button>
-          ) : (
-            <button
-              onClick={handlesApperacance}
-              value={false}
-              className="drpfrm"
-            >
-              ▼
-            </button>
-          )}
+            {toggle ? (
+              <Form
+                entryHandled={entryHandled}
+                className="tranv"
+                expDropDown={expDropDown}
+                categoriesArr={categoriesArr}
+              />
+            ) : (
+              ''
+            )}
+            {toggle ? (
+              <button onClick={handlesDisapperacance} className="drpfrm-close">
+                ▼
+              </button>
+            ) : (
+              <button
+                onClick={handlesApperacance}
+                value={false}
+                className="drpfrm"
+              >
+                ▼
+              </button>
+            )}
 
+          </div>
           {show ? (
             <label className="perTitle">
               <form id="titlePATCH" onSubmit={whileUpdatingName}>
@@ -185,7 +180,6 @@ function Book({ user, setUser }) {
               </h5>
             </>
           )}
-
           <CategoriesForm addCategories={addCategories} book_id={book_id} />
         </div>
         <div>

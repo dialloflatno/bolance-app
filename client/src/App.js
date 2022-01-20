@@ -1,16 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Route, Switch, Redirect } from 'react-router-dom';
-// import Nav from './Nav';
-import Home from "./Home";
+import { Route, Switch} from 'react-router-dom';
 import SignIn from "./SignIn"
 import SignUp from "./SignUp"
 import './App.css';
 import Overview from "./Overview";
 import Book from "./Book";
-// import Reports from "./Reports";
 import Nav from "./Nav";
-// import ErrorPage from "./ErrorPage";
+import GreetNav from "./GreetNav";
+import Welcome from "./Welcome";
 
 
 function App() {
@@ -31,11 +29,15 @@ function App() {
     setUser(user);
   }
 
+  function handleUpdatedName(newBookTitle) {
+    console.log(newBookTitle);
+    
+  }
 
 
   return (
 
-    <div className="App">
+    <>
 
       {user ? (
         <Switch>
@@ -45,7 +47,7 @@ function App() {
           </Route>
           <Route exact path="/books/:book_id">
             <Nav user={user} setUser={setUser} />
-            <Book user={user} setUser={setUser}  />
+            <Book user={user} setUser={setUser} handleUpdatedName={handleUpdatedName} />
           </Route>
         </Switch>
       ) : (
@@ -57,14 +59,15 @@ function App() {
             <SignIn handleLogin={handleLogin} />
           </Route>
           <Route path="/home">
-            <Home />
+            <GreetNav />
+            <Welcome/>
           </Route>
         </Switch>
       )}
        
           {/* <ErrorPage user={user} /> */}
        
-    </div>
+    </>
   );
 }
 
