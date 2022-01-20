@@ -123,34 +123,101 @@ header {
   box-sizing: border-box;
   border-radius: 10px;
 }
+.profileInfo h3 {
+  font-size: 16px;
+  color: currentColor;
+  margin: 2px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+}
+.booksUser {
+  font-weight: 600;
+  font-size: medium;
+  line-height: 3px;
+}
+.profileInfo label,
+span {
+  font-size: 11px;
+  margin: 10px;
+  line-height: 20px;
+  color: currentColor;
+  margin: 3px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+}
 
-.profileInfo{
+.profileUpdate:hover {
+  background-color: rgb(221, 220, 220);
+  color: white;
+  transition: all 0.3s;
+}
+.toggle-prp {
+  position: static;
+  transition: 0.5s;
+  display: flex;
+  border: none;
+  border: none;
+  background: none;
+  color: gray;
+  justify-content: flex-end;
+}
+.profileUpdate {
+  z-index: 0;
+  margin: 9px 14px;
+  background-color: rgb(228, 236, 252);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+.close {
+  height: 2px;
+  border: none;
+  background: none;
+  transform: 0.3s;
+  opacity: 0.35;
+}
+.profileInfo {
+  z-index: 0;
+  margin-top: 32px;
   backdrop-filter: drop-shadow(2px 4px 5px black);
   border-end-start-radius: 7px;
-  margin-top: 10px;
+  line-height: 29px;
   margin-left: -237px;
   font-size: 12px;
   position: absolute;
   border-block-end: 20px;
-  padding: 20px;
+  padding: 30px;
   display: flex;
-  /* display: block; */
   color: black;
-  /* column-count: auto; */
   flex-direction: column;
   align-items: baseline;
-  /* margin: 20px auto; */
   background: rgb(248 255 252);
-  height: 144px;
+  height: 221px;
   width: 137px;
   border-end-end-radius: 7px;
   font-family: inherit;
   font-weight: 400;
 }
+.profileInfo input {
+  border: none;
+  left: 62.42%;
+  margin: 3px;
+  right: 8.02%;
+  top: 41.13%;
+  bottom: 54.57%;
+  background: #f2fdff;
+  box-shadow: inset 1px 1px 3px rgb(0 0 0 / 13%);
+  border-radius: 10px;
+  height: 28px;
+  width: 120px;
+  left: 623px;
+  /* top: 306px; */
+  border-radius: 6px;
+}
 .dropgo-LOGOUT {
   font-weight: 400;
   font-size: 12px;
-  color:black;
+  color: black;
   border: none;
   background: none;
 }
@@ -403,16 +470,15 @@ img {
     align-items: center;
     flex-direction: column;
     row-gap: 9px;
-
   }
-  
+
   .formEntry input {
     transition: 0.3s;
     display: flex;
     margin: 30px 4px 12px -13px;
     align-items: center;
     flex-direction: column;
-  row-gap: 9px;
+    row-gap: 9px;
   }
   .formEntry select {
     margin: 20px;
@@ -1202,7 +1268,6 @@ td {
   font-size: smaller;
   font-family: revert;
   font-weight: 500;
-
 }
 legend {
   color: cadetblue;

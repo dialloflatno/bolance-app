@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :expenses,only:[:index,:show,:create, :destroy]
   resources :books,only:[:index,:show,:create, :destroy, :update]
   resources :book_categories ,only:[:index,:show,:create, :destroy]
-  resources :users,only:[:index,:show,:create]
+  resources :users,only:[:index,:show,:create,:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 

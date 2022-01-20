@@ -2,7 +2,7 @@ import BookCover from "./BookCover";
 
 
 
-function BookShelf({ bookExp, view }) {
+function BookShelf({ bookExp, view ,email,user}) {
 
 
 

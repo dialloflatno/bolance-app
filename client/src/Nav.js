@@ -1,8 +1,14 @@
 import Search from './Search'
+import {useState  } from "react";
 import { useHistory, Link as a, Link } from 'react-router-dom'
 import Profile from './Profile'
 
-function Nav({user, setUser}) {
+function Nav({ user, setUser }) {
+  const [isOpen,setOpen]=useState(false)
+const [username,setUsername] = useState('')
+const [email,setEmail] = useState('')
+const [password,setPassword] = useState('')
+
   const history = useHistory()
   function handleLogoutClick() {
     console.log('Save Your Coins!!')
@@ -27,6 +33,24 @@ function Nav({user, setUser}) {
     window.location.reload()
   }
 
+
+  function profileUpdating(e) {
+    e.preventDefault()
+    fetch(`/users/${user.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        username: username
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) =>  console.log(data))
+  }
+
   const dropDown = titleBook.map((book) => {
     // debugger
     return (
@@ -44,7 +68,7 @@ function Nav({user, setUser}) {
             <div>
               <nav className="navBar">
                 <div>
-                  <ul className="navUl">
+                  <ul className="navUl" >
                     <Link to="/">
                       <li className="logo">Bolance</li>
                     </Link>
@@ -68,9 +92,12 @@ function Nav({user, setUser}) {
                       onClick={handleLogoutClick}>
                       Logout
                     </Link>
+                    <button className="close" onClick ={() => setOpen(true)}>
+                      ▼
+                    </button>
                     <div>
-                    <Profile user ={user} />
                     </div>
+                 <Profile  handleSubmit ={profileUpdating}    email ={setEmail} userName ={setUsername} pass ={setPassword} open={isOpen}  pdate={profileUpdating}  close={() =>setOpen(false)} user={user} />
                   </ul>
                 </div>
                 <div className="stack">
@@ -82,7 +109,7 @@ function Nav({user, setUser}) {
               </nav>
             </div>
           </span>
-          <div/>
+          <div />
         </div>
       </div>
     </div>
