@@ -7,8 +7,10 @@ import SignUp from "./SignUp"
 import './App.css';
 import Overview from "./Overview";
 import Book from "./Book";
-// import Reports from "./Reports";
+import Welcome from "./Welcome";
+import ErrorPage from "./ErrorPage";
 import Nav from "./Nav";
+// import Reports from "./Reports";
 
 
 function App() {
@@ -29,43 +31,43 @@ function App() {
     setUser(user);
   }
 
-  function handleUpdatedName(newBookTitle) {
-    console.log(newBookTitle);
-    
-  }
 
 
-  return (
-
-    <div className="App">
-
-      {user ? (
-        <Switch>
+  if(user){
+    return (
+      <>
+       <Switch>
           <Route exact path="/" >
             <Nav user={user} setUser={setUser} />
-            <Overview user={user} setUser={setUser} />
+            <Overview user={user} />
           </Route>
           <Route exact path="/books/:book_id">
             <Nav user={user} setUser={setUser} />
-            <Book user={user} setUser={setUser} handleUpdatedName={handleUpdatedName} />
+            <Book />
           </Route>
+          <Route default component ={ErrorPage} />
         </Switch>
-      ) : (
-        <Switch>
-          <Route path="/signup">
-            <SignUp setUser={setUser} />
-          </Route>
-          <Route path="/signin">
-            <SignIn handleLogin={handleLogin} />
-          </Route>
-          <Route path="/home">
-            <GreetNav />
-          </Route>
-        </Switch>
-      )}
-             
+      </>
+    )
+    } else {
+  return (
+
+    <div className="App">
+  
+      <Switch>
+        <Route exact path="/">
+          <GreetNav /><Welcome />
+        </Route>
+        <Route path="/signup">
+          <SignUp setUser={setUser} />
+        </Route>
+        <Route  exact path="/signin">
+          <SignIn handleLogin={handleLogin} />
+        </Route>
+      </Switch>
+     
     </div>
   );
-}
+}}
 
 export default App;

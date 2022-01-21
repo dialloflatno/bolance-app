@@ -1,4 +1,3 @@
-import Nav from "./Nav";
 import BookShelf from "./BookShelf.js";
 import BookForm from "./BookForm.js";
 import {useState } from "react";
@@ -6,24 +5,26 @@ import {useState } from "react";
 
 
 
-function Overview({ user}) {
+function Overview({ user }) {
 
     const [books, setBooks] = useState(user.books) /// data is for the books of the user //////
-console.log(books);
+
+
+
     function placeBook(newBook) {
         console.log('Book Packed');
         const addBook = [...books, newBook];
         setBooks(addBook)
     };
 
-    let totalBookExpenses = 'Great Work Budgeting !' /// error message ////
+    let totalExpenses = 'Great Work Budgeting !' /// error message ////
 
 
 
 
     // if (books.length > 0) {
 
-    //   totalBookExpenses = books.map(book => {
+    //   totalExpenses = books.map(book => {
     //         return (
     //             book.categories.map(category => { return category.expenses.map(t => { return (t.cost) }) })
     //         )
@@ -35,11 +36,6 @@ console.log(books);
     //     return ( 'hey' )
     // }
     
-        console.log(user);
-
-
-
-
 
 
 
@@ -51,10 +47,10 @@ console.log(books);
                     {/* <h2>{user.full_name}</h2> */}
                     <h1>Overview</h1>
 
-                    <h5>Expense:{totalBookExpenses}</h5>
+                    <h5>Expense:{totalExpenses}</h5>
                 </div>
                 <div className='m'>
-                    <BookShelf view={books} bookExp={totalBookExpenses} />
+                    <BookShelf books={books} totalExpenses ={totalExpenses} />
                 </div>
                 <div>
                     <BookForm user={user} placeBook={placeBook} />

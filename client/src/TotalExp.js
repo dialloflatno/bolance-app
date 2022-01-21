@@ -1,6 +1,6 @@
 
 
-function TotalExp({ }) {
+function TotalExp() {
 
     // console.log(dataList);
     // console.log(labels);

@@ -2,27 +2,24 @@ import BookCover from "./BookCover";
 
 
 
-function BookShelf({ bookExp, view ,email,user}) {
+function BookShelf({ totalExpenses, books }) {
 
 
 
-    let layed = 'No Book`s'
-    if (view.length > 0) {
+        let layed = 'No Book`s'
+        if (books.length > 0) {
 
-        layed = view.map((archBook) => {
-            return (
+            layed = books.map((book) => {
+                return (
+
                 <BookCover 
-                    bookExp={bookExp}
-                    title={archBook.title}
-
+                    bookExp={totalExpenses}
+                    title={book.title}
                 />
-            );
-        });
-
-    }
-
-
-
+                
+                )
+            });
+        }
 
 
 

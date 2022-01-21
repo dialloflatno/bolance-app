@@ -1,7 +1,7 @@
 import Info from "./Info";
 
 
-function List({ user, listOfExpenses }) {
+function List({ listOfExpenses }) {
 
 
   const exp = listOfExpenses?.map((x) => { return (x) })
@@ -42,8 +42,6 @@ function List({ user, listOfExpenses }) {
           <div className="base">
             {mappedList}
           </div>
-          {/* <Map user={user} /> */}
-
         </div>
       </div>
       <footer>Bolance App | Your Best Budget ! </footer>

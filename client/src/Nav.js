@@ -17,19 +17,7 @@ const [navtog,setNavTog]=useState(true)
         setNavTog(true)  
     }
 
-    // function handleToggle(){
-    //   if (setOpen == true)
-    //     return setOpen(false)
-    //   else {(setOpen == false)
-    //     return setOpen(true)
-    //   }
-    // }
-
-
-
-
-
-
+  
 
   const history = useHistory()
   function handleLogoutClick() {
@@ -52,7 +40,6 @@ const [navtog,setNavTog]=useState(true)
     const getBook = titleBook.find((book) => book.title === title).id
     console.log(getBook)
     history.push(`/books/${getBook}`)
-    window.location.reload()
   }
 
 
@@ -77,7 +64,6 @@ const [navtog,setNavTog]=useState(true)
   } 
 
   const dropDown = titleBook.map((book) => {
-    // debugger
     return (
       <>
       <>{book.id} </>

@@ -5,11 +5,12 @@ import List from './List'
 import Form from './Form'
 import CategoriesForm from './CategoriesForm'
 
-function Book({ user }) {
+function Book() {
+
   const { book_id } = useParams()
 
   const url = `/books/${book_id}`
-  const [bookDisplayed, setBookDisplayed] = useState('')
+  const [bookDisplayed, setBookDisplayed] = useState({categories:[]})
   const [show, setShow] = useState(false)
   const [toggle, setToggle] = useState('')
   const [update, setUpdate] = useState('')
@@ -19,7 +20,7 @@ function Book({ user }) {
 
   function whileUpdatingName(e) {
     e.preventDefault()
-    fetch(`/books/${book_id}`, {
+    fetch(url , {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -34,10 +35,13 @@ function Book({ user }) {
   useEffect(() => {
     fetch(url)
       .then((r) => r.json())
-      .then((shelf) => setBookDisplayed(shelf))
+      .then((bookResp) => setBookDisplayed(bookResp))
   },[])
-console.log(bookDisplayed);
-const [categoriesArr, setArrayCategories] = useState(bookDisplayed.categories)
+
+  console.log(bookDisplayed);
+
+
+  const [categoriesArr, setCategoriesArr] = useState(bookDisplayed.categories)
 
   console.log(categoriesArr)
 
@@ -47,9 +51,8 @@ const [categoriesArr, setArrayCategories] = useState(bookDisplayed.categories)
     console.log(new_cat.category)
     const nameOfACategory = new_cat.category
     const addCat = [...categoriesArr, nameOfACategory]
-    
     console.log(addCat)
-    setArrayCategories(addCat)
+    setCategoriesArr(addCat)
   }
 
   function handlesApperacance() {
@@ -66,31 +69,26 @@ const [categoriesArr, setArrayCategories] = useState(bookDisplayed.categories)
     console.log(plusOne);
     setNewEntry(plusOne)
   }
-
+////CHART/////////////////////////////////////////////////////////
   // const categoriesArr = book?.categories;
   const labels = categoriesArr?.map((o) => o.name)
   /// dataList = [202,20,1]
-  const dataListOfCosts = categoriesArr?.map((o) =>
-    o.expenses?.map((x) => x.cost),
-  )
+  const dataListOfCosts = categoriesArr?.map((o) => o.expenses?.map((x) => x.cost))
   /// dataList = [[202],[20],[1]] <<<----- What im getting
-  // debugger
-
-  let dataList = ''
-  if (dataListOfCosts?.length < 0) {
-    dataList = dataListOfCosts.map((o) => o.reduce((prev, curr) => prev + curr))
-  }
   let valueCost = ''
 
   if (dataListOfCosts?.length < 0) {
     valueCost = dataListOfCosts?.reduce((prev, curr) => prev + curr).split(',')
   }
+
   console.log(parseInt(valueCost))
   const expense = parseInt(valueCost)
+////CHART/////////////////////////////////////////////////////////
 
   console.log(newEntry)
 
   function handleReportListClick(e) {
+    console.log(e.target.value);
     const category = e.target.value
     console.log('rescrusive list')
     const showExpenses = categoriesArr?.find(
@@ -113,21 +111,19 @@ const [categoriesArr, setArrayCategories] = useState(bookDisplayed.categories)
   function handleSwitch() {
     setShow(true)
   }
+////Deleting Book ////////////////////////
 
   function handleToss(e) {
-    alert(
-      'Are Your Sure You Want to  permenatly delete your Book? this will destory all of your files ',
-    )
     console.log(e.target.value)
-
-    fetch(`/books/${book_id}`, {
+    fetch(url, {
       method: 'DELETE',
     })
       .then((r) => r.json())
       .then(() => console.log('deleted!'))
   }
+////Deleting Book ////////////////////////
 
-  console.log(show)
+
 
   return (
     <>
@@ -186,7 +182,7 @@ const [categoriesArr, setArrayCategories] = useState(bookDisplayed.categories)
           <CategoriesForm addCategories={addCategories} book_id={book_id} />
         </div>
         <div>
-          <TotalExp labels={labels} dataList={dataList} />
+          <TotalExp labels={labels}  />
         </div>
       </div>
 
@@ -198,9 +194,7 @@ const [categoriesArr, setArrayCategories] = useState(bookDisplayed.categories)
       </select>
       <div>
         <List
-          user={user}
-          categoriesArr={categoriesArr}
-          listOfExpenses={listOfExpenses}
+          display ={display}
         />
       </div>
     </>

@@ -9,7 +9,7 @@ function GreetNav() {
           <span className="logo">Bolance</span>
           <ul className="navUl">
             <div className="button-click">
-              <NavLink to="/signin" exact>
+              <NavLink exact to="/signin" >
                 <button className="dropgo"> SignIn</button>
               </NavLink>
               <NavLink to="/signup" exact>
