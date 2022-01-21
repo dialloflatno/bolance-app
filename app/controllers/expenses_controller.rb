@@ -21,6 +21,11 @@ class ExpensesController < ApplicationController
 
 private
 
+
+    def new_action
+        Expense.create!(trans_params)
+    end
+    
     def trans_params
         params.permit(:item, :cost, :store_name, :store_address, :payment_type, :expense)
     end
@@ -34,12 +39,6 @@ private
     def find_trans
         Expense.find_by(id: params[:id])
     end
-
-    def new_action
-        Expense.create!(trans_params)
-    end
-
-
 
 
 end

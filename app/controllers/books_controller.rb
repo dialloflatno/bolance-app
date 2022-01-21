@@ -24,9 +24,9 @@ class BooksController < ApplicationController
 
     def destroy
         book = Book.find_by(id: params[:id])
-        find_book = book.destroy
+        toss_book = book.destroy
         # byebug
-        render json: find_book, status: :no_content
+        render json: toss_book, status: :no_content
     end
     
 private

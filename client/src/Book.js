@@ -5,17 +5,16 @@ import List from './List'
 import Form from './Form'
 import CategoriesForm from './CategoriesForm'
 
-function Book({ user, setUser }) {
+function Book({ user }) {
   const { book_id } = useParams()
 
   const url = `/books/${book_id}`
-  const [book, setBook] = useState('')
+  const [bookDisplayed, setBookDisplayed] = useState('')
   const [show, setShow] = useState(false)
   const [toggle, setToggle] = useState('')
   const [update, setUpdate] = useState('')
   const [listOfExpenses, setList] = useState([])
   const [newEntry, setNewEntry] = useState('')
-  const [categoriesArr, setArrayCategories] = useState([])
   /////PATCH ____
 
   function whileUpdatingName(e) {
@@ -30,22 +29,25 @@ function Book({ user, setUser }) {
       }),
     })
       .then((r) => r.json())
-      .then((data) =>  window.location.reload(data))
+      .then((data) =>  console.log(data))
   }
   useEffect(() => {
     fetch(url)
       .then((r) => r.json())
-      .then((shelf) => setBook(shelf))
-  }, [])
-
+      .then((shelf) => setBookDisplayed(shelf))
+  },[])
+console.log(bookDisplayed);
+const [categoriesArr, setArrayCategories] = useState(bookDisplayed.categories)
 
   console.log(categoriesArr)
+
 
   function addCategories(new_cat) {
     console.log('Category Added')
     console.log(new_cat.category)
     const nameOfACategory = new_cat.category
     const addCat = [...categoriesArr, nameOfACategory]
+    
     console.log(addCat)
     setArrayCategories(addCat)
   }
@@ -59,6 +61,7 @@ function Book({ user, setUser }) {
   function entryHandled(entry) {
     console.log('new entry slotted')
     const singleExpense = entry.expense
+    debugger
     const plusOne = [...listOfExpenses, singleExpense]
     console.log(plusOne);
     setNewEntry(plusOne)
@@ -91,7 +94,7 @@ function Book({ user, setUser }) {
     const category = e.target.value
     console.log('rescrusive list')
     const showExpenses = categoriesArr?.find(
-      (categoryName) => categoryName.name == category,
+      (categoryName) => categoryName.name === category,
     )
     console.log(showExpenses.id)
     setList(showExpenses)
@@ -172,7 +175,7 @@ function Book({ user, setUser }) {
           ) : (
             <>
               <label className="perTitle">
-                <h6>{book?.title}</h6> |{' '}
+                <h6>{bookDisplayed?.title}</h6> |{' '}
                 <h9>{expense ? expense : 'Great Work Budgeting !'}</h9>
               </label>
               <h5 onClick={handleSwitch} className="toggle_update">
@@ -197,7 +200,7 @@ function Book({ user, setUser }) {
         <List
           user={user}
           categoriesArr={categoriesArr}
-          listOfExpenses={display}
+          listOfExpenses={listOfExpenses}
         />
       </div>
     </>

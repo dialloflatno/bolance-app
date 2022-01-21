@@ -1,13 +1,35 @@
 import Search from './Search'
 import {useState  } from "react";
-import { useHistory, Link as a, Link } from 'react-router-dom'
+import { useHistory, Link as Link } from 'react-router-dom'
 import Profile from './Profile'
 
 function Nav({ user, setUser }) {
-  const [isOpen,setOpen]=useState(false)
+const [isOpen,setOpen]=useState(false)
 const [username,setUsername] = useState('')
 const [email,setEmail] = useState('')
 const [password,setPassword] = useState('')
+const [navtog,setNavTog]=useState(true)
+
+    function handleToggle() {
+        setNavTog(false)  
+    }
+    function handleTogglePostive() {
+        setNavTog(true)  
+    }
+
+    // function handleToggle(){
+    //   if (setOpen == true)
+    //     return setOpen(false)
+    //   else {(setOpen == false)
+    //     return setOpen(true)
+    //   }
+    // }
+
+
+
+
+
+
 
   const history = useHistory()
   function handleLogoutClick() {
@@ -27,7 +49,7 @@ const [password,setPassword] = useState('')
   function handleRedirectClick(e) {
     const title = e.target.value
     console.log('Opening Book')
-    const getBook = titleBook.find((book) => book.title == title).id
+    const getBook = titleBook.find((book) => book.title === title).id
     console.log(getBook)
     history.push(`/books/${getBook}`)
     window.location.reload()
@@ -48,13 +70,17 @@ const [password,setPassword] = useState('')
       }),
     })
       .then((r) => r.json())
-      .then((data) =>  console.log(data))
-  }
+      .then((data) =>  setOpen(!data) 
+      
+      )
+      
+  } 
 
   const dropDown = titleBook.map((book) => {
     // debugger
     return (
       <>
+      <>{book.id} </>
         <option>{book.title}</option>
       </>
     )
@@ -97,7 +123,7 @@ const [password,setPassword] = useState('')
                     </button>
                     <div>
                     </div>
-                 <Profile  handleSubmit ={profileUpdating}    email ={setEmail} userName ={setUsername} pass ={setPassword} open={isOpen}  pdate={profileUpdating}  close={() =>setOpen(false)} user={user} />
+                 <Profile back ={handleTogglePostive} handleToggle={handleToggle} navtog={navtog} handleSubmit ={profileUpdating}   email ={setEmail} userName ={setUsername} pass ={setPassword} open={isOpen}  pdate={profileUpdating}  close={() =>setOpen(false)} user={user} />
                   </ul>
                 </div>
                 <div className="stack">

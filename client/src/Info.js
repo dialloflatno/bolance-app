@@ -23,7 +23,7 @@ function Info({ handleDeleteItem, item, cost, store, store_address, payment,date
 
         <div className="List_font">
 
-            <a onClick={() => console.log("hey")}>
+            <button onClick={() => console.log("hey")}>
 
                 <p>
                     <td><span>{date}</span></td>
@@ -44,7 +44,7 @@ function Info({ handleDeleteItem, item, cost, store, store_address, payment,date
 
                 </p>
 
-            </a>
+            </button>
             <button  className="delete" aria-atomic="true">REMOVE</button>
 
 

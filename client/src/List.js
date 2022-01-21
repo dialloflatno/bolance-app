@@ -1,6 +1,4 @@
-import { useState } from "react";
 import Info from "./Info";
-import Map from './Map.js'
 
 
 function List({ user, listOfExpenses }) {
@@ -28,11 +26,10 @@ function List({ user, listOfExpenses }) {
           payment={row.payment_type}
           Info={row}
         />))
-
       // mappedList = exp?.map(row => console.log(row))
-    
   }
 
+  
 
   // console.log(mappedList);
 

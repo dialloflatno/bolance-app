@@ -1,15 +1,15 @@
 import Nav from "./Nav";
 import BookShelf from "./BookShelf.js";
 import BookForm from "./BookForm.js";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 
 
 
-function Overview({ user, setUser }) {
+function Overview({ user}) {
 
     const [books, setBooks] = useState(user.books) /// data is for the books of the user //////
-
+console.log(books);
     function placeBook(newBook) {
         console.log('Book Packed');
         const addBook = [...books, newBook];
@@ -46,7 +46,6 @@ function Overview({ user, setUser }) {
     return (
 
         <div className='appback'>
-            <Nav user={user} setUser={setUser} />
             <div className='OverView'>
                 <div id='top'>
                     {/* <h2>{user.full_name}</h2> */}

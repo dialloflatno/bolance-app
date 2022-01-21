@@ -16,10 +16,10 @@ function Form({ entryHandled, expDropDown, categoriesArr }) {
 
     // const choosen = titleBook.find(book => book.title == title).id
 
-    const choosen = categoriesArr?.find(categoryName => categoryName.name == choice)
+    const choosen = categoriesArr?.find(categoryName => categoryName.name === choice)
 
 
-
+    console.log(date);
 
     const urlList = '/expenses'
 
@@ -83,7 +83,7 @@ function Form({ entryHandled, expDropDown, categoriesArr }) {
                         category_id: choosen?.id
                     })
             })).then((r) => r.json())
-            .then((cat_repo) => console.log(cat_repo))
+            .then((cat_repo) => entryHandled(cat_repo))
     }
 
 

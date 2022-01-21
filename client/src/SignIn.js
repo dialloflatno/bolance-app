@@ -1,9 +1,6 @@
 
-// import Search from "./Search";
-// import Welcome from "./Welcome";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Nav from "./Nav";
 
 
 

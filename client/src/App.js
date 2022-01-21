@@ -1,14 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Route, Switch} from 'react-router-dom';
+import GreetNav from "./GreetNav";
 import SignIn from "./SignIn"
 import SignUp from "./SignUp"
 import './App.css';
 import Overview from "./Overview";
 import Book from "./Book";
+// import Reports from "./Reports";
 import Nav from "./Nav";
-import GreetNav from "./GreetNav";
-import Welcome from "./Welcome";
 
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
 
   return (
 
-    <>
+    <div className="App">
 
       {user ? (
         <Switch>
@@ -60,14 +60,11 @@ function App() {
           </Route>
           <Route path="/home">
             <GreetNav />
-            <Welcome/>
           </Route>
         </Switch>
       )}
-       
-          {/* <ErrorPage user={user} /> */}
-       
-    </>
+             
+    </div>
   );
 }
 
