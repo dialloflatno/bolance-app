@@ -47,9 +47,7 @@ function App() {
       
       <div className="App">
 
-          
               <Switch>
-
                 <Route exact path="/home">
                   <GreetNav /><Welcome />
                 </Route>

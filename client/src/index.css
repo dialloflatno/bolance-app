@@ -155,7 +155,7 @@ header {
 }
 .profileInfo label,
 span {
-  font-size: 11px;
+  font-size: xx-large;
   margin: 10px;
   line-height: 20px;
   color: currentColor;
@@ -1192,11 +1192,11 @@ img {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
 }
-.info{
+.info {
   display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 .List {
   height: 56px;
@@ -1517,6 +1517,7 @@ textarea {
   margin-top: -30%;
   display: flex;
   font-size: larger;
+  line-height: 20px;
   /* width: 175px; */
   flex-direction: column;
   align-items: flex-start;
@@ -1525,12 +1526,13 @@ textarea {
 }
 
 .to-form form {
+  color: #f4f9fd;
   display: contents;
-
   position: static;
   text-align: justify;
 }
 form input {
+  margin: 7px auto;
   border: none;
   left: 62.42%;
   right: 8.02%;
@@ -1547,13 +1549,14 @@ form input {
 }
 
 form h3 {
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 14px;
   letter-spacing: 0em;
   text-align: left;
   margin: 0pc;
+  margin-top: 12px;
 }
 
 form .ph {
@@ -1581,7 +1584,6 @@ form button {
   font-size: 12px;
   line-height: 14px;
   margin-left: 242px;
-  margin-top: 20px;
   border: none;
   height: 20px;
   bottom: 42.34%;
