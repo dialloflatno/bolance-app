@@ -1,13 +1,19 @@
 import Svg from "./Svg";
-
 export default function ErrorPage() {
+
 
 
     return (
         <>
-       <h1> Not Found</h1>
-       <Svg/>
+            <div className='errorPage'>
+                <div>
+                    <h1> Page Not Found</h1>
+
+                    <br />
+                    <Svg />
+                </div>
+            </div>
         </>
     )
-    
+
 }

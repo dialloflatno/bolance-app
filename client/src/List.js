@@ -1,10 +1,10 @@
 import Info from "./Info";
 
 
-function List({ listOfExpenses }) {
+function List({ display }) {
 
 
-  const exp = listOfExpenses?.map((x) => { return (x) })
+  const exp = display?.map((x) => { return (x) })
   console.log(exp);
 
   //return me each array that has a lenght value great the zero 
@@ -26,12 +26,10 @@ function List({ listOfExpenses }) {
           payment={row.payment_type}
           Info={row}
         />))
-      // mappedList = exp?.map(row => console.log(row))
   }
 
   
 
-  // console.log(mappedList);
 
 
   return (

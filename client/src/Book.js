@@ -15,9 +15,17 @@ function Book() {
   const [toggle, setToggle] = useState('')
   const [update, setUpdate] = useState('')
   const [listOfExpenses, setList] = useState([])
-  const [newEntry, setNewEntry] = useState('')
+  // const [newEntry, setNewEntry] = useState('')
+  
+  
+  
+  useEffect(() => {
+    fetch(url)
+    .then((r) => r.json())
+    .then((bookResp) => setBookDisplayed(bookResp))
+  },[url])
+  
   /////PATCH ____
-
   function whileUpdatingName(e) {
     e.preventDefault()
     fetch(url , {
@@ -31,29 +39,21 @@ function Book() {
     })
       .then((r) => r.json())
       .then((data) =>  console.log(data))
-  }
-  useEffect(() => {
-    fetch(url)
-      .then((r) => r.json())
-      .then((bookResp) => setBookDisplayed(bookResp))
-  },[])
-
-  console.log(bookDisplayed);
+    }
 
 
+////////^^^^Adding Categories to Book ^^^^^^////////////////////
   const [categoriesArr, setCategoriesArr] = useState(bookDisplayed.categories)
-
-  console.log(categoriesArr)
-
-
+  
   function addCategories(new_cat) {
     console.log('Category Added')
-    console.log(new_cat.category)
     const nameOfACategory = new_cat.category
     const addCat = [...categoriesArr, nameOfACategory]
-    console.log(addCat)
     setCategoriesArr(addCat)
   }
+////////^^^^Adding Categories to Book ^^^^^^////////////////////
+
+
 
   function handlesApperacance() {
     setToggle(true)
@@ -64,28 +64,16 @@ function Book() {
   function entryHandled(entry) {
     console.log('new entry slotted')
     const singleExpense = entry.expense
-    debugger
     const plusOne = [...listOfExpenses, singleExpense]
     console.log(plusOne);
-    setNewEntry(plusOne)
-  }
-////CHART/////////////////////////////////////////////////////////
-  // const categoriesArr = book?.categories;
-  const labels = categoriesArr?.map((o) => o.name)
-  /// dataList = [202,20,1]
-  const dataListOfCosts = categoriesArr?.map((o) => o.expenses?.map((x) => x.cost))
-  /// dataList = [[202],[20],[1]] <<<----- What im getting
-  let valueCost = ''
-
-  if (dataListOfCosts?.length < 0) {
-    valueCost = dataListOfCosts?.reduce((prev, curr) => prev + curr).split(',')
   }
 
-  console.log(parseInt(valueCost))
-  const expense = parseInt(valueCost)
-////CHART/////////////////////////////////////////////////////////
 
-  console.log(newEntry)
+////--CHART--/////////////////////////////////////////////////////////
+//--------MOVED TO THE CHART COMPONENT ----------------------////////
+////--CHART--//////////////////////////////////////////////////////
+
+
 
   function handleReportListClick(e) {
     console.log(e.target.value);
@@ -103,7 +91,7 @@ function Book() {
   const expDropDown = categoriesArr?.map((n) => {
     return (
       <>
-        <option>{n.name}</option>
+        <option key={n.id}>{n.name}</option>
       </>
     )
   })
@@ -124,6 +112,7 @@ function Book() {
 ////Deleting Book ////////////////////////
 
 
+const expense = ''
 
   return (
     <>
@@ -182,7 +171,7 @@ function Book() {
           <CategoriesForm addCategories={addCategories} book_id={book_id} />
         </div>
         <div>
-          <TotalExp labels={labels}  />
+          <TotalExp categoriesArr ={categoriesArr} />
         </div>
       </div>
 

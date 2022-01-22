@@ -1,6 +1,6 @@
 import Search from './Search'
 import {useState  } from "react";
-import { useHistory, Link as Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import Profile from './Profile'
 
 function Nav({ user, setUser }) {
@@ -20,12 +20,14 @@ const [navtog,setNavTog]=useState(true)
   
 
   const history = useHistory()
+  
   function handleLogoutClick() {
     console.log('Save Your Coins!!')
 
     fetch('/logout', { method: 'DELETE' }).then((r) => {
       if (r.ok) {
         setUser('')
+        history.push('/home')
       }
     })
   }
@@ -37,9 +39,11 @@ const [navtog,setNavTog]=useState(true)
   function handleRedirectClick(e) {
     const title = e.target.value
     console.log('Opening Book')
-    const getBook = titleBook.find((book) => book.title === title).id
-    console.log(getBook)
-    history.push(`/books/${getBook}`)
+    const getBook = titleBook.find((book) => book.title === title)
+    console.log(getBook);
+    const bookMatched = getBook.id
+    console.log(bookMatched)
+    history.push(`/books/${bookMatched}`)
   }
 
 
@@ -66,8 +70,8 @@ const [navtog,setNavTog]=useState(true)
   const dropDown = titleBook.map((book) => {
     return (
       <>
-      <>{book.id} </>
-        <option>{book.title}</option>
+      
+        <option index = {book.id}>{book.title}</option>
       </>
     )
   })
@@ -88,12 +92,10 @@ const [navtog,setNavTog]=useState(true)
                     <Link to="/" className="dropgo-NAV">
                       Home
                     </Link>
-                    <a onChange={handleRedirectClick} className="dropgo-NAV">
-                      <select>
+                      <select  onChange={handleRedirectClick} >
                         <option>Books</option>
                         {dropDown}
                       </select>
-                    </a>
                     <Link to="/errors" className="dropgo-NAV ">
                       PMR
                     </Link>

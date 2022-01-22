@@ -2,7 +2,25 @@
 // import { Bar} from "react-chartjs-2";
 
 
-// function Chart({dataList,names}){
+// function Chart({categoriesArr}){
+
+
+
+//  const categoriesArr = book?.categories;
+//  const labels = categoriesArr?.map((o) => o.name)
+//  /// dataList = [202,20,1]
+//  const dataListOfCosts = categoriesArr?.map((o) => o.expenses?.map((x) => x.cost))
+//  /// dataList = [[202],[20],[1]] <<<----- What im getting
+//  let valueCost = ''
+
+//  if (dataListOfCosts?.length < 0) {
+//    valueCost = dataListOfCosts?.reduce((prev, curr) => prev + curr).split(',')
+//  }
+
+//  console.log(parseInt(valueCost))
+//  const expense = parseInt(valueCost)
+
+
 //   const [barData, setBarData] = useState ({
 //     labels: names? (names):(""),
 //     datasets: [

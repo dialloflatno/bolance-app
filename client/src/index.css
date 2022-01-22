@@ -21,6 +21,25 @@ body {
   margin-right: 75px;
 }
 
+.errorPage svg {
+  margin: 20px auto;
+  margin-left: -25px;
+}
+.errorPage {
+  display: flex;
+  background: darkturquoise;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-content: space-between;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+.errorPage h1 {
+  color: blanchedalmond;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 75px auto;
+}
 .toggle_update:hover {
   transition: 0.5s;
   color: #dee0e4;

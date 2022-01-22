@@ -13,6 +13,7 @@ function BookShelf({ totalExpenses, books }) {
                 return (
 
                 <BookCover 
+                    key={book.id}
                     bookExp={totalExpenses}
                     title={book.title}
                 />

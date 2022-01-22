@@ -15,7 +15,7 @@ import Nav from "./Nav";
 
 function App() {
 
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState('');
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -23,16 +23,9 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
-  }, []);
+  },[]);
 
-  function handleLogin(user) {
-    console.log('Your Budgeting!!');
-    // debugger
-    setUser(user);
-  }
-
-
-
+ 
   if(user){
     return (
       <>
@@ -41,7 +34,7 @@ function App() {
             <Nav user={user} setUser={setUser} />
             <Overview user={user} />
           </Route>
-          <Route exact path="/books/:book_id">
+          <Route path="/books/:book_id">
             <Nav user={user} setUser={setUser} />
             <Book />
           </Route>
@@ -50,22 +43,22 @@ function App() {
       </>
     )
     } else {
-  return (
+        return (
 
-    <div className="App">
-  
-      <Switch>
-        <Route exact path="/">
-          <GreetNav /><Welcome />
-        </Route>
-        <Route path="/signup">
-          <SignUp setUser={setUser} />
-        </Route>
-        <Route  exact path="/signin">
-          <SignIn handleLogin={handleLogin} />
-        </Route>
-      </Switch>
-     
+            <div className="App">
+          
+              <Switch>
+                <Route  path="/home">
+                  <GreetNav /><Welcome />
+                </Route>
+                <Route path="/signup">
+                  <SignUp setUser={setUser} />
+                </Route>
+                <Route path="/">
+                  <SignIn setUser={setUser} />
+                </Route>
+              </Switch>
+            
     </div>
   );
 }}

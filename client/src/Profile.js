@@ -3,13 +3,6 @@
 
 export default function Profile({back, navtog, handleToggle, handleSubmit, userName, pass, email, open, close, user }) {
 
-// const [navtog,setNavTog]=useState(true)
-
-//     function handleToggle() {
-//         setNavTog(false)  
-//     }
-
-
     
     if (!open) return null
     return (

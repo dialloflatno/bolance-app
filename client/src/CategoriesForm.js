@@ -4,14 +4,12 @@ import { useState } from "react"
 
 
 
-export default function CategoriesForm({addCategories,book_id}) {
+export default function CategoriesForm({ addCategories, book_id }) {
 
         //// POST to Category the POST to BookCategory//////////////////
         const [name, setCategoryName] = useState('')
         
 
-
-console.log(name);
 
         const handleSubmit = (e) => {
             e.preventDefault()
