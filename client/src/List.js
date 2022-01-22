@@ -24,12 +24,14 @@ function List({ display }) {
           store_address={row.store_address}
           date={row.created_at}
           payment={row.payment_type}
-          Info={row}
+          info={row}
         />))
+      // mappedList = exp?.map(row => console.log(row))
   }
 
   
 
+  // console.log(mappedList);
 
 
   return (

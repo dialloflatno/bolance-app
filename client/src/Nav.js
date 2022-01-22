@@ -92,7 +92,7 @@ const [navtog,setNavTog]=useState(true)
                     <Link to="/" className="dropgo-NAV">
                       Home
                     </Link>
-                      <select  onChange={handleRedirectClick} >
+                      <select className="dropgo-NAV"  onChange={handleRedirectClick} >
                         <option>Books</option>
                         {dropDown}
                       </select>

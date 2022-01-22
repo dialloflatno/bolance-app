@@ -131,7 +131,6 @@ header {
   border-radius: 10px;
 }
 .dropgo-NAV {
-  height: 7px;
   border: none;
   background: none;
   font-size: smaller;
@@ -1193,12 +1192,23 @@ img {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
 }
-.List {
-  width: -webkit-fill-available;
+.info{
   display: flex;
-  flex-direction: row;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.List {
+  height: 56px;
+  padding: 10px;
+  box-sizing: content-box;
+  /* display: flex; */
+  background: rgb(228 240 248);
+  box-shadow: 0px 0px 2px 1px #80808059;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
   align-content: center;
 }
 td {
@@ -1212,7 +1222,7 @@ td {
   height: 56px;
   padding: 10px;
   box-sizing: content-box;
-  display: flex;
+  /* display: flex; */
   background: rgb(228 240 248);
   box-shadow: 0px 0px 2px 1px #80808059;
   justify-content: space-between;

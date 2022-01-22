@@ -2,20 +2,18 @@
 
 
 
-function Info({ handleDeleteItem, item, cost, store, store_address, payment,date}) {
+function Info({ handleDeleteItem, item, cost, store, info, store_address, payment, date }) {
 
-    // const urlDelete = `/expenses/${info.id}`
-
-
+    const urlDelete = `/expenses/${info.id}`
 
 
-    // function Destory() {
-    //     fetch(urlDelete, {
-    //         method: "DELETE",
-    //     })
-    //         .then((r) => r.json())
-    //         .then(() => handleDeleteItem(info));
-    // }
+
+    function Destory() {
+        fetch(urlDelete, {
+            method: "DELETE",
+        })
+            .then(() => handleDeleteItem(info));
+    }
 
 
 
@@ -23,14 +21,14 @@ function Info({ handleDeleteItem, item, cost, store, store_address, payment,date
 
         <div className="List_font">
 
-            <button onClick={() => console.log("hey")}>
+            <div className ='info'  >
 
                 <p>
-                    <td><span>{date}</span></td>
-                    <td> <span>{item}</span> </td>
-                    <td><span>{payment}</span></td>
-                    <td><span>${cost}</span></td>
-                    <td><span>{store}</span></td>
+                    <span>{date}</span>
+                    <span>{item}</span>
+                    <span>{payment}</span>
+                    <span>${cost}</span>
+                    <span>{store}</span>
                     {/* <hr className="lenght"></hr> */}
                     {/* <div className="FOOD"> */}
                     {/* <thead>{category_name}</thead> */}
@@ -44,8 +42,8 @@ function Info({ handleDeleteItem, item, cost, store, store_address, payment,date
 
                 </p>
 
-            </button>
-            <button  className="delete" aria-atomic="true">REMOVE</button>
+            <button className="delete" onClick={Destory} aria-atomic="true">REMOVE</button>
+            </div>
 
 
         </div >

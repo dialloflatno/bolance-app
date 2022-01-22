@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import TotalExp from './TotalExp'
 import List from './List'
@@ -12,11 +12,11 @@ function Book() {
   const url = `/books/${book_id}`
   const [bookDisplayed, setBookDisplayed] = useState()
   const [show, setShow] = useState(false)
-  const [toggle, setToggle] = useState('')
-  const [update, setUpdate] = useState('')
+  const [toggle, setToggle] = useState(false)
+  const [update, setUpdate] = useState(false)
   const [categoriesArr, setCategoriesArr] = useState([])
-  const [listOfExpenses, setList] = useState([])
-  // const [newEntry, setNewEntry] = useState('')
+  const [listOfExpenses, setList] = useState({expenses:[]})
+  const [newEntry, setNewEntry] = useState('')
 
 
 
@@ -29,7 +29,8 @@ function Book() {
       })
   }, [url])
 
-  /////PATCH ____
+/////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
+
   function whileUpdatingName(e) {
     e.preventDefault()
     fetch(url, {
@@ -41,9 +42,11 @@ function Book() {
         title: update,
       }),
     })
-      .then((r) => r.json())
-      .then((data) => {setShow(!data)})
+    .then((r) => r.json())
+    .then((data) => setShow(!data))
   }
+
+/////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
   
 
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
@@ -55,6 +58,17 @@ function Book() {
   }
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
+  ////Deleting Book ////////////////////////
+  
+  function handleToss(e) {
+    console.log(e.target.value)
+    fetch(url, {
+      method: 'DELETE',
+    })
+      .then((r) => r.json())
+      .then(() => console.log('deleted!'))
+  }
+  ////Deleting Book ////////////////////////
 
 console.log(categoriesArr);
 
@@ -65,12 +79,27 @@ console.log(categoriesArr);
   function handlesDisapperacance() {
     setToggle(false)
   }
+
+
+   
+  // function entryHandled(entry) {
+  //   console.log('new entry slotted')
+  //   const singleExpense = entry.expense
+  //   const plusOne = [...listOfExpenses, singleExpense]
+  //   setNewEntry(plusOne);
+  // }
+
+
   function entryHandled(entry) {
-    console.log('new entry slotted')
-    const singleExpense = entry.expense
-    const plusOne = [...listOfExpenses, singleExpense]
-    console.log(plusOne);
-  }
+    console.log("new entry slotted");;
+    const newPurchase = entry.expense
+    const add = [...newEntry,newPurchase]
+    console.log(add);
+    setNewEntry(add)
+    setList(newEntry)
+    ;
+}
+
 
 
   ////--CHART--/////////////////////////////////////////////////////////
@@ -104,17 +133,6 @@ console.log(categoriesArr);
   function handleSwitch() {
     setShow(true)
   }
-  ////Deleting Book ////////////////////////
-
-  function handleToss(e) {
-    console.log(e.target.value)
-    fetch(url, {
-      method: 'DELETE',
-    })
-      .then((r) => r.json())
-      .then(() => console.log('deleted!'))
-  }
-  ////Deleting Book ////////////////////////
 
 
   const expense = ''
@@ -158,6 +176,7 @@ console.log(categoriesArr);
                 <input
                   placeholder="new title"
                   type="text"
+                  value={null}
                   onChange={(e) => setUpdate(e.target.value)}
                 />
               </form>{' '}
@@ -166,7 +185,7 @@ console.log(categoriesArr);
             <>
               <label className="perTitle">
                 <h6>{bookDisplayed?.title}</h6> |{' '}
-                <h9>{expense ? expense : 'Great Work Budgeting !'}</h9>
+                <h5>{expense ? expense : 'Great Work Budgeting !'}</h5>
               </label>
               <h5 onClick={handleSwitch} className="toggle_update">
                 Change Book Title
@@ -188,6 +207,7 @@ console.log(categoriesArr);
       </select>
       <div>
         <List
+        newEntry ={newEntry}
           display={display}
         />
       </div>

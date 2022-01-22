@@ -10,6 +10,7 @@ import Book from "./Book";
 import Welcome from "./Welcome";
 import ErrorPage from "./ErrorPage";
 import Nav from "./Nav";
+import Loading from "./Loading";
 // import Reports from "./Reports";
 
 
@@ -38,17 +39,18 @@ function App() {
             <Nav user={user} setUser={setUser} />
             <Book />
           </Route>
-          <Route default component ={ErrorPage} />
         </Switch>
       </>
     )
-    } else {
-        return (
+  } else {
+    return (
+      
+      <div className="App">
 
-            <div className="App">
           
               <Switch>
-                <Route  path="/home">
+
+                <Route exact path="/home">
                   <GreetNav /><Welcome />
                 </Route>
                 <Route path="/signup">
