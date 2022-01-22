@@ -46,7 +46,6 @@ function App() {
     return (
       
       <div className="App">
-
               <Switch>
                 <Route exact path="/home">
                   <GreetNav /><Welcome />
