@@ -41,7 +41,7 @@ const [navtog,setNavTog]=useState(true)
     console.log('Opening Book')
     const getBook = titleBook.find((book) => book.title === title)
     console.log(getBook);
-    const bookMatched = getBook.id
+    const bookMatched = getBook?.id
     console.log(bookMatched)
     history.push(`/books/${bookMatched}`)
   }

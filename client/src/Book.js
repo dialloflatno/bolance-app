@@ -10,25 +10,29 @@ function Book() {
   const { book_id } = useParams()
 
   const url = `/books/${book_id}`
-  const [bookDisplayed, setBookDisplayed] = useState({categories:[]})
+  const [bookDisplayed, setBookDisplayed] = useState()
   const [show, setShow] = useState(false)
   const [toggle, setToggle] = useState('')
   const [update, setUpdate] = useState('')
+  const [categoriesArr, setCategoriesArr] = useState([])
   const [listOfExpenses, setList] = useState([])
   // const [newEntry, setNewEntry] = useState('')
-  
-  
-  
+
+
+
   useEffect(() => {
     fetch(url)
-    .then((r) => r.json())
-    .then((bookResp) => setBookDisplayed(bookResp))
-  },[url])
-  
+      .then((r) => r.json())
+      .then((bookResp) => {
+          setBookDisplayed(bookResp)
+          setCategoriesArr(bookResp.categories)
+      })
+  }, [url])
+
   /////PATCH ____
   function whileUpdatingName(e) {
     e.preventDefault()
-    fetch(url , {
+    fetch(url, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -38,21 +42,21 @@ function Book() {
       }),
     })
       .then((r) => r.json())
-      .then((data) =>  console.log(data))
-    }
-
-
-////////^^^^Adding Categories to Book ^^^^^^////////////////////
-  const [categoriesArr, setCategoriesArr] = useState(bookDisplayed.categories)
+      .then((data) => {setShow(!data)})
+  }
   
+
+  ////////^^^^Adding Categories to Book ^^^^^^////////////////////
+
   function addCategories(new_cat) {
-    console.log('Category Added')
     const nameOfACategory = new_cat.category
     const addCat = [...categoriesArr, nameOfACategory]
     setCategoriesArr(addCat)
   }
-////////^^^^Adding Categories to Book ^^^^^^////////////////////
+  ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
+
+console.log(categoriesArr);
 
 
   function handlesApperacance() {
@@ -69,9 +73,9 @@ function Book() {
   }
 
 
-////--CHART--/////////////////////////////////////////////////////////
-//--------MOVED TO THE CHART COMPONENT ----------------------////////
-////--CHART--//////////////////////////////////////////////////////
+  ////--CHART--/////////////////////////////////////////////////////////
+  //--------MOVED TO THE CHART COMPONENT ----------------------////////
+  ////--CHART--//////////////////////////////////////////////////////
 
 
 
@@ -95,11 +99,12 @@ function Book() {
       </>
     )
   })
+  console.log(expDropDown);
 
   function handleSwitch() {
     setShow(true)
   }
-////Deleting Book ////////////////////////
+  ////Deleting Book ////////////////////////
 
   function handleToss(e) {
     console.log(e.target.value)
@@ -109,10 +114,10 @@ function Book() {
       .then((r) => r.json())
       .then(() => console.log('deleted!'))
   }
-////Deleting Book ////////////////////////
+  ////Deleting Book ////////////////////////
 
 
-const expense = ''
+  const expense = ''
 
   return (
     <>
@@ -171,7 +176,7 @@ const expense = ''
           <CategoriesForm addCategories={addCategories} book_id={book_id} />
         </div>
         <div>
-          <TotalExp categoriesArr ={categoriesArr} />
+          <TotalExp categoriesArr={categoriesArr} />
         </div>
       </div>
 
@@ -183,7 +188,7 @@ const expense = ''
       </select>
       <div>
         <List
-          display ={display}
+          display={display}
         />
       </div>
     </>
