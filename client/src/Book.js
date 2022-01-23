@@ -102,11 +102,10 @@ function Book() {
 function entryHandled(entry){
   const newPurchase = entry.category
   const cat_found = Object.assign(categoriesArr.find(o => o.id === newPurchase.id),newPurchase || newPurchase)
+  console.log(cat_found);
   // const cat_found = categoriesArr?.map((categoryName) => categoryName.name === newPurchase.name)
   // if the match is there take that category an append the new expense to that category.expense array /////
   // const pushToCatgory = [...cat_found.expenses,newPurchase.expenses]
-  debugger
-  console.log(cat_found);
   // setCategoriesArr(cat_found)
 
 }
@@ -162,16 +161,21 @@ console.log(listOfExpenses);
 
   const display = listOfExpenses.expenses
 
-    function handleDeleteItem(act) {
-      const presentList = listOfExpenses.filter((entry) => entry.id !== act.id);
-      setList(presentList)
-    }
+////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function handleDeleteItem(act) {
+  // const updatedItems = listOfExpenses.expenses.filter((exp) => exp.id !== act.id);
+  const presentLists = listOfExpenses.expenses.filter((entry) => entry.id !== act.id);
+  setList(presentLists)
+}
+
+////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-  const expDropDown = categoriesArr?.map((n) => {
+  const expDropDown = categoriesArr?.map((n,id) => {
     return (
       <>
-        <option key={n.id}>{n.name}</option>
+        <option key={id}>{n.name}</option>
       </>
     )
   })
