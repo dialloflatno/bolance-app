@@ -99,16 +99,17 @@ const [navtog,setNavTog]=useState(true)
                     <Link to="/errors" className="dropgo-NAV ">
                       PMR
                     </Link>
-                    <span className="name">{user.full_name}</span>
+                    <span className="name">{user.full_name}
+                    <button className="close" onClick ={() => setOpen(true)}>
+                    ⌄
+                    </button>
+                    </span>
                     <Link
                       to="/logout"
                       className="dropgo-LOGOUT"
                       onClick={handleLogoutClick}>
                       Logout
                     </Link>
-                    <button className="close" onClick ={() => setOpen(true)}>
-                      ▼
-                    </button>
                     <div>
                     </div>
                  <Profile back ={handleTogglePostive} handleToggle={handleToggle} navtog={navtog} handleSubmit ={profileUpdating}   email ={setEmail} userName ={setUsername} pass ={setPassword} open={isOpen}  pdate={profileUpdating}  close={() =>setOpen(false)} user={user} />

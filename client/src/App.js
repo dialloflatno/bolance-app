@@ -27,6 +27,7 @@ function App() {
   },[]);
 
  
+
   if(user){
     return (
       <>
@@ -44,7 +45,6 @@ function App() {
     )
   } else {
     return (
-      
       <div className="App">
               <Switch>
                 <Route exact path="/home">
@@ -57,7 +57,6 @@ function App() {
                   <SignIn setUser={setUser} />
                 </Route>
               </Switch>
-            
     </div>
   );
 }}

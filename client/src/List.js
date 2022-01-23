@@ -1,7 +1,7 @@
 import Info from "./Info";
 
 
-function List({ display }) {
+function List({ display,handleDeleteItem }) {
 
 
   const exp = display?.map((x) => { return (x) })
@@ -25,8 +25,8 @@ function List({ display }) {
           date={row.created_at}
           payment={row.payment_type}
           info={row}
+          handleDeleteItem={handleDeleteItem}
         />))
-      // mappedList = exp?.map(row => console.log(row))
   }
 
   

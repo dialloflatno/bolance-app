@@ -4,10 +4,9 @@ import { useState } from "react"
 
 
 
-export default function CategoriesForm({ addCategories, book_id }) {
+export default function CategoriesForm({ setCategoryName, name ,addCategories, book_id }) {
 
         //// POST to Category the POST to BookCategory//////////////////
-        const [name, setCategoryName] = useState('')
         
 
 
@@ -38,8 +37,11 @@ export default function CategoriesForm({ addCategories, book_id }) {
                     }),
                 })
                 .then((r) => r.json())
-                .then((match) => addCategories(match))
-                )
+                .then((match) => {addCategories(match)
+                                    setCategoryName('')
+                    })
+
+             )
             }
             // .then((response)=> addCategories(response))
 
@@ -47,7 +49,7 @@ export default function CategoriesForm({ addCategories, book_id }) {
 
         <>
           <form onSubmit={handleSubmit} className='cats'>
-                <input placeholder=' new category' onChange={(e) => setCategoryName(e.target.value)} />
+                <input placeholder=' new category'  onChange={(e) => setCategoryName(e.target.value)} />
                 <button className='ahd' type='submit'>ADD</button>
             </form>
 

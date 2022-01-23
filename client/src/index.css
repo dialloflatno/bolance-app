@@ -632,10 +632,10 @@ img {
   }
 
   .m {
-    width: 70vw;
+    width: 72%;
     overflow: scroll;
-    margin-left: 74px;
-    /* width: fit-content; */
+    height: 30%;
+    margin: 60px auto;
   }
   .card {
     display: flow-root;

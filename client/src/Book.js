@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import TotalExp from './TotalExp'
 import List from './List'
@@ -15,8 +15,10 @@ function Book() {
   const [toggle, setToggle] = useState(false)
   const [update, setUpdate] = useState(false)
   const [categoriesArr, setCategoriesArr] = useState([])
-  const [listOfExpenses, setList] = useState({expenses:[]})
+  const [listOfExpenses, setList] = useState(categoriesArr)
   const [newEntry, setNewEntry] = useState('')
+  const [name, setCategoryName] = useState('')
+
 
 
 
@@ -24,12 +26,12 @@ function Book() {
     fetch(url)
       .then((r) => r.json())
       .then((bookResp) => {
-          setBookDisplayed(bookResp)
-          setCategoriesArr(bookResp.categories)
+        setBookDisplayed(bookResp)
+        setCategoriesArr(bookResp.categories)
       })
   }, [url])
 
-/////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
+  /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
 
   function whileUpdatingName(e) {
     e.preventDefault()
@@ -42,12 +44,12 @@ function Book() {
         title: update,
       }),
     })
-    .then((r) => r.json())
-    .then((data) => setShow(!data))
+      .then((r) => r.json())
+      .then((data) => setShow(!data))
   }
 
-/////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
-  
+  /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
+
 
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
@@ -55,23 +57,30 @@ function Book() {
     const nameOfACategory = new_cat.category
     const addCat = [...categoriesArr, nameOfACategory]
     setCategoriesArr(addCat)
-  }
+    }        
+      ///|=============RETURN=================|//////
+      ///|                                    |//////
+      ///|      {2) [{…}, {…}]-----RETURN     |//////
+      ///|                                    |//////
+      ///|                                    |//////
+      ////=====================================//////
+
+
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
   ////Deleting Book ////////////////////////
-  
+
   function handleToss(e) {
     console.log(e.target.value)
     fetch(url, {
       method: 'DELETE',
     })
-      .then((r) => r.json())
-      .then(() => console.log('deleted!'))
   }
   ////Deleting Book ////////////////////////
 
-console.log(categoriesArr);
 
+
+  //// Toggle for Form  ////////////////////////
 
   function handlesApperacance() {
     setToggle(true)
@@ -80,46 +89,84 @@ console.log(categoriesArr);
     setToggle(false)
   }
 
+  function handleSwitch() {
+    setShow(true)
+  }
+  //// Toggle for Form  ////////////////////////
 
-   
+
+  //// Adding a new Expense to a category  ////////////////////////
+
+
+
+function entryHandled(entry){
+  const newPurchase = entry.category
+  const cat_found = Object.assign(categoriesArr.find(o => o.id === newPurchase.id),newPurchase || newPurchase)
+  // const cat_found = categoriesArr?.map((categoryName) => categoryName.name === newPurchase.name)
+  // if the match is there take that category an append the new expense to that category.expense array /////
+  // const pushToCatgory = [...cat_found.expenses,newPurchase.expenses]
+  debugger
+  console.log(cat_found);
+  // setCategoriesArr(cat_found)
+
+}
+
+
+
+
+
   // function entryHandled(entry) {
-  //   console.log('new entry slotted')
+  //   console.log("new entry slotted");;
+  //   const newPurchase = entry.category.expenses
+  //   const add = [...newEntry, newPurchase]
+  //   console.log(newEntry);
+  //   console.log(add);
+  //   setNewEntry([add])
+  //   setCategoriesArr(newEntry)
+
+  // }
+  ///------[Array(1), Array(1)]------------------RETURN
+
+  //// Adding a new Expense to a category  ////////////////////////
+
+
+  // function entryHandled(entry) {
+  //   console.log('new entry slotted')  
   //   const singleExpense = entry.expense
   //   const plusOne = [...listOfExpenses, singleExpense]
   //   setNewEntry(plusOne);
   // }
 
 
-  function entryHandled(entry) {
-    console.log("new entry slotted");;
-    const newPurchase = entry.expense
-    const add = [...newEntry,newPurchase]
-    console.log(add);
-    setNewEntry(add)
-    setList(newEntry)
-    ;
-}
-
-
-
-  ////--CHART--/////////////////////////////////////////////////////////
+  ////--CHART--/////////////////////////////////////////////////////////  
   //--------MOVED TO THE CHART COMPONENT ----------------------////////
   ////--CHART--//////////////////////////////////////////////////////
 
 
+  /// the function that allow for the reports to show ///  
 
   function handleReportListClick(e) {
-    console.log(e.target.value);
     const category = e.target.value
     console.log('rescrusive list')
-    const showExpenses = categoriesArr?.find(
-      (categoryName) => categoryName.name === category,
-    )
-    console.log(showExpenses.id)
+    const showExpenses = categoriesArr?.find((categoryName) => categoryName.name === category)
     setList(showExpenses)
+    
   }
+  /// the function that allow for the reports to show ///
+
+
+
+  // my return is a {cat : title , expense: []} which belongs in categories arr
+
+console.log(listOfExpenses);
 
   const display = listOfExpenses.expenses
+
+    function handleDeleteItem(act) {
+      const presentList = listOfExpenses.filter((entry) => entry.id !== act.id);
+      setList(presentList)
+    }
+
 
   const expDropDown = categoriesArr?.map((n) => {
     return (
@@ -128,11 +175,6 @@ console.log(categoriesArr);
       </>
     )
   })
-  console.log(expDropDown);
-
-  function handleSwitch() {
-    setShow(true)
-  }
 
 
   const expense = ''
@@ -192,7 +234,7 @@ console.log(categoriesArr);
               </h5>
             </>
           )}
-          <CategoriesForm addCategories={addCategories} book_id={book_id} />
+          <CategoriesForm addCategories={addCategories} book_id={book_id}   name = {name} setCategoryName={setCategoryName}/>
         </div>
         <div>
           <TotalExp categoriesArr={categoriesArr} />
@@ -207,7 +249,8 @@ console.log(categoriesArr);
       </select>
       <div>
         <List
-        newEntry ={newEntry}
+        handleDeleteItem={handleDeleteItem}
+          newEntry={newEntry}
           display={display}
         />
       </div>
