@@ -3,10 +3,15 @@ import { useParams } from 'react-router-dom'
 import TotalExp from './TotalExp'
 import List from './List'
 import Form from './Form'
+import Categories from './Categories'
 import CategoriesForm from './CategoriesForm'
+import { Chart } from 'react-chartjs-2'
+import BarChart from './BarChart'
+import NChart from './NChart'
+import FormToggle from './FormToggle'
+import Setting from './Setting'
 
 function Book() {
-
   const { book_id } = useParams()
 
   const url = `/books/${book_id}`
@@ -18,9 +23,6 @@ function Book() {
   const [listOfExpenses, setList] = useState(categoriesArr)
   const [newEntry, setNewEntry] = useState('')
   const [name, setCategoryName] = useState('')
-
-
-
 
   useEffect(() => {
     fetch(url)
@@ -50,21 +52,19 @@ function Book() {
 
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
 
-
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
   function addCategories(new_cat) {
     const nameOfACategory = new_cat.category
     const addCat = [...categoriesArr, nameOfACategory]
     setCategoriesArr(addCat)
-    }        
-      ///|=============RETURN=================|//////
-      ///|                                    |//////
-      ///|      {2) [{…}, {…}]-----RETURN     |//////
-      ///|                                    |//////
-      ///|                                    |//////
-      ////=====================================//////
-
+  }
+  ///|=============RETURN=================|//////
+  ///|                                    |//////
+  ///|      {2) [{…}, {…}]-----RETURN     |//////
+  ///|                                    |//////
+  ///|                                    |//////
+  ////=====================================//////
 
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
@@ -78,41 +78,34 @@ function Book() {
   }
   ////Deleting Book ////////////////////////
 
-
-
   //// Toggle for Form  ////////////////////////
 
-  function handlesApperacance() {
-    setToggle(true)
-  }
-  function handlesDisapperacance() {
-    setToggle(false)
-  }
+  // function handlesApperacance() {
+  //   setToggle(true)
+  // }
+  // function handlesDisapperacance() {
+  //   setToggle(false)
+  // }
 
   function handleSwitch() {
     setShow(true)
   }
   //// Toggle for Form  ////////////////////////
 
-
   //// Adding a new Expense to a category  ////////////////////////
 
-
-
-function entryHandled(entry){
-  const newPurchase = entry.category
-  const cat_found = Object.assign(categoriesArr.find(o => o.id === newPurchase.id),newPurchase || newPurchase)
-  console.log(cat_found);
-  // const cat_found = categoriesArr?.map((categoryName) => categoryName.name === newPurchase.name)
-  // if the match is there take that category an append the new expense to that category.expense array /////
-  // const pushToCatgory = [...cat_found.expenses,newPurchase.expenses]
-  // setCategoriesArr(cat_found)
-
-}
-
-
-
-
+  function entryHandled(entry) {
+    const newPurchase = entry.category
+    const cat_found = Object.assign(
+      categoriesArr.find((o) => o.id === newPurchase.id),
+      newPurchase || newPurchase,
+    )
+    console.log(cat_found)
+    // const cat_found = categoriesArr?.map((categoryName) => categoryName.name === newPurchase.name)
+    // if the match is there take that category an append the new expense to that category.expense array /////
+    // const pushToCatgory = [...cat_found.expenses,newPurchase.expenses]
+    // setCategoriesArr(cat_found)
+  }
 
   // function entryHandled(entry) {
   //   console.log("new entry slotted");;
@@ -128,51 +121,46 @@ function entryHandled(entry){
 
   //// Adding a new Expense to a category  ////////////////////////
 
-
   // function entryHandled(entry) {
-  //   console.log('new entry slotted')  
+  //   console.log('new entry slotted')
   //   const singleExpense = entry.expense
   //   const plusOne = [...listOfExpenses, singleExpense]
   //   setNewEntry(plusOne);
   // }
 
-
-  ////--CHART--/////////////////////////////////////////////////////////  
+  ////--CHART--/////////////////////////////////////////////////////////
   //--------MOVED TO THE CHART COMPONENT ----------------------////////
   ////--CHART--//////////////////////////////////////////////////////
 
-
-  /// the function that allow for the reports to show ///  
+  /// the function that allow for the reports to show ///
 
   function handleReportListClick(e) {
     const category = e.target.value
     console.log('rescrusive list')
-    const showExpenses = categoriesArr?.find((categoryName) => categoryName.name === category)
+    const showExpenses = categoriesArr?.find(
+      (categoryName) => categoryName.name === category,
+    )
     setList(showExpenses)
-    
   }
   /// the function that allow for the reports to show ///
 
-
-
   // my return is a {cat : title , expense: []} which belongs in categories arr
-
-console.log(listOfExpenses);
 
   const display = listOfExpenses.expenses
 
-////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function handleDeleteItem(act) {
-  // const updatedItems = listOfExpenses.expenses.filter((exp) => exp.id !== act.id);
-  const presentLists = listOfExpenses.expenses.filter((entry) => entry.id !== act.id);
-  setList(presentLists)
-}
+  function handleDeleteItem(act) {
+    // const updatedItems = listOfExpenses.expenses.filter((exp) => exp.id !== act.id);
+    const presentLists = listOfExpenses.expenses.filter(
+      (entry) => entry.id !== act.id,
+    )
+    setList(presentLists)
+  }
 
-////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-  const expDropDown = categoriesArr?.map((n,id) => {
+  const expDropDown = categoriesArr?.map((n, id) => {
     return (
       <>
         <option key={id}>{n.name}</option>
@@ -180,83 +168,90 @@ function handleDeleteItem(act) {
     )
   })
 
-
   const expense = ''
 
   return (
     <>
-      <div className="bckg">
-        <div className="page_lay">
-          <div className='noos'>
-            <button className="toss" onClick={handleToss}>
-              Toss
-            </button>
-            {toggle ? (
-              <Form
-                entryHandled={entryHandled}
-                className="tranv"
-                expDropDown={expDropDown}
-                categoriesArr={categoriesArr}
-              />
-            ) : (
-              ''
-            )}
-            {toggle ? (
-              <button onClick={handlesDisapperacance} className="drpfrm-close">
-                ▼
-              </button>
-            ) : (
-              <button
-                onClick={handlesApperacance}
-                value={false}
-                className="drpfrm"
-              >
-                ▼
-              </button>
-            )}
-
-          </div>
-          {show ? (
-            <label className="perTitle">
-              <form id="titlePATCH" onSubmit={whileUpdatingName}>
-                <input
-                  placeholder="new title"
-                  type="text"
-                  value={null}
-                  onChange={(e) => setUpdate(e.target.value)}
-                />
-              </form>{' '}
-            </label>
-          ) : (
-            <>
-              <label className="perTitle">
-                <h6>{bookDisplayed?.title}</h6> |{' '}
-                <h5>{expense ? expense : 'Great Work Budgeting !'}</h5>
+      <div className='grand-container'>
+        <div >
+          <div className="perTitle" >
+            <div>
+              <div className='label'>
+              <label>
+                <div>
+                <h6>{bookDisplayed?.title}  {expense ? expense : 'Great Work Budgeting !'}</h6>
+                </div>
+                <div>
+                <Setting/>
+                </div>
               </label>
-              <h5 onClick={handleSwitch} className="toggle_update">
-                Change Book Title
-              </h5>
-            </>
-          )}
-          <CategoriesForm addCategories={addCategories} book_id={book_id}   name = {name} setCategoryName={setCategoryName}/>
+
+            </div>
+            </div>
+          </div>
+        </div>
+        <div  className='nc'>
+          <Categories categoriesArr={categoriesArr} />
+              <NChart />
         </div>
         <div>
-          <TotalExp categoriesArr={categoriesArr} />
+          <div >
+            <div  className='create-Box'>
+              <FormToggle
+                entryHandled={entryHandled}
+                expDropDown={expDropDown}
+                categoriesArr={categoriesArr}
+                setToggle={setToggle}
+                toggle={toggle}
+              />
+            
+              <label >
+                <form id="titlePATCH" onSubmit={whileUpdatingName}>
+                  <input
+                    placeholder="new title"
+                    type="text"
+                    value={null}
+                    onChange={(e) => setUpdate(e.target.value)}
+                    />
+                </form>
+              </label>
+           
+              <>
+                <CategoriesForm
+                  addCategories={addCategories}
+                  book_id={book_id}
+                  name={name}
+                  setCategoryName={setCategoryName}
+                  />
+              </>
+                  </div>
+          </div>
+          <select
+            onChange={handleReportListClick}
+            className="category-dropdown"
+          >
+            <option value={null} display="All">
+              All
+            </option>
+            {expDropDown}
+          </select>
+          <div>
+            <List
+              handleDeleteItem={handleDeleteItem}
+              newEntry={newEntry}
+              display={display}
+            />
+          </div>
         </div>
-      </div>
-
-      <select onChange={handleReportListClick} className="category-dropdown">
-        <option value="All" display="All">
-          All
-        </option>
-        {expDropDown}
-      </select>
-      <div>
-        <List
-        handleDeleteItem={handleDeleteItem}
-          newEntry={newEntry}
-          display={display}
-        />
+        {/* <BarChart/> */}
+        <div>
+          <h5 onClick={handleSwitch} className="toggle_update">
+            Change Book Title
+          </h5>
+          <button className="toss" onClick={handleToss}>
+            Toss
+          </button>
+        </div>
       </div>
     </>
   )

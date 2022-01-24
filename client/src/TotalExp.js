@@ -1,3 +1,5 @@
+import NChart from './NChart'
+
 
 
 function TotalExp({categoriesArr}) {
@@ -10,8 +12,8 @@ function TotalExp({categoriesArr}) {
 
             {/* <h2>Expense $ {valueCost}</h2><div className = "wrap">{clothing}</div><button id ="addNEW"> + Add New</button> */}
             {/* <Chart categoriesArr ={categoriesArr}/> */}
-            {/* <ResponsiveBar/>
-            <NChart/> */}
+            {/* <ResponsiveBar/>\*/}
+            {/* <NChart/> */}
 
         </div>
     )

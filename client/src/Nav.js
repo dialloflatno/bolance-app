@@ -112,7 +112,7 @@ const [navtog,setNavTog]=useState(true)
                     </Link>
                     <div>
                     </div>
-                 <Profile back ={handleTogglePostive} handleToggle={handleToggle} navtog={navtog} handleSubmit ={profileUpdating}   email ={setEmail} userName ={setUsername} pass ={setPassword} open={isOpen}  pdate={profileUpdating}  close={() =>setOpen(false)} user={user} />
+                 <Profile back ={handleTogglePostive} handleToggle={handleToggle} navtog={navtog} handleSubmit ={profileUpdating}   email ={setEmail} userName ={setUsername} pass ={setPassword} open={isOpen}  pdate={profileUpdating}  close={()=> setOpen(false)} user={user} />
                   </ul>
                 </div>
                 <div className="stack">

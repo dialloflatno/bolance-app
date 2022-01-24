@@ -35,12 +35,18 @@ function App() {
           <Route exact path="/" >
             <Nav user={user} setUser={setUser} />
             <Overview user={user} />
+            <footer>Bolance App | Your Best Budget ! </footer>
+
+
           </Route>
           <Route path="/books/:book_id">
             <Nav user={user} setUser={setUser} />
             <Book />
+            <footer>Bolance App | Your Best Budget ! </footer>
+
           </Route>
         </Switch>
+
       </>
     )
   } else {

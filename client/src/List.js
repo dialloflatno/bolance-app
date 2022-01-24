@@ -44,7 +44,6 @@ function List({ display,handleDeleteItem }) {
           </div>
         </div>
       </div>
-      <footer>Bolance App | Your Best Budget ! </footer>
     </div>
   );
 }
