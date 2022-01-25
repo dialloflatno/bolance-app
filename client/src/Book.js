@@ -1,118 +1,160 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import TotalExp from './TotalExp'
-import List from './List'
-import Form from './Form'
-import CategoriesForm from './CategoriesForm'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import TotalExp from "./TotalExp";
+import List from "./List";
+import Form from "./Form";
+import Categories from "./Categories";
+import CategoriesForm from "./CategoriesForm";
+import { Chart } from "react-chartjs-2";
+import BarChart from "./BarChart";
+import NChart from "./NChart";
+import FormToggle from "./FormToggle";
+import Setting from "./Setting";
 
-function Book() {
+function Book({setTotal}) {
+  const { book_id } = useParams();
 
-  const { book_id } = useParams()
-
-  const url = `/books/${book_id}`
-  const [bookDisplayed, setBookDisplayed] = useState()
-  const [show, setShow] = useState(false)
-  const [toggle, setToggle] = useState(false)
-  const [update, setUpdate] = useState(false)
-  const [categoriesArr, setCategoriesArr] = useState([])
-  const [listOfExpenses, setList] = useState(categoriesArr)
-  const [newEntry, setNewEntry] = useState('')
-  const [name, setCategoryName] = useState('')
-
-
+  const url = `/books/${book_id}`;
+  const [bookDisplayed, setBookDisplayed] = useState();
+  const [show, setShow] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [update, setUpdate] = useState(false);
+  const [categoriesArr, setCategoriesArr] = useState([]);
+  const [listOfExpenses, setList] = useState(categoriesArr);
+  const [newEntry, setNewEntry] = useState("");
+  const [name, setCategoryName] = useState("");
+  const [catogeryNames, setFetchName] = useState();
+  const [catogeryExp, setFetchExp] = useState();
 
 
   useEffect(() => {
     fetch(url)
       .then((r) => r.json())
       .then((bookResp) => {
-        setBookDisplayed(bookResp)
+        setBookDisplayed(bookResp);
         setCategoriesArr(bookResp.categories)
-      })
-  }, [url])
+        setFetchName(bookResp.categories.map(o => o.name));
+        setFetchExp(bookResp.categories.map(o => o.expenses));
+      });
+  }, [url]);
 
+console.log(catogeryNames);
+console.log(catogeryExp);
+
+
+
+let t = 0
+if( catogeryExp?.length > 0){
+  t = catogeryExp?.map((o,index) => o.map(x => x.cost)).flat()
+  console.log(t);
+  let total = 0
+  for (let i = 0 ; i < t.length; i++){
+    total = total + t[i]
+  } 
+
+}
+
+function sumOfCost(array) {
+  return array.reduce((prev, curr) => prev + curr)
+}
+
+console.log(t);
+ let sum  = []
+
+ if ( t.length > 0){
+
+  sum = t.reduce((prev, curr) => prev + curr)
+
+ }
+
+ console.log(sum);
+
+
+
+// const totalExpForCategory = 'darn'
+
+
+  // const totalExpForCategory = catogeryExp?.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
+
+// if ( catogeryExp?.length > 0){
+//   totalExpForCategory = catogeryExp.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
+// }
+
+
+
+
+
+
+// console.log(totalExpForCategory);
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
+  debugger
 
   function whileUpdatingName(e) {
-    e.preventDefault()
+    e.preventDefault();
     fetch(url, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         title: update,
       }),
     })
       .then((r) => r.json())
-      .then((data) => setShow(!data))
+      .then((data) => setShow(!data));
   }
 
-  /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
 
+
+  /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
 
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
   function addCategories(new_cat) {
-    const nameOfACategory = new_cat.category
-    const addCat = [...categoriesArr, nameOfACategory]
-    setCategoriesArr(addCat)
-    }        
-      ///|=============RETURN=================|//////
-      ///|                                    |//////
-      ///|      {2) [{…}, {…}]-----RETURN     |//////
-      ///|                                    |//////
-      ///|                                    |//////
-      ////=====================================//////
-
+    const nameOfACategory = new_cat.category;
+    const addCat = [...categoriesArr, nameOfACategory];
+    setCategoriesArr(addCat);
+  }
+  ///|=============RETURN=================|//////
+  ///|                                    |//////
+  ///|      {2) [{…}, {…}]-----RETURN     |//////
+  ///|                                    |//////
+  ///|                                    |//////
+  ////=====================================//////
 
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
   ////Deleting Book ////////////////////////
 
   function handleToss(e) {
-    console.log(e.target.value)
+    console.log(e.target.value);
     fetch(url, {
-      method: 'DELETE',
-    })
+      method: "DELETE",
+    });
   }
   ////Deleting Book ////////////////////////
 
-
-
   //// Toggle for Form  ////////////////////////
-
-  function handlesApperacance() {
-    setToggle(true)
-  }
-  function handlesDisapperacance() {
-    setToggle(false)
-  }
 
   function handleSwitch() {
-    setShow(true)
+    setShow(true);
   }
   //// Toggle for Form  ////////////////////////
-
 
   //// Adding a new Expense to a category  ////////////////////////
 
-
-
-function entryHandled(entry){
-  const newPurchase = entry.category
-  const cat_found = Object.assign(categoriesArr.find(o => o.id === newPurchase.id),newPurchase || newPurchase)
-  console.log(cat_found);
-  // const cat_found = categoriesArr?.map((categoryName) => categoryName.name === newPurchase.name)
-  // if the match is there take that category an append the new expense to that category.expense array /////
-  // const pushToCatgory = [...cat_found.expenses,newPurchase.expenses]
-  // setCategoriesArr(cat_found)
-
-}
-
-
-
-
+  function entryHandled(entry) {
+    const newPurchase = entry.category;
+    const cat_found = Object.assign(
+      categoriesArr.find((o) => o.id === newPurchase.id),
+      newPurchase || newPurchase
+    );
+    console.log(cat_found);
+    // const cat_found = categoriesArr?.map((categoryName) => categoryName.name === newPurchase.name)
+    // if the match is there take that category an append the new expense to that category.expense array /////
+    // const pushToCatgory = [...cat_found.expenses,newPurchase.expenses]
+    // setCategoriesArr(cat_found)
+  }
 
   // function entryHandled(entry) {
   //   console.log("new entry slotted");;
@@ -128,138 +170,134 @@ function entryHandled(entry){
 
   //// Adding a new Expense to a category  ////////////////////////
 
-
   // function entryHandled(entry) {
-  //   console.log('new entry slotted')  
+  //   console.log('new entry slotted')
   //   const singleExpense = entry.expense
   //   const plusOne = [...listOfExpenses, singleExpense]
   //   setNewEntry(plusOne);
   // }
 
-
-  ////--CHART--/////////////////////////////////////////////////////////  
+  ////--CHART--/////////////////////////////////////////////////////////
   //--------MOVED TO THE CHART COMPONENT ----------------------////////
   ////--CHART--//////////////////////////////////////////////////////
 
-
-  /// the function that allow for the reports to show ///  
+  /// the function that allow for the reports to show ///
 
   function handleReportListClick(e) {
-    const category = e.target.value
-    console.log('rescrusive list')
-    const showExpenses = categoriesArr?.find((categoryName) => categoryName.name === category)
-    setList(showExpenses)
-    
+    const category = e.target.value;
+    console.log("rescrusive list");
+    const showExpenses = categoriesArr?.find(
+      (categoryName) => categoryName.name === category
+    );
+    setList(showExpenses);
   }
   /// the function that allow for the reports to show ///
 
-
-
   // my return is a {cat : title , expense: []} which belongs in categories arr
 
-console.log(listOfExpenses);
+  const display = listOfExpenses.expenses;
 
-  const display = listOfExpenses.expenses
+  ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
+  function handleDeleteItem(act) {
+    // const updatedItems = listOfExpenses.expenses.filter((exp) => exp.id !== act.id);
+    const presentLists = listOfExpenses.expenses.filter(
+      (entry) => entry.id !== act.id
+    );
+    setList(presentLists);
+  }
 
-function handleDeleteItem(act) {
-  // const updatedItems = listOfExpenses.expenses.filter((exp) => exp.id !== act.id);
-  const presentLists = listOfExpenses.expenses.filter((entry) => entry.id !== act.id);
-  setList(presentLists)
-}
-
-////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-  const expDropDown = categoriesArr?.map((n,id) => {
+
+  const expDropDown = categoriesArr?.map((n, id) => {
     return (
       <>
         <option key={id}>{n.name}</option>
       </>
-    )
-  })
+    );
+  });
 
-
-  const expense = ''
+//
+  const expense = "";
 
   return (
     <>
-      <div className="bckg">
-        <div className="page_lay">
-          <div className='noos'>
-            <button className="toss" onClick={handleToss}>
-              Toss
-            </button>
-            {toggle ? (
-              <Form
-                entryHandled={entryHandled}
-                className="tranv"
-                expDropDown={expDropDown}
-                categoriesArr={categoriesArr}
-              />
-            ) : (
-              ''
-            )}
-            {toggle ? (
-              <button onClick={handlesDisapperacance} className="drpfrm-close">
-                ▼
-              </button>
-            ) : (
-              <button
-                onClick={handlesApperacance}
-                value={false}
-                className="drpfrm"
-              >
-                ▼
-              </button>
-            )}
-
+      <div className="grand-container">
+        <div>
+          <div className="perTitle">
+            <div>
+              <div className="label">
+                <label>
+                  <div>
+                    <h6>
+                      {bookDisplayed?.title}{" "}
+                      {sum ? ( `$${sum}` ): "Great Work Budgeting !"}
+                    </h6>
+                  </div>
+                  <div>
+                    <Setting whileUpdatingName={whileUpdatingName} setUpdate={setUpdate}  handleToss={handleToss} show = {show} handleSwitch ={handleSwitch} />
+                  </div>
+                </label>
+              </div>
+            </div>
           </div>
-          {show ? (
-            <label className="perTitle">
-              <form id="titlePATCH" onSubmit={whileUpdatingName}>
-                <input
-                  placeholder="new title"
-                  type="text"
-                  value={null}
-                  onChange={(e) => setUpdate(e.target.value)}
-                />
-              </form>{' '}
-            </label>
-          ) : (
-            <>
-              <label className="perTitle">
-                <h6>{bookDisplayed?.title}</h6> |{' '}
-                <h5>{expense ? expense : 'Great Work Budgeting !'}</h5>
-              </label>
-              <h5 onClick={handleSwitch} className="toggle_update">
-                Change Book Title
-              </h5>
-            </>
-          )}
-          <CategoriesForm addCategories={addCategories} book_id={book_id}   name = {name} setCategoryName={setCategoryName}/>
+        </div>
+        <div className="nc">
+          <Categories categoriesArr={categoriesArr} />
+          <BarChart labels ={catogeryNames} expenses ={t} />
         </div>
         <div>
-          <TotalExp categoriesArr={categoriesArr} />
+          <div>
+            <div className="create-Box">
+              <FormToggle
+                entryHandled={entryHandled}
+                expDropDown={expDropDown}
+                categoriesArr={categoriesArr}
+                setToggle={setToggle}
+                toggle={toggle}
+              />
+
+              <>
+                <CategoriesForm
+                  addCategories={addCategories}
+                  book_id={book_id}
+                  name={name}
+                  setCategoryName={setCategoryName}
+                />
+              </>
+            </div>
+          </div>
+          <select
+            onChange={handleReportListClick}
+            className="category-dropdown"
+          >
+            <option value={null} display="All">
+              All
+            </option>
+            {expDropDown}
+          </select>
+          <div>
+            <List
+              handleDeleteItem={handleDeleteItem}
+              newEntry={newEntry}
+              display={display}
+            />
+          </div>
+        </div>
+        {/* <BarChart/> */}
+        <div>
+          {/* <h5 onClick={handleSwitch} className="toggle_update">
+            Change Book Title
+          </h5>
+          <button className="toss" onClick={handleToss}>
+            Toss
+          </button> */}
         </div>
       </div>
-
-      <select onChange={handleReportListClick} className="category-dropdown">
-        <option value="All" display="All">
-          All
-        </option>
-        {expDropDown}
-      </select>
-      <div>
-        <List
-        handleDeleteItem={handleDeleteItem}
-          newEntry={newEntry}
-          display={display}
-        />
-      </div>
     </>
-  )
+  );
 }
 
-export default Book
+export default Book;

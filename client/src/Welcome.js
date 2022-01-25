@@ -6,6 +6,9 @@ function Welcome() {
       <div className="box-text-c">
         <div>
           <div>
+                <div className="gif">
+                  <img src={gif} alt="Book balancing" />
+                </div>
             <div className="abstract">
               <div className="box-text">
                 <div className="master-class">
@@ -51,9 +54,6 @@ function Welcome() {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="gif">
-                  <img src={gif} alt="Book balancing" />
                 </div>
               </div>
             </div>

@@ -1,57 +1,81 @@
-// import './styles.css'
+import { ResponsiveBar } from '@nivo/bar'
 
-// import { Button } from './Button'
-// import { ResponsiveBar, ResponsiveBarCanvas } from '@nivo/bar'
-// import { generateCountriesData } from '@nivo/generators'
-// import { inc } from './utils'
-// import { useState } from 'react'
 
-// type Flavor = 'svg' | 'canvas'
+  const NChart = function ({ labels,expenses}) {
 
-// type ChartProps = {
-//     flavor: Flavor
-//     iteration: number
-// }
+//     console.log(expenses.map(o => o.map(x => x.cost).flat()));
+  
+//   //  let cost = expenses.map(o => o.map(x => x.cost).flat())[1]
+//   //  for( let i = 0; i > cost.length; i ++){
+//   //    console.log(cost[i].reduce((prev,curr) => prev + curr));
+//   //  }
+// console.log(cost);
+//     const barObject = {
+//        category :  labels,
+//        expense: 3
+  
+//       }
 
-// console.clear()
 
-// const keys = ['hot dogs', 'burgers', 'sandwich', 'kebab', 'fries', 'donut']
-// const props = {
-//     indexBy: 'country',
-//     keys,
-//     margin: { top: 60, right: 80, bottom: 60, left: 80 },
-//     padding: 0.2,
-//     labelTextColor: 'inherit:ligher(1.4)',
-//     labelSkipWidth: 16,
-//     labelSkipHeight: 16,
-// } as const
 
-// function Chart({ flavor }: ChartProps) {
-//     const data = generateCountriesData(keys, { size: 7 })
 
-//     if (flavor === 'canvas') {
-//         return <ResponsiveBarCanvas data={data} {...props} />
-//     }
 
-//     return <ResponsiveBar data={data} {...props} />
-// }
+    // console.log(barObject);
 
-// export default function App() {
-//     const [flavor, setFlavor] = useState<Flavor>('svg')
-//     const [iteration, setIteration] = useState(inc)
+    const data = [
+      {
+        day: "Monday",
+        degress: 59
+      },
+      {
+        day: "Tuesday",
+        degress: 61
+      },
+      {
+        day: "Wednesday",
+        degress: 55
+      },
+      {
+        day: "Thursday",
+        degress: 78
+      },
+      {
+        day: "Friday",
+        degress: 71
+      },
+      {
+        day: "Saturday",
+        degress: 56
+      },
+      {
+        day: "Sunday",
+        degress: 67
+      }
+    ];
+    return (
+      <div className='nivoChart'>
+        <ResponsiveBar
+          data={data}
+          keys={["degress"]}
+          indexBy="day"
+          margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+          padding={0.4}
+          valueScale={{ type: "linear" }}
+          colors="#3182CE"
+          animate={true}
+          enableLabel={false}
+          axisTop={null}
+          axisRight={null}
+          axisLeft={{
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: "degrees",
+            legendPosition: "middle",
+            legendOffset: -40
+          }} />
+      </div>
+    );
+  };
 
-//     return (
-//         <div className="App">
-//             <h1>Nivo Bar Template</h1>
-//             <h2>Fork this template!</h2>
-//             <Button onClick={() => setIteration(inc)}>Generate Data</Button>
-//             <Button onClick={() => setFlavor(value => (value !== 'canvas' ? 'canvas' : 'svg'))}>
-//                 Use {flavor === 'svg' ? 'Canvas' : 'SVG'}
-//             </Button>
-//             <div className="Chart">
-//                 <Chart {...{ flavor, iteration }} />
-//             </div>
-//         </div>
-//     )
-// }
-
+  export default NChart
