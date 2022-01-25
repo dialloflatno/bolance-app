@@ -7,7 +7,6 @@ export default function Categories({ categoriesArr }) {
     
       <div className='catNames'>
       <h1>Categories</h1>
-      <hr className='hr'/>
           {cat_names}
           </div>
       </div>

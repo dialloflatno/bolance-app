@@ -1,53 +1,56 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import TotalExp from './TotalExp'
-import List from './List'
-import Form from './Form'
-import Categories from './Categories'
-import CategoriesForm from './CategoriesForm'
-import { Chart } from 'react-chartjs-2'
-import BarChart from './BarChart'
-import NChart from './NChart'
-import FormToggle from './FormToggle'
-import Setting from './Setting'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import TotalExp from "./TotalExp";
+import List from "./List";
+import Form from "./Form";
+import Categories from "./Categories";
+import CategoriesForm from "./CategoriesForm";
+import { Chart } from "react-chartjs-2";
+import BarChart from "./BarChart";
+import NChart from "./NChart";
+import FormToggle from "./FormToggle";
+import Setting from "./Setting";
 
 function Book() {
-  const { book_id } = useParams()
+  const { book_id } = useParams();
 
-  const url = `/books/${book_id}`
-  const [bookDisplayed, setBookDisplayed] = useState()
-  const [show, setShow] = useState(false)
-  const [toggle, setToggle] = useState(false)
-  const [update, setUpdate] = useState(false)
-  const [categoriesArr, setCategoriesArr] = useState([])
-  const [listOfExpenses, setList] = useState(categoriesArr)
-  const [newEntry, setNewEntry] = useState('')
-  const [name, setCategoryName] = useState('')
+  const url = `/books/${book_id}`;
+  const [bookDisplayed, setBookDisplayed] = useState();
+  const [show, setShow] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [update, setUpdate] = useState(false);
+  const [categoriesArr, setCategoriesArr] = useState([]);
+  const [listOfExpenses, setList] = useState(categoriesArr);
+  const [newEntry, setNewEntry] = useState("");
+  const [name, setCategoryName] = useState("");
 
   useEffect(() => {
     fetch(url)
       .then((r) => r.json())
       .then((bookResp) => {
-        setBookDisplayed(bookResp)
-        setCategoriesArr(bookResp.categories)
-      })
-  }, [url])
+        setBookDisplayed(bookResp);
+        debugger;
+        setCategoriesArr(bookResp.categories);
+      });
+  }, [url]);
+
+
 
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
 
   function whileUpdatingName(e) {
-    e.preventDefault()
+    e.preventDefault();
     fetch(url, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         title: update,
       }),
     })
       .then((r) => r.json())
-      .then((data) => setShow(!data))
+      .then((data) => setShow(!data));
   }
 
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
@@ -55,9 +58,9 @@ function Book() {
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
   function addCategories(new_cat) {
-    const nameOfACategory = new_cat.category
-    const addCat = [...categoriesArr, nameOfACategory]
-    setCategoriesArr(addCat)
+    const nameOfACategory = new_cat.category;
+    const addCat = [...categoriesArr, nameOfACategory];
+    setCategoriesArr(addCat);
   }
   ///|=============RETURN=================|//////
   ///|                                    |//////
@@ -71,36 +74,29 @@ function Book() {
   ////Deleting Book ////////////////////////
 
   function handleToss(e) {
-    console.log(e.target.value)
+    console.log(e.target.value);
     fetch(url, {
-      method: 'DELETE',
-    })
+      method: "DELETE",
+    });
   }
   ////Deleting Book ////////////////////////
 
   //// Toggle for Form  ////////////////////////
 
-  // function handlesApperacance() {
-  //   setToggle(true)
-  // }
-  // function handlesDisapperacance() {
-  //   setToggle(false)
-  // }
-
   function handleSwitch() {
-    setShow(true)
+    setShow(true);
   }
   //// Toggle for Form  ////////////////////////
 
   //// Adding a new Expense to a category  ////////////////////////
 
   function entryHandled(entry) {
-    const newPurchase = entry.category
+    const newPurchase = entry.category;
     const cat_found = Object.assign(
       categoriesArr.find((o) => o.id === newPurchase.id),
-      newPurchase || newPurchase,
-    )
-    console.log(cat_found)
+      newPurchase || newPurchase
+    );
+    console.log(cat_found);
     // const cat_found = categoriesArr?.map((categoryName) => categoryName.name === newPurchase.name)
     // if the match is there take that category an append the new expense to that category.expense array /////
     // const pushToCatgory = [...cat_found.expenses,newPurchase.expenses]
@@ -135,68 +131,73 @@ function Book() {
   /// the function that allow for the reports to show ///
 
   function handleReportListClick(e) {
-    const category = e.target.value
-    console.log('rescrusive list')
+    const category = e.target.value;
+    console.log("rescrusive list");
     const showExpenses = categoriesArr?.find(
-      (categoryName) => categoryName.name === category,
-    )
-    setList(showExpenses)
+      (categoryName) => categoryName.name === category
+    );
+    setList(showExpenses);
   }
   /// the function that allow for the reports to show ///
 
   // my return is a {cat : title , expense: []} which belongs in categories arr
 
-  const display = listOfExpenses.expenses
+  const display = listOfExpenses.expenses;
 
   ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function handleDeleteItem(act) {
     // const updatedItems = listOfExpenses.expenses.filter((exp) => exp.id !== act.id);
     const presentLists = listOfExpenses.expenses.filter(
-      (entry) => entry.id !== act.id,
-    )
-    setList(presentLists)
+      (entry) => entry.id !== act.id
+    );
+    setList(presentLists);
   }
 
   ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
   const expDropDown = categoriesArr?.map((n, id) => {
     return (
       <>
         <option key={id}>{n.name}</option>
       </>
-    )
-  })
+    );
+  });
 
-  const expense = ''
+//
+  const expense = "";
 
   return (
     <>
-      <div className='grand-container'>
-        <div >
-          <div className="perTitle" >
+      <div className="grand-container">
+        <div>
+          <div className="perTitle">
             <div>
-              <div className='label'>
-              <label>
-                <div>
-                <h6>{bookDisplayed?.title}  {expense ? expense : 'Great Work Budgeting !'}</h6>
-                </div>
-                <div>
-                <Setting/>
-                </div>
-              </label>
-
-            </div>
+              <div className="label">
+                <label>
+                  <div>
+                    <h6>
+                      {bookDisplayed?.title}{" "}
+                      {expense ? expense : "Great Work Budgeting !"}
+                    </h6>
+                  </div>
+                  <div>
+                    <Setting />
+                  </div>
+                </label>
+              </div>
             </div>
           </div>
         </div>
-        <div  className='nc'>
+        <div className="nc">
           <Categories categoriesArr={categoriesArr} />
-              <NChart />
+          <NChart />
         </div>
         <div>
-          <div >
-            <div  className='create-Box'>
+          <div>
+            <div className="create-Box">
               <FormToggle
                 entryHandled={entryHandled}
                 expDropDown={expDropDown}
@@ -204,27 +205,27 @@ function Book() {
                 setToggle={setToggle}
                 toggle={toggle}
               />
-            
-              <label >
+
+              <label>
                 <form id="titlePATCH" onSubmit={whileUpdatingName}>
                   <input
                     placeholder="new title"
                     type="text"
                     value={null}
                     onChange={(e) => setUpdate(e.target.value)}
-                    />
+                  />
                 </form>
               </label>
-           
+
               <>
                 <CategoriesForm
                   addCategories={addCategories}
                   book_id={book_id}
                   name={name}
                   setCategoryName={setCategoryName}
-                  />
+                />
               </>
-                  </div>
+            </div>
           </div>
           <select
             onChange={handleReportListClick}
@@ -254,7 +255,7 @@ function Book() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Book
+export default Book;

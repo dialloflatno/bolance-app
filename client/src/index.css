@@ -157,11 +157,9 @@ header {
 .profileInfo label,
 span {
   font-size: 11px;
-  margin: 10px;
   line-height: 20px;
   color: currentColor;
-  margin: 3px;
-  -webkit-font-smoothing: antialiased;
+  margin: 0px;  -webkit-font-smoothing: antialiased;
   font-weight: 500;
 }
 
@@ -312,7 +310,7 @@ a {
   margin-right: 65px;
 }
 .catslot {
-  padding: 20px;
+  padding: 18px;
   background: white;
   color: black;
   width: 17%;
@@ -323,6 +321,18 @@ a {
 .catNames {
   font-size: 7px;
   line-height: 7px;
+  overflow: scroll;
+  font-weight: 500;
+  font-family: inherit;
+  font-family: inherit;
+  height: 40vh;
+}
+.catNames::-webkit-scrollbar{
+  display: none;
+}
+.catNames{
+  font-weight: 500;
+  font-family: inherit;
 }
 .abstract {
   border: none;
@@ -935,11 +945,9 @@ img {
 }
 .nvC {
   border-width: thin;
-  border-color: whitesmoke;
-
-  width: 20%;
+  border-color: rgba(245, 245, 245, 0.439);
+  width: 30%;
   border-style: solid;
-  padding: 13px;
   overflow: scroll;
 }
 /* .perTitle {
@@ -950,13 +958,22 @@ img {
 } */
 .perTitle {
   margin-left: -3px;
-  border-color: whitesmoke;
+  border-color: rgba(245, 245, 245, 0.439);
+  border-width: thin;
   border-style: solid;
   font-size: large;
   padding: 7px;
   width: 100%;
 }
+.list{
+  width: 100% ;
+  border-style: solid;
+  border-width: thin ;
+  border-color: rgba(245, 245, 245, 0.439);
+
+}
 .list h1 {
+  padding: 10px;
   font-weight: 400;
 }
 .cats {
@@ -1723,6 +1740,10 @@ form button:hover {
   justify-items: end;
   align-items: center;
   align-content: center;
+  padding: 15px;
+  display: flex;
+  justify-content: space-evenly;
+
 }
 .store {
   align-items: center;
@@ -1762,11 +1783,17 @@ form button:hover {
   width: 619px;
 }
 .nivoChart {
+  padding: 24px;
   border-width: thin;
   border-style: solid;
-  border-color: whitesmoke;
+  border-color: rgba(245, 245, 245, 0.439);
   height: 40vh;
   width: 77vw;
+}
+text {
+
+  fill: whitesmoke;
+
 }
 .label label {
   display: inline-flex;
