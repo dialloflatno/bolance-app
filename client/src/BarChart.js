@@ -26,11 +26,11 @@ export default class BarChart extends React.Component {
             labels: this.props.labels,
             datasets: [
               {
-                label: 'Rainfall',
+                label: 'Expense Chart',
                 backgroundColor: 'rgba(75,192,192,1)',
-                borderColor: 'rgba(0,0,0,1)',
+                  color: 'white',
                 borderWidth: 2,
-                data: this.props.expenses
+                data:[20,20,20,12]
                 ,
               },
             ],

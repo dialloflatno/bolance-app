@@ -1763,6 +1763,8 @@ form button:hover {
 .setting-tab {
   color: whitesmoke;
   cursor: pointer;
+  background: none;
+  border:none
 }
 .setting-tab:hover {
   transition: all 0.3s;

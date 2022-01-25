@@ -23,7 +23,7 @@ function Book() {
   const [listOfExpenses, setList] = useState(categoriesArr);
   const [newEntry, setNewEntry] = useState("");
   const [name, setCategoryName] = useState("");
-  const [catogeryNames, setFetchName] = useState([]);
+  const [catogeryNames, setFetchName] = useState();
   const [catogeryExp, setFetchExp] = useState();
 
 
@@ -43,11 +43,15 @@ console.log(catogeryExp);
 // const totalExpForCategory = 'darn'
 
 
-  const totalExpForCategory = catogeryExp?.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
+  // const totalExpForCategory = catogeryExp?.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
 
 // if ( catogeryExp?.length > 0){
 //   totalExpForCategory = catogeryExp.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
 // }
+
+
+
+
 
 
 // console.log(totalExpForCategory);
@@ -68,6 +72,7 @@ console.log(catogeryExp);
       .then((r) => r.json())
       .then((data) => setShow(!data));
   }
+
 
 
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
@@ -201,7 +206,7 @@ console.log(catogeryExp);
                     </h6>
                   </div>
                   <div>
-                    <Setting />
+                    <Setting  handleToss={handleToss} show = {show} handleSwitch ={handleSwitch} />
                   </div>
                 </label>
               </div>
@@ -210,7 +215,7 @@ console.log(catogeryExp);
         </div>
         <div className="nc">
           <Categories categoriesArr={categoriesArr} />
-          <BarChart labels ={catogeryNames} expenses ={totalExpForCategory} />
+          <BarChart labels ={catogeryNames} expenses ={catogeryExp} />
         </div>
         <div>
           <div>
@@ -263,12 +268,12 @@ console.log(catogeryExp);
         </div>
         {/* <BarChart/> */}
         <div>
-          <h5 onClick={handleSwitch} className="toggle_update">
+          {/* <h5 onClick={handleSwitch} className="toggle_update">
             Change Book Title
           </h5>
           <button className="toss" onClick={handleToss}>
             Toss
-          </button>
+          </button> */}
         </div>
       </div>
     </>
