@@ -10,7 +10,7 @@ export default function Profile({back, navtog, handleToggle, handleSubmit, userN
             <div>    
             </div>
             { navtog ? ( 
-                                <><button onClick={close} className='toggle-prp'>▲</button><><><h3>{user.username}</h3><label>name<span>{user.full_name}</span></label><label>email: <span>{user.email}</span></label><span placeholder='*******'>password:****</span></><button onClick={handleToggle} className='profileUpdate'>Update Info</button></></>
+                                <><button onClick={close} className='toggle-prp'>▲</button><><><h3>{user.username}</h3><label>name:<span>{user.full_name}</span></label><label>email: <span>{user.email}</span></label><span placeholder='*******'>password:****</span></><button onClick={handleToggle} className='profileUpdate'>Update Info</button></></>
             ):(
 
                 <><button onClick={back} className='toggle-prp'>⤌</button><form onSubmit={handleSubmit}>

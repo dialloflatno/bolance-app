@@ -82,8 +82,7 @@ header {
   width: -webkit-fill-available;
   box-sizing: border-box;
   position: absolute;
-  background: #0aa2e2;
-  display: flex;
+  background: #282c34;  display: flex;
   position: fixed;
   height: 90px auto;
   align-items: center;
@@ -817,16 +816,19 @@ img {
 .box-text {
   box-shadow: inset 0px 10px 40px 40px #5dcfff30;
   z-index: 2;
-  margin: 10px 60px auto;
+  margin: 12px 60px auto;
   background: rgb(209 205 205 / 35%);
   /* filter: blur(4px); */
   border-radius: 20px;
-  width: 52%;
+  /* width: 52%; */
   left: 10%;
   height: 515px;
   top: 135px;
   border-radius: 20px;
   filter: drop-shadow(2px 26px 78px gray);
+
+
+
 }
 .box-text span {
   /* filter: drop-shadow(2px 2px 12px rgb(153, 165, 179)); */
@@ -1619,10 +1621,10 @@ textarea {
   align-items: center;
 }
 .art-wall svg {
-  height: 140%;
+  height: 40%;
   position: absolute;
-  margin: 31px auto;
-  margin-left: 143px;
+  margin: 160px auto;
+  /* margin-left: 143px; */
 }
 .to-form {
   margin-top: -30%;

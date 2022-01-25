@@ -21,7 +21,6 @@ function GreetNav() {
       </header>
       <div></div>
       <br/>
-      <footer>Bolance App | Your Best Budget ! </footer>
     </div>
   )
 }
