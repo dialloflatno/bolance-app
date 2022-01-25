@@ -56,10 +56,6 @@ function Book({ setTotal }) {
 
   }
 
-  function sumOfCost(array) {
-    return array.reduce((prev, curr) => prev + curr)
-  }
-
   console.log(t);
   let sum = []
 
@@ -68,26 +64,9 @@ function Book({ setTotal }) {
     sum = t.reduce((prev, curr) => prev + curr)
 
   }
-
+  
   console.log(sum);
 
-
-
-  // const totalExpForCategory = 'darn'
-
-
-  // const totalExpForCategory = catogeryExp?.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
-
-  // if ( catogeryExp?.length > 0){
-  //   totalExpForCategory = catogeryExp.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
-  // }
-
-
-
-
-
-
-  // console.log(totalExpForCategory);
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
 
   function whileUpdatingName(e) {
@@ -106,7 +85,7 @@ function Book({ setTotal }) {
 
         setBookTitle(update)
         setShow(!data)
-        
+
       });
   }
 
@@ -154,35 +133,10 @@ function Book({ setTotal }) {
     const updatedCategory = entry.category;
     const newCategoriesArray = [...categoriesArr]
     Object.assign(categoriesArr.find((o) => o.id === updatedCategory.id), updatedCategory)
-
     setCategoriesArr(newCategoriesArray)
     console.log(newCategoriesArray);
-    // const cat_found = categoriesArr?.map((categoryName) => categoryName.name === newPurchase.name)
-    // if the match is there take that category an append the new expense to that category.expense array /////
-    // const pushToCatgory = [...cat_found.expenses,newPurchase.expenses]
-    // setCategoriesArr(cat_found)
+
   }
-
-  // function entryHandled(entry) {
-  //   console.log("new entry slotted");;
-  //   const newPurchase = entry.category.expenses
-  //   const add = [...newEntry, newPurchase]
-  //   console.log(newEntry);
-  //   console.log(add);
-  //   setNewEntry([add])
-  //   setCategoriesArr(newEntry)
-
-  // }
-  ///------[Array(1), Array(1)]------------------RETURN
-
-  //// Adding a new Expense to a category  ////////////////////////
-
-  // function entryHandled(entry) {
-  //   console.log('new entry slotted')
-  //   const singleExpense = entry.expense
-  //   const plusOne = [...listOfExpenses, singleExpense]
-  //   setNewEntry(plusOne);
-  // }
 
   ////--CHART--/////////////////////////////////////////////////////////
   //--------MOVED TO THE CHART COMPONENT ----------------------////////
@@ -200,17 +154,15 @@ function Book({ setTotal }) {
   }
   /// the function that allow for the reports to show ///
 
-  // my return is a {cat : title , expense: []} which belongs in categories arr
-
   const display = listOfExpenses.expenses;
-
+console.log(display);
   ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function handleDeleteItem(act) {
-    // const updatedItems = listOfExpenses.expenses.filter((exp) => exp.id !== act.id);
-    const presentLists = listOfExpenses.expenses.filter(
-      (entry) => entry.id !== act.id
-    );
+    console.log(catogeryExp);
+    const presentLists = catogeryExp.map(o => o.map(x => x)).filter((entry) => entry.id !== act.id);
+    debugger
+    //// presentList Array of [{id}]'s//////
     setList(presentLists);
   }
 

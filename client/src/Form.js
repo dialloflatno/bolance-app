@@ -28,25 +28,23 @@ function
     const urlList = '/expenses'
 
     const handleItemChange = (e) => {
-
-        const capitalize = () => e.target.value[0] + e.target.value.slice(1);
-        if (0 > capitalize.length) {
-            alert("input required")
-        }
-        else {
-            setItem(capitalize)
-        }
+        setItem(e.target.value)
+        // const capitalize = () => e.target.value[0] + e.target.value.slice(1);
+        // if (0 > capitalize.length) {
+        //     alert("input required")
+        // }
+        // else {
+        //     setItem(capitalize)
+        // }
     }
 
     const handleStoreChange = (e) => {
-        const capitalize = () => e.target.value[0] + e.target.value.slice(1);
-        setStore(capitalize)
+        // const capitalize = () => e.target.value[0] + e.target.value.slice(1);
+        setStore(e.target.value)
     }
 
-
     const handleCostChange = (e) => {
-        const price = e.target.value;
-        setCost(price)
+        setCost(e.target.value)
     }
 
     const handleDateChange = (e) => {
@@ -91,6 +89,8 @@ function
                 PaymentType('')
                 setItem('')
                 setCost('')
+                setDate('')
+                setStore('')
                 setChoice('')
                 entryHandled(cat_repo)
             })
@@ -105,21 +105,21 @@ function
                 <fieldset>
                     <form onSubmit={handleEntry} className="formEntry">
                         <legend>Add expense</legend>
-                        <input onChange={handleItemChange} className="Form" name="Item " placeholder="Ex:Tools">
+                        <input onChange={handleItemChange} value ={item} className="Form" name="Item " placeholder="Ex:Tools">
                         </input>
-                        <input onChange={handleStoreChange} className="Form" name="Store" placeholder="Ex:Lowe's">
+                        <input onChange={handleStoreChange}  value = {storle} className="Form" name="Store" placeholder="Ex:Lowe's">
                         </input>
-                        <input onChange={handleDateChange} className="Form" type="date" name="Date" placeholder="Ex:02/20/30">
+                        <input onChange={handleDateChange}  value = {date} className="Form" type="date" name="Date" placeholder="Ex:02/20/30">
                         </input>
-                        <select onChange={handlePaymentChange} className="Form" type="text" name="method" placeholder="Ex:AMEX/CASH/CRYPTO">
+                        <select onChange={handlePaymentChange} value ={payment} className="Form" type="text" name="method" placeholder="Ex:AMEX/CASH/CRYPTO">
                             <option>PaymentType</option>
                             <option>Credit Card</option>
                             <option>Cash</option>
                             <option>Crypto</option>
                         </select>
-                        <input onChange={handleCostChange} className="Form" type="number" name="Cost" min="0.01" step="0.01" max="2500" placeholder="Ex:$0.00">
+                        <input onChange={handleCostChange} value = {cost} className="Form" type="number" name="Cost" min="0.01" step="0.01" max="2500" placeholder="Ex:$0.00">
                         </input>
-                        <select onChange={(e) => setChoice(e.target.value)} id="dropdown">
+                        <select onChange={(e) => setChoice(e.target.value)}  value = {choice} id="dropdown">
                             <option>Category </option>
                             {expDropDown}
                         </select>
