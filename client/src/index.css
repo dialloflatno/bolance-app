@@ -248,13 +248,26 @@ span {
   border-radius: 5px;
 
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  border:none;
+    outline: none;
+}
 .dropgo-LOGOUT {
   font-weight: 400;
   font-size: 12px;
-  color: black;
+  color: rgb(199, 199, 199);
   border: none;
   background: none;
 }
+.dropgo-LOGOUT:hover{
+  transition: all 0.2s;
+  color: rgb(171, 176, 179);
+}
+
 .logo {
   text-decoration: none;
   margin-bottom: 8px;
@@ -277,6 +290,12 @@ span {
   display: contents;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 .toss:hover {
   background-color: rgb(92, 1, 1);
 }
@@ -525,6 +544,9 @@ img {
   .dropgo-NAV {
     display: flex;
   }
+  .dropgo-NAV:hover{
+    color: rgb(30, 120, 180);
+  }
   .dropgo-LOGOUT {
     display: flex;
   }
@@ -574,7 +596,8 @@ img {
 
   .perTitle h6{
     margin: 20px auto;
-    font-size: x-large;
+    font-size: large;
+    font-weight: 400;
   }
 
   #top {
@@ -720,9 +743,9 @@ img {
   }
   .card {
     display: flow-root;
-    height: 326px;
-    width: 206px;
-    left: 356px;
+    height: 208px;
+    width: 197px;
+    left: 157px;
     top: 234px;
     border-radius: 12px;
     bottom: 63.77%;
@@ -732,9 +755,10 @@ img {
   }
   .card:hover {
     display: flow-root;
-    height: 346px;
-    width: 226px;
-    left: 356px;
+    display: flow-root;
+    height: 208px;
+    width: 197px;
+    left: 157px;
     top: 234px;
     border-radius: 12px;
     bottom: 63.77%;
@@ -798,9 +822,9 @@ img {
   }
   .category-dropdown {
     /* height: 40px; */
-    background-color: aliceblue;
-    padding: 5%;
-    color: gray;
+    background-color: #1f2939;
+    padding: 1%;
+    /* color: gray;    padding: 5%;*/
     width: 100%;
     /* margin: 0px -1px 3px; */
     /* font-weight: 600; */
@@ -826,9 +850,13 @@ img {
   top: 135px;
   border-radius: 20px;
   filter: drop-shadow(2px 26px 78px gray);
-
-
-
+}
+.dropgo-NAV{
+  cursor: pointer;
+}
+.dropgo-NAV:hover{
+  transition: all 0.2s;
+  color: rgb(147, 204, 241);
 }
 .box-text span {
   /* filter: drop-shadow(2px 2px 12px rgb(153, 165, 179)); */
@@ -1019,6 +1047,13 @@ img {
   align-items: baseline;
   align-content: flex-end;
 } */
+
+.perTitle h6{
+    margin: 20px auto;
+    font-size: large;
+    font-weight: 400;
+  
+}
 .perTitle {
 
     margin-left: -1px;
@@ -1231,11 +1266,13 @@ img {
   box-shadow: 0px 0px 2px 1px #80808059;
 }
 .category-dropdown {
-  /* height: 40px; */
-  background-color: aliceblue;
-  padding: 1%;
-  color: gray;
-  width: 100%;
+  background-color: #1f2939;
+  padding: 1.5%;
+  width: 20%;
+  border-start-end-radius: 10px;
+  border:none;
+  /* border-end-end-radius: 30px; */
+  /* color: gray;
   /* margin: 0px 10px 0px; */
   font-weight: 600;
 }
@@ -1310,7 +1347,7 @@ img {
   height: 591px;
   padding: 10px;
   box-sizing: content-box;
-  background: rgb(228 240 248);
+  background: rgb(72 176 133);
   box-shadow: 0px 0px 2px 1px #80808059;
   justify-content: space-between;
   align-items: flex-start;
@@ -1351,6 +1388,10 @@ td {
   flex-wrap: nowrap;
 }
 .card {
+    height: 208px;
+    width: 197px;
+    left: 157px;
+    top: 234px;
   margin-left: 41px;
   padding: 10px;
   box-shadow: 0px 0px 0px 1px gainsboro;
@@ -1364,10 +1405,10 @@ td {
 
 .card:hover {
   display: flow-root;
-  height: 415px;
-  width: 305px;
-  left: 356px;
-  top: 234px;
+    height: 208px;
+    width: 197px;
+    left: 157px;
+    top: 234px;
   border-radius: 12px;
   bottom: 63.77%;
   background: #fbfefe;
@@ -1415,6 +1456,7 @@ legend {
   color: cadetblue;
   font-weight: 600;
   transition: 0.3s;
+  margin: 18px;
 }
 fieldset {
   transition: 0.5s;
@@ -1462,8 +1504,8 @@ fieldset {
   box-shadow: inset 0px 0px 0px.3px;
   transition: background-color 0.125s, box-shadow 0.125s;
   width: 4%;
-  padding: 0px 18px;
-  margin: 7px;
+     /* padding: 0px 18px; */
+     margin: 21px;
   cursor: pointer;
 }
 .addButton button:hover {
@@ -1602,14 +1644,15 @@ textarea {
   color: white;
 }
 #titlePATCH input {
-  box-shadow: inset 0px 0px 0px 0px red;
+  box-shadow: none;
   border: none;
   color: white;
-  font-size: x-large;
+  font-size: large;
   background: none;
-  padding: 11px;
+  /* padding: 13px; */
   width: 190px;
-  margin: 21px;
+  margin: 20px auto;
+
 }
 .art-wall {
   width: 53%;
@@ -1846,9 +1889,9 @@ form button:hover {
 }
 .card {
   display: flow-root;
-  height: 408px;
-  width: 297px;
-  left: 356px;
+  height: 226px;
+  width: 201px;
+  left: 343px;
   top: 234px;
   border-radius: 12px;
   bottom: 63.77%;
@@ -1870,7 +1913,7 @@ form button:hover {
   border-style: solid;
   background-color: #5be9947d;
    border-color: rgba(245, 245, 245, 0.439);
-  height: 40vh;
+  height: 40.5vh;
   width: 77vw;
 }
 text {

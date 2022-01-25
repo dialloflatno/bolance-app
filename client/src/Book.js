@@ -11,7 +11,7 @@ import NChart from "./NChart";
 import FormToggle from "./FormToggle";
 import Setting from "./Setting";
 
-function Book({setTotal}) {
+function Book({ setTotal }) {
   const { book_id } = useParams();
 
   const url = `/books/${book_id}`;
@@ -25,6 +25,7 @@ function Book({setTotal}) {
   const [name, setCategoryName] = useState("");
   const [catogeryNames, setFetchName] = useState();
   const [catogeryExp, setFetchExp] = useState();
+  const [booksTitle, setBookTitle] = useState('');
 
 
   useEffect(() => {
@@ -32,62 +33,62 @@ function Book({setTotal}) {
       .then((r) => r.json())
       .then((bookResp) => {
         setBookDisplayed(bookResp);
+        setBookTitle(bookResp.title)
         setCategoriesArr(bookResp.categories)
         setFetchName(bookResp.categories.map(o => o.name));
         setFetchExp(bookResp.categories.map(o => o.expenses));
       });
   }, [url]);
 
-console.log(catogeryNames);
-console.log(catogeryExp);
+  console.log(catogeryNames);
+  console.log(catogeryExp);
 
 
 
-let t = 0
-if( catogeryExp?.length > 0){
-  t = catogeryExp?.map((o,index) => o.map(x => x.cost)).flat()
+  let t = 0
+  if (catogeryExp?.length > 0) {
+    t = catogeryExp?.map((o, index) => o.map(x => x.cost)).flat()
+    console.log(t);
+    let total = 0
+    for (let i = 0; i < t.length; i++) {
+      total = total + t[i]
+    }
+
+  }
+
+  function sumOfCost(array) {
+    return array.reduce((prev, curr) => prev + curr)
+  }
+
   console.log(t);
-  let total = 0
-  for (let i = 0 ; i < t.length; i++){
-    total = total + t[i]
-  } 
+  let sum = []
 
-}
+  if (t.length > 0) {
 
-function sumOfCost(array) {
-  return array.reduce((prev, curr) => prev + curr)
-}
+    sum = t.reduce((prev, curr) => prev + curr)
 
-console.log(t);
- let sum  = []
+  }
 
- if ( t.length > 0){
-
-  sum = t.reduce((prev, curr) => prev + curr)
-
- }
-
- console.log(sum);
+  console.log(sum);
 
 
 
-// const totalExpForCategory = 'darn'
+  // const totalExpForCategory = 'darn'
 
 
   // const totalExpForCategory = catogeryExp?.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
 
-// if ( catogeryExp?.length > 0){
-//   totalExpForCategory = catogeryExp.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
-// }
+  // if ( catogeryExp?.length > 0){
+  //   totalExpForCategory = catogeryExp.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
+  // }
 
 
 
 
 
 
-// console.log(totalExpForCategory);
+  // console.log(totalExpForCategory);
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
-  debugger
 
   function whileUpdatingName(e) {
     e.preventDefault();
@@ -101,7 +102,12 @@ console.log(t);
       }),
     })
       .then((r) => r.json())
-      .then((data) => setShow(!data));
+      .then((data) => {
+
+        setBookTitle(update)
+        setShow(!data)
+        
+      });
   }
 
 
@@ -144,12 +150,13 @@ console.log(t);
   //// Adding a new Expense to a category  ////////////////////////
 
   function entryHandled(entry) {
-    const newPurchase = entry.category;
-    const cat_found = Object.assign(
-      categoriesArr.find((o) => o.id === newPurchase.id),
-      newPurchase || newPurchase
-    );
-    console.log(cat_found);
+    debugger
+    const updatedCategory = entry.category;
+    const newCategoriesArray = [...categoriesArr]
+    Object.assign(categoriesArr.find((o) => o.id === updatedCategory.id), updatedCategory)
+
+    setCategoriesArr(newCategoriesArray)
+    console.log(newCategoriesArray);
     // const cat_found = categoriesArr?.map((categoryName) => categoryName.name === newPurchase.name)
     // if the match is there take that category an append the new expense to that category.expense array /////
     // const pushToCatgory = [...cat_found.expenses,newPurchase.expenses]
@@ -219,7 +226,7 @@ console.log(t);
     );
   });
 
-//
+  //
   const expense = "";
 
   return (
@@ -232,12 +239,12 @@ console.log(t);
                 <label>
                   <div>
                     <h6>
-                      {bookDisplayed?.title}{" "}
-                      {sum ? ( `$${sum}` ): "Great Work Budgeting !"}
+                      {booksTitle}{" "}
+                      {sum ? (`$${sum}`) : "Great Work Budgeting !"}
                     </h6>
                   </div>
                   <div>
-                    <Setting whileUpdatingName={whileUpdatingName} setUpdate={setUpdate}  handleToss={handleToss} show = {show} handleSwitch ={handleSwitch} />
+                    <Setting whileUpdatingName={whileUpdatingName} setUpdate={setUpdate} handleToss={handleToss} show={show} handleSwitch={handleSwitch} />
                   </div>
                 </label>
               </div>
@@ -246,7 +253,7 @@ console.log(t);
         </div>
         <div className="nc">
           <Categories categoriesArr={categoriesArr} />
-          <BarChart labels ={catogeryNames} expenses ={t} />
+          <BarChart labels={catogeryNames} expenses={t} />
         </div>
         <div>
           <div>
