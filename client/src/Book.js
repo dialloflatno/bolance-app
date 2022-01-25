@@ -23,20 +23,36 @@ function Book() {
   const [listOfExpenses, setList] = useState(categoriesArr);
   const [newEntry, setNewEntry] = useState("");
   const [name, setCategoryName] = useState("");
+  const [catogeryNames, setFetchName] = useState([]);
+  const [catogeryExp, setFetchExp] = useState();
+
 
   useEffect(() => {
     fetch(url)
       .then((r) => r.json())
       .then((bookResp) => {
         setBookDisplayed(bookResp);
-        debugger;
-        setCategoriesArr(bookResp.categories);
+        setCategoriesArr(bookResp.categories)
+        setFetchName(bookResp.categories.map(o => o.name));
+        setFetchExp(bookResp.categories.map(o => o.expenses));
       });
   }, [url]);
 
+console.log(catogeryNames);
+console.log(catogeryExp);
+// const totalExpForCategory = 'darn'
 
 
+  const totalExpForCategory = catogeryExp?.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
+
+// if ( catogeryExp?.length > 0){
+//   totalExpForCategory = catogeryExp.map(o => o.map(x => x.cost)).flat().reduce((prev,curr) => prev + curr)
+// }
+
+
+// console.log(totalExpForCategory);
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
+  debugger
 
   function whileUpdatingName(e) {
     e.preventDefault();
@@ -52,6 +68,7 @@ function Book() {
       .then((r) => r.json())
       .then((data) => setShow(!data));
   }
+
 
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
 
@@ -193,7 +210,7 @@ function Book() {
         </div>
         <div className="nc">
           <Categories categoriesArr={categoriesArr} />
-          <NChart />
+          <BarChart labels ={catogeryNames} expenses ={totalExpForCategory} />
         </div>
         <div>
           <div>

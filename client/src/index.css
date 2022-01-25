@@ -293,6 +293,14 @@ a {
 .sBar {
   margin-right: 32px;
 }
+.cat_t{
+      padding: 15px;
+    position: static;
+    background: #97a8b6;
+    width: 251px;
+    height: 29px;
+
+}
 
 .SearchBar {
   width: 100%;
