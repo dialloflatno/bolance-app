@@ -40,6 +40,23 @@ function Book() {
 
 console.log(catogeryNames);
 console.log(catogeryExp);
+
+
+
+let t = 0
+if( catogeryExp?.length > 0){
+  t = catogeryExp?.map((o,index) => o.map(x => x.cost)).flat()
+  console.log(t);
+  let total = 0
+  for (let i = 0 ; i < t.length; i++){
+    total = total + t[i]
+  } 
+
+}
+
+
+
+console.log(t);
 // const totalExpForCategory = 'darn'
 
 
@@ -215,7 +232,7 @@ console.log(catogeryExp);
         </div>
         <div className="nc">
           <Categories categoriesArr={categoriesArr} />
-          <BarChart labels ={catogeryNames} expenses ={catogeryExp} />
+          <BarChart labels ={catogeryNames} expenses ={t} />
         </div>
         <div>
           <div>

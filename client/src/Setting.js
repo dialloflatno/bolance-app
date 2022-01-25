@@ -6,9 +6,9 @@ export default function Setting({ handleSwitch, show, handleToss }) {
           <>
             <h5 className="toggle_update">Change Book Title</h5>
             <div>
-              <button className="toss" onClick={handleToss}>
+              {/* <button className="toss" onClick={handleToss}>
                 Toss
-              </button>
+              </button> */}
             </div>
           </>
         ) : (

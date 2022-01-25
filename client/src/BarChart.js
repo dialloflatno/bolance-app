@@ -30,7 +30,7 @@ export default class BarChart extends React.Component {
                 backgroundColor: 'rgba(75,192,192,1)',
                   color: 'white',
                 borderWidth: 2,
-                data:[20,20,20,12]
+                data: this.props.expenses
                 ,
               },
             ],

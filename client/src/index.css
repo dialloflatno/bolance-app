@@ -339,6 +339,9 @@ a {
   display: none;
 }
 .catNames{
+  text-decoration: none;
+  color: rgba(26,26,26,.75);
+  transition: color .2s ease-out;
   font-weight: 500;
   font-family: inherit;
 }
