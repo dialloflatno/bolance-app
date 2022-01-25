@@ -5,8 +5,10 @@ export default function Categories({ categoriesArr }) {
 
   return <div className='nvC'>
     
+      <div className='cateTitle'>
+      <h1 >Categories</h1>
+      </div>
       <div className='catNames'>
-      <h1 className= 'cat_t'>Categories</h1>
           {cat_names}
           </div>
       </div>

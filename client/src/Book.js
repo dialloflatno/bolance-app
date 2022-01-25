@@ -237,7 +237,7 @@ console.log(t);
                     </h6>
                   </div>
                   <div>
-                    <Setting  handleToss={handleToss} show = {show} handleSwitch ={handleSwitch} />
+                    <Setting whileUpdatingName={whileUpdatingName} setUpdate={setUpdate}  handleToss={handleToss} show = {show} handleSwitch ={handleSwitch} />
                   </div>
                 </label>
               </div>
@@ -258,17 +258,6 @@ console.log(t);
                 setToggle={setToggle}
                 toggle={toggle}
               />
-
-              <label>
-                <form id="titlePATCH" onSubmit={whileUpdatingName}>
-                  <input
-                    placeholder="new title"
-                    type="text"
-                    value={null}
-                    onChange={(e) => setUpdate(e.target.value)}
-                  />
-                </form>
-              </label>
 
               <>
                 <CategoriesForm

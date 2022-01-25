@@ -27,8 +27,8 @@ export default class BarChart extends React.Component {
             datasets: [
               {
                 label: 'Expense Chart',
-                backgroundColor: 'rgba(75,192,192,1)',
-                  color: 'white',
+                backgroundColor:[ '#367777;' ],
+                color: '#fbfbfb',
                 borderWidth: 2,
                 data: this.props.expenses
                 ,
@@ -41,8 +41,13 @@ export default class BarChart extends React.Component {
               display: true,
               text: 'Average Rainfall per month',
               fontSize: 20,
+              color: '#fbfbfb'
             },
             legend: {
+              labels: {
+                fontColor: '#fbfbfb'
+            }
+             ,
               display: true,
               position: 'right',
             },
@@ -52,3 +57,4 @@ export default class BarChart extends React.Component {
     )
   }
 }
+

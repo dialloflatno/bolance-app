@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-function 
+function
 
 
 
-Form({ entryHandled, expDropDown, categoriesArr }) {
+    Form({ entryHandled, expDropDown, categoriesArr }) {
 
 
 
@@ -87,7 +87,13 @@ Form({ entryHandled, expDropDown, categoriesArr }) {
                         category_id: choosen?.id
                     })
             })).then((r) => r.json())
-            .then((cat_repo) => entryHandled(cat_repo))
+            .then((cat_repo) => {
+                PaymentType('')
+                setItem('')
+                setCost('')
+                setChoice('')
+                entryHandled(cat_repo)
+            })
     }
 
 
