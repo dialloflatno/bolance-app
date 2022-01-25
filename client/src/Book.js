@@ -11,7 +11,7 @@ import NChart from "./NChart";
 import FormToggle from "./FormToggle";
 import Setting from "./Setting";
 
-function Book() {
+function Book({setTotal}) {
   const { book_id } = useParams();
 
   const url = `/books/${book_id}`;
@@ -54,9 +54,23 @@ if( catogeryExp?.length > 0){
 
 }
 
-
+function sumOfCost(array) {
+  return array.reduce((prev, curr) => prev + curr)
+}
 
 console.log(t);
+ let sum  = []
+
+ if ( t.length > 0){
+
+  sum = t.reduce((prev, curr) => prev + curr)
+
+ }
+
+ console.log(sum);
+
+
+
 // const totalExpForCategory = 'darn'
 
 
@@ -219,7 +233,7 @@ console.log(t);
                   <div>
                     <h6>
                       {bookDisplayed?.title}{" "}
-                      {expense ? expense : "Great Work Budgeting !"}
+                      {sum ? sum : "Great Work Budgeting !"}
                     </h6>
                   </div>
                   <div>

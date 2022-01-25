@@ -25,8 +25,7 @@ function App() {
       }
     });
   },[]);
-
- 
+const [ aBookTotalExpense, setTotal] = useState('')
 
   if(user){
     return (
@@ -34,14 +33,14 @@ function App() {
        <Switch>
           <Route exact path="/" >
             <Nav user={user} setUser={setUser} />
-            <Overview user={user} />
+            <Overview user={user}  />
             <footer>Bolance App | Your Best Budget ! </footer>
 
 
           </Route>
           <Route path="/books/:book_id">
             <Nav user={user} setUser={setUser} />
-            <Book />
+            <Book  setTotal={setTotal}/>
             <footer>Bolance App | Your Best Budget ! </footer>
 
           </Route>
