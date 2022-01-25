@@ -461,6 +461,18 @@ img {
     font-family: system-ui;
     color: antiquewhite;
   }
+  .create-Box{
+    width: 100%; 
+    display: inline-flex;
+    justify-items: end;
+    align-items: center;
+    align-content: center;
+    padding: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+  }
   .toss {
     color: antiquewhite;
     background: coral;
@@ -545,10 +557,9 @@ img {
   }
   .formEntry {
     transition: 0.3s;
-    display: flex;
-    margin: 30px 4px 12px -13px;
+    /* margin: 30px 4px 12px -13px; */
     align-items: center;
-    flex-direction: column;
+
   }
 
   .formEntry input {
@@ -560,6 +571,11 @@ img {
   }
   .formEntry select {
     margin: 20px;
+  }
+
+  .perTitle h6{
+    margin: 20px auto;
+    font-size: x-large;
   }
 
   #top {
@@ -575,12 +591,16 @@ img {
     width: -webkit-fill-available;
     flex-wrap: wrap;
   }
-  /* .perTitle {
-    display: flex;
-    font: optional;
-    font-size: x-large;
-    align-items: center;
-  } */
+  .perTitle {
+    
+      margin-left: -1px;
+      border-color: rgba(245, 245, 245, 0.439);
+      border-width: thin;
+      border-style: solid;
+      font-size: 10;
+      padding: 5px;
+      width: 100%;
+  }
   h6 {
     padding: 10px;
     margin: 10px;
@@ -998,13 +1018,14 @@ img {
   align-content: flex-end;
 } */
 .perTitle {
-  margin-left: -3px;
-  border-color: rgba(245, 245, 245, 0.439);
-  border-width: thin;
-  border-style: solid;
-  font-size: large;
-  padding: 12px;
-  width: 100%;
+
+    margin-left: -1px;
+    border-color: rgba(245, 245, 245, 0.439);
+    border-width: thin;
+    border-style: solid;
+    font-size: 10;
+    padding: 5px;
+    width: 100%;
 }
 .list{
   font: -webkit-mini-control;
@@ -1419,8 +1440,9 @@ fieldset {
 
 .formEntry {
   transition: 0.3s;
-  margin: 30px 4px 12px -13px;
+  /* margin: 30px 4px 12px -13px; */
   align-items: center;
+
 }
 
 .addButton {
@@ -1789,16 +1811,19 @@ form button:hover {
  
 }
 .create-Box{
-  width: 100%;
-  display: inline-flex;
-  justify-items: end;
-  align-items: center;
-  align-content: center;
-  padding: 15px;
-  display: flex;
-  justify-content: space-evenly;
-
+  width: 100%; 
+    display: inline-flex;
+    justify-items: end;
+    align-items: center;
+    align-content: center;
+    padding: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column
 }
+
+
+
 .store {
   align-items: center;
   flex-direction: row;

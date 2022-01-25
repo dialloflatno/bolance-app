@@ -88,7 +88,7 @@ const [navtog,setNavTog]=useState(true)
                     <Link to="/">
                       <li className="logo">Bolance</li>
                     </Link>
-                    <Search />
+                    <Search user ={user} />
                     <Link to="/" className="dropgo-NAV">
                       Home
                     </Link>

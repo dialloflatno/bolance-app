@@ -34,7 +34,6 @@ const [ aBookTotalExpense, setTotal] = useState('')
           <Route exact path="/" >
             <Nav user={user} setUser={setUser} />
             <Overview user={user}  />
-            <footer>Bolance App | Your Best Budget ! </footer>
 
 
           </Route>

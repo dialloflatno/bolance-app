@@ -233,7 +233,7 @@ console.log(t);
                   <div>
                     <h6>
                       {bookDisplayed?.title}{" "}
-                      {sum ? sum : "Great Work Budgeting !"}
+                      {sum ? ( `$${sum}` ): "Great Work Budgeting !"}
                     </h6>
                   </div>
                   <div>

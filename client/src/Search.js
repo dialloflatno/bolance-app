@@ -1,12 +1,14 @@
 // import { useState } from "react";
 
-function Search() {
+function Search({user}) {
 
 const search = (e) => {
  const trackedInput = e.target.value;
- console.log(trackedInput);
+ console.log(user.books);
+const booksOfUser = user.books.filter(book => book.lenght === trackedInput)
+ console.log(booksOfUser);
 }
-    
+
     
     return (
 
