@@ -16,7 +16,7 @@ import Loading from "./Loading";
 
 function App() {
 
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
   const [books, setBooks] = useState([]) /// data is for the books of the user //////
 
   useEffect(() => {
@@ -36,7 +36,7 @@ debugger
       <>
        <Switch>
           <Route exact path="/" >
-            <Nav user={user} setUser={setUser} books ={books} setBooks={setBooks} />
+            <Nav user={user} setUser={setUser} books ={books}  />
             <Overview user={user} books ={books} setBooks={setBooks}  />
 
 

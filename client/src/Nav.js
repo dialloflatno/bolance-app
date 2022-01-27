@@ -1,40 +1,42 @@
 import Search from './Search'
-import {useState  } from "react";
+import { useState } from "react";
 import { useHistory, Link } from 'react-router-dom'
 import Profile from './Profile'
 
-function Nav({ user, setUser , books, setBooks}) {
-const [isOpen,setOpen]=useState(false)
-const [username,setUsername] = useState('')
-const [email,setEmail] = useState('')
-const [password,setPassword] = useState('')
-const [navtog,setNavTog]=useState(true)
+function Nav({ user, setUser, books }) {
+  const [isOpen, setOpen] = useState(false)
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [navtog, setNavTog] = useState(true)
 
-    function handleToggle() {
-        setNavTog(false)  
-    }
-    function handleTogglePostive() {
-        setNavTog(true)  
-    }
 
-  
+
 
   const history = useHistory()
-  
+
   function handleLogoutClick() {
     console.log('Save Your Coins!!')
 
     fetch('/logout', { method: 'DELETE' }).then((r) => {
       if (r.ok) {
-        setUser('')
+        setUser({})
         history.push('/signin')
       }
     })
   }
 
-  // const titleBook = user.books
 
-  //map through my users books for an title that matchs the e.target.value to redirect your to the books.id
+  function handleToggle() {
+    setNavTog(false)
+  }
+  function handleTogglePostive() {
+    setNavTog(true)
+  }
+
+
+
+
 
   function handleRedirectClick(e) {
     const title = e.target.value
@@ -61,17 +63,22 @@ const [navtog,setNavTog]=useState(true)
       }),
     })
       .then((r) => r.json())
-      .then((data) =>  setOpen(!data) 
-      
+      .then((data) => {
+        setEmail(email)
+        setPassword(password)
+        setUsername(username)
+        setOpen(() => !data)
+
+      }
       )
-      
-  } 
+
+  }
 
   const dropDown = books?.map((book) => {
     return (
       <>
-      
-        <option index = {book.id}>{book.title}</option>
+
+        <option index={book.id}>{book.title}</option>
       </>
     )
   })
@@ -88,21 +95,21 @@ const [navtog,setNavTog]=useState(true)
                     <Link to="/">
                       <li className="logo">Bolance</li>
                     </Link>
-                    <Search user ={user} />
+                    <Search user={user} />
                     <Link to="/" className="dropgo-NAV">
                       Home
                     </Link>
-                      <select className="dropgo-NAV"  onChange={handleRedirectClick} >
-                        <option>Books</option>
-                        {dropDown}
-                      </select>
+                    <select className="dropgo-NAV" onChange={handleRedirectClick} >
+                      <option>Books</option>
+                      {dropDown}
+                    </select>
                     <Link to="/errors" className="dropgo-NAV ">
                       PMR
                     </Link>
                     <span className="name">{user.full_name}
-                    <button className="close" onClick ={() => setOpen(true)}>
-                    ⌄
-                    </button>
+                      <button className="close" onClick={() => setOpen(true)}>
+                        ⌄
+                      </button>
                     </span>
                     <Link
                       to="/logout"
@@ -112,7 +119,19 @@ const [navtog,setNavTog]=useState(true)
                     </Link>
                     <div>
                     </div>
-                 <Profile back ={handleTogglePostive} handleToggle={handleToggle} navtog={navtog} handleSubmit ={profileUpdating}   email ={setEmail} userName ={setUsername} pass ={setPassword} open={isOpen}  pdate={profileUpdating}  close={()=> setOpen(false)} user={user} books = {books} />
+                    <Profile back={handleTogglePostive}
+                      handleToggle={handleToggle} navtog={navtog}
+                      handleSubmit={profileUpdating}
+                      setEmail={setEmail}
+                      userName={setUsername}
+                      pass={setPassword}
+                      open={isOpen}
+                      pdate={profileUpdating}
+                      close={() => setOpen(false)}
+                      user={user}
+                      username={username}
+                      email={email}
+                      books={books} />
                   </ul>
                 </div>
                 <div className="stack">
