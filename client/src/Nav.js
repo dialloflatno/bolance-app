@@ -20,7 +20,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
 
     fetch('/logout', { method: 'DELETE' }).then((r) => {
       if (r.ok) {
-        setUser({})
+        setUser('')
         history.push('/signin')
       }
     })

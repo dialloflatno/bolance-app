@@ -252,17 +252,37 @@ span {
   align-items: center;
 }
 
-.toosed-bckg{
+.toosed-bckg {
   color: whitesmoke;
   background: rgb(37, 4, 154);
   height: 100vh;
+ 
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
 }
 .toosed-bckg a {
-  color: rgb(61, 47, 47);
+  color: rgb(201, 183, 183);
+  cursor: pointer;
 }
 
+.trash svg {
+  height: 8pc;
+}
 
-.trash{}
+.trash {
+  height: 5pc;
+}
+.svgShaping {
+  display: contents;
+}
+
+.trash h1 {
+  margin: 30px;
+}
 
 .close {
   height: 2px;

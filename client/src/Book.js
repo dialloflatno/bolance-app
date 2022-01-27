@@ -7,7 +7,7 @@ import BarChart from "./BarChart";
 import FormToggle from "./FormToggle";
 import Setting from "./Setting";
 
-function Book({ user, handleDeletedBook }) {
+function Book({ user }) {
   const { book_id } = useParams();
 
   const url = `/books/${book_id}`;
@@ -103,7 +103,8 @@ function Book({ user, handleDeletedBook }) {
     fetch(url, {
       method: "DELETE",
     }).then(data => {
-    console.log(data);
+      history.push('/toss')
+     console.log(data);
     })
   }
   ////Deleting Book //////////////////////// <---------  NEEDS TO BE HANDLED

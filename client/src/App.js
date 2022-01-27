@@ -9,13 +9,13 @@ import Overview from "./Overview";
 import Book from "./Book";
 import Welcome from "./Welcome";
 import Nav from "./Nav";
-// import BookTossed from "./BookTossed";
+import BookTossed from "./BookTossed";
 // import Reports from "./Reports";
 
 
 function App() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState('');
   const [books, setBooks] = useState([]) /// data is for the books of the user //////
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -49,6 +49,9 @@ function App() {
             <Nav user={user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} setUser={setUser} books={books} />
             <Book usersBooks={books} handleDeletedBook ={handleDeletedBook} />
             <footer>Bolance App | Your Best Budget ! </footer>
+          </Route>
+          <Route to ='/toss'>
+            <BookTossed />
           </Route>
       </Switch>
 
