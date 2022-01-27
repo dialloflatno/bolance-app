@@ -5,16 +5,17 @@ import {useState } from "react";
 
 
 
-function Overview({ user }) {
+function Overview({ user, setBooks,books }) {
 
-    const [books, setBooks] = useState(user.books) /// data is for the books of the user //////
+    // const [books, setBooks] = useState(user.books) /// data is for the books of the user //////
 
 
 
     function placeBook(newBook) {
         console.log('Book Packed');
         const addBook = [...books, newBook];
-        setBooks(addBook)
+        setBooks(()=> addBook)
+
     };
 
     let totalExpenses = 'Great Work Budgeting !' /// error message ////

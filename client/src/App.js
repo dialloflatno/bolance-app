@@ -16,24 +16,28 @@ import Loading from "./Loading";
 
 function App() {
 
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState([]);
+  const [books, setBooks] = useState([]) /// data is for the books of the user //////
 
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user)
+          setBooks(user.books)
+        });
       }
     });
   },[]);
 const [ aBookTotalExpense, setTotal] = useState('')
-
+debugger
   if(user){
     return (
       <>
        <Switch>
           <Route exact path="/" >
-            <Nav user={user} setUser={setUser} />
-            <Overview user={user}  />
+            <Nav user={user} setUser={setUser} books ={books} setBooks={setBooks} />
+            <Overview user={user} books ={books} setBooks={setBooks}  />
 
 
           </Route>

@@ -10,15 +10,15 @@ export default function Setting({setUpdate,whileUpdatingName, handleSwitch, show
                     placeholder="new title"
                     type="text"
                     value={null}
-                    onChange={(e) => setUpdate(e.target.value)}
+                    onChange={(e) => setUpdate(() => e.target.value)}
                   />
                 </form>
               </label>
             <h5 className="toggle_update">Change Book Title</h5>
             <div>
-              {/* <button className="toss" onClick={handleToss}>
+              <button className="toss" onClick={handleToss}>
                 Toss
-              </button> */}
+              </button>
             </div>
           </>
         ) : (

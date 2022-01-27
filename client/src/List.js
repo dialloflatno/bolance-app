@@ -1,11 +1,11 @@
 import Info from "./Info";
 
 
-function List({ arrayOfExpenses,handleDeleteItem}) {
+function List({ arrayOfExpenses,handleDeleteItem, catogeryExp}) {
 
 console.log(arrayOfExpenses);
 
-  let mappedList ='All'
+  let mappedList = ['Choose Your Category']
 
   if (arrayOfExpenses?.length > 0) {
     return (

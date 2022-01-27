@@ -3,7 +3,7 @@ import {useState  } from "react";
 import { useHistory, Link } from 'react-router-dom'
 import Profile from './Profile'
 
-function Nav({ user, setUser }) {
+function Nav({ user, setUser , books, setBooks}) {
 const [isOpen,setOpen]=useState(false)
 const [username,setUsername] = useState('')
 const [email,setEmail] = useState('')
@@ -32,14 +32,14 @@ const [navtog,setNavTog]=useState(true)
     })
   }
 
-  const titleBook = user.books
+  // const titleBook = user.books
 
   //map through my users books for an title that matchs the e.target.value to redirect your to the books.id
 
   function handleRedirectClick(e) {
     const title = e.target.value
     console.log('Opening Book')
-    const getBook = titleBook.find((book) => book.title === title)
+    const getBook = books.find((book) => book.title === title)
     console.log(getBook);
     const bookMatched = getBook?.id
     console.log(bookMatched)
@@ -67,7 +67,7 @@ const [navtog,setNavTog]=useState(true)
       
   } 
 
-  const dropDown = titleBook.map((book) => {
+  const dropDown = books?.map((book) => {
     return (
       <>
       

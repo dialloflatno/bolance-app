@@ -6,10 +6,10 @@ function BookShelf({ totalExpenses, books }) {
 
 
 
-        let layed = 'No Book`s'
-        if (books.length > 0) {
+        let layed = []
+        if (books?.length > 0) {
 
-            layed = books.map((book) => {
+            layed = books?.map((book) => {
                 return (
 
                 <BookCover 

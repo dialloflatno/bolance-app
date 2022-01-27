@@ -105,7 +105,7 @@ function Book({ setTotal }) {
     console.log(e.target.value);
     fetch(url, {
       method: "DELETE",
-    });
+    }).then(data => console.log(data))
   }
   ////Deleting Book //////////////////////// <---------  NEEDS TO BE HANDLED
 
@@ -280,6 +280,7 @@ console.log(listOfExpenses);
 
           <div>
             <List
+             catogeryExp ={catogeryExp}
               handleDeleteItem={entryHandled}
               arrayOfExpenses={listOfExpenses}
             />
