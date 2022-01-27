@@ -29,7 +29,7 @@ function App() {
       }
     });
   }, []);
-// debugger
+
   function handleDeletedBook(tossedBook) {
     
     const currentBooks = books.filter(book => book.title !== tossedBook.title)
@@ -61,7 +61,7 @@ function App() {
     return (
       <div className="App">
         <Switch>
-          <Route exact path="/home">
+          <Route exact path="/">
             <GreetNav /><Welcome />
           </Route>
           <Route path="/signup">
