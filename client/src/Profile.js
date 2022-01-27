@@ -1,12 +1,41 @@
+import { useState } from "react"
 
 
 
 export default function Profile({ 
-    back, username, email, setEmail, navtog, handleToggle, handleSubmit, userName, pass, open, user, books, close }) {
+    back, navtog, handleToggle, setOpen,open, user, books, close }) {
+
+        const [username, setUsername] = useState('')
+        const [email, setEmail] = useState('')
+        const [password, setPassword] = useState('')
+      
 
 
 
+  function profileUpdating(e) {
+    e.preventDefault()
+    fetch(`/users/${user.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        username: username
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        setEmail(email)
+        setPassword(password)
+        setUsername(username)
+        setOpen(() => !data)
 
+      }
+      )
+
+  }
 
 
     if (!open) return null
@@ -16,24 +45,28 @@ export default function Profile({
             </div>
             {navtog ? (
                 <><button onClick={close} className='toggle-prp'>▲</button><>
-                    <><h3>{username}</h3>
+                    <><h3>{user.username}</h3>
                         <label>name:<span>{user.full_name}</span>
-                        </label><label>email: <span>{email}
+                        </label><label>email: <span>{user.email}
                         </span></label>
                         <span placeholder='*******'>password:****</span>
                     </><button onClick={handleToggle} className='profileUpdate'>Update Info</button></></>
             ) : (
 
                 <><button onClick={back} className='toggle-prp'>⤌</button>
-                    <form onSubmit={handleSubmit}>
-                        <input onChange={(e) => userName(e.target.value)} placeholder='username' />
-                        <input onChange={(e) => setEmail(e.target.value)} placeholder='email' />
-                        <input onChange={(e) => pass(e.target.value)} placeholder='password' />
+                    <form onSubmit={profileUpdating}>
+                        <input onChange={(e) => setUsername(e.target.value)} value ={username} placeholder='username' />
+                        <input onChange={(e) => setEmail(e.target.value)} value ={email} placeholder='email' />
+                        <input 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        value ={password} 
+                        placeholder='password' 
+                        />
                         <button className='updateME' type='submit'>Update Info</button>
                     </form></>
             )}
             <br />
-            <span className='booksUser'>Your Book Pile:{books.length}</span>
+            <span className='booksUser'>Your Book Pile:{books?.length}</span>
         </div>
     )
 }

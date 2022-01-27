@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import TotalExp from "./TotalExp";
 import List from "./List";
 import Form from "./Form";
 import Categories from "./Categories";
 import CategoriesForm from "./CategoriesForm";
-import { Chart } from "react-chartjs-2";
 import BarChart from "./BarChart";
-import NChart from "./NChart";
 import FormToggle from "./FormToggle";
 import Setting from "./Setting";
 
@@ -21,7 +18,6 @@ function Book({ setTotal }) {
   const [catogeryNames, setFetchName] = useState(); ///<<< categories: [ :name ]
   const [catogeryExp, setFetchExp] = useState(); ///<<< categories: [:expenses:[]]
   const [booksTitle, setBookTitle] = useState(""); ///<<< book: [ :title ]
-  // const [selectedCategory, setSelectedCategory] = useState("");
   const [name, setCategoryName] = useState("");
   const [show, setShow] = useState(false);
   const [toggle, setToggle] = useState(false);

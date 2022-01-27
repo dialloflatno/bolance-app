@@ -4,12 +4,9 @@ import { useHistory, Link } from 'react-router-dom'
 import Profile from './Profile'
 
 function Nav({ user, setUser, books }) {
-  const [isOpen, setOpen] = useState(false)
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [navtog, setNavTog] = useState(true)
 
+  const [isOpen, setOpen] = useState(false)
+  const [navtog, setNavTog] = useState(true)
 
 
 
@@ -49,31 +46,7 @@ function Nav({ user, setUser, books }) {
   }
 
 
-  function profileUpdating(e) {
-    e.preventDefault()
-    fetch(`/users/${user.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        username: username
-      }),
-    })
-      .then((r) => r.json())
-      .then((data) => {
-        setEmail(email)
-        setPassword(password)
-        setUsername(username)
-        setOpen(() => !data)
-
-      }
-      )
-
-  }
-
+ 
   const dropDown = books?.map((book) => {
     return (
       <>
@@ -120,18 +93,20 @@ function Nav({ user, setUser, books }) {
                     <div>
                     </div>
                     <Profile back={handleTogglePostive}
-                      handleToggle={handleToggle} navtog={navtog}
-                      handleSubmit={profileUpdating}
-                      setEmail={setEmail}
-                      userName={setUsername}
-                      pass={setPassword}
+                      handleToggle={handleToggle}
+                       navtog={navtog}
+                      // handleSubmit={profileUpdating}
+                      // setEmail={setEmail}
+                      // userName={setUsername}
+                      // pass={setPassword}
                       open={isOpen}
-                      pdate={profileUpdating}
                       close={() => setOpen(false)}
+                      setOpen={setOpen}
                       user={user}
-                      username={username}
-                      email={email}
-                      books={books} />
+                      // username={username}
+                      // email={email}
+                      books={books} 
+                      />
                   </ul>
                 </div>
                 <div className="stack">

@@ -42,7 +42,7 @@ debugger
 
           </Route>
           <Route path="/books/:book_id">
-            <Nav user={user} setUser={setUser} />
+          <Nav user={user} setUser={setUser} books ={books}  />
             <Book  setTotal={setTotal}/>
             <footer>Bolance App | Your Best Budget ! </footer>
 
