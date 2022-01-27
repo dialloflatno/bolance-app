@@ -17,15 +17,20 @@ function BookForm({ user, placeBook }) {
       }),
     })
       .then((r) => r.json())
-      .then((info) => placeBook(info))
+      .then((info) => {
+        placeBook(info)
+        setBooksTitle('')
+      })
   }
 
   return (
     <div>
       <form className="bookbind" onSubmit={handleSubmit}>
-        <span> Bookbinding</span>
-        <span className="bvpharse">Add new book below </span>
+        <h3> Bookbinding</h3>
+        <span className="bvpharse">Lets Start Budgeting </span>
+        <h5 >Create your Book  </h5>
         <input
+        value={title}
           onChange={(e) => setBooksTitle(e.target.value)}
           placeholder="Book Title"
         />

@@ -25,6 +25,7 @@ export default function Setting({setUpdate,whileUpdatingName, handleSwitch , sho
                   />
                 </form>
             <div>
+            <p>*NOTE: BY CLICKING 'TOSS'  YOU WILL BE PERMANENTLY DELETING YOUR ENTIRE  BOOK. THIS INCLUDES  ANY TRANSACTIONS, CATEGORIES THAT YOU'VE INPUTTED IN THIS BOOK. YOU  WILL NO LONGER BE ABLE TO RETRIEVE IT BACK. PLEASE BE SURE THAT YOU HAVE COLLECTED ALL REQUIRED INFORMATION BEFORE TOSSING YOUR BOOK.</p>
               <button className="toss" onClick={handleToss}>
                 Toss
               </button>
