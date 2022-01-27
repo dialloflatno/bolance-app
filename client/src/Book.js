@@ -191,10 +191,16 @@ console.log(listOfExpenses);
   });
 
 
-  const catogeryNamesForChart = categoriesArr?.map((n, id) => n.name)
-  console.log(catogeryNamesForChart);
+  const categoryNamesForChart = categoriesArr?.map((n, id) => n.name)
+  console.log(categoryNamesForChart);
   // returns me a list of names
 
+
+
+
+const categoryExpenseForChart = categoriesArr?.map((n, id) => n.expenses.map(exp => exp.cost)).flat()
+
+console.log(categoryExpenseForChart);
 //////////////////////////////////////////////////////
 
 
@@ -224,7 +230,7 @@ console.log(listOfExpenses);
                 <label>
                   <div>
                     <h6>
-                      <strong>{booksTitle}</strong> {sum ? `Total Book Value : $${sum}` : "Great Work Budgeting !"}
+                      <strong>{booksTitle}</strong> {sum ? `Total Book Expense: $${sum}` : "Great Work Budgeting !"}
                     </h6>
                   </div>
                   <div>
@@ -243,7 +249,7 @@ console.log(listOfExpenses);
         </div>
         <div className="nc">
           <Categories categoriesArr={categoriesArr} />
-          <BarChart labels={catogeryNamesForChart} expenses={t} />
+          <BarChart labels={categoryNamesForChart} expenses={categoryExpenseForChart} />
         </div>
         <div>
           <div>
