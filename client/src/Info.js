@@ -12,7 +12,10 @@ function Info({ handleDeleteItem, item, cost, store, info, store_address, paymen
         fetch(urlDelete, {
             method: "DELETE",
         })
-            .then(() => handleDeleteItem(info));
+            .then(() => {
+                debugger
+                // handleDeleteItem(info)
+            });
     }
 
 
@@ -28,16 +31,6 @@ function Info({ handleDeleteItem, item, cost, store, info, store_address, paymen
                     <span>{payment}</span>
                     <span>${cost}</span>
                     <span>{store}</span>
-                    {/* <hr className="lenght"></hr> */}
-                    {/* <div className="FOOD"> */}
-                    {/* <thead>{category_name}</thead> */}
-                    {/* <ul></ul> */}
-                    {/* <hr className="lenght"></hr>
-                    <div className="Outting">
-                        {/* <thead>{category_name}</thead> */}
-                    {/* <ul></ul>  */}
-                    {/* </div> */}
-
 
                 </p>
 

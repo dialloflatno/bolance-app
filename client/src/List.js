@@ -1,21 +1,16 @@
 import Info from "./Info";
 
 
-function List({ display,handleDeleteItem }) {
+function List({ arrayOfExpenses,handleDeleteItem}) {
 
+console.log(arrayOfExpenses);
 
-  const exp = display?.map((x) => { return (x) })
-  console.log(exp);
+  let mappedList ='All'
 
-  //return me each array that has a lenght value great the zero 
-  //if the lenght value is less than zero return No Expense///
-
-  let mappedList = 'No Expense'
-
-  if (exp?.length > 0) {
+  if (arrayOfExpenses?.length > 0) {
     return (
 
-      mappedList = exp?.map(row =>
+      mappedList = arrayOfExpenses?.map(row =>
         <Info
           key={row.id}
           item={row.item}

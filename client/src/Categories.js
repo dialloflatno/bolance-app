@@ -1,7 +1,7 @@
 import ListOfCats from "./ListOfCats";
 
 export default function Categories({ categoriesArr }) {
-  const cat_names = categoriesArr.map((cat) => <ListOfCats name={cat.name} />);
+  const cat_names = categoriesArr?.map((cat) => <ListOfCats name={cat.name} />);
 
   return <div className='nvC'>
     

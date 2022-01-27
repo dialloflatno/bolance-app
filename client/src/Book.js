@@ -15,56 +15,50 @@ function Book({ setTotal }) {
   const { book_id } = useParams();
 
   const url = `/books/${book_id}`;
-  const [bookDisplayed, setBookDisplayed] = useState();
+  const [bookDisplayed, setBookDisplayed] = useState(); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
+  const [categoriesArr, setCategoriesArr] = useState(); //<<< categories: [ :name, :expenses:[]]
+  const [listOfExpenses, setList] = useState([]);
+  const [catogeryNames, setFetchName] = useState(); ///<<< categories: [ :name ]
+  const [catogeryExp, setFetchExp] = useState(); ///<<< categories: [:expenses:[]]
+  const [booksTitle, setBookTitle] = useState(""); ///<<< book: [ :title ]
+  // const [selectedCategory, setSelectedCategory] = useState("");
+  const [name, setCategoryName] = useState("");
   const [show, setShow] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [update, setUpdate] = useState(false);
-  const [categoriesArr, setCategoriesArr] = useState([]);
-  const [listOfExpenses, setList] = useState(categoriesArr);
-  const [newEntry, setNewEntry] = useState("");
-  const [name, setCategoryName] = useState("");
-  const [catogeryNames, setFetchName] = useState();
-  const [catogeryExp, setFetchExp] = useState();
-  const [booksTitle, setBookTitle] = useState('');
-
 
   useEffect(() => {
     fetch(url)
       .then((r) => r.json())
       .then((bookResp) => {
-        setBookDisplayed(bookResp);
-        setBookTitle(bookResp.title)
-        setCategoriesArr(bookResp.categories)
-        setFetchName(bookResp.categories.map(o => o.name));
-        setFetchExp(bookResp.categories.map(o => o.expenses));
+        setBookDisplayed(() => bookResp); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
+        setBookTitle(() => bookResp.title); ///<<< book: [ :title ]
+        setCategoriesArr(() => bookResp.categories); ///<<< categories: [ :name, :expenses:[]]
+        setFetchName(() => bookResp.categories.map((o) => o.name)); ///<<< categories: [ :name ]
+        setFetchExp(() => bookResp.categories.map((o) => o.expenses)); ///<<< categories: [:expenses:[]]
       });
   }, [url]);
 
-  console.log(catogeryNames);
-  console.log(catogeryExp);
+  //filter out the categories that are not selected //
+  /// then attempt a .map()  ////
 
-
-
-  let t = 0
+  let t = 0;
   if (catogeryExp?.length > 0) {
-    t = catogeryExp?.map((o, index) => o.map(x => x.cost)).flat()
+    t = catogeryExp?.map((o, index) => o.map((x) => x.cost)).flat();
     console.log(t);
-    let total = 0
+    let total = 0;
     for (let i = 0; i < t.length; i++) {
-      total = total + t[i]
+      total = total + t[i];
     }
-
   }
 
   console.log(t);
-  let sum = []
+  let sum = [];
 
   if (t.length > 0) {
-
-    sum = t.reduce((prev, curr) => prev + curr)
-
+    sum = t.reduce((prev, curr) => prev + curr);
   }
-  
+
   console.log(sum);
 
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
@@ -82,14 +76,10 @@ function Book({ setTotal }) {
     })
       .then((r) => r.json())
       .then((data) => {
-
-        setBookTitle(update)
-        setShow(!data)
-
+        setBookTitle(update);
+        setShow(!data);
       });
   }
-
-
 
   /////PATCH ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷///////////
 
@@ -117,7 +107,7 @@ function Book({ setTotal }) {
       method: "DELETE",
     });
   }
-  ////Deleting Book ////////////////////////
+  ////Deleting Book //////////////////////// <---------  NEEDS TO BE HANDLED
 
   //// Toggle for Form  ////////////////////////
 
@@ -129,48 +119,74 @@ function Book({ setTotal }) {
   //// Adding a new Expense to a category  ////////////////////////
 
   function entryHandled(entry) {
-    debugger
     const updatedCategory = entry.category;
-    const newCategoriesArray = [...categoriesArr]
-    Object.assign(categoriesArr.find((o) => o.id === updatedCategory.id), updatedCategory)
-    setCategoriesArr(newCategoriesArray)
+    const newCategoriesArray = [...categoriesArr];
+    Object.assign(
+      categoriesArr.find((o) => o.id === updatedCategory.id),
+      updatedCategory
+    );
+    setCategoriesArr(newCategoriesArray);
     console.log(newCategoriesArray);
-
   }
 
-  ////--CHART--/////////////////////////////////////////////////////////
-  //--------MOVED TO THE CHART COMPONENT ----------------------////////
-  ////--CHART--//////////////////////////////////////////////////////
+  // const expensesToDisplay = catogeryExp.filter((item) => {
+  //   if (selectedCategory === "All") return true;
 
-  /// the function that allow for the reports to show ///
+  //   return item.category === selectedCategory;
+  // });
+
+  // function makeArrayOfExpenses(categories) {
+  //   const arrayOfExpenses = categories?.map((category) =>
+  //     category.categories.map((name, expenses) => name.expenses))
+  //     return arrayOfExpenses
+
+  // }
+
+  // const arrayOfExpenses = makeArrayOfExpenses();
+
+  // function handleReportListClick(e) {
+  //   const category = e.target.value;
+  //   console.log("rescrusive list");
+  //   const showExpenses = categoriesArr?.find(
+  //     (categoryName) => categoryName.name === category
+  //   );
+  //   setList(showExpenses);
+  // }
 
   function handleReportListClick(e) {
-    const category = e.target.value;
-    console.log("rescrusive list");
+  const category = e.target.value   
+  if(category === 'All'){ 
+    return setList(() => bookDisplayed.categories.map(x => x.expenses).flat());
+    
+  }else{
     const showExpenses = categoriesArr?.find(
-      (categoryName) => categoryName.name === category
-    );
-    setList(showExpenses);
+          (categoryName) => categoryName.name === category
+        );
+        setList(() => showExpenses.expenses);
   }
-  /// the function that allow for the reports to show ///
 
-  const display = listOfExpenses.expenses;
-console.log(display);
+
+}
+
+console.log(listOfExpenses);
+
+
+
   ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function handleDeleteItem(act) {
-    console.log(catogeryExp);
-    const presentLists = catogeryExp.map(o => o.map(x => x)).filter((entry) => entry.id !== act.id);
-    debugger
-    //// presentList Array of [{id}]'s//////
-    setList(presentLists);
+    // console.log(catogeryExp);
+    // const presentLists = catogeryExp.map(o => o.map(x => x)).filter((entry) => entry.id !== act.id);
+    // debugger
+    // //// presentList Array of [{id}]'s//////
+    // setList(presentLists);
   }
 
   ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  // TODO: rename this to like...categoriesDropDown
 
-
-  const expDropDown = categoriesArr?.map((n, id) => {
+  const categoriesDropDown = categoriesArr?.map((n, id) => {
     return (
       <>
         <option key={id}>{n.name}</option>
@@ -178,8 +194,27 @@ console.log(display);
     );
   });
 
-  //
-  const expense = "";
+
+  // returns me a list of names
+
+//////////////////////////////////////////////////////
+
+
+  // const expensesToDisplay = catogeryExp.filter((item) => {
+  //   if (selectedCategory === "All") return true;
+
+  //   return item.category === selectedCategory;
+  // });
+
+  ///vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv///
+
+  // input: array of category objects with all data
+  //  e.g.: [{category: }, {}]
+  // output: array of expense objects
+  //  e.g.: [{expense1}, {expense2}, ...]
+
+  // if All, extract all expenses and put inside of array
+  // otherwise, display expenses for only specfied category
 
   return (
     <>
@@ -191,12 +226,17 @@ console.log(display);
                 <label>
                   <div>
                     <h6>
-                      {booksTitle}{" "}
-                      {sum ? (`$${sum}`) : "Great Work Budgeting !"}
+                      <strong>{booksTitle}</strong> {sum ? `Total Book Value : $${sum}` : "Great Work Budgeting !"}
                     </h6>
                   </div>
                   <div>
-                    <Setting whileUpdatingName={whileUpdatingName} setUpdate={setUpdate} handleToss={handleToss} show={show} handleSwitch={handleSwitch} />
+                    <Setting
+                      whileUpdatingName={whileUpdatingName}
+                      setUpdate={setUpdate}
+                      handleToss={handleToss}
+                      show={show}
+                      handleSwitch={handleSwitch}
+                    />
                   </div>
                 </label>
               </div>
@@ -212,7 +252,7 @@ console.log(display);
             <div className="create-Box">
               <FormToggle
                 entryHandled={entryHandled}
-                expDropDown={expDropDown}
+                expDropDown={categoriesDropDown}
                 categoriesArr={categoriesArr}
                 setToggle={setToggle}
                 toggle={toggle}
@@ -232,16 +272,16 @@ console.log(display);
             onChange={handleReportListClick}
             className="category-dropdown"
           >
-            <option value={null} display="All">
+            <option value={null} display = 'All'>
               All
             </option>
-            {expDropDown}
+            {categoriesDropDown}
           </select>
+
           <div>
             <List
-              handleDeleteItem={handleDeleteItem}
-              newEntry={newEntry}
-              display={display}
+              handleDeleteItem={entryHandled}
+              arrayOfExpenses={listOfExpenses}
             />
           </div>
         </div>
