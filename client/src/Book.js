@@ -191,6 +191,8 @@ console.log(listOfExpenses);
   });
 
 
+  const catogeryNamesForChart = categoriesArr?.map((n, id) => n.name)
+  console.log(catogeryNamesForChart);
   // returns me a list of names
 
 //////////////////////////////////////////////////////
@@ -241,7 +243,7 @@ console.log(listOfExpenses);
         </div>
         <div className="nc">
           <Categories categoriesArr={categoriesArr} />
-          <BarChart labels={catogeryNames} expenses={t} />
+          <BarChart labels={catogeryNamesForChart} expenses={t} />
         </div>
         <div>
           <div>
