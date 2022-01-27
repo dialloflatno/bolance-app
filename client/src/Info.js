@@ -14,7 +14,7 @@ function Info({ handleDeleteItem, item, cost, store, info, store_address, paymen
         })
             .then(() => {
                 debugger
-                // handleDeleteItem(info)
+                handleDeleteItem(info)
             });
     }
 

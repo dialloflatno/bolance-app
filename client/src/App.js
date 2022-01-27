@@ -18,6 +18,7 @@ function App() {
 
   const [user, setUser] = useState({});
   const [books, setBooks] = useState([]) /// data is for the books of the user //////
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -36,13 +37,13 @@ debugger
       <>
        <Switch>
           <Route exact path="/" >
-            <Nav user={user} setUser={setUser} books ={books}  />
-            <Overview user={user} books ={books} setBooks={setBooks}  />
+            <Nav user={user} isDarkMode = {isDarkMode} setIsDarkMode ={setIsDarkMode} setUser={setUser} books ={books}  />
+            <Overview user={user} books ={books} isDarkMode ={isDarkMode} setBooks={setBooks}  />
 
 
           </Route>
           <Route path="/books/:book_id">
-          <Nav user={user} setUser={setUser} books ={books}  />
+          <Nav user={user} isDarkMode = {isDarkMode} setIsDarkMode ={setIsDarkMode} setUser={setUser} books ={books}  />
             <Book  setTotal={setTotal}/>
             <footer>Bolance App | Your Best Budget ! </footer>
 

@@ -3,11 +3,14 @@ import { useState } from "react";
 import { useHistory, Link } from 'react-router-dom'
 import Profile from './Profile'
 
-function Nav({ user, setUser, books }) {
+function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
 
   const [isOpen, setOpen] = useState(false)
   const [navtog, setNavTog] = useState(true)
 
+    function handleDarkModeClick() {
+        setIsDarkMode((isDarkMode) => !isDarkMode);
+    }
 
 
   const history = useHistory()
@@ -95,18 +98,15 @@ function Nav({ user, setUser, books }) {
                     <Profile back={handleTogglePostive}
                       handleToggle={handleToggle}
                        navtog={navtog}
-                      // handleSubmit={profileUpdating}
-                      // setEmail={setEmail}
-                      // userName={setUsername}
-                      // pass={setPassword}
                       open={isOpen}
                       close={() => setOpen(false)}
                       setOpen={setOpen}
                       user={user}
-                      // username={username}
-                      // email={email}
                       books={books} 
                       />
+                      <button className = 'switchMode' onClick={handleDarkModeClick}>
+                        {isDarkMode ? "Dark" : "Light"}
+                    </button>
                   </ul>
                 </div>
                 <div className="stack">

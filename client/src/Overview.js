@@ -1,27 +1,17 @@
 import BookShelf from "./BookShelf.js";
 import BookForm from "./BookForm.js";
-import {useState } from "react";
+import { useState } from "react";
 
-
-
-
-function Overview({ user, setBooks,books }) {
-
+function Overview({ user, setBooks, books ,isDarkMode}) {
     // const [books, setBooks] = useState(user.books) /// data is for the books of the user //////
 
-
-
     function placeBook(newBook) {
-        console.log('Book Packed');
+        console.log("Book Packed");
         const addBook = [...books, newBook];
-        setBooks(()=> addBook)
+        setBooks(() => addBook);
+    }
 
-    };
-
-    let totalExpenses = 'Great Work Budgeting !' /// error message ////
-
-
-
+    let totalExpenses = "Great Work Budgeting !"; /// error message ////
 
     // if (books.length > 0) {
 
@@ -36,22 +26,20 @@ function Overview({ user, setBooks,books }) {
     // else {
     //     return ( 'hey' )
     // }
-    
-
-
+  
 
     return (
-
-        <div className='appback'>
-            <div className='OverView'>
-                <div id='top'>
-                    {/* <h2>{user.full_name}</h2> */}
+        <div className={"App " + (isDarkMode ? "dark" : "light")}>
+            <div className="OverView">
+                <div id="top">
                     <h1>Overview</h1>
+              
 
+                    
                     <h5>Expense:{totalExpenses}</h5>
                 </div>
-                <div className='m'>
-                    <BookShelf books={books} totalExpenses ={totalExpenses} />
+                <div className="m">
+                    <BookShelf books={books} totalExpenses={totalExpenses} />
                 </div>
                 <div>
                     <BookForm user={user} placeBook={placeBook} />
@@ -59,8 +47,7 @@ function Overview({ user, setBooks,books }) {
                 <footer>Bolance App | Your Best Budget ! </footer>
             </div>
         </div>
-    )
-
+    );
 }
 
 export default Overview;

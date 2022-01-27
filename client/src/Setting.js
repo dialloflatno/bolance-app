@@ -1,10 +1,22 @@
-export default function Setting({setUpdate,whileUpdatingName, handleSwitch, show, handleToss }) {
+export default function Setting({setUpdate,whileUpdatingName, handleSwitch , showOn ,handleSwitchOff, handleToss }) {
+
+
+
+
+
+
+
+
   return (
     <>
       <div>
-        {show ? (
+        {showOn ? (
           <>
+          <div className ='setting-container'>
+          <div className = 'setting'>
+           <button className ="closeout" onClick={handleSwitchOff} >x</button>
               <label>
+                <strong>Book Settings</strong>
                 <form id="titlePATCH" onSubmit={whileUpdatingName}>
                   <input
                     placeholder="new title"
@@ -20,6 +32,8 @@ export default function Setting({setUpdate,whileUpdatingName, handleSwitch, show
                 Toss
               </button>
             </div>
+            </div>
+            </div>
           </>
         ) : (
           <button className="setting-tab" onClick={handleSwitch}>
@@ -30,3 +44,5 @@ export default function Setting({setUpdate,whileUpdatingName, handleSwitch, show
     </>
   );
 }
+
+// onClick={() => showOff(false)}

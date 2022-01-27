@@ -101,7 +101,7 @@ function Book({ setTotal }) {
     console.log(e.target.value);
     fetch(url, {
       method: "DELETE",
-    }).then(data => console.log(data))
+    }).then(data => setBookDisplayed(data))
   }
   ////Deleting Book //////////////////////// <---------  NEEDS TO BE HANDLED
 
@@ -109,6 +109,9 @@ function Book({ setTotal }) {
 
   function handleSwitch() {
     setShow(true);
+  }
+  function handleSwitchOff() {
+    setShow(false);
   }
   //// Toggle for Form  ////////////////////////
 
@@ -125,53 +128,32 @@ function Book({ setTotal }) {
     console.log(newCategoriesArray);
   }
 
-  // const expensesToDisplay = catogeryExp.filter((item) => {
-  //   if (selectedCategory === "All") return true;
 
-  //   return item.category === selectedCategory;
-  // });
 
-  // function makeArrayOfExpenses(categories) {
-  //   const arrayOfExpenses = categories?.map((category) =>
-  //     category.categories.map((name, expenses) => name.expenses))
-  //     return arrayOfExpenses
-
-  // }
-
-  // const arrayOfExpenses = makeArrayOfExpenses();
-
-  // function handleReportListClick(e) {
-  //   const category = e.target.value;
-  //   console.log("rescrusive list");
-  //   const showExpenses = categoriesArr?.find(
-  //     (categoryName) => categoryName.name === category
-  //   );
-  //   setList(showExpenses);
-  // }
 
   function handleReportListClick(e) {
-  const category = e.target.value   
-  if(category === 'All'){ 
-    return setList(() => bookDisplayed.categories.map(x => x.expenses).flat());
-    
-  }else{
-    const showExpenses = categoriesArr?.find(
-          (categoryName) => categoryName.name === category
-        );
-        setList(() => showExpenses.expenses);
+    const category = e.target.value   
+    if(category === 'All'){ 
+      return setList(() => bookDisplayed.categories.map(x => x.expenses).flat());
+      
+    }else{
+      const showExpenses = categoriesArr?.find(
+            (categoryName) => categoryName.name === category
+          );
+          setList(() => showExpenses.expenses);
+    }
+
+
   }
 
-
-}
-
-console.log(listOfExpenses);
+  console.log(listOfExpenses);
 
 
 
   ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function handleDeleteItem(act) {
-    // console.log(catogeryExp);
+    console.log(act);
     // const presentLists = catogeryExp.map(o => o.map(x => x)).filter((entry) => entry.id !== act.id);
     // debugger
     // //// presentList Array of [{id}]'s//////
@@ -201,24 +183,7 @@ console.log(listOfExpenses);
 const categoryExpenseForChart = categoriesArr?.map((n, id) => n.expenses.map(exp => exp.cost)).flat()
 
 console.log(categoryExpenseForChart);
-//////////////////////////////////////////////////////
 
-
-  // const expensesToDisplay = catogeryExp.filter((item) => {
-  //   if (selectedCategory === "All") return true;
-
-  //   return item.category === selectedCategory;
-  // });
-
-  ///vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv///
-
-  // input: array of category objects with all data
-  //  e.g.: [{category: }, {}]
-  // output: array of expense objects
-  //  e.g.: [{expense1}, {expense2}, ...]
-
-  // if All, extract all expenses and put inside of array
-  // otherwise, display expenses for only specfied category
 
   return (
     <>
@@ -230,7 +195,7 @@ console.log(categoryExpenseForChart);
                 <label>
                   <div>
                     <h6>
-                      <strong>{booksTitle}</strong> {sum ? `Total Book Expense: $${sum}` : "Great Work Budgeting !"}
+                      <strong>{booksTitle}</strong> {sum ? (`Total Book Expense: $${sum}` ):("Great Work Budgeting !")}
                     </h6>
                   </div>
                   <div>
@@ -238,7 +203,8 @@ console.log(categoryExpenseForChart);
                       whileUpdatingName={whileUpdatingName}
                       setUpdate={setUpdate}
                       handleToss={handleToss}
-                      show={show}
+                      showOn ={show}
+                      handleSwitchOff ={handleSwitchOff}
                       handleSwitch={handleSwitch}
                     />
                   </div>
@@ -276,6 +242,7 @@ console.log(categoryExpenseForChart);
             onChange={handleReportListClick}
             className="category-dropdown"
           >
+           <label value={null}> Choose</label>
             <option value={null} display = 'All'>
               All
             </option>
@@ -284,20 +251,10 @@ console.log(categoryExpenseForChart);
 
           <div>
             <List
-             catogeryExp ={catogeryExp}
-              handleDeleteItem={entryHandled}
+              handleDeleteItem={handleDeleteItem}
               arrayOfExpenses={listOfExpenses}
             />
           </div>
-        </div>
-        {/* <BarChart/> */}
-        <div>
-          {/* <h5 onClick={handleSwitch} className="toggle_update">
-            Change Book Title
-          </h5>
-          <button className="toss" onClick={handleToss}>
-            Toss
-          </button> */}
         </div>
       </div>
     </>
