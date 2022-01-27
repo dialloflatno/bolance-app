@@ -14,8 +14,7 @@ export default function Setting({setUpdate,whileUpdatingName, handleSwitch , sho
           <>
           <div className ='setting-container'>
           <div className = 'setting'>
-           <button className ="closeout" onClick={handleSwitchOff} >x</button>
-              <label>
+            <button className ="closeout" onClick={handleSwitchOff}  >x</button>
                 <strong>Book Settings</strong>
                 <form id="titlePATCH" onSubmit={whileUpdatingName}>
                   <input
@@ -25,8 +24,6 @@ export default function Setting({setUpdate,whileUpdatingName, handleSwitch , sho
                     onChange={(e) => setUpdate(() => e.target.value)}
                   />
                 </form>
-              </label>
-            <h5 className="toggle_update">Change Book Title</h5>
             <div>
               <button className="toss" onClick={handleToss}>
                 Toss
