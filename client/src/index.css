@@ -55,7 +55,8 @@ body {
   background: var(--gray-dots);
   color: var(--font-color-light);
   border-radius: 20px;
-  box-shadow: 1px 4px 1px -3px #0000ff94;  border: var(--white);
+  box-shadow: 1px 4px 1px -3px #0000ff94;
+  border: var(--white);
   background: var(--gray-dots);
   color: var(--font-color-light);
 }
@@ -244,8 +245,28 @@ span {
   padding: 10px;
   border-radius: 5px;
 }
+
+.book-postioned {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toosed-bckg{
+  color: whitesmoke;
+  background: rgb(37, 4, 154);
+  height: 100vh;
+}
+.toosed-bckg a {
+  color: rgb(61, 47, 47);
+}
+
+
+.trash{}
+
 .close {
   height: 2px;
+  color: whitesmoke;
   border: none;
   background: none;
   transform: 0.3s;
@@ -1763,6 +1784,8 @@ form input {
 }
 .setting-container {
   position: relative;
+  width: 140px;
+  height: 190px;
 
   margin: 16px auto;
   border-radius: 2px;
@@ -1977,7 +2000,6 @@ form button:hover {
   border-style: solid;
   background-color: #5be9947d;
   border-color: rgba(245, 245, 245, 0.439);
-  height: 40.5vh;
   width: 77vw;
 }
 text {

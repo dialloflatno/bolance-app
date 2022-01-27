@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import GreetNav from "./GreetNav";
 import SignIn from "./SignIn"
 import SignUp from "./SignUp"
@@ -8,9 +8,8 @@ import './App.css';
 import Overview from "./Overview";
 import Book from "./Book";
 import Welcome from "./Welcome";
-import ErrorPage from "./ErrorPage";
 import Nav from "./Nav";
-import Loading from "./Loading";
+// import BookTossed from "./BookTossed";
 // import Reports from "./Reports";
 
 
@@ -29,45 +28,49 @@ function App() {
         });
       }
     });
-  },[]);
-const [ aBookTotalExpense, setTotal] = useState('')
-debugger
-  if(user){
+  }, []);
+
+  function handleDeletedBook(tossedBook) {
+    
+    const currentBooks = books.filter(book => book.title !== tossedBook.title)
+    setBooks(currentBooks)
+  }
+
+
+  if (user) {
     return (
       <>
-       <Switch>
+        <Switch>
           <Route exact path="/" >
-            <Nav user={user} isDarkMode = {isDarkMode} setIsDarkMode ={setIsDarkMode} setUser={setUser} books ={books}  />
-            <Overview user={user} books ={books} isDarkMode ={isDarkMode} setBooks={setBooks}  />
-
-
+            <Nav user={user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} setUser={setUser} books={books} />
+            <Overview user={user} books={books} isDarkMode={isDarkMode} setBooks={setBooks} />
           </Route>
           <Route path="/books/:book_id">
-          <Nav user={user} isDarkMode = {isDarkMode} setIsDarkMode ={setIsDarkMode} setUser={setUser} books ={books}  />
-            <Book  setTotal={setTotal}/>
+            <Nav user={user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} setUser={setUser} books={books} />
+            <Book usersBooks={books} handleDeletedBook ={handleDeletedBook} />
             <footer>Bolance App | Your Best Budget ! </footer>
-
           </Route>
-        </Switch>
+      </Switch>
 
       </>
     )
   } else {
     return (
       <div className="App">
-              <Switch>
-                <Route exact path="/home">
-                  <GreetNav /><Welcome />
-                </Route>
-                <Route path="/signup">
-                  <SignUp setUser={setUser} />
-                </Route>
-                <Route path="/">
-                  <SignIn setUser={setUser} />
-                </Route>
-              </Switch>
-    </div>
-  );
-}}
+        <Switch>
+          <Route exact path="/home">
+            <GreetNav /><Welcome />
+          </Route>
+          <Route path="/signup">
+            <SignUp setUser={setUser} />
+          </Route>
+          <Route path="/signin">
+            <SignIn setUser={setUser} />
+          </Route>
+        </Switch>
+      </div>
+    );
+  }
+}
 
 export default App;

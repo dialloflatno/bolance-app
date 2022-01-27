@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 import List from "./List";
-import Form from "./Form";
 import Categories from "./Categories";
 import CategoriesForm from "./CategoriesForm";
 import BarChart from "./BarChart";
 import FormToggle from "./FormToggle";
 import Setting from "./Setting";
 
-function Book({ setTotal }) {
+function Book({ user, handleDeletedBook }) {
   const { book_id } = useParams();
 
   const url = `/books/${book_id}`;
@@ -28,15 +27,17 @@ function Book({ setTotal }) {
       .then((r) => r.json())
       .then((bookResp) => {
         setBookDisplayed(() => bookResp); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
-        setBookTitle(() => bookResp.title); ///<<< book: [ :title ]
-        setCategoriesArr(() => bookResp.categories); ///<<< categories: [ :name, :expenses:[]]
-        setFetchName(() => bookResp.categories.map((o) => o.name)); ///<<< categories: [ :name ]
-        setFetchExp(() => bookResp.categories.map((o) => o.expenses)); ///<<< categories: [:expenses:[]]
+        setBookTitle(() => bookResp?.title); ///<<< book: [ :title ]
+        setCategoriesArr(() => bookResp?.categories); ///<<< categories: [ :name, :expenses:[]]
+        setFetchName(() => bookResp?.categories.map((o) => o.name)); ///<<< categories: [ :name ]
+        setFetchExp(() => bookResp?.categories.map((o) => o.expenses)); ///<<< categories: [:expenses:[]]
       });
   }, [url]);
 
   //filter out the categories that are not selected //
   /// then attempt a .map()  ////
+
+  const history = useHistory()
 
   let t = 0;
   if (catogeryExp?.length > 0) {
@@ -101,17 +102,19 @@ function Book({ setTotal }) {
     console.log(e.target.value);
     fetch(url, {
       method: "DELETE",
-    }).then(data => setBookDisplayed(data))
+    }).then(data => {
+    console.log(data);
+    })
   }
   ////Deleting Book //////////////////////// <---------  NEEDS TO BE HANDLED
 
   //// Toggle for Form  ////////////////////////
 
   function handleSwitch() {
-    setShow(true);
+    setShow(!show)
   }
   function handleSwitchOff() {
-    setShow(false);
+    setShow(show)
   }
   //// Toggle for Form  ////////////////////////
 
