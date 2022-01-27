@@ -1,7 +1,7 @@
 
 
 
-export default function Profile({back, navtog, handleToggle, handleSubmit, userName, pass, email, open, close, user }) {
+export default function Profile({back, navtog, handleToggle, handleSubmit, userName, pass, email, open, close, user,books }) {
 
     
     if (!open) return null
@@ -21,7 +21,7 @@ export default function Profile({back, navtog, handleToggle, handleSubmit, userN
                     </form></>
                         )}
                         <br />
-                        <span className='booksUser'>Your Book Pile:{user.books.length}</span>
+                        <span className='booksUser'>Your Book Pile:{books.length}</span>
                     </div>
                 )
             }
