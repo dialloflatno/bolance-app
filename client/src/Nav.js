@@ -75,7 +75,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
                     <Link to="/" className="dropgo-NAV">
                       Home
                     </Link>
-                    <select className="dropgo-NAV" onChange={handleRedirectClick} >
+                    <select className="dropgo-select" onChange={handleRedirectClick} >
                       <option>Books</option>
                       {dropDown}
                     </select>

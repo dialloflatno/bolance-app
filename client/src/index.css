@@ -177,7 +177,7 @@ header {
   width: 68px;
   margin: 3px 10px auto;
 }
-.dropgo-NAV select {
+.dropgo-select {
   border: none;
   background: none;
   font-size: medium;
@@ -560,6 +560,9 @@ img {
   .dropgo-NAV {
     cursor: pointer;
     display: none;
+}
+  .dropgo-select {
+    cursor: pointer;
 }
   .to-form {
     row-gap: 9px;
@@ -958,6 +961,13 @@ img {
   cursor: pointer;
 }
 .dropgo-NAV:hover {
+  transition: all 0.2s;
+  color: rgb(147, 204, 241);
+}
+.dropgo-select {
+  cursor: pointer;
+}
+.dropgo-select:hover {
   transition: all 0.2s;
   color: rgb(147, 204, 241);
 }
