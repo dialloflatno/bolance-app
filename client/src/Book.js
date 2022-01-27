@@ -100,7 +100,7 @@ console.log(book_id);
 
   function handleToss(e) {
     console.log(e.target.value);
-    fetch(`api/books/${book_id}`, {
+    fetch(`/api/books/${book_id}`, {
       method: "DELETE",
     }).then(data => {
       history.push('/toss')
