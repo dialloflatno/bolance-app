@@ -1,4 +1,4 @@
-class CateoTransactionReportsController < ApplicationController
+class Api::CateoTransactionReportsController < ApplicationController
 
     def index 
         all_expense_reports = CateoTransactionReport.all

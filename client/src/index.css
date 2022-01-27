@@ -478,6 +478,7 @@ a {
   display: none;
 }
 .catNames {
+  height: 112.1ch;
   background: cadetblue;
   text-decoration: none;
   color: rgb(255 255 255 / 77%);

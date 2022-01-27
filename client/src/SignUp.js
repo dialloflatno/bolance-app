@@ -21,7 +21,7 @@ function SignUp({ setUser }) {
     function handleSubmit(e) {
         e.preventDefault();
         console.log('Setting Up Your Books');
-        fetch("/signup", {
+        fetch("/api/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

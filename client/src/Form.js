@@ -25,7 +25,7 @@ function
 
     console.log(date);
 
-    const urlList = '/expenses'
+    const urlList = '/api/expenses'
 
     const handleItemChange = (e) => {
         setItem(e.target.value)
@@ -74,7 +74,7 @@ function
                 })
         })
             .then(res => res.json())
-            .then(data => fetch('/cateo_transaction_reports', {
+            .then(data => fetch('/api/cateo_transaction_reports', {
                 method: "POST",
                 headers: {
                     "Content-Type": " application/json",

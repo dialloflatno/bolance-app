@@ -9,8 +9,8 @@ import Setting from "./Setting";
 
 function Book({ user }) {
   const { book_id } = useParams();
-
-  const url = `/books/${book_id}`;
+console.log(book_id);
+  // const url = `books/${book_id}`;
   const [bookDisplayed, setBookDisplayed] = useState(); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
   const [categoriesArr, setCategoriesArr] = useState(); //<<< categories: [ :name, :expenses:[]]
   const [listOfExpenses, setList] = useState([]);
@@ -23,16 +23,16 @@ function Book({ user }) {
   const [update, setUpdate] = useState(false);
 
   useEffect(() => {
-    fetch(url)
+    fetch(`/api/books/${book_id}`)
       .then((r) => r.json())
       .then((bookResp) => {
         setBookDisplayed(() => bookResp); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
         setBookTitle(() => bookResp?.title); ///<<< book: [ :title ]
         setCategoriesArr(() => bookResp?.categories); ///<<< categories: [ :name, :expenses:[]]
-        setFetchName(() => bookResp?.categories.map((o) => o.name)); ///<<< categories: [ :name ]
+        // setFetchName(() => bookResp?.categories.map((o) => o.name)); ///<<< categories: [ :name ]
         setFetchExp(() => bookResp?.categories.map((o) => o.expenses)); ///<<< categories: [:expenses:[]]
       });
-  }, [url]);
+  }, [`/api/books/${book_id}`]);
 
   //filter out the categories that are not selected //
   /// then attempt a .map()  ////
@@ -62,7 +62,7 @@ function Book({ user }) {
 
   function whileUpdatingName(e) {
     e.preventDefault();
-    fetch(url, {
+    fetch(`api/books/${book_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -100,7 +100,7 @@ function Book({ user }) {
 
   function handleToss(e) {
     console.log(e.target.value);
-    fetch(url, {
+    fetch(`api/books/${book_id}`, {
       method: "DELETE",
     }).then(data => {
       history.push('/toss')

@@ -12,7 +12,7 @@ export default function CategoriesForm({ setCategoryName, name ,addCategories, b
         const handleSubmit = (e) => {
             e.preventDefault()
     
-            fetch('/categories', {
+            fetch('/api/categories', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json',
@@ -25,7 +25,7 @@ export default function CategoriesForm({ setCategoryName, name ,addCategories, b
                 }),
             })
                 .then((r) => r.json())
-                .then((info) => fetch('/book_categories', {
+                .then((info) => fetch('/api/book_categories', {
                     method: 'POST',
                     headers: {
                         'Content-type': 'application/json',

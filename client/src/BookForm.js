@@ -6,7 +6,7 @@ function BookForm({ user, placeBook }) {
     const handleSubmit = (e) => {
     e.preventDefault()
     console.log(user.id)
-    fetch('/books', {
+    fetch('/api/books', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',

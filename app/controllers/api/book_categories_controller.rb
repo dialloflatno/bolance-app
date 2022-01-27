@@ -1,4 +1,4 @@
-class BookCategoriesController < ApplicationController
+class  Api::BookCategoriesController < ApplicationController
     def index
         every_match = BookCategory.all  
         render json: every_match, status: :ok

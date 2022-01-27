@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  namespace :api do
   resources :categories, only:[:index,:create,:destroy]
   resources :cateo_transaction_reports,only:[:index,:create, :destroy]
   resources :expenses,only:[:index, :create, :destroy]
@@ -26,5 +27,5 @@ Rails.application.routes.draw do
 
 
 
-
+    end
 end
