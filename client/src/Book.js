@@ -19,7 +19,7 @@ console.log(book_id);
   const [booksTitle, setBookTitle] = useState(""); ///<<< book: [ :title ]
   const [name, setCategoryName] = useState("");
   const [show, setShow] = useState(false);
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
   const [update, setUpdate] = useState(false);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ console.log(book_id);
 
   function whileUpdatingName(e) {
     e.preventDefault();
-    fetch(`api/books/${book_id}`, {
+    fetch(`/api/books/${book_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

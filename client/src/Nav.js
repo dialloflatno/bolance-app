@@ -18,7 +18,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
   function handleLogoutClick() {
     console.log('Save Your Coins!!')
 
-    fetch('api/logout', { method: 'DELETE' }).then((r) => {
+    fetch('/api/logout', { method: 'DELETE' }).then((r) => {
       if (r.ok) {
         setUser('')
         history.push('/signin')
