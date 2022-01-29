@@ -14,6 +14,9 @@ class Api::UsersController < ApplicationController
     end
   end
 
+
+
+
   def update 
     user = User.find_by(id: params[:id])
     newUserInfo =user.update(user_params)

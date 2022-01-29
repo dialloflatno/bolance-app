@@ -10,18 +10,19 @@ class Api::BooksController < ApplicationController
         render json: book, status: :ok
     end
 
-    def show
-        user = User.find_by(id: params[:id])
-        book = user.books
-        render json: book, status: :ok
-    end
-
-
     def create
         new_book = Book.create(book_params)
-        # byebug
         render json: new_book , status: :ok
     end
+
+  def show_index
+    user = User.find_by(id: params[:id])
+    my_book = user.books
+    render json: my_book, status: :ok
+  end
+
+
+
     def update
         book = Book.find_by(id: params[:id])
         new_title = book.update(book_params)
