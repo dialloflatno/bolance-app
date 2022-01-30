@@ -37,6 +37,9 @@ function Overview({ user, setBooks, books, isDarkMode }) {
 
     let totalExpenses = "Great Work Budgeting !"; /// error message ////
 
+     const eachBookCost = usersBookPile.map( book => [book.title, sum(book.categories.map(x => x.expenses.map(xe => xe.cost)))]).flat()
+     console.log(eachBookCost);
+     
     // if (books.length > 0) {
 
     //   totalExpenses = books.map(book => {
