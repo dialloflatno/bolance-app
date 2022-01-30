@@ -1,4 +1,4 @@
-// import DoughnutChart from "./DougnutChart";
+import DoughnutChart from "./DougnutChart";
 
 
 
@@ -8,7 +8,9 @@ function BookCover({ title, bookExp }) {
     <div>
       <div className="card ">
         <div className="cardInfo">
-          {/* <DoughnutChart /> */}
+          <DoughnutChart title ={title} bookExp ={
+            bookExp
+          } />
           <h3>{bookExp}</h3>
           <button className="cardGo">{title}</button>
         </div>

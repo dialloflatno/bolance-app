@@ -1,12 +1,12 @@
 import {Doughnut} from 'react-chartjs-2';
 
-function DoughnutChart() {
+function DoughnutChart({title,bookExp}) {
     const data = {
-        labels: [],
+        labels: title,
         datasets: [
             {
                 label: 'Attendance for Week 1',
-                data: [25,24,25,25,3],
+                data: bookExp,
                 borderColor: ['rgba(255,206,86,0.2)'],
                 backgroundColor: ['rgba(232,99,132,1)',
                 'rgba(232,211,6,1)',
