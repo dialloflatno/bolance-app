@@ -63,7 +63,7 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                     <h5>Expense:{amount ? amount : totalExpenses}</h5>
                 </div>
                 <div className="m">
-                    <BookShelf books={books} totalExpenses={totalExpenses} />
+                    <BookShelf eachBookCost = {eachBookCost} books={books} totalExpenses={totalExpenses} />
                 </div>
                 <div>
                     <BookForm user={user} placeBook={placeBook} />
