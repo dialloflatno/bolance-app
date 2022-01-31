@@ -4,7 +4,7 @@ import DoughnutChart from "./DougnutChart";
 
 function BookShelf({ o, g, title }) {
 
-    let m = [...o,...g]
+    let m = [...o, ...g]
 
     console.log(m);
 
@@ -30,9 +30,16 @@ function BookShelf({ o, g, title }) {
 
     return (
         <div >
-            <div className='bookslot'>
-
-                {layed}
+            <div className='correction-m'  >
+                <div className='bookslot'>
+                <div className='book-tanker'>
+                    {layed}
+                    </div>
+            <div className='cardSide'>
+                Dashboard
+            </div>
+                </div>
+            
             </div>
         </div>
     )

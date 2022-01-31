@@ -10,7 +10,7 @@ function DoughnutChart(props) {
             {
                 label: 'Overall',
                 data: props.bookExp,
-                borderColor: ['#e3e3e3'],
+                // borderColor: ['#e3e3e3'],
                 backgroundColor: ['#03bafc',
                 '#08abd4',
                 '#08d4c9',
@@ -34,7 +34,7 @@ function DoughnutChart(props) {
             legend: {
                 display: true,
                 position: 'bottom',
-                boxWidth:10
+                // boxWidth:10
 
             },
             title: {

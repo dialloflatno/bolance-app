@@ -65,37 +65,41 @@ function Overview({ user, setBooks, books, isDarkMode }) {
 
           </div>
 
-          <div className="prop-container">
-            <div className="m">
-              <div>
-            <div className ='cardChart'>
-            <h5>Expense: <h1>{amount ? amount : totalExpenses}</h1></h5>
-            <h5>
-              Largest Expense:${Math.max(...bookExp.values())} Smallest
-              Expense:${Math.min(...bookExp.values())}
-            </h5>
+          <div className='maincard'>
+            <div className="prop-container">
+              <div className="m">
+                <div className='grid-contanier'>
+                  <div className='cardChart'>
+                    <h5>Overall Books Total : <h1>{amount ? amount : totalExpenses}</h1></h5>
+                    <h5>
+                     <h3>'</h3> Largest Expense:<strong>{Math.max(...bookExp.values())}</strong>
+                     <h3>'</h3> Smallest
+                      Expense:${Math.min(...bookExp.values())}
+                    </h5>
 
-                <DoughnutChart
-                  title={o}
-                  bookExp={g.map((d) => d.total)}
-                  title={title}
-                />
-            </div>
-                <BookShelf
-                  o={o}
-                  g={g}
-                  title={title}
-                  totalExpenses={totalExpenses}
-                />
-                <div className="overEp"></div>
+                    <DoughnutChart
+                      title={o}
+                      bookExp={g.map((d) => d.total)}
+                      title={title}
+                    />
+                  </div>
+                  <BookShelf
+                    o={o}
+                    g={g}
+                    title={title}
+                    totalExpenses={totalExpenses}
+                  />
+          
+                  <div className="overEp"></div>
+                </div>
+      <BookForm user={user} placeBook={placeBook} />
+
               </div>
             </div>
-
           </div>
         </div>
         {/* <footer>Bolance App | Your Best Budget ! </footer> */}
       </div>
-          <BookForm user={user} placeBook={placeBook} />
     </div>
   );
 }
