@@ -1,6 +1,9 @@
 import BookShelf from "./BookShelf.js";
 import BookForm from "./BookForm.js";
 import { useEffect, useState } from "react";
+import { Doughnut } from "react-chartjs-2";
+import DoughnutChart from "./DougnutChart.js";
+
 
 function Overview({ user, setBooks, books, isDarkMode }) {
     const [usersBookPile, setBookPile] = useState([]);
@@ -20,9 +23,9 @@ function Overview({ user, setBooks, books, isDarkMode }) {
 
 
     function sum(allInt) {
-        const arrayOfNumbers = allInt.flat().filter(v => v >  0)
-        const amountTotaled =  arrayOfNumbers?.reduce((p, c) => p + c, 0)
-        return  amountTotaled
+        const arrayOfNumbers = allInt.flat().filter(v => v > 0)
+        const amountTotaled = arrayOfNumbers?.reduce((p, c) => p + c, 0)
+        return amountTotaled
     }
 
     let amount = sum(arrayOfExpensesAll)
@@ -37,9 +40,16 @@ function Overview({ user, setBooks, books, isDarkMode }) {
 
     let totalExpenses = "Great Work Budgeting !"; /// error message ////
 
-     const eachBookCost = usersBookPile.map( book => [book.title, sum(book.categories.map(x => x.expenses.map(xe => xe.cost)))]).flat()
-     console.log(eachBookCost);
-     
+    const eachBookCost = usersBookPile.map(book => [book.title, sum(book.categories.map(x => x.expenses.map(xe => xe.cost)))]).flat()
+    console.log(eachBookCost);
+
+
+    const title = eachBookCost.filter(x => x.length > 0)
+    const sumCost = eachBookCost.filter(x => x >= 0)
+    const o = title.map(((arr) => ({ ['title']: arr })))
+    const g = sumCost.map(((arr) => ({ ['total']: arr })))
+
+debugger
     // if (books.length > 0) {
 
     //   totalExpenses = books.map(book => {
@@ -62,8 +72,11 @@ function Overview({ user, setBooks, books, isDarkMode }) {
 
                     <h5>Expense:{amount ? amount : totalExpenses}</h5>
                 </div>
+                <DoughnutChart bookExp={g.map(d => d.total)} title ={title}
+                />
+                <h1>{g.map(d => d.total)}</h1>
                 <div className="m">
-                    <BookShelf eachBookCost = {eachBookCost} books={books} totalExpenses={totalExpenses} />
+                    <BookShelf o={o} g={g}  totalExpenses={totalExpenses} />
                 </div>
                 <div>
                     <BookForm user={user} placeBook={placeBook} />

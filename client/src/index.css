@@ -256,13 +256,12 @@ span {
   color: whitesmoke;
   background: rgb(37, 4, 154);
   height: 100vh;
- 
-    padding: 40px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
 
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 .toosed-bckg a {
   color: rgb(201, 183, 183);
@@ -523,16 +522,15 @@ img {
   input {
     font-size: 16px;
   }
-.SearchBar{
-  display: none !important;
-
-}
+  .SearchBar {
+    display: none !important;
+  }
   .navBar .userName {
     padding: none;
     display: flex;
     flex-direction: column;
   }
- ul.navUl{
+  ul.navUl {
     margin-block-start: auto !important;
     justify-content: flex-end;
     font-weight: bold;
@@ -544,7 +542,7 @@ img {
     column-gap: 45px;
     align-items: baseline;
     align-content: center;
-}  
+  }
 
   .Home {
     background-color: #0aabde;
@@ -560,10 +558,10 @@ img {
   .dropgo-NAV {
     cursor: pointer;
     display: none;
-}
+  }
   .dropgo-select {
     cursor: pointer;
-}
+  }
   .to-form {
     row-gap: 9px;
     margin-top: -5%;
@@ -662,8 +660,6 @@ img {
   .SearchBar {
     display: none;
   }
-  
-
 
   .navUl {
     display: block;
@@ -740,7 +736,7 @@ img {
     padding: 10px;
     margin: 10px;
   }
- 
+
   form input {
     border: none;
     left: 62.42%;
@@ -1091,12 +1087,12 @@ img {
 .ahd button {
   background: rgb(6, 134, 81);
 }
-.signUplink h5{
+.signUplink h5 {
   color: aliceblue;
-    font-size: medium;
-    font-weight: 300;
+  font-size: medium;
+  font-weight: 300;
 }
-.signUplink a{
+.signUplink a {
   color: whitesmoke;
 }
 .Contanier_BO {
@@ -1541,7 +1537,6 @@ fieldset {
   padding: 17px;
 }
 
-
 .formEntry {
   transition: 0.3s;
   align-items: center;
@@ -1780,7 +1775,7 @@ form input {
   background: #e5e0dc;
   transition: all 0.4s;
 }
-.setting p{
+.setting p {
   font-size: 9px;
 }
 form h3 {
@@ -1857,7 +1852,7 @@ form button:hover {
   width: -webkit-fill-available;
   height: 182px;
 }
-.bookbind h5{
+.bookbind h5 {
   margin: 0px;
   font-size: 9px;
 }
@@ -2002,7 +1997,7 @@ text {
 .label label {
   height: 56px;
   display: inline-flex;
-  /* display: -webkit-inline-box; */
+  padding: 10px;
   justify-content: space-between;
   flex-direction: row;
   align-items: baseline;
