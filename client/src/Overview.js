@@ -48,7 +48,7 @@ function Overview({ user, setBooks, books, isDarkMode }) {
     const sumCost = eachBookCost.filter(x => x >= 0)
     const o = title.map(((arr) => ({ ['title']: arr })))
     const g = sumCost.map(((arr) => ({ ['total']: arr })))
-
+    const bookExp = g.map(d => d.total)
 debugger
     // if (books.length > 0) {
 
@@ -63,6 +63,7 @@ debugger
     // else {
     //     return ( 'hey' )
     // }
+    console.log(g.map(d => d.total === 200));
 
     return (
         <div className={"App " + (isDarkMode ? "dark" : "light")}>
@@ -74,7 +75,7 @@ debugger
                 </div>
                 <DoughnutChart bookExp={g.map(d => d.total)} title ={title}
                 />
-                <h1>{g.map(d => d.total)}</h1>
+                <h1>Largest Expense:${Math.max(...bookExp.values())}</h1>
                 <div className="m">
                     <BookShelf o={o} g={g}  totalExpenses={totalExpenses} />
                 </div>
