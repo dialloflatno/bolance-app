@@ -1,21 +1,15 @@
 import BookCover from "./BookCover";
 
+import DoughnutChart from "./DougnutChart";
+
+function BookShelf({ o, g, title }) {
+
+    let m = [...o,...g]
+
+    console.log(m);
 
 
-function BookShelf({ o, g, eachBookCost, totalExpenses, books }) {
 
-    // function separate(eachBookCost) {
-    //     const title = eachBookCost.filter(x => x.length > 0)
-    //     const sumCost = eachBookCost.filter(x => x >= 0)
-
-    //     console.log([title]);
-    //     console.log([sumCost]);
-    // }
-
-    // separate(eachBookCost)
-
-
- 
     let layed = []
     if (o?.length > 0) {
 
@@ -24,7 +18,7 @@ function BookShelf({ o, g, eachBookCost, totalExpenses, books }) {
 
                 <BookCover
                     key={book.id}
-                    bookExp={g.map(x=>x.total)}
+                    bookExp={23}
                     title={book.title}
                 />
 
@@ -35,8 +29,11 @@ function BookShelf({ o, g, eachBookCost, totalExpenses, books }) {
 
 
     return (
-        <div className='bookslot'>
-            {layed}
+        <div >
+            <div className='bookslot'>
+
+                {layed}
+            </div>
         </div>
     )
 

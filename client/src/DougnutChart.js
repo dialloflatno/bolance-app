@@ -1,9 +1,10 @@
-import {Doughnut} from 'react-chartjs-2';
+import {Bar, Doughnut} from 'react-chartjs-2';
+import BookShelf from './BookShelf'
 
 
 function DoughnutChart(props) {
     const data = {
-        labels: props.title,
+        
        
         datasets: [
             {
@@ -18,17 +19,24 @@ function DoughnutChart(props) {
                 pointBackgroundColor: 'rgba(255,206,86,0.2)',
             }
     
-        ]
+        ],
+        labels: props.title,
 
         
     }
 
 
     const options = {
-        aspectRatio: 3,
-        cutout: 100,
+        maintainAspectRatio : 10,
+            //   cutout: 10,
         plugins: {
             
+            legend: {
+                display: true,
+                position: 'bottom',
+                boxWidth:10
+
+            },
             title: {
                 display: true,
                 color:'blue',
@@ -53,7 +61,8 @@ function DoughnutChart(props) {
     }
     return (
         <div>
-            <div className='dchart'>
+            <div >
+                {/* <BookShelf /> */}
           <Doughnut data={data} options={options} />
         </div>
         </div>
