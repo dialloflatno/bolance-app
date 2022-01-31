@@ -871,7 +871,7 @@ img {
   }
   fieldset {
     transition: 0.5s;
-    -webkit-backdrop-filter: blur(1px);
+    --webkit-backdrop-filter: blur(1px);
     /* backdrop-filter: blur(1px); */
     /* width: 105%; */
     /* margin-top: 10px; */
@@ -1389,8 +1389,7 @@ img {
   font-family: 'M PLUS 2';
   font-weight: 600;
 }
-.Page {
-}
+
 
 .bar {
   display: block;
@@ -1529,7 +1528,7 @@ legend {
 }
 fieldset {
   transition: 0.5s;
-  -webkit-backdrop-filter: blur(1px);
+  --webkit-backdrop-filter: blur(1px);
   align-items: stretch;
   background: #4b618a85;
   border: none;
@@ -1663,8 +1662,6 @@ select.Form {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-alert {
 }
 
 .cardGo {
@@ -2013,19 +2010,7 @@ text {
   margin: -2px auto;
   height: 47.4vh;
 }
-.bck-round {
-  /* display: flex;
-  height: 500px;
-  margin: 65px auto;
-  width: 200px;
-  font-size: 100px;
-  background: #2d3344;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
-  padding: 27px; */
-}
+
 .footer {
   font-weight: 600;
   padding: 25px;
