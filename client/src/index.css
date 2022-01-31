@@ -1503,7 +1503,6 @@ td {
   align-items: center;
   justify-content: flex-end;
   margin: 0px;
-
 }
 .cardChart h1 {
   font-weight: bolder;
@@ -1557,22 +1556,32 @@ td {
   width: 272px;
   border-radius: 12px;
   background: #fbfefe;
+}
 
+.cardMain{
+  margin: 14px;
+  border-width: 10px;
+  border: #d9e0e7;
+  padding: 16px;
+  height: 1293px;
+  width: 649px;
+  border-radius: 12px;
+  background: #fbfefe;
 }
 .maincard {
-      /* line-height: 7px; */
-    /* float: right; */
-    /* border-width: 10px; */
-    /* border: #d9e0e7; */
-    /* margin: 5px; */
-    /* height: 1293px; */
-    /* left: 343px; */
-    /* top: 234px; */
-    /* border-radius: 12px; */
-    /* bottom: 63.77%; */
-    background: #eef3f3;
-    /* box-shadow: 0px 2px 10px rgb(0 0 0 / 25%); */
-    /* border-radius: 12px;
+  /* line-height: 7px; */
+  /* float: right; */
+  /* border-width: 10px; */
+  /* border: #d9e0e7; */
+  /* margin: 5px; */
+  /* height: 1293px; */
+  /* left: 343px; */
+  /* top: 234px; */
+  /* border-radius: 12px; */
+  /* bottom: 63.77%; */
+  background: #eef3f3;
+  /* box-shadow: 0px 2px 10px rgb(0 0 0 / 25%); */
+  /* border-radius: 12px;
 }
 
 .card:hover {
@@ -1922,7 +1931,7 @@ form button:hover {
 
 .correction-m {
   padding: 11px;
-  width: 126%;
+  width: 128%;
   flex-direction: column;
 }
 .bookslot {

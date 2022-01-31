@@ -32,14 +32,16 @@ function BookShelf({ o, g, title }) {
         <div >
             <div className='correction-m'  >
                 <div className='bookslot'>
-                <div className='book-tanker'>
-                    {layed}
-                    </div>
-            <div className='cardSide'>
-                Dashboard
-            </div>
+                    <div className='book-tanker'>
+                        {layed}
+                <div className='cardMain'>
+                    Dashboard
                 </div>
-            
+                    </div>
+                        <div className='cardSide'>
+                            Dashboard
+                        </div>
+                </div>
             </div>
         </div>
     )
