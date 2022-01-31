@@ -162,6 +162,9 @@ header {
   flex-wrap: wrap;
 }
 
+.rP{
+  height: 20pc;
+}
 .dropgo {
   font-size: smaller;
   font-weight: 200;
@@ -844,6 +847,7 @@ img {
     height: 30%;
     margin: 60px auto;
   }
+ 
   .card {
     display: flow-root;
     height: 208px;

@@ -49,7 +49,7 @@ function Overview({ user, setBooks, books, isDarkMode }) {
     const o = title.map(((arr) => ({ ['title']: arr })))
     const g = sumCost.map(((arr) => ({ ['total']: arr })))
     const bookExp = g.map(d => d.total)
-debugger
+    debugger
     // if (books.length > 0) {
 
     //   totalExpenses = books.map(book => {
@@ -68,16 +68,20 @@ debugger
     return (
         <div className={"App " + (isDarkMode ? "dark" : "light")}>
             <div className="OverView">
-                <div id="top">
-                    <h1>Overview</h1>
+                <div className="View">
+                    <div id="top">
+                        <h1>Overview</h1>
 
-                    <h5>Expense:{amount ? amount : totalExpenses}</h5>
+                        <h5>Expense:{amount ? amount : totalExpenses}</h5>
+                    </div>
+                    <div className='overEp'>
+                        <DoughnutChart  title = {o} bookExp={g.map(d => d.total)} title={title}
+                        />
+                        <h1>Largest Expense:${Math.max(...bookExp.values())}</h1>
+                    </div>
                 </div>
-                <DoughnutChart bookExp={g.map(d => d.total)} title ={title}
-                />
-                <h1>Largest Expense:${Math.max(...bookExp.values())}</h1>
                 <div className="m">
-                    <BookShelf o={o} g={g}  totalExpenses={totalExpenses} />
+                    <BookShelf o={o} g={g} totalExpenses={totalExpenses} />
                 </div>
                 <div>
                     <BookForm user={user} placeBook={placeBook} />

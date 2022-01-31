@@ -9,11 +9,11 @@ function DoughnutChart(props) {
             {
                 label: 'Overall',
                 data: props.bookExp,
-                borderColor: ['rgba(255,206,86,0.2)'],
-                backgroundColor: ['rgba(232,99,132,1)',
-                'rgba(232,231,6,1)',
-                'rgba(54,192,235,1)',
-                'rgba(25,159,64,1)',
+                borderColor: ['#e3e3e3'],
+                backgroundColor: ['#03bafc',
+                '#08abd4',
+                '#08d4c9',
+                '#25faac',
                 'rgba(153,102,255,1)' ],
                 pointBackgroundColor: 'rgba(255,206,86,0.2)',
             }
@@ -26,7 +26,7 @@ function DoughnutChart(props) {
 
     const options = {
         aspectRatio: 3,
-        cutout: 90,
+        cutout: 100,
         plugins: {
             
             title: {
