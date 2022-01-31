@@ -15,7 +15,7 @@ function BookShelf({ o, g, eachBookCost, totalExpenses, books }) {
     // separate(eachBookCost)
 
 
-
+ 
     let layed = []
     if (o?.length > 0) {
 
@@ -24,7 +24,7 @@ function BookShelf({ o, g, eachBookCost, totalExpenses, books }) {
 
                 <BookCover
                     key={book.id}
-                    bookExp={0}
+                    bookExp={g.map(x=>x.total)}
                     title={book.title}
                 />
 

@@ -75,9 +75,13 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                         <h5>Expense:{amount ? amount : totalExpenses}</h5>
                     </div>
                     <div className='overEp'>
-                        <DoughnutChart  title = {o} bookExp={g.map(d => d.total)} title={title}
-                        />
-                        <h1>Largest Expense:${Math.max(...bookExp.values())}</h1>
+                        <div>
+
+                            <DoughnutChart title={o} bookExp={g.map(d => d.total)} title={title}
+                            />
+                            <br/>
+                        </div>
+                            <h1>Largest Expense:${Math.max(...bookExp.values())} Smallest Expense:${Math.min(...bookExp.values())}</h1>
                     </div>
                 </div>
                 <div className="m">

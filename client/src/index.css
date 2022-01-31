@@ -66,6 +66,19 @@ body {
   margin-right: 75px;
 }
 
+.overEp {
+  margin: 30px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  
+}
+.overEp h1{
+  font-size: larger;
+    font-weight: 500;
+}
+
 .errorPage svg {
   margin: 20px auto;
   margin-left: -25px;
@@ -162,7 +175,7 @@ header {
   flex-wrap: wrap;
 }
 
-.rP{
+.rP {
   height: 20pc;
 }
 .dropgo {
@@ -270,7 +283,14 @@ span {
   color: rgb(201, 183, 183);
   cursor: pointer;
 }
+.dchart{
+  margin-top: -139px;
 
+}
+.View{
+  background: aliceblue;
+  height: 54vh;
+}
 .trash svg {
   height: 8pc;
 }
@@ -847,7 +867,7 @@ img {
     height: 30%;
     margin: 60px auto;
   }
- 
+
   .card {
     display: flow-root;
     height: 208px;
@@ -1393,7 +1413,6 @@ img {
   font-family: 'M PLUS 2';
   font-weight: 600;
 }
-
 
 .bar {
   display: block;

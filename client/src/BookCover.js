@@ -10,9 +10,6 @@ function BookCover({ title, bookExp }) {
     <div>
       <div className="card ">
         <div className="cardInfo">
-          {/* <DoughnutChart  bookExp ={
-            bookExp
-          } /> */}
           <h3>{bookExp}</h3>
           <button className="cardGo">{title}</button>
         </div>
