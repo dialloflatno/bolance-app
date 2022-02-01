@@ -1495,6 +1495,10 @@ td {
   display: flex;
   flex-wrap: nowrap;
 }
+.cardInfo h1{
+  margin-top: 12px;
+
+}
 .cardChart h5 {
   margin: 10px;
   grid-column-gap: 7px;
