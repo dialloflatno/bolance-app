@@ -1,15 +1,12 @@
 import BookCover from "./BookCover";
 import BookForm from "./BookForm";
 import DoughnutChart from "./DougnutChart";
-import Map from './Map'
+import fico from './fico.png'
+// import Map from './Map'
 
-function BookShelf({ o, g, title,titleTotal, placeBook, user }) {
+function BookShelf({ o,titleTotal, placeBook, user }) {
 
-    let m = [...o, ...g]
-
-    console.log(m);
 console.log(titleTotal);
-
 
     let layed = []
     if (o?.length > 0) {
@@ -44,8 +41,7 @@ console.log(titleTotal);
                         </div>
                     </div>
                     <div className='cardSide'>
-                        Dashboard
-                            {/* <Map/> */}
+FICO SCORE PLACEMENT                                       
                     </div>
                 </div>
             </div>

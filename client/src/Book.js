@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams,useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import List from "./List";
 import Categories from "./Categories";
 import CategoriesForm from "./CategoriesForm";
@@ -9,12 +9,11 @@ import Setting from "./Setting";
 
 function Book({ user }) {
   const { book_id } = useParams();
-console.log(book_id);
+  console.log(book_id);
   // const url = `books/${book_id}`;
   const [bookDisplayed, setBookDisplayed] = useState(); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
   const [categoriesArr, setCategoriesArr] = useState(); //<<< categories: [ :name, :expenses:[]]
   const [listOfExpenses, setList] = useState([]);
-  const [catogeryNames, setFetchName] = useState(); ///<<< categories: [ :name ]
   const [catogeryExp, setFetchExp] = useState(); ///<<< categories: [:expenses:[]]
   const [booksTitle, setBookTitle] = useState(""); ///<<< book: [ :title ]
   const [name, setCategoryName] = useState("");
@@ -29,7 +28,6 @@ console.log(book_id);
         setBookDisplayed(() => bookResp); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
         setBookTitle(() => bookResp?.title); ///<<< book: [ :title ]
         setCategoriesArr(() => bookResp?.categories); ///<<< categories: [ :name, :expenses:[]]
-        // setFetchName(() => bookResp?.categories.map((o) => o.name)); ///<<< categories: [ :name ]
         setFetchExp(() => bookResp?.categories.map((o) => o.expenses)); ///<<< categories: [:expenses:[]]
       });
   }, [`/api/books/${book_id}`]);
@@ -87,12 +85,6 @@ console.log(book_id);
     const addCat = [...categoriesArr, nameOfACategory];
     setCategoriesArr(addCat);
   }
-  ///|=============RETURN=================|//////
-  ///|                                    |//////
-  ///|      {2) [{…}, {…}]-----RETURN     |//////
-  ///|                                    |//////
-  ///|                                    |//////
-  ////=====================================//////
 
   ////////^^^^Adding Categories to Book ^^^^^^////////////////////
 
@@ -104,7 +96,7 @@ console.log(book_id);
       method: "DELETE",
     }).then(data => {
       history.push('/toss')
-     console.log(data);
+      console.log(data);
     })
   }
   ////Deleting Book //////////////////////// <---------  NEEDS TO BE HANDLED
@@ -114,10 +106,13 @@ console.log(book_id);
   function handleSwitch() {
     setShow(!show)
   }
+
   function handleSwitchOff() {
     setShow(show)
   }
+
   //// Toggle for Form  ////////////////////////
+
 
   //// Adding a new Expense to a category  ////////////////////////
 
@@ -136,15 +131,15 @@ console.log(book_id);
 
 
   function handleReportListClick(e) {
-    const category = e.target.value   
-    if(category === 'All'){ 
+    const category = e.target.value
+    if (category === 'All') {
       return setList(() => bookDisplayed.categories.map(x => x.expenses).flat());
-      
-    }else{
+
+    } else {
       const showExpenses = categoriesArr?.find(
-            (categoryName) => categoryName.name === category
-          );
-          setList(() => showExpenses.expenses);
+        (categoryName) => categoryName.name === category
+      );
+      setList(() => showExpenses.expenses);
     }
 
 
@@ -158,15 +153,10 @@ console.log(book_id);
 
   function handleDeleteItem(act) {
     console.log(act);
-    // const presentLists = catogeryExp.map(o => o.map(x => x)).filter((entry) => entry.id !== act.id);
-    // debugger
-    // //// presentList Array of [{id}]'s//////
-    // setList(presentLists);
   }
 
   ////// DELETED EXPENSE ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // TODO: rename this to like...categoriesDropDown
 
   const categoriesDropDown = categoriesArr?.map((n, id) => {
     return (
@@ -179,14 +169,11 @@ console.log(book_id);
 
   const categoryNamesForChart = categoriesArr?.map((n, id) => n.name)
   console.log(categoryNamesForChart);
-  // returns me a list of names
 
 
+  const categoryExpenseForChart = categoriesArr?.map((n, id) => n.expenses.map(exp => exp.cost)).flat()
 
-
-const categoryExpenseForChart = categoriesArr?.map((n, id) => n.expenses.map(exp => exp.cost)).flat()
-
-console.log(categoryExpenseForChart);
+  console.log(categoryExpenseForChart);
 
 
   return (
@@ -194,72 +181,79 @@ console.log(categoryExpenseForChart);
       <div className="grand-container">
         <div>
           <div className="perTitle">
-            <div>
+            <div className='sun'>
               <div className="label">
+              <h6>
+                          <strong>{booksTitle}</strong><h6> {sum ? (`Total Book Expense: $${sum}`) : ("Great Work Budgeting !")}
+                          </h6>
+                        </h6>
                 <label>
                   <div>
-                    <h6>
-                      <strong>{booksTitle}</strong> {sum ? (`Total Book Expense: $${sum}` ):("Great Work Budgeting !")}
-                    </h6>
+                    <div className='jar'>
+                      <BarChart labels={categoryNamesForChart} expenses={categoryExpenseForChart} />
+                      <div className="nc">
+                      <CategoriesForm
+                        addCategories={addCategories}
+                        book_id={book_id}
+                        name={name}
+                        setCategoryName={setCategoryName}
+                        />
+                        <Categories categoriesArr={categoriesArr} />
+                      </div>
+                       
+                    </div>
+
+                    <>
+
+                    </>
                   </div>
                   <div>
-                    <Setting
+                    {/* <Setting
                       whileUpdatingName={whileUpdatingName}
                       setUpdate={setUpdate}
                       handleToss={handleToss}
                       showOn ={show}
                       handleSwitchOff ={handleSwitchOff}
                       handleSwitch={handleSwitch}
-                    />
+                    /> */}
                   </div>
                 </label>
               </div>
             </div>
           </div>
         </div>
-        <div className="nc">
-          <Categories categoriesArr={categoriesArr} />
-          <BarChart labels={categoryNamesForChart} expenses={categoryExpenseForChart} />
-        </div>
+
         <div>
           <div>
             <div className="create-Box">
-              <FormToggle
-                entryHandled={entryHandled}
-                expDropDown={categoriesDropDown}
-                categoriesArr={categoriesArr}
-                setToggle={setToggle}
-                toggle={toggle}
-              />
 
-              <>
-                <CategoriesForm
-                  addCategories={addCategories}
-                  book_id={book_id}
-                  name={name}
-                  setCategoryName={setCategoryName}
-                />
-              </>
             </div>
           </div>
           <select
             onChange={handleReportListClick}
             className="category-dropdown"
           >
-           <label value={null}> Choose</label>
-            <option value={null} display = 'All'>
+            <label value={null}> Choose</label>
+            <option value={null} display='All'>
               All
             </option>
             {categoriesDropDown}
           </select>
 
           <div>
-            <List
-              handleDeleteItem={handleDeleteItem}
-              arrayOfExpenses={listOfExpenses}
-            />
           </div>
         </div>
+                    <FormToggle
+                      entryHandled={entryHandled}
+                      expDropDown={categoriesDropDown}
+                      categoriesArr={categoriesArr}
+                      setToggle={setToggle}
+                      toggle={toggle}
+                    />
+        <List
+          handleDeleteItem={handleDeleteItem}
+          arrayOfExpenses={listOfExpenses}
+        />
       </div>
     </>
   );

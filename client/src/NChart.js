@@ -1,26 +1,8 @@
 import { ResponsiveBar } from '@nivo/bar'
 
 
-  const NChart = function ({ labels,expenses}) {
+  const NChart = function ({ }) {
 
-//     console.log(expenses.map(o => o.map(x => x.cost).flat()));
-  
-//   //  let cost = expenses.map(o => o.map(x => x.cost).flat())[1]
-//   //  for( let i = 0; i > cost.length; i ++){
-//   //    console.log(cost[i].reduce((prev,curr) => prev + curr));
-//   //  }
-// console.log(cost);
-//     const barObject = {
-//        category :  labels,
-//        expense: 3
-  
-//       }
-
-
-
-
-
-    // console.log(barObject);
 
     const data = [
       {

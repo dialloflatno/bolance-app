@@ -1,6 +1,6 @@
 import React from 'react'
-import { Bar } from 'react-chartjs-2'
-import { Chart, registerables } from 'chart.js'
+import { Bar, Bubble, PolarArea } from 'react-chartjs-2'
+import { Chart, DatasetController, registerables } from 'chart.js'
 Chart.register(...registerables)
 
 
@@ -14,9 +14,8 @@ export default class BarChart extends React.Component {
             datasets: [
               {
                 label: 'Expense Chart',
-                backgroundColor:[ '#367777;' ],
-                color: '#fbfbfb',
-                borderWidth: 2,
+                backgroundColor:[ 'lightBlue' ],
+                color: '08abd4',
                 data: this.props.expenses
                 ,
               },
@@ -28,7 +27,7 @@ export default class BarChart extends React.Component {
               display: true,
               text: 'Average Rainfall per month',
               fontSize: 20,
-              color: '#fbfbfb'
+              color: '08abd4'
             },
             legend: {
               labels: {
