@@ -1496,6 +1496,7 @@ td {
   flex-wrap: nowrap;
 }
 .cardChart h5 {
+  margin: 10px;
   grid-column-gap: 7px;
   column-gap: 7px;
   font-weight: lighter;

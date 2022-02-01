@@ -1,25 +1,26 @@
 import BookCover from "./BookCover";
 import BookForm from "./BookForm";
 import DoughnutChart from "./DougnutChart";
+import Map from './Map'
 
-function BookShelf({ o, g, title, placeBook, user }) {
+function BookShelf({ o, g, title,titleTotal, placeBook, user }) {
 
     let m = [...o, ...g]
 
     console.log(m);
-
+console.log(titleTotal);
 
 
     let layed = []
     if (o?.length > 0) {
 
-        layed = o?.map((book) => {
+        layed = titleTotal?.map((book) => {
             return (
 
                 <BookCover
 
                     key={book.id}
-                    bookExp={23}
+                    bookExp={book.total}
                     title={book.title}
                 />
 
@@ -35,13 +36,16 @@ function BookShelf({ o, g, title, placeBook, user }) {
                 <div className='bookslot'>
                     <div className='book-tanker'>
                         {layed}
+                        <div>
+
                             <BookForm user={user} placeBook={placeBook} />
+                        </div>
                         <div className='cardMain'>
-                            Dashboard
                         </div>
                     </div>
                     <div className='cardSide'>
                         Dashboard
+                            {/* <Map/> */}
                     </div>
                 </div>
             </div>
