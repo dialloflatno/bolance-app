@@ -1,8 +1,8 @@
 import BookCover from "./BookCover";
-
+import BookForm from "./BookForm";
 import DoughnutChart from "./DougnutChart";
 
-function BookShelf({ o, g, title }) {
+function BookShelf({ o, g, title, placeBook, user }) {
 
     let m = [...o, ...g]
 
@@ -17,6 +17,7 @@ function BookShelf({ o, g, title }) {
             return (
 
                 <BookCover
+
                     key={book.id}
                     bookExp={23}
                     title={book.title}
@@ -34,13 +35,14 @@ function BookShelf({ o, g, title }) {
                 <div className='bookslot'>
                     <div className='book-tanker'>
                         {layed}
-                <div className='cardMain'>
-                    Dashboard
-                </div>
-                    </div>
-                        <div className='cardSide'>
+                            <BookForm user={user} placeBook={placeBook} />
+                        <div className='cardMain'>
                             Dashboard
                         </div>
+                    </div>
+                    <div className='cardSide'>
+                        Dashboard
+                    </div>
                 </div>
             </div>
         </div>

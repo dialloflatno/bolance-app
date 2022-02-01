@@ -83,7 +83,10 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                       title={title}
                     />
                   </div>
+
                   <BookShelf
+                  user ={user}
+                  placeBook={placeBook}
                     o={o}
                     g={g}
                     title={title}
@@ -92,7 +95,6 @@ function Overview({ user, setBooks, books, isDarkMode }) {
           
                   <div className="overEp"></div>
                 </div>
-      <BookForm user={user} placeBook={placeBook} />
 
               </div>
             </div>

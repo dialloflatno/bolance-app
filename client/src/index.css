@@ -51,11 +51,11 @@ body {
 }
 .switchMode {
   height: 20px;
-  border: var(--white);
+  order: var(--white);
   background: var(--gray-dots);
   color: var(--font-color-light);
   border-radius: 20px;
-  box-shadow: 1px 4px 1px -3px #0000ff94;
+  /* box-shadow: 1px 4px 1px -3px #0000ff94; */
   border: var(--white);
   background: var(--gray-dots);
   color: var(--font-color-light);
@@ -1548,6 +1548,14 @@ td {
   width: 10px;
   border-radius: 20px;
 }
+.cardInfo h3 {
+  font-size: 1px;
+  color: #0aa2e2;
+  background: #054eee;
+  height: 10px;
+  width: 10px;
+  border-radius: 20px;
+}
 .cardSide {
   border-width: 10px;
   border: #d9e0e7;
@@ -1558,7 +1566,7 @@ td {
   background: #fbfefe;
 }
 
-.cardMain{
+.cardMain {
   margin: 14px;
   border-width: 10px;
   border: #d9e0e7;
@@ -1768,6 +1776,17 @@ code {
   background: none;
   border: none;
 }
+.cardGo span {
+  font-size: 11px;
+  display: flex;
+  line-height: 20px;
+  color: rgb(183, 187, 207);
+  margin: 0px;
+  column-gap: 1pc;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  align-items: center;
+}
 .wall {
   background: #0baade;
   position: fixed;
@@ -1842,7 +1861,6 @@ textarea {
   cursor: pointer;
 }
 form input {
-  margin: 7px auto;
   border: none;
   left: 62.42%;
   right: 8.02%;
@@ -1959,30 +1977,27 @@ form button:hover {
   flex-wrap: wrap;
 }
 .bookbind {
-  padding: 17px;
-  background: black;
-  /* margin: 60px; */
-  font-weight: 550;
-  font-size: xx-large;
-  /* display: grid; */
-  justify-content: start;
-  justify-items: start;
+  border-radius: 10px;
+  padding: 14px;
+  background: #6595ec;
+  margin: 9px;
   color: whitesmoke;
-  /* width: -webkit-fill-available; */
-  height: 182px;
+  width: 104%;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: flex-start;
 }
+
 .bookbind h5 {
   margin: 0px;
   font-size: 9px;
 }
 .bookbind .bvpharse {
-  /* margin-top: -5px; */
-  /* margin: -6px 142px 1px auto; */
   font-size: small;
   font-weight: 400;
   display: grid;
   justify-content: start;
-  justify-items: start;
 }
 .signin-title {
   font-size: xx-large;

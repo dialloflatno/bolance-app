@@ -28,7 +28,6 @@ function BookForm({ user, placeBook }) {
       <form className="bookbind" onSubmit={handleSubmit}>
         <h3> Bookbinding</h3>
         <span className="bvpharse">Lets Start Budgeting </span>
-        <h5 >Create your Book  </h5>
         <input
         value={title}
           onChange={(e) => setBooksTitle(e.target.value)}
