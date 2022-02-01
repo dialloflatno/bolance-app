@@ -79,7 +79,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
                       <option>Books</option>
                       {dropDown}
                     </select>
-                    <Link to="/errors" className="dropgo-NAV ">
+                    <Link to='/reports' className="dropgo-NAV ">
                       PMR
                     </Link>
                     <span className="name">{user.full_name}

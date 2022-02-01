@@ -10,6 +10,7 @@ import Book from "./Book";
 import Welcome from "./Welcome";
 import Nav from "./Nav";
 import BookTossed from "./BookTossed";
+import PMReports from "./PMReports";
 // import Reports from "./Reports";
 
 
@@ -50,6 +51,10 @@ function App() {
             <Book usersBooks={books} handleDeletedBook ={handleDeletedBook} />
             <footer>Bolance App | Your Best Budget ! </footer>
           </Route>
+          <Route to='/reports'>
+          <Nav user={user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} setUser={setUser} books={books} />
+            <PMReports/>
+            </Route>
           <Route to ='/toss'>
             <BookTossed />
           </Route>
