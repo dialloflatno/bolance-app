@@ -22,7 +22,11 @@ const listOfSubs = subs.map( companies => {
       startDate = {companies.month}
      />
 })
-  console.log(subs);
+
+
+
+const subSum = subs.map(sub => sub.paymentpermonth).reduce((p,c)=> p + c,0)
+  console.log(subSum);
   return (
     <div>
       <div className="correction-m">
@@ -33,8 +37,21 @@ const listOfSubs = subs.map( companies => {
               <BookForm user={user} placeBook={placeBook} />
             </div>
             <div className="cardMain">
+              <p>${subSum}</p>
                 Subcriptions
-                {listOfSubs}
+                <table >
+        <thead>
+          <tr className='sub-table'>
+            <th>Service</th>
+            <th>Start Date</th>
+            <th>Monthly Payment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td>{listOfSubs}</td>
+        </tbody>
+      </table>
+                
             </div>
           </div>
           <div className="cardSide">FICO SCORE PLACEMENT</div>

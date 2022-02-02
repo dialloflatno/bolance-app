@@ -110,6 +110,12 @@ body {
   color: var(--font-color-light);
   height: 100%;
 }
+.subButton.green{
+color: green;
+}
+.subButton {
+  color: gray;
+}
 .App.dark {
   --font-color: rgb(255, 244, 244);
   --background: rgb(50, 50, 50);
@@ -2131,18 +2137,54 @@ form button:hover {
   height: 40vh;
 }
 .sub-line {
+  transition: 03s;
   display: flex;
-
+  grid-column-gap: 5px;
   column-gap: 5px;
   align-items: center;
+  justify-content: space-evenly;
 }
-.sub-line .dot {
-background-color: rgb(255, 209, 5);
-height: 8px;
-width: 8px;
-color: whitesmoke;
-border-radius: 30px;
-
+.sub-line button{
+  background: #f6b904;
+  border: none;
+  height: 10px;
+  border-radius: 20px;
+}
+.sub-table {
+  display: inline-flex;
+  column-gap: 23px;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  font-size: medium;
+  font-family: sans-serif;
+  margin: 20px auto;
+}
+.sub-table th {
+  font-weight: 100;
+}
+.sub-table table {
+  margin: 2px auto;
+  width: 96%;
+}
+.cardMain p {
+  float: left;
+  font-size: x-large;
+  margin: 2px auto;
+}
+.dot {
+  background-color: rgb(255, 209, 5);
+  height: 8px;
+  width: 8px;
+  color: whitesmoke;
+  border-radius: 30px;
+}
+.dop {
+  background-color: rgb(141, 140, 135);
+  height: 8px;
+  width: 8px;
+  color: whitesmoke;
+  border-radius: 30px;
 }
 .sun {
   margin: 80px;
