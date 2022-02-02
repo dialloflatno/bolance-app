@@ -1,10 +1,26 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export default function Subscript({ company, startDate, payment }) {
+export default function Subscript({ user,company, startDate, payment }) {
   const [subscribed,setSubscribed] = useState(true)
+
   
+
   const handleClick = () => {
-    setSubscribed((subscribed) => !subscribed )
+    fetch(`/api/subscriptions/${user.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        subscribed: subscribed,
+      }),
+    })
+      .then((r) => r.json())
+      .then((subscribedStatus) => {
+        setSubscribed((!subscribedStatus) )
+
+      });
+  
   }
   
   return (

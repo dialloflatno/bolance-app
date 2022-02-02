@@ -5,12 +5,9 @@ import Categories from "./Categories";
 import CategoriesForm from "./CategoriesForm";
 import BarChart from "./BarChart";
 import FormToggle from "./FormToggle";
-import Setting from "./Setting";
 
-function Book({ user }) {
+function Book() {
   const { book_id } = useParams();
-  console.log(book_id);
-  // const url = `books/${book_id}`;
   const [bookDisplayed, setBookDisplayed] = useState(); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
   const [categoriesArr, setCategoriesArr] = useState(); //<<< categories: [ :name, :expenses:[]]
   const [listOfExpenses, setList] = useState([]);
