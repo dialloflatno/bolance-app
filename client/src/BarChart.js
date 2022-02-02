@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bar, Bubble, PolarArea } from 'react-chartjs-2'
+import { Bar, Bubble, Doughnut, PolarArea } from 'react-chartjs-2'
 import { Chart, DatasetController, registerables } from 'chart.js'
 Chart.register(...registerables)
 

@@ -54,7 +54,7 @@ const subSum = subs.map(sub => sub.paymentpermonth).reduce((p,c)=> p + c,0)
                 
             </div>
           </div>
-          <div className="cardSide">FICO SCORE PLACEMENT</div>
+          {/* <div className="cardSide">FICO SCORE PLACEMENT</div> */}
         </div>
       </div>
     </div>

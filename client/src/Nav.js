@@ -28,10 +28,11 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
 
 
   function handleToggle() {
-    setNavTog(false)
+    setNavTog((navtog) => !navtog)
   }
   function handleTogglePostive() {
-    setNavTog(true)
+    setNavTog((navtog) => !navtog)
+
   }
 
 

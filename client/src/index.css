@@ -312,7 +312,7 @@ span {
 
 .close {
   height: 2px;
-  color: whitesmoke;
+  /* color: whitesmoke; */
   border: none;
   background: none;
   transform: 0.3s;
@@ -1937,18 +1937,19 @@ form button {
   font-style: normal;
   font-weight: 300;
   line-height: 14px;
+  width: 45px;
   letter-spacing: 0em;
   text-align: left;
   color: aliceblue;
   background: #0aa2e2;
-  border-radius: 10px;
+  border-radius: 102px;
   border: none;
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
-  margin-left: 242px;
+  margin-left: 473px;
   border: none;
-  height: 20px;
+  height: 39px;
   bottom: 42.34%;
   font-style: normal;
   font-weight: 600;
@@ -1993,6 +1994,9 @@ form button:hover {
   flex-wrap: wrap;
 }
 .bookbind {
+  display: flex;
+  align-items: stretch;
+  width: 522px;
   border-radius: 10px;
   padding: 14px;
   background: #6595ec;
