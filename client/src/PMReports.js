@@ -1,4 +1,4 @@
-import { PageItem } from "react-bootstrap";
+import { PageItem } from 'react-bootstrap'
 import { Page, Document } from 'react-pdf'
 
 function PMReports() {
@@ -6,8 +6,7 @@ function PMReports() {
     <div>
       <table>
         <thead>
-
-
+          <h1>Ledger</h1>
           <tr>
             <th> No.1</th>
             <th>date</th>
@@ -23,12 +22,66 @@ function PMReports() {
             <td>Food</td>
             <td>21</td>
             <td>211</td>
-
           </tr>
         </tbody>
       </table>
+
+      <table>
+        <thead>
+          <thead>
+            <h1>Income Statment</h1>
+            <tr>
+              <table>
+              <thead>
+              <th> Reveune</th>
+              <tbody>
+                <tr>
+                  <td>Sales Reveune</td>
+                  <td>Other Reveune</td>
+                  <td>Total Reveune</td>
+                </tr>
+              </tbody>
+              </thead>
+              </table>
+              <table>
+                <thead>
+              <th>Gross Profits</th>
+              <th>Cost Of Goods Sold</th>
+              <tbody>
+                <tr>
+                  <td>$1,900</td>
+                  <td>$2000</td>
+                </tr>
+              </tbody>
+              </thead>
+              </table>
+              <table>
+                <tr>
+
+              <th>Expenses</th>
+              </tr>
+              <tbody>
+                <tc>
+                  <td>Accounting</td>
+                  <td>Advertising</td>
+                  <td>Amortiazation</td>
+                  <td>Bad Debt</td>
+                  <td>Depreciation</td>
+                  <td>Depreciation</td>
+                  <td>Add By User</td>
+                  <td>Total Expenses</td>
+                </tc>
+              </tbody>
+</table>
+            </tr>
+          </thead>
+          <tbody>
+        
+          </tbody>
+        </thead>
+      </table>
     </div>
-  );
+  )
 }
 
-export default PMReports;
+export default PMReports

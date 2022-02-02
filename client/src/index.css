@@ -1145,11 +1145,10 @@ img {
   border-style: solid;
   overflow: scroll;
 }
-.jar{
+.jar {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-
 }
 /* .perTitle {
   column-gap: 10px;
@@ -1455,15 +1454,15 @@ img {
 .List {
   height: 591px;
   height: 591px;
-    padding: 10px;
-    box-sizing: content-box;
-    background: rgb(247 247 247);
-    /* box-shadow: 0px 0px 2px 1px #80808059; */
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: center;
+  padding: 10px;
+  box-sizing: content-box;
+  background: rgb(247 247 247);
+  /* box-shadow: 0px 0px 2px 1px #80808059; */
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
 }
 td {
   font-size: medium;
@@ -1622,7 +1621,7 @@ td {
   box-sizing: border-box;
   border-radius: 4px;
 }
-.Form input{
+.Form input {
   background-color: whitesmoke;
 }
 .name {
@@ -2130,9 +2129,22 @@ form button:hover {
   border-style: solid;
   border-color: rgba(245, 245, 245, 0.439);
   height: 40vh;
+}
+.sub-line {
+  display: flex;
+
+  column-gap: 5px;
+  align-items: center;
+}
+.sub-line .dot {
+background-color: rgb(255, 209, 5);
+height: 8px;
+width: 8px;
+color: whitesmoke;
+border-radius: 30px;
 
 }
-.sun{
+.sun {
   margin: 80px;
 }
 text {
@@ -2159,9 +2171,7 @@ text {
   height: 55.400000000000006vh;
   flex-wrap: wrap;
   align-items: flex-start;
-
 }
-
 
 .footer {
   font-weight: 600;

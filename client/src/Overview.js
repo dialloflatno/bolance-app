@@ -54,6 +54,8 @@ function Overview({ user, setBooks, books, isDarkMode }) {
     .flat();
   console.log(eachBookCost);
 
+  const subs =  user.subscriptions
+
   const title = eachBookCost.filter((x) => x.length > 0);
   const sumCost = eachBookCost.filter((x) => x >= 0);
   const o = title.map((arr) => ({ ["title"]: arr }));
@@ -106,6 +108,7 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                     placeBook={placeBook}
                     o={o}
                     g={g}
+                    subs ={subs}
                     title={title}
                     totalExpenses={totalExpenses}
                   />
