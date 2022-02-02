@@ -1513,6 +1513,7 @@ td {
   margin: 0px;
 }
 .cardChart h1 {
+  font-size: inherit;
   font-weight: bolder;
 }
 .card {
