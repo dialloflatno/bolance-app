@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export default function Subscript({ user,company, startDate, payment }) {
-  const [subscribed,setSubscribed] = useState(true)
+  const [subscribed,setSubscribed] = useState()
 
   
 
@@ -17,7 +17,7 @@ export default function Subscript({ user,company, startDate, payment }) {
     })
       .then((r) => r.json())
       .then((subscribedStatus) => {
-        setSubscribed((!subscribedStatus) )
+        setSubscribed(() =>!subscribedStatus )
 
       });
   
