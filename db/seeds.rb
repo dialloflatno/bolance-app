@@ -1,5 +1,6 @@
 CateoTransactionReport.destroy_all
 BookCategory.destroy_all
+Subscription.destroy_all
 Expense.destroy_all
 Category.destroy_all
 Book.destroy_all
@@ -56,3 +57,12 @@ puts " Expense..Still..Processing"
 
 
 puts " Expense Complete "
+
+    Subscription.create(user:ibrahima, company:'Netflixs',month:'1/31/2022',paymentpermonth:14, subscribed: false)
+    Subscription.create(user:jack, company:'Netflixs',month:'2/1/2022',paymentpermonth:14, subscribed: false)
+    Subscription.create(user:ibrahima, company:'PlanetFitness',month:'1/31/2022',paymentpermonth:15, subscribed: false)
+    Subscription.create(user:mike, company:'Blink',month:'2/3/2022',paymentpermonth:20, subscribed: false)
+    Subscription.create(user:jack, company:'Blink',month:'2/3/2022',paymentpermonth:20, subscribed: false)
+
+
+puts " Subscription Complete "

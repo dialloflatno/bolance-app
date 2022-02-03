@@ -27,7 +27,7 @@ function Book() {
         setCategoriesArr(() => bookResp?.categories); ///<<< categories: [ :name, :expenses:[]]
         setFetchExp(() => bookResp?.categories.map((o) => o.expenses)); ///<<< categories: [:expenses:[]]
       });
-  }, [`/api/books/${book_id}`]);
+  }, [`${book_id}`]);
 
   //filter out the categories that are not selected //
   /// then attempt a .map()  ////

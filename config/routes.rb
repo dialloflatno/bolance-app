@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :books,only:[:index,:show,:create, :destroy, :update]
   resources :book_categories ,only:[:index,:create]
   resources :users,only:[:index,:update]
+  resources :subscriptions, only: [:index,:show,:create,:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   #create and signin routes
