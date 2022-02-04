@@ -1,24 +1,20 @@
 import BookShelf from "./BookShelf.js";
-import BookForm from "./BookForm.js";
 import { useEffect, useState } from "react";
-import { Doughnut } from "react-chartjs-2";
 import DoughnutChart from "./DougnutChart.js";
+import Budget from "./Budget.js";
 
 function Overview({ user, setBooks, books, isDarkMode }) {
   const [usersBookPile, setBookPile] = useState([]);
-
   useEffect(() => {
     fetch(`/api/books/user/${user.id}`)
       .then((r) => r.json())
       .then((bookPile) => setBookPile(bookPile));
   }, []);
-
   const arrayOfExpensesAll = usersBookPile?.map((book) =>
     book.categories
       .map((category) => category.expenses.map((x) => x.cost))
       .flat()
   );
-  debugger;
 
   console.log(arrayOfExpensesAll);
 
@@ -27,7 +23,13 @@ function Overview({ user, setBooks, books, isDarkMode }) {
     const amountTotaled = arrayOfNumbers?.reduce((p, c) => p + c, 0);
     return amountTotaled;
   }
-
+  let amountBudget = usersBookPile.map(my => <Budget 
+    title ={my.title}
+    budget ={my.budget}
+    
+    />
+    )
+  console.log(amountBudget);
   let amount = sum(arrayOfExpensesAll);
 
   console.log(amount);
@@ -103,6 +105,7 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                   </div>
 
                   <BookShelf
+                  amountBudget ={amountBudget}
                   titleTotal={titleBookCost}
                     user={user}
                     placeBook={placeBook}

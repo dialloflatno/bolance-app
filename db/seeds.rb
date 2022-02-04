@@ -15,9 +15,9 @@ puts "User ..... Loading"
 
 puts "Book ..... Finding"
 
-    Book.create( title:"Business", user: mike)
-    Book.create( title:"Personal", user: jack)
-    Book.create( title:"School", user: ibrahima)
+    Book.create( title:"Business",budget: 200 ,user: mike)
+    Book.create( title:"Personal",budget: 200  ,user: jack)
+    Book.create( title:"School", budget: 200 ,user: ibrahima)
 
 puts "Category ..... Finding"
 

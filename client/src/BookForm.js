@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 function BookForm({ user, placeBook }) {
   const [title, setBooksTitle] = useState('')
+  const [budget, setBudget] = useState('')
 
     const handleSubmit = (e) => {
     e.preventDefault()
@@ -13,6 +14,7 @@ function BookForm({ user, placeBook }) {
       },
       body: JSON.stringify({
         title: title,
+        budget: budget,
         user_id: user.id,
       }),
     })
@@ -20,6 +22,7 @@ function BookForm({ user, placeBook }) {
       .then((info) => {
         placeBook(info)
         setBooksTitle('')
+        setBudget('')
       })
   }
 
@@ -32,6 +35,11 @@ function BookForm({ user, placeBook }) {
         value={title}
           onChange={(e) => setBooksTitle(e.target.value)}
           placeholder="Book Title"
+        />
+        <input
+        value={budget}
+          onChange={(e) => setBudget(e.target.value)}
+          placeholder="Budget"
         />
         <button type="submit">Shelf</button>
       </form>

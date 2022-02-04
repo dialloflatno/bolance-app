@@ -1,12 +1,16 @@
+import { useState } from 'react'
 import BookCover from './BookCover'
 import BookForm from './BookForm'
-import DoughnutChart from './DougnutChart'
-import fico from './fico.png'
+import Budget from './Budget'
 import Subscript from './Subscript'
 // import Map from './Map'
 
-function BookShelf({ o, titleTotal, placeBook, user, subs }) {
+function BookShelf({ o, amountBudget, titleTotal, placeBook, user, subs }) {
   console.log(titleTotal)
+
+ let [ listOfSubs , setListOfSubs] = useState()
+console.log();
+
 
   let layed = []
   if (o?.length > 0) {
@@ -14,10 +18,14 @@ function BookShelf({ o, titleTotal, placeBook, user, subs }) {
       return <BookCover key={book.id} bookExp={book.total} title={book.title} />
     })
   }
-  const listOfSubs = subs.map(companies => {
+
+   listOfSubs = subs.map(companies => {
     return <Subscript
+    setListOfSubs = {setListOfSubs}
+
       user={user}
       key={companies.id}
+      sub = {companies.subscribed}
       company={companies.company}
       payment={companies.paymentpermonth}
       startDate={companies.month}
@@ -55,7 +63,11 @@ function BookShelf({ o, titleTotal, placeBook, user, subs }) {
 
             </div>
           </div>
-          {/* <div className="cardSide">FICO SCORE PLACEMENT</div> */}
+          <div className="cardSide">
+            Budget
+            {amountBudget}
+            </div>
+
         </div>
       </div>
     </div>
