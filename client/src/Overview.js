@@ -5,6 +5,7 @@ import Budget from "./Budget.js";
 
 function Overview({ user, setBooks, books, isDarkMode }) {
   const [usersBookPile, setBookPile] = useState([]);
+  const [subs,setSub] = useState(user.subscriptions)
   useEffect(() => {
     fetch(`/api/books/user/${user.id}`)
       .then((r) => r.json())
@@ -16,7 +17,16 @@ function Overview({ user, setBooks, books, isDarkMode }) {
       .flat()
   );
 
-  console.log(arrayOfExpensesAll);
+
+function handleUpdateSubStatus(statUpdate) {
+  debugger
+   setSub(statUpdate)
+
+
+  
+}
+
+
 
   function sum(allInt) {
     const arrayOfNumbers = allInt.flat().filter((v) => v > 0);
@@ -56,7 +66,6 @@ function Overview({ user, setBooks, books, isDarkMode }) {
     .flat();
   console.log(eachBookCost);
 
-  const subs =  user.subscriptions
 
   const title = eachBookCost.filter((x) => x.length > 0);
   const sumCost = eachBookCost.filter((x) => x >= 0);
@@ -73,7 +82,6 @@ function Overview({ user, setBooks, books, isDarkMode }) {
   }
   
   const titleBookCost = mergeArrayObjects(o,g)
-  debugger
   console.log(g.map((d) => d.total === 200));
 
   return (
@@ -111,6 +119,7 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                     placeBook={placeBook}
                     o={o}
                     g={g}
+                    setUp = {handleUpdateSubStatus}
                     subs ={subs}
                     title={title}
                     totalExpenses={totalExpenses}

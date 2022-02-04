@@ -5,11 +5,10 @@ import Budget from './Budget'
 import Subscript from './Subscript'
 // import Map from './Map'
 
-function BookShelf({ o, amountBudget, titleTotal, placeBook, user, subs }) {
-  console.log(titleTotal)
+function BookShelf({ o, setUp, amountBudget, titleTotal, placeBook, user, subs }) {
 
  let [ listOfSubs , setListOfSubs] = useState()
-console.log();
+console.log(listOfSubs);
 
 
   let layed = []
@@ -21,14 +20,16 @@ console.log();
 
    listOfSubs = subs.map(companies => {
     return <Subscript
-    setListOfSubs = {setListOfSubs}
+    // setListOfSubs = {setListOfSubs}
 
       user={user}
       key={companies.id}
-      sub = {companies.subscribed}
+      subOn = {companies.subscribed}
       company={companies.company}
       payment={companies.paymentpermonth}
       startDate={companies.month}
+      setUpSub= {setUp}
+      
     />
   })
 
