@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 export default function Budget({ budget, mySum, title ,category}) {
 
 const bookTotal = mySum(category.map((x) => x.expenses.map((xe) => xe.cost)))
-const [ alarm , setAlarm] = useState(true)
+const [ alarm , setAlarm] = useState(false)
  
 console.log(budget);
 console.log(bookTotal);
 
 
 useEffect(() => {
-    if( bookTotal < budget){
+    if( bookTotal > budget){
         return setAlarm((alarm) => !alarm)
     }
 },[])
