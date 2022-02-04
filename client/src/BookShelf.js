@@ -54,6 +54,7 @@ console.log();
                     <th>Service</th>
                     <th>Start Date</th>
                     <th>Monthly Payment</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>

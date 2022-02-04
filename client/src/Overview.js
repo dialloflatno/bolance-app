@@ -115,15 +115,11 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                     title={title}
                     totalExpenses={totalExpenses}
                   />
-
-                  <div className="overEp"></div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
-        {/* <footer>Bolance App | Your Best Budget ! </footer> */}
       </div>
     </div>
   );
@@ -132,7 +128,3 @@ function Overview({ user, setBooks, books, isDarkMode }) {
 export default Overview;
 
 
-// [ {total: 0}, {total: 567}, {total: 101}, {total: 171}, {total: 20}, {total: 0}, {total: 0}, {total: 0}]
-// [ {title: 'my '}, {title: 'hey'}, {title: 'Car'},{title: 'new House'},{title: 'Boots'}, {title: 'Sneakers'}, {title: 'house'},{title: 'Pie'}]
-
-// ['my ', 0, 'hey', 567, 'Car', 101, 'new House', 171, 'Boots', 20, 'Sneakers', 0, 'house', 0, 'Pie', 0]
