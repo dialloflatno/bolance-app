@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
-export default function Subscript({ subOn, setUpSub, user, company, startDate, payment }) {
+export default function Subscript({ subOn, setUpSub, user, company, subSum,startDate, payment }) {
 
 
-  const [status, setStatus] = useState()
+  const [status, setStatus] = useState(false)
 
   const handleClick = () => {
-    setStatus((subOn)=> !subOn)
+    setStatus((subOn) => !subOn)
     fetch(`/api/subscriptions/${user.id}`, {
       method: "PATCH",
       headers: {
-        "Content-Type" : "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         subscribed: status,
@@ -18,12 +18,7 @@ export default function Subscript({ subOn, setUpSub, user, company, startDate, p
     })
       .then((r) => r.json())
       .then((data) => {
-        console.log(data)
-        console.log(status);
-        debugger
         setUpSub(() => data)
-        debugger
-
       });
 
   }
@@ -36,8 +31,8 @@ export default function Subscript({ subOn, setUpSub, user, company, startDate, p
       <td>{company}</td>
       <td>{startDate}</td>
       <td> ${payment}</td>
-      <td className={"subButton " + ( subOn ? 'green' : 'gray')}>{subOn ? 'Subscribed' : 'UnSubscribed'}</td>
-      <button onClick={handleClick}>{subOn ? '' : ''}</button>
+      <td className={"subButton " + (subOn ? 'green' : 'gray')}>{ subOn ? 'Subscribed' : 'UnSubscribed'}</td>
+      <button onClick={handleClick}>{ subOn ? '' : ''}</button>
 
     </div>
   )

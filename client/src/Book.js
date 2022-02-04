@@ -5,6 +5,7 @@ import Categories from "./Categories";
 import CategoriesForm from "./CategoriesForm";
 import BarChart from "./BarChart";
 import FormToggle from "./FormToggle";
+import Setting from './Setting'
 
 function Book() {
   const { book_id } = useParams();
@@ -205,14 +206,14 @@ function Book() {
                     </>
                   </div>
                   <div>
-                    {/* <Setting
+                    <Setting
                       whileUpdatingName={whileUpdatingName}
                       setUpdate={setUpdate}
                       handleToss={handleToss}
                       showOn ={show}
                       handleSwitchOff ={handleSwitchOff}
                       handleSwitch={handleSwitch}
-                    /> */}
+                    />
                   </div>
                 </label>
               </div>

@@ -5,10 +5,10 @@ import Budget from './Budget'
 import Subscript from './Subscript'
 // import Map from './Map'
 
-function BookShelf({ o, setUp, amountBudget, titleTotal, placeBook, user, subs }) {
+function BookShelf({ o, setUp, amountBudget,  titleTotal, placeBook, user, subs }) {
 
- let [ listOfSubs , setListOfSubs] = useState()
-console.log(listOfSubs);
+  const [subSum, setSubSum] = useState(subs.map(sub => sub.paymentpermonth).reduce((p, c) => p + c, 0)
+  )
 
 
   let layed = []
@@ -18,25 +18,26 @@ console.log(listOfSubs);
     })
   }
 
-   listOfSubs = subs.map(companies => {
+
+
+ const listOfSubs = subs.map(companies => {
     return <Subscript
-    // setListOfSubs = {setListOfSubs}
 
       user={user}
       key={companies.id}
-      subOn = {companies.subscribed}
+      subOn={companies.subscribed}
       company={companies.company}
       payment={companies.paymentpermonth}
       startDate={companies.month}
-      setUpSub= {setUp}
-      
+      setUpSub={setUp}
+      subSum = {subSum}
+
     />
   })
 
 
 
-  const subSum = subs.map(sub => sub.paymentpermonth).reduce((p, c) => p + c, 0)
-  console.log(subSum);
+
   return (
     <div>
       <div className="correction-m">
@@ -68,7 +69,7 @@ console.log(listOfSubs);
           <div className="cardSide">
             Budget
             {amountBudget}
-            </div>
+          </div>
 
         </div>
       </div>

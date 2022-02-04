@@ -110,8 +110,8 @@ body {
   color: var(--font-color-light);
   height: 100%;
 }
-.subButton.green{
-color: green;
+.subButton.green {
+  color: green;
 }
 .subButton {
   color: gray;
@@ -1516,6 +1516,11 @@ td {
   font-size: inherit;
   font-weight: bolder;
 }
+.budgetNotif h5 {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 10px;
+}
 .card {
   border-width: 10px;
   border: #d9e0e7;
@@ -1568,9 +1573,9 @@ td {
 .cardSide {
   border-width: 10px;
   border: #d9e0e7;
-  padding: 16px;
+  padding: 53px;
   height: 1293px;
-  width: 272px;
+  width: 276px;
   border-radius: 12px;
   background: #fbfefe;
 }
@@ -2008,7 +2013,13 @@ form button:hover {
   align-content: stretch;
   align-items: flex-start;
 }
-
+.notify {
+  background-color: red;
+  height: 20px;
+  color: white;
+  border-radius: 20px;
+  width: 19px;
+}
 .bookbind h5 {
   margin: 0px;
   font-size: 9px;
@@ -2148,7 +2159,7 @@ form button:hover {
   align-items: center;
   justify-content: space-evenly;
 }
-.sub-line button{
+.sub-line button {
   background: #f6b904;
   border: none;
   height: 10px;

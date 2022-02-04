@@ -15,7 +15,6 @@ function PMReports() {
             <th>Credit</th>
           </tr>
         </thead>
-        <tbody>
           <tr>
             <td>1</td>
             <td>1/2/32</td>
@@ -23,7 +22,6 @@ function PMReports() {
             <td>21</td>
             <td>211</td>
           </tr>
-        </tbody>
       </table>
 
       <table>
@@ -47,12 +45,10 @@ function PMReports() {
                 <thead>
               <th>Gross Profits</th>
               <th>Cost Of Goods Sold</th>
-              <tbody>
                 <tr>
                   <td>$1,900</td>
                   <td>$2000</td>
                 </tr>
-              </tbody>
               </thead>
               </table>
               <table>
@@ -60,7 +56,6 @@ function PMReports() {
 
               <th>Expenses</th>
               </tr>
-              <tbody>
                 <tc>
                   <td>Accounting</td>
                   <td>Advertising</td>
@@ -71,7 +66,6 @@ function PMReports() {
                   <td>Add By User</td>
                   <td>Total Expenses</td>
                 </tc>
-              </tbody>
 </table>
             </tr>
           </thead>
