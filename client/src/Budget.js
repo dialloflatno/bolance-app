@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function Budget({ budget, mySum, title ,category}) {
@@ -9,10 +9,12 @@ const [ alarm , setAlarm] = useState(true)
 console.log(budget);
 console.log(bookTotal);
 
-     if( bookTotal < budget){
-         debugger
-      return setAlarm((alarm) => !alarm)
+
+useEffect(() => {
+    if( bookTotal < budget){
+        return setAlarm((alarm) => !alarm)
     }
+},[])
 console.log(alarm);
 
 
@@ -22,8 +24,7 @@ console.log(alarm);
 
         <>
            <div className = 'budgetNotif'>
-
-            <h5> { alarm ? <div className= 'notify'>!</div> : `${title}:${budget}` } {title}:{budget} :</h5>
+ { alarm ? <> <h5><div className='notify'>!</div>{title}:{budget} </h5></> : <h5>{title}:{budget}</h5> } 
            </div>
 
 

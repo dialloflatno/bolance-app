@@ -41,7 +41,7 @@ private
     
     
     def book_params
-        params.permit( :user_id, :book ,:title)
+        params.permit( :user_id, :book , :budget ,:title)
     end
     end
     
