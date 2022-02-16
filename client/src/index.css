@@ -1517,9 +1517,14 @@ td {
   font-weight: bolder;
 }
 .budgetNotif h5 {
+  margin: 6px auto;
   display: inline-flex;
   align-items: center;
   column-gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+  width: 150px;
 }
 .card {
   border-width: 10px;
@@ -1992,11 +1997,9 @@ form button:hover {
 }
 .book-tanker {
   width: 100%;
-
   display: flex;
   flex-direction: row;
   position: static;
-  margin-left: 48px;
   flex-wrap: wrap;
 }
 .bookbind {

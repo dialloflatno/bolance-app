@@ -9,7 +9,8 @@ class Api::SubscriptionsController < ApplicationController
     end
 
     def update
-        sub_status = my_subs.update(subscribed: params[:subscribed])
+        a_sub = my_subs.find_by(id:params[:id])
+        sub_status = a_sub.update(subscribed: params[:subscribed])
         render json: sub_status,status: :ok
     end
 

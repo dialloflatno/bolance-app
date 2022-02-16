@@ -45,7 +45,9 @@ function BookShelf({ o, setUp, amountBudget,  titleTotal, placeBook, user, subs 
           <div className="book-tanker">
             {layed}
             <div>
-              <BookForm user={user} placeBook={placeBook} />
+              <BookForm
+               user={user} placeBook={placeBook}
+              />
             </div>
             <div className="cardMain">
               <p>${subSum}</p>
