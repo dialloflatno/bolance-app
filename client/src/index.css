@@ -1154,8 +1154,7 @@ img {
 .jar {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-}
+  align-items: stretch;}
 /* .perTitle {
   column-gap: 10px;
   display: inline-flex;
@@ -2141,7 +2140,7 @@ form button:hover {
 }
 .grand-container {
   /* background: #367777; */
-  margin: 62px auto;
+  /* margin: 62px auto; */
 }
 .bckg {
   background-color: #2d3244;
@@ -2149,11 +2148,11 @@ form button:hover {
   width: 619px;
 }
 .nivoChart {
-  padding: 116px;
+  width: 100%;
   border-width: thin;
   border-style: solid;
   border-color: rgba(245, 245, 245, 0.439);
-  height: 40vh;
+  margin-right: 45px;
 }
 .sub-line {
   transition: 03s;
