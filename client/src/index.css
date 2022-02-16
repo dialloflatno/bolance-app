@@ -1155,12 +1155,6 @@ img {
   display: flex;
   flex-direction: row;
   align-items: stretch;}
-/* .perTitle {
-  column-gap: 10px;
-  display: inline-flex;
-  align-items: baseline;
-  align-content: flex-end;
-} */
 
 .perTitle h6 {
   color: #756e6e;
@@ -1449,11 +1443,19 @@ img {
   align-items: center;
   justify-content: space-between;
 }
+
+.info:hover{
+  transition:  all 0.3s;
+  background: #d9e0e7;
+
+}
 .info span {
-  font-family: MONOSPACE;
-  font-size: small;
-  margin: 15px;
-  font-size: small;
+    /* column-gap: 21px; */
+    font-family: sans-serif;
+    font-size: small;
+    color: #282c34;
+    margin: 15px;
+    font-size: small;
 }
 
 .List {
@@ -1477,7 +1479,7 @@ td {
   font-weight: 500;
 }
 .List_font {
-  border-color: antiquewhite;
+  border-color: rgb(247 248 243);
   border-width: thin;
   height: 42px;
   border-style: solid;
