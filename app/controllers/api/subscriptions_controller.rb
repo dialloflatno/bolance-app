@@ -9,8 +9,7 @@ class Api::SubscriptionsController < ApplicationController
     end
 
     def update
-        a_sub = my_subs.find_by(id:params[:id])
-        sub_status = a_sub.update(subscribed: params[:subscribed])
+        sub_status = my_subs.update(subscribed: params[:subscribed])
         render json: sub_status,status: :ok
     end
 
@@ -20,6 +19,5 @@ end
 private
 
 def my_subs
-  user = User.find_by(id: params[:id])
-  user.subscriptions
+  Subscription.find_by(id: params[:id])
 end

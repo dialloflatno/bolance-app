@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   #create and signin routes
   get '/books/user/:id', to: 'books#show_index'
   
+  # patch '/user/:id/subscriptions/:id', to: 'subscriptions#update'
   
   post '/signup', to: 'users#create'
 
-  post "/signin", to: "sessions#create"
+  post '/signin', to: "sessions#create"
 
   #session routes for login / logout
 

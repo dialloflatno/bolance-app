@@ -190,6 +190,14 @@ function Book() {
                     <div className='jar'>
                       <BarChart labels={categoryNamesForChart} expenses={categoryExpenseForChart} />
                       <div className="nc">
+
+                    <FormToggle
+                      entryHandled={entryHandled}
+                      expDropDown={categoriesDropDown}
+                      categoriesArr={categoriesArr}
+                      setToggle={setToggle}
+                      toggle={toggle}
+                    />
                       <CategoriesForm
                         addCategories={addCategories}
                         book_id={book_id}
@@ -241,13 +249,6 @@ function Book() {
           <div>
           </div>
         </div>
-                    <FormToggle
-                      entryHandled={entryHandled}
-                      expDropDown={categoriesDropDown}
-                      categoriesArr={categoriesArr}
-                      setToggle={setToggle}
-                      toggle={toggle}
-                    />
         <List
           handleDeleteItem={handleDeleteItem}
           arrayOfExpenses={listOfExpenses}

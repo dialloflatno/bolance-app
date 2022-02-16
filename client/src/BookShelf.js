@@ -7,7 +7,7 @@ import Subscript from './Subscript'
 
 function BookShelf({ o, setUp, amountBudget,  titleTotal, placeBook, user, subs }) {
 
-  const [subSum, setSubSum] = useState(subs.map(sub => sub.paymentpermonth).reduce((p, c) => p + c, 0)
+  const [subSum, setSubSum] = useState(subs?.map(sub => sub.paymentpermonth).reduce((p, c) => p + c, 0)
   )
 
 
@@ -20,7 +20,7 @@ function BookShelf({ o, setUp, amountBudget,  titleTotal, placeBook, user, subs 
 
 
 
- const listOfSubs = subs.map(companies => {
+ const listOfSubs = subs?.map(companies => {
     return <Subscript
 
       user={user}

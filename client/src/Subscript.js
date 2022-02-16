@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Subscript({ subOn, setUpSub, user, company, subSum,startDate, payment }) {
+export default function Subscript({ subOn, setUpSub, user, company, startDate, payment }) {
 
 
   const [status, setStatus] = useState(false)
@@ -18,7 +18,8 @@ export default function Subscript({ subOn, setUpSub, user, company, subSum,start
     })
       .then((r) => r.json())
       .then((data) => {
-        setUpSub(() => data)
+        console.log(data);
+        // setUpSub(() => data)
       });
 
   }
@@ -32,7 +33,7 @@ export default function Subscript({ subOn, setUpSub, user, company, subSum,start
       <td>{startDate}</td>
       <td> ${payment}</td>
       <td className={"subButton " + (subOn ? 'green' : 'gray')}>{ subOn ? 'Subscribed' : 'UnSubscribed'}</td>
-      <button onClick={handleClick}>{ subOn ? '' : ''}</button>
+      <button onChange = {(e) => console.log(e.target.value)}  onClick={handleClick}>{ subOn ? '' : ''}</button>
 
     </div>
   )
