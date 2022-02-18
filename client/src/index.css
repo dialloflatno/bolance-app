@@ -1297,7 +1297,7 @@ img {
   margin-top: 20px;
   background: none;
   border: none;
-  color: rgb(243, 242, 245);
+  /* color: rgb(243, 242, 245); */
   font-weight: bold;
   cursor: pointer;
 }
@@ -1472,11 +1472,14 @@ img {
   align-content: center;
 }
 td {
+  display: flex;
   font-size: medium;
   padding: 8px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 12px;
   font-weight: 500;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .List_font {
   border-color: rgb(247 248 243);

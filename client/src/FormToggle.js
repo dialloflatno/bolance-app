@@ -26,7 +26,7 @@ export default  function FormToggle({setToggle, toggle, entryHandled, expDropDow
       )}
       {toggle ? (
         <button onClick={handlesDisapperacance} className="drpfrm">
-          Place an Entry ▼
+          Add Category ▼
         </button>
       ) : (
         <button onClick={handlesApperacance} value={false} className="drpfrm">

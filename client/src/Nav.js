@@ -36,7 +36,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
   }
 
 
-
+/// charming fuccbois  
 
 
   function handleRedirectClick(e) {
@@ -46,7 +46,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
     console.log(getBook);
     const bookMatched = getBook?.id
     console.log(bookMatched)
-    history.push(`books/${bookMatched}`)
+    history.push(`/books/${bookMatched}`)
   }
 
 
