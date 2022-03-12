@@ -1561,9 +1561,9 @@ td {
   /* box-shadow: 0px 2px 10px rgb(0 0 0 / 25%); */
   border-radius: 12px;
 }
-.grid-contanier {
+/* .grid-contanier {
   display: -webkit-inline-box;
-}
+} */
 .cardChart h3 {
   font-size: 1px;
   color: #0aa2e2;
@@ -1581,10 +1581,7 @@ td {
   border-radius: 20px;
 }
 .cardSide {
-  border-width: 10px;
-  border: #d9e0e7;
-  padding: 53px;
-  height: 1293px;
+  border-width: 10px; 
   width: 276px;
   border-radius: 12px;
   background: #fbfefe;
@@ -1595,7 +1592,6 @@ td {
   border-width: 10px;
   border: #d9e0e7;
   padding: 16px;
-  height: 1293px;
   width: 649px;
   border-radius: 12px;
   background: #fbfefe;
@@ -2236,6 +2232,7 @@ text {
   height: 55.400000000000006vh;
   flex-wrap: wrap;
   align-items: flex-start;
+  justify-content: space-around;
 }
 
 .footer {

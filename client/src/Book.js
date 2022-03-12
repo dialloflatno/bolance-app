@@ -191,6 +191,12 @@ function Book() {
                       <BarChart labels={categoryNamesForChart} expenses={categoryExpenseForChart} />
                       <div className="nc">
 
+                        <CategoriesForm
+                          addCategories={addCategories}
+                          book_id={book_id}
+                          name={name}
+                          setCategoryName={setCategoryName}
+                          />
                     <FormToggle
                       entryHandled={entryHandled}
                       expDropDown={categoriesDropDown}
@@ -198,12 +204,6 @@ function Book() {
                       setToggle={setToggle}
                       toggle={toggle}
                     />
-                      <CategoriesForm
-                        addCategories={addCategories}
-                        book_id={book_id}
-                        name={name}
-                        setCategoryName={setCategoryName}
-                        />
                         <Categories categoriesArr={categoriesArr} />
                       </div>
                        

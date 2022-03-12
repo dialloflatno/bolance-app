@@ -2,6 +2,7 @@ import BookShelf from './BookShelf.js'
 import { useEffect, useState } from 'react'
 import DoughnutChart from './DougnutChart.js'
 import Budget from './Budget.js'
+import BookForm from './BookForm.js'
 
 function Overview({ user, setBooks, books, isDarkMode }) {
   const [usersBookPile, setBookPile] = useState([])
@@ -84,6 +85,9 @@ function Overview({ user, setBooks, books, isDarkMode }) {
             <div className="prop-container">
               <div className="m">
                 <div className="grid-contanier">
+                  <BookForm
+                    user={user} placeBook={placeBook}
+                  />
                   <div className="cardChart">
                     <h5>
                       Overall Books Total :{' '}
@@ -101,6 +105,9 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                       bookExp={g.map((d) => d.total)}
                       title={title}
                     />
+                  </div>
+                  <div className="cardSide">
+                    {amountBudget}
                   </div>
 
                   <BookShelf
