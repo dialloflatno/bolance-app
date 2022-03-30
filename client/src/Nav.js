@@ -105,9 +105,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
                       user={user}
                       books={books} 
                       />
-                      <button className = 'switchMode' onClick={handleDarkModeClick}>
-                        {isDarkMode ? "   " : "  "}
-                    </button>
+        
                   </ul>
                 </div>
                 <div className="stack">

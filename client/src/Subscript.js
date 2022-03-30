@@ -18,8 +18,8 @@ export default function Subscript({ subOn, setUpSub, user, company, startDate, p
     })
       .then((r) => r.json())
       .then((data) => {
-        console.log(data);
-        // setUpSub(() => data)
+        // console.log(data);
+        setUpSub(() => data)
       });
 
   }

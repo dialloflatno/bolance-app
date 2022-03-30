@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SubForm from './SubForm'
 
 function BookForm({ user, placeBook }) {
   const [title, setBooksTitle] = useState('')
@@ -43,6 +44,7 @@ function BookForm({ user, placeBook }) {
         />
         <button type="submit">Shelf</button>
       </form>
+      <SubForm/>
     </div>
   )
 }

@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import BookCover from './BookCover'
-import BookForm from './BookForm'
-import Budget from './Budget'
 import Subscript from './Subscript'
-// import Map from './Map'
 
 function BookShelf({ o, setUp, amountBudget,  titleTotal, placeBook, user, subs }) {
 
@@ -66,8 +63,6 @@ function BookShelf({ o, setUp, amountBudget,  titleTotal, placeBook, user, subs 
 
             </div>
           </div>
-        
-
         </div>
       </div>
     </div>

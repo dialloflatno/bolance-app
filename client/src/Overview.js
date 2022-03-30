@@ -7,6 +7,8 @@ import BookForm from './BookForm.js'
 function Overview({ user, setBooks, books, isDarkMode }) {
   const [usersBookPile, setBookPile] = useState([])
   const [subs, setSub] = useState(user.subscriptions)
+console.log(subs.subscribed);
+
   useEffect(() => {
     fetch(`/api/books/user/${user.id}`)
       .then((r) => r.json())
@@ -89,6 +91,9 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                     user={user} placeBook={placeBook}
                   />
                   <div className="cardChart">
+                    <div className="cardSide">
+                        {amountBudget}
+                        </div>
                     <h5>
                       Overall Books Total :{' '}
                       <h1>{amount ? amount : totalExpenses}</h1>dollars
@@ -105,9 +110,6 @@ function Overview({ user, setBooks, books, isDarkMode }) {
                       bookExp={g.map((d) => d.total)}
                       title={title}
                     />
-                  </div>
-                  <div className="cardSide">
-                    {amountBudget}
                   </div>
 
                   <BookShelf

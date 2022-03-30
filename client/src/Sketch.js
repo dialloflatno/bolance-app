@@ -59,8 +59,13 @@
 //         book.categories.map(category => { return category.expenses.map(t => { return ( t)}) })
 //         )
 //     })[1].map(cat => { return ( cat )})[1].map(c => {return ( c.cost)}).reduce(reducer);
-    
+
 // ///Food-Name--------------------------------------------------------------------------------------------
 // view.map(book => {
 //     return (
 //         book.categories.map(category => { return category.name }))})
+
+function OddNumber(number) {
+    let evenNumber = number * 2
+    return evenNumber/2 === number
+}

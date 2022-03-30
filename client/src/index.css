@@ -106,9 +106,10 @@ body {
   font-weight: 100;
 }
 .App {
-  background-color: var(--background-light);
-  color: var(--font-color-light);
-  height: 100%;
+  --font-color: rgb(255, 244, 244);
+background-color: #282c34; 
+ --background-light: rgb(38, 33, 46);
+  transition: all 0.3s;
 }
 .subButton.green {
   color: green;
@@ -187,7 +188,7 @@ header {
 .dropgo {
   font-size: smaller;
   font-weight: 200;
-  color: aliceblue;
+  color: rgb(16, 16, 17);
   background-position-x: inherit;
   margin: 19px 4px auto;
   position: unset;
@@ -204,10 +205,12 @@ header {
   background: none;
   font-size: medium;
   font-weight: 400;
-  color: rgb(183, 187, 207);
+  color: rgb(16, 16, 17);
   background-position-x: inherit;
   background: none;
   box-sizing: border-box;
+  font-size: small;
+
   border-radius: 10px;
 }
 .dropgo-NAV {
@@ -215,7 +218,7 @@ header {
   background: none;
   font-size: smaller;
   font-weight: 400;
-  color: rgb(183, 187, 207);
+  color: rgb(16, 16, 17);
   background-position-x: inherit;
   background: none;
   box-sizing: border-box;
@@ -237,7 +240,7 @@ header {
 span {
   font-size: 11px;
   line-height: 20px;
-  color: rgb(183, 187, 207);
+  /* color: rgb(183, 187, 207); */
   margin: 0px;
   -webkit-font-smoothing: antialiased;
   font-weight: 500;
@@ -293,8 +296,9 @@ span {
   margin-top: -139px;
 }
 .View {
-  margin: 20px;
+  margin: 81px;
 }
+
 .trash svg {
   height: 8pc;
 }
@@ -859,21 +863,17 @@ img {
     font-weight: 550;
   }
   .bookslot {
-    width: 50%;
-    /* FONT-VARIANT: JIS04; */
-    /* padding: 18px; */
-    /* overflow: hidden; */
+    width: 62%;
     display: flex;
     flex-direction: row;
     margin-left: 22px;
     position: static;
-    /* margin-left: -43px; */
     flex-wrap: wrap;
   }
 
   .m {
-    width: 72%;
     overflow: scroll;
+    width: 1210px;
     height: 30%;
     margin: 60px auto;
   }
@@ -956,12 +956,10 @@ img {
 }
 .OverView {
   color: #000;
+  height: 95vh;
   margin-top: 60px;
 }
-.OverView {
-  color: #000;
-  margin-top: 60px;
-}
+
 .box-text {
   box-shadow: inset 0px 10px 40px 40px #5dcfff30;
   z-index: 2;
@@ -1473,13 +1471,14 @@ img {
 }
 td {
   display: flex;
-  font-size: medium;
-  padding: 8px;
+  font-size: small;
+  padding: 3px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin: 12px;
   font-weight: 500;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
+
+
 }
 .List_font {
   border-color: rgb(247 248 243);
@@ -1509,7 +1508,7 @@ td {
 .cardChart h5 {
   margin: 10px;
   grid-column-gap: 7px;
-  column-gap: 7px;
+  column-gap: 5px;
   font-weight: lighter;
   display: inline-flex;
   align-items: center;
@@ -1521,15 +1520,17 @@ td {
   font-weight: bolder;
 }
 .budgetNotif h5 {
-  margin: 6px auto;
-  display: inline-flex;
-  align-items: center;
-  grid-column-gap: 10px;
-  column-gap: 10px;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  font-size: 12px;
-  width: 150px;
+  font-weight: 400;
+    margin: 6px auto;
+    display: inline-flex;
+    align-items: center;
+    grid-column-gap: 10px;
+    grid-column-gap: 10px;
+    column-gap: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 12px;
+    width: 150px;
 }
 .card {
   border-width: 10px;
@@ -1546,24 +1547,23 @@ td {
   border-radius: 12px;
 }
 .cardChart {
-  line-height: 7px;
-  float: right;
-  border-width: 10px;
-  border: #d9e0e7;
-  margin: 5px;
-  /* height: 293px; */
-  width: 382px;
-  left: 343px;
-  top: 234px;
-  border-radius: 12px;
-  bottom: 63.77%;
-  background: #fbfefe;
-  /* box-shadow: 0px 2px 10px rgb(0 0 0 / 25%); */
-  border-radius: 12px;
+    line-height: 7px;
+    border-width: 10px;
+    border: #d9e0e7;
+    margin: 30px auto;
+
+    width: 335px;
+    border-radius: 12px;
+    justify-items: stretch;
+    align-items: baseline;
 }
-/* .grid-contanier {
-  display: -webkit-inline-box;
-} */
+.grid-contanier {
+  display: flex;
+  justify-content: space-between;
+  justify-items: start;
+  align-content: space-between;
+  align-items: flex-start;
+}
 .cardChart h3 {
   font-size: 1px;
   color: #0aa2e2;
@@ -1581,37 +1581,48 @@ td {
   border-radius: 20px;
 }
 .cardSide {
-  border-width: 10px; 
-  width: 276px;
-  border-radius: 12px;
-  background: #fbfefe;
+  display: flex;
+  padding: 10px;
+  justify-items: start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardSide h4 {
+  margin: 0px;
 }
 
 .cardMain {
-  margin: 14px;
+  font-size: unset;
+  color: aliceblue;
+  display: grid;
+  font-size: unset;
+  color: aliceblue;
+  background: #7ebdd2;
   border-width: 10px;
   border: #d9e0e7;
-  padding: 16px;
-  width: 649px;
-  border-radius: 12px;
-  background: #fbfefe;
+  padding: 18px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  font-weight: 700;
+  align-items: center;
+  justify-items: stretch;
+  background: #7ebdd2;
+  border-width: 10px;
+  border: #d9e0e7;
+  padding: 18px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  font-weight: 700;
 }
 .maincard {
   margin: 11px;
-  width: -webkit-fill-available;
   display: -webkit-inline-box;
-  /* line-height: 7px; */
-  /* float: right; */
-  /* border-width: 10px; */
-  /* border: #d9e0e7; */
-  /* margin: 5px; */
-  /* height: 1293px; */
-  /* left: 343px; */
-  /* top: 234px; */
-  /* border-radius: 12px; */
-  /* bottom: 63.77%; */
-  background: #eef3f3;
-  /* box-shadow: 0px 2px 10px rgb(0 0 0 / 25%); */
+  background: #ffffff;
   border-radius: 12px;
 }
 
@@ -1714,25 +1725,15 @@ fieldset {
   width: 40%;
 }
 .navUl {
+  
   margin-left: -28px;
   display: flex;
-  grid-column-gap: 912px;
-  grid-column-gap: 912px;
-  column-gap: 912px;
-  height: 35px;
-  flex-wrap: wrap;
   margin-block-start: auto;
-  justify-content: flex-end;
-  font-weight: bold;
-  color: aliceblue;
-  font-size: large;
+  justify-content: space-evenly;
+  font-size: small;
   grid-column-gap: 41px;
-  grid-column-gap: 45px;
-  column-gap: 45px;
   align-items: baseline;
   align-content: center;
-  width: 111%;
-  flex-direction: row;
 }
 
 select.Form {
@@ -1753,7 +1754,7 @@ select.Form {
   border: none;
 }
 .navBar {
-  margin: -11px auto;
+  margin: 20px auto;
   padding: 10px;
   margin-top: -6px;
   width: 84%;
@@ -1959,7 +1960,6 @@ form button {
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
-  margin-left: 473px;
   border: none;
   height: 39px;
   bottom: 42.34%;
@@ -1974,8 +1974,7 @@ form button:hover {
   background-color: rgb(9, 104, 80);
 }
 .m {
-  /* overflow: scroll; */
-  /* width: fit-content; */
+  width: 1210px;
 }
 
 .correction-m {
@@ -1984,45 +1983,51 @@ form button:hover {
   flex-direction: column;
 }
 .bookslot {
-  width: 33%;
-  /* FONT-VARIANT: JIS04; */
-  /* padding: 18px; */
-  /* overflow: hidden; */
   display: flex;
-  /* flex-direction: row; */
-  /* margin-left: 22px; */
-  /* position: static; */
-  /* margin-left: -43px; */
-  /* flex-wrap: wrap; */
   align-items: flex-start;
 }
 .book-tanker {
-  width: 100%;
+  margin-top: 9px;
+  height: fit-content;
+  background: #50708c;
+  width: 384px;
   display: flex;
   flex-direction: row;
   position: static;
   flex-wrap: wrap;
+  padding: 13px;
+  border-radius: 17px;
+}
+.bookbindSUB {
+  height: 343px;
+  width: 413px;
+  padding: 14px;
+  background: #f6b900;
+  color: whitesmoke;
+  grid-row-gap: 10px;
+  flex-direction: column;
+  border-end-start-radius: 10px;
+  display: grid;
+  justify-items: start;
 }
 .bookbind {
   display: flex;
-  align-items: stretch;
-  width: 522px;
-  border-radius: 10px;
+  /* height: 456px; */
+  width: 413px;
   padding: 14px;
   background: #6595ec;
-  margin: 9px;
   color: whitesmoke;
-  row-gap: 10px;
+  grid-row-gap: 10px;
   flex-direction: column;
-  align-content: stretch;
-  align-items: flex-start;
+  /* border-end-start-radius: 10px; */
+  border-start-start-radius: 10px;
 }
 .notify {
   background-color: red;
-  height: 20px;
+  height: 9px;
   color: white;
   border-radius: 20px;
-  width: 19px;
+  width: 9px;
 }
 .bookbind h5 {
   margin: 0px;
@@ -2053,6 +2058,7 @@ form button:hover {
 
 #top h5 {
   height: 20px;
+  color: white;
   display: inline-flex;
   flex-direction: row;
   font-size: large;
@@ -2064,6 +2070,7 @@ form button:hover {
 #top h1 {
   padding: 12px;
   display: inline-flex;
+  color: aliceblue;
   flex-direction: row;
   font-size: large;
   justify-content: flex-end;
@@ -2171,13 +2178,12 @@ form button:hover {
 }
 .sub-table {
   display: inline-flex;
-  column-gap: 23px;
-  justify-content: space-evenly;
+  grid-column-gap: 23px;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
-  font-size: medium;
+  font-size: small;
   font-family: sans-serif;
-  margin: 20px auto;
 }
 .sub-table th {
   font-weight: 100;
@@ -2200,8 +2206,8 @@ form button:hover {
 }
 .dop {
   background-color: rgb(141, 140, 135);
-  height: 8px;
-  width: 8px;
+  height: 1px;
+  width: 1px;
   color: whitesmoke;
   border-radius: 30px;
 }
