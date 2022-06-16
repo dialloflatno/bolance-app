@@ -1,7 +1,7 @@
 import Info from "./Info";
 
 
-function List({ arrayOfExpenses,handleDeleteItem}) {
+function List({ arrayOfExpenses,handleDeleteItem,handleReportListClick,categoriesDropDown}) {
 
 console.log(arrayOfExpenses);
 
@@ -31,7 +31,18 @@ console.log(arrayOfExpenses);
 
 
   return (
-    <div>
+    <div> 
+    <div className =' list-expense'>
+    <select
+      onChange={handleReportListClick}
+      className="category-dropdown">
+      <label value={null}> Choose</label>
+      <option value={null} display="All">
+        All
+      </option>
+      {categoriesDropDown}
+    </select>
+  </div>
       <div className="List">
         <br></br>
         <div className='vhm'>

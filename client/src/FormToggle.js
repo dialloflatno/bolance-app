@@ -24,7 +24,7 @@ export default  function FormToggle({setToggle, toggle, entryHandled, expDropDow
       ) : (
         ""
       )}
-      {toggle ? (
+      {/* {toggle ? (
         <button onClick={handlesDisapperacance} className="drpfrm">
           View Category ▼
         </button>
@@ -32,7 +32,7 @@ export default  function FormToggle({setToggle, toggle, entryHandled, expDropDow
         <button onClick={handlesApperacance} value={false} className="drpfrm">
            Place an Entry ▼
         </button>
-      )}
+      )} */}
     </div>
   );
 }
