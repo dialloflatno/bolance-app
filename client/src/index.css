@@ -1439,29 +1439,17 @@ img {
 }
 
 .List {
-  display: grid;
+  display: flex;
   height: 533px;
-  margin-top: 17%;
-  padding: 10px;
-  box-sizing: content-box;
-  background: rgb(247 247 247);
-  justify-content: end;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  align-content: center;
-  width: 99%;
-  justify-items: center;
-
 }
 td {
-  display: flex;
+  display: grid;
   font-size: small;
   padding: 3px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
   flex-direction: column;
-  align-items: stretch;
+  justify-items: start;
 }
 .List_font {
   border-color: rgb(247 248 243);
@@ -1514,8 +1502,9 @@ td {
   margin: 0px;
 }
 .cardChart h1 {
+  font-weight: 200;
   font-size: inherit;
-  font-weight: bolder;
+  font-family: sans-serif;
 }
 .budgetNotif h5 {
   font-weight: 400;
@@ -1565,13 +1554,34 @@ td {
   border-radius: 20px;
 }
 .cardSide {
+  font-size: x-large;
   display: flex;
-  padding: 10px;
-  justify-items: start;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  font-size: x-large;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+progress {
+  margin-top: 7px;
+  width: 100px;
+  height: 16px;
+  background: crimson;
+}
+
+progress {
+  color: lightblue;
+}
+
+progress::-moz-progress-bar {
+  background: lightcolor;
+}
+
+progress::-webkit-progress-value {
+  background: red;
+}
+
+progress::-webkit-progress-bar {
+  background: rgb(228, 228, 240);
 }
 
 .cardSide h4 {
@@ -1581,10 +1591,11 @@ td {
 .cardMain {
   font-size: unset;
   color: aliceblue;
+  font-family: sans-serif;
   display: grid;
   font-size: unset;
   color: aliceblue;
-  background: #7ebdd2;
+  background: #101218;
   border-width: 10px;
   border: #d9e0e7;
   padding: 18px;
@@ -1594,14 +1605,10 @@ td {
   font-weight: 700;
   align-items: center;
   justify-items: stretch;
-  background: #7ebdd2;
   border-width: 10px;
   border: #d9e0e7;
-  padding: 18px;
   width: -moz-fit-content;
-  width: fit-content;
-  border-radius: 10px;
-  font-weight: 700;
+  margin-left: 6px;
 }
 .maincard {
   display: -webkit-inline-box;
@@ -1658,14 +1665,11 @@ fieldset {
   border-radius: 5px;
   margin: 16px;
 }
-.list-expense{
-
+.list-expense {
   width: 1000px;
   float: right;
   margin-left: 38px;
-  height: 1000px;
   margin-top: 317px;
-
 }
 .formEntry {
   transition: 0.3s;
@@ -2181,9 +2185,15 @@ form button:hover {
   width: 96%;
 }
 .cardMain p {
-  float: left;
-  font-size: x-large;
-  margin: 2px auto;
+  margin: -2px;
+  row-gap: 11px;
+}
+.cardMain h3 {
+  margin: 0px;
+}
+.cardMain hr {
+  width: 100%;
+  opacity: 30%;
 }
 .dot {
   background-color: rgb(255, 209, 5);

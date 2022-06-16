@@ -21,7 +21,7 @@ function Info({ handleDeleteItem, item, cost, store, info, store_address, paymen
 
     return (
 
-        <div className="List_font">
+        <div>
 
             <div className ='info'  >
 

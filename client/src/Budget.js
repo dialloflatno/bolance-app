@@ -18,10 +18,11 @@ export default function Budget({ budget, mySum, title, category }) {
           <div>
             {alarm ? (
               <>
-                {' '}
                 <h5>
-                  <div className="notify">!</div>
-                  {title}:{budget}{' '}
+                  {/* <div className="notify">!</div> */}
+                  {title} ${budget} <br/>{
+                    <progress min="0" max="100" value="63" />
+                }
                 </h5>
               </>
             ) : (

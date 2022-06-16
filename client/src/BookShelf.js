@@ -2,10 +2,10 @@ import { useState } from 'react'
 import BookCover from './BookCover'
 import Subscript from './Subscript'
 
-function BookShelf({ o, setUp,titleTotal, placeBook, user, subs }) {
+function BookShelf({ o, setUp, titleTotal, placeBook, user, subs }) {
 
-  // const [subSum, setSubSum] = useState(subs?.map(sub => sub.paymentpermonth).reduce((p, c) => p + c, 0)
- // )
+  const [subSum, setSubSum] = useState(subs?.map(sub => sub.paymentpermonth).reduce((p, c) => p + c, 0)
+  )
 
 
   let layed = []
@@ -17,7 +17,7 @@ function BookShelf({ o, setUp,titleTotal, placeBook, user, subs }) {
 
 
 
- const listOfSubs = subs?.map(companies => {
+  const listOfSubs = subs?.map(companies => {
     return <Subscript
 
       user={user}
@@ -27,7 +27,7 @@ function BookShelf({ o, setUp,titleTotal, placeBook, user, subs }) {
       payment={companies.paymentpermonth}
       startDate={companies.month}
       setUpSub={setUp}
-      // subSum = {subSum}
+      subSum={subSum}
 
     />
   })
@@ -40,16 +40,16 @@ function BookShelf({ o, setUp,titleTotal, placeBook, user, subs }) {
       <div>
         <div className="bookslot">
           <div className="book-tanker">
-            <span className ='titleBookShelf'><h1>Book Shelf</h1> <button className='buttonBook'>+</button></span>
-            <hr/>
+            <span className='titleBookShelf'><h1>Book Shelf</h1> <button className='buttonBook'>+</button></span>
+            <hr />
             {layed}
             <div>
-              
+
             </div>
-            {/* <div className="cardMain"> */}
-              {/* <p>${subSum}</p> */}
-              {/* Subcriptions
-              <table >
+            <div className="cardMain">
+              <p><h3>  Subcriptions </h3> Monthly Total ${subSum}</p>
+              <hr />
+              <table>
                 <thead>
                   <tr className='sub-table'>
                     <th>Service</th>
@@ -61,13 +61,13 @@ function BookShelf({ o, setUp,titleTotal, placeBook, user, subs }) {
                 <tbody>
                   <td>{listOfSubs}</td>
                 </tbody>
-              </table> */}
+              </table>
 
             </div>
           </div>
         </div>
       </div>
-    // </div>
+    </div>
   )
 }
 

@@ -32,7 +32,7 @@ console.log(subs.subscribed);
   let amountBudget = usersBookPile.map((my) => (
     <Budget
       title={my.title}
-      budget={my.budget}
+      budget= {my.budget}
       category={my.categories}
       mySum={mySum}
     />
@@ -101,9 +101,6 @@ console.log(subs.subscribed);
                     user={user} placeBook={placeBook}
                   /> */}
                   <div className="cardChart">
-                    {/* <div className="cardSide">
-                        {amountBudget}
-                        </div> */}
                     <DoughnutChart
                       title={o}
                       bookExp={g.map((d) => d.total)}
@@ -123,7 +120,12 @@ console.log(subs.subscribed);
                      Lowest Book Expense:$
                       {Math.min(...bookExp.values())}
                     </h5>
+                    <hr/>
 
+                    <div className="cardSide">
+                      <h1>Budget Tracker</h1>
+                        {amountBudget}
+                    </div>
                   </div>
                 </div>
               </div>
