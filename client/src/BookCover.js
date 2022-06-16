@@ -10,8 +10,9 @@ function BookCover({ title, bookExp }) {
     <div>
       <div className="card ">
         <div className="cardInfo">
-          <h1>{bookExp}</h1>
-           <span className="cardGo"><h3>'</h3>{title}</span>
+           <h2>{title}</h2>
+          <h1>Book Tool:{bookExp}</h1>
+          <hr/>
         </div>
       </div>
     </div>

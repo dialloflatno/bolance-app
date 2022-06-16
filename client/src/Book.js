@@ -6,13 +6,14 @@ import CategoriesForm from "./CategoriesForm";
 import BarChart from "./BarChart";
 import FormToggle from "./FormToggle";
 import Setting from './Setting'
+import {tally} from './helpers/tally'
 
 function Book() {
   const { book_id } = useParams();
-  const [bookDisplayed, setBookDisplayed] = useState(); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
-  const [categoriesArr, setCategoriesArr] = useState(); //<<< categories: [ :name, :expenses:[]]
+  const [bookDisplayed, setBookDisplayed] = useState(null); //<<< book: [ :title, categories:[ :name, :expenses:[] ]]
+  const [categoriesArr, setCategoriesArr] = useState(null); //<<< categories: [ :name, :expenses:[]]
   const [listOfExpenses, setList] = useState([]);
-  const [catogeryExp, setFetchExp] = useState(); ///<<< categories: [:expenses:[]]
+  const [catogeryExp, setFetchExp] = useState(null); ///<<< categories: [:expenses:[]]
   const [booksTitle, setBookTitle] = useState(""); ///<<< book: [ :title ]
   const [name, setCategoryName] = useState("");
   const [show, setShow] = useState(false);
@@ -30,20 +31,14 @@ function Book() {
       });
   }, [`${book_id}`]);
 
-  //filter out the categories that are not selected //
-  /// then attempt a .map()  ////
 
   const history = useHistory()
 
-  let t = 0;
-  if (catogeryExp?.length > 0) {
-    t = catogeryExp?.map((o, index) => o.map((x) => x.cost)).flat();
-    console.log(t);
-    let total = 0;
-    for (let i = 0; i < t.length; i++) {
-      total = total + t[i];
-    }
-  }
+  const t = tally(catogeryExp)
+
+// Look up React Docs useMemo ////
+/// Read React Docs //////
+// helper directory //
 
   console.log(t);
   let sum = [];

@@ -107,8 +107,8 @@ body {
 }
 .App {
   --font-color: rgb(255, 244, 244);
-background-color: #282c34; 
- --background-light: rgb(38, 33, 46);
+  background-color: #282c34;
+  --background-light: rgb(38, 33, 46);
   transition: all 0.3s;
 }
 .subButton.green {
@@ -187,8 +187,8 @@ header {
 }
 .dropgo {
   font-size: smaller;
-  font-weight: 200;
-  color: rgb(16, 16, 17);
+  font-weight: bold;
+  /* color: rgb(16, 16, 17); */
   background-position-x: inherit;
   margin: 19px 4px auto;
   position: unset;
@@ -203,26 +203,26 @@ header {
 .dropgo-select {
   border: none;
   background: none;
-  font-size: medium;
-  font-weight: 400;
-  color: rgb(16, 16, 17);
+  font-size: small;
+  font-weight: bold;
+  /* color: rgb(16, 16, 17); */
   background-position-x: inherit;
   background: none;
   box-sizing: border-box;
-  font-size: small;
-
+  margin: 1%;
   border-radius: 10px;
 }
 .dropgo-NAV {
   border: none;
   background: none;
-  font-size: smaller;
-  font-weight: 400;
-  color: rgb(16, 16, 17);
+  font-size: small;
+  font-weight: bold;
+  margin: 2%;
+
+  /* color: rgb(16, 16, 17); */
   background-position-x: inherit;
   background: none;
   box-sizing: border-box;
-  border-radius: 10px;
 }
 .profileInfo h3 {
   font-size: 16px;
@@ -562,17 +562,17 @@ img {
     flex-direction: column;
   }
   ul.navUl {
-    margin-block-start: auto !important;
-    justify-content: flex-end;
-    font-weight: bold;
-    color: aliceblue;
-    font-size: large;
+    background: #101218;
+    /* margin-left: -28px; */
+    display: flex;
+    margin-block-start: auto;
+    justify-content: space-evenly;
+    font-size: small;
     grid-column-gap: 41px;
-    grid-column-gap: 45px;
-    grid-column-gap: 45px;
-    column-gap: 45px;
     align-items: baseline;
     align-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .Home {
@@ -879,25 +879,10 @@ img {
   }
 
   .card {
-    height: 93px;
-    width: 182px;
-    left: 343px;
-    top: 234px;
-    border-radius: 12px;
-    bottom: 63.77%;
-    background: #fbfefe;
-    /* box-shadow: 0px 2px 10px rgb(0 0 0 / 25%); */
-    border-radius: 12px;
+    display: grid;
   }
   .card:hover {
-    height: 93px;
-    width: 182px;
-    left: 343px;
-    top: 234px;
-    border-radius: 12px;
-    bottom: 63.77%;
-    background: #fbfefe;
-    border-radius: 12px;
+    display: grid;
   }
   fieldset {
     transition: 0.5s;
@@ -1135,9 +1120,9 @@ img {
 
 .logo {
   text-decoration: none;
+  display: inline-flex;
   margin-bottom: 8px;
   width: -moz-fit-content;
-  color: cornflowerblue;
   list-style: none;
   font-size: large;
   font-weight: bold;
@@ -1152,7 +1137,8 @@ img {
 .jar {
   display: flex;
   flex-direction: row;
-  align-items: stretch;}
+  align-items: stretch;
+}
 
 .perTitle h6 {
   color: #756e6e;
@@ -1360,11 +1346,9 @@ img {
   height: 300px;
 }
 .cardInfo {
-  padding: 13px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  padding: 11px;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .ExpCard {
   padding: 1%;
@@ -1442,18 +1426,17 @@ img {
   justify-content: space-between;
 }
 
-.info:hover{
-  transition:  all 0.3s;
+.info:hover {
+  transition: all 0.3s;
   background: #d9e0e7;
-
 }
 .info span {
-    /* column-gap: 21px; */
-    font-family: sans-serif;
-    font-size: small;
-    color: #282c34;
-    margin: 15px;
-    font-size: small;
+  /* column-gap: 21px; */
+  font-family: sans-serif;
+  font-size: small;
+  color: #282c34;
+  margin: 15px;
+  font-size: small;
 }
 
 .List {
@@ -1477,8 +1460,6 @@ td {
   font-weight: 500;
   flex-direction: column;
   align-items: stretch;
-
-
 }
 .List_font {
   border-color: rgb(247 248 243);
@@ -1503,11 +1484,26 @@ td {
   flex-wrap: nowrap;
 }
 .cardInfo h1 {
+  display: grid;
+  font-weight: 500;
+  font-size: smaller;
   margin-top: 12px;
+  color: gray;
+
+  justify-items: start;
+}
+.cardInfo h2 {
+  display: grid;
+  font-weight: 500;
+font-family: sans-serif;
+  font-size: medium;
+  margin-top: -6px;
+  justify-items: start;
 }
 .cardChart h5 {
   margin: 10px;
   grid-column-gap: 7px;
+  font-family: sans-serif;
   column-gap: 5px;
   font-weight: lighter;
   display: inline-flex;
@@ -1521,41 +1517,27 @@ td {
 }
 .budgetNotif h5 {
   font-weight: 400;
-    margin: 6px auto;
-    display: inline-flex;
-    align-items: center;
-    grid-column-gap: 10px;
-    grid-column-gap: 10px;
-    column-gap: 10px;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    font-size: 12px;
-    width: 150px;
+  margin: 6px auto;
+  display: inline-flex;
+  align-items: center;
+  grid-column-gap: 10px;
+  grid-column-gap: 10px;
+  column-gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  font-size: 12px;
+  width: 150px;
 }
 .card {
-  border-width: 10px;
-  border: #d9e0e7;
-  margin: 5px;
-  height: 93px;
-  width: 182px;
-  left: 343px;
-  top: 234px;
-  border-radius: 12px;
-  bottom: 63.77%;
-  background: #fbfefe;
-  /* box-shadow: 0px 2px 10px rgb(0 0 0 / 25%); */
-  border-radius: 12px;
+  display: grid;
 }
 .cardChart {
-    line-height: 7px;
-    border-width: 10px;
-    border: #d9e0e7;
-    margin: 30px auto;
-
-    width: 335px;
-    border-radius: 12px;
-    justify-items: stretch;
-    align-items: baseline;
+  line-height: 7px;
+  border-width: 10px;
+  border: #d9e0e7;
+  margin: 46px;
+  width: 512px;
+  padding: 31px;
 }
 .grid-contanier {
   display: flex;
@@ -1620,22 +1602,12 @@ td {
   font-weight: 700;
 }
 .maincard {
-  margin: 11px;
   display: -webkit-inline-box;
   background: #ffffff;
-  border-radius: 12px;
 }
 
 .card:hover {
-  height: 93px;
-  width: 182px;
-  left: 343px;
-  top: 234px;
-  border-radius: 12px;
-  bottom: 63.77%;
-  background: #fbfefe;
-  /* box-shadow: 0px 2px 10px rgb(0 0 0 / 25%); */
-  border-radius: 12px;
+  display: grid;
 }
 
 .Form {
@@ -1724,16 +1696,19 @@ fieldset {
   background: #f3faff;
   width: 40%;
 }
+
 .navUl {
-  
-  margin-left: -28px;
+  padding-top: 58px;
+  grid-row-gap: 24px;
+  row-gap: 14px;
+  background: #101218;
+  width: 357px;
+  height: 1000px;
   display: flex;
   margin-block-start: auto;
-  justify-content: space-evenly;
-  font-size: small;
-  grid-column-gap: 41px;
-  align-items: baseline;
-  align-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
 }
 
 select.Form {
@@ -1745,24 +1720,15 @@ select.Form {
   margin: 10px;
   color: #000;
   background: none;
-  /* background-color: #0063cc; */
   border: none;
 }
 #dropdown option {
   color: antiquewhite;
-  /* background-color: #0063cc; */
   border: none;
 }
 .navBar {
-  margin: 20px auto;
-  padding: 10px;
-  margin-top: -6px;
-  width: 84%;
+  position: fixed;
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  float: left;
-  justify-content: space-between;
 }
 
 .p {
@@ -1987,16 +1953,29 @@ form button:hover {
   align-items: flex-start;
 }
 .book-tanker {
-  margin-top: 9px;
-  height: fit-content;
-  background: #50708c;
-  width: 384px;
-  display: flex;
+  border: solid;
+  margin-left: 396px;
+  margin-top: -6px;
+  height: -moz-fit-content;
+  height: 1000px;
+  background: #fbfefe;
+  width: 399px;
+  text-align: justify;
   flex-direction: row;
   position: static;
   flex-wrap: wrap;
-  padding: 13px;
-  border-radius: 17px;
+}
+.titleBookShelf {
+  column-gap: 170px;
+  margin: 10px;
+  color: darkslategrey;
+  font-family: sans-serif;
+  display: inline-flex;
+}
+.buttonBook {
+  background: none;
+  border: none;
+  font-size: large;
 }
 .bookbindSUB {
   height: 343px;
@@ -2136,15 +2115,7 @@ form button:hover {
   cursor: pointer;
 }
 .card {
-  height: 93px;
-  width: 182px;
-  left: 343px;
-  top: 234px;
-  border-radius: 12px;
-  bottom: 63.77%;
-  background: #fbfefe;
-  /* box-shadow: 0px 2px 10px rgb(0 0 0 / 25%); */
-  border-radius: 12px;
+  display: grid;
 }
 .grand-container {
   /* background: #367777; */

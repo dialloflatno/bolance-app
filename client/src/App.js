@@ -51,7 +51,7 @@ function App() {
             <footer>Bolance App | Your Best Budget ! </footer>
           </Route>
           <Route to='/reports'>
-          <Nav user={user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} setUser={setUser} books={books} />
+          <Nav user= {user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} setUser={setUser} books={books} />
             <PMReports/>
             </Route>
           <Route to ='/toss'>

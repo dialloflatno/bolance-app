@@ -1,11 +1,11 @@
 import { useState } from "react"
 
-export default function Subscript({ subOn, setUpSub, user, company, startDate, payment }) {
+export default function Subscript({ subOn, setUpSub, user, company, startDate, payment,key }) {
 
 
   const [status, setStatus] = useState(false)
 
-  const handleClick = () => {
+  const handleClick = (key) => {
     setStatus((subOn) => !subOn)
     fetch(`/api/subscriptions/${user.id}`, {
       method: "PATCH",
@@ -19,12 +19,11 @@ export default function Subscript({ subOn, setUpSub, user, company, startDate, p
       .then((r) => r.json())
       .then((data) => {
         // console.log(data);
-        setUpSub(() => data)
+        setUpSub(() => !data)
       });
 
   }
 
-  console.log(subOn);
   return (
     <div className="sub-line">
 
@@ -33,7 +32,7 @@ export default function Subscript({ subOn, setUpSub, user, company, startDate, p
       <td>{startDate}</td>
       <td> ${payment}</td>
       <td className={"subButton " + (subOn ? 'green' : 'gray')}>{ subOn ? 'Subscribed' : 'UnSubscribed'}</td>
-      <button onChange = {(e) => console.log(e.target.value)}  onClick={handleClick}>{ subOn ? '' : ''}</button>
+      <button onChange = {(e) => console.log(e.target.value)}  onClick={() => handleClick(key)}>{ subOn ? '' : ''}</button>
 
     </div>
   )

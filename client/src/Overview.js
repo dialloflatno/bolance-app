@@ -13,7 +13,7 @@ console.log(subs.subscribed);
     fetch(`/api/books/user/${user.id}`)
       .then((r) => r.json())
       .then((bookPile) => setBookPile(bookPile))
-  }, [])
+  },[])
   const arrayOfExpensesAll = usersBookPile?.map((book) =>
     book.categories
       .map((category) => category.expenses.map((x) => x.cost))
@@ -77,42 +77,12 @@ console.log(subs.subscribed);
 
   return (
     <div className={'App ' + (isDarkMode ? 'dark' : 'light')}>
-      <div className="OverView">
-        <div className="View">
-          <div id="top">
-            <h1>Overview</h1>
-          </div>
+      <div>
+        <div>
+
 
           <div className="maincard">
-            <div className="prop-container">
-              <div className="m">
-                <div className="grid-contanier">
-                  <BookForm
-                    user={user} placeBook={placeBook}
-                  />
-                  <div className="cardChart">
-                    <div className="cardSide">
-                        {amountBudget}
-                        </div>
-                    <h5>
-                      Overall Books Total :{' '}
-                      <h1>{amount ? amount : totalExpenses}</h1>dollars
-                    </h5>
-                    <h5>
-                      <h3>'</h3> Largest Expense:
-                      <strong>{Math.max(...bookExp.values())}</strong>
-                      <h3>'</h3> Smallest Expense:$
-                      {Math.min(...bookExp.values())}
-                    </h5>
-
-                    <DoughnutChart
-                      title={o}
-                      bookExp={g.map((d) => d.total)}
-                      title={title}
-                    />
-                  </div>
-
-                  <BookShelf
+          <BookShelf
                     amountBudget={amountBudget}
                     titleTotal={titleBookCost}
                     user={user}
@@ -124,6 +94,33 @@ console.log(subs.subscribed);
                     title={title}
                     totalExpenses={totalExpenses}
                   />
+            <div className="prop-container">
+              <div className="m">
+                <div className="grid-contanier">
+                  {/* <BookForm
+                    user={user} placeBook={placeBook}
+                  /> */}
+                  <div className="cardChart">
+                    {/* <div className="cardSide">
+                        {amountBudget}
+                        </div> */}
+                    <DoughnutChart
+                      title={o}
+                      bookExp={g.map((d) => d.total)}
+                      title={title}
+                    />
+                    <h5>
+                      Expenses {' '}  <h1>${amount ? amount : totalExpenses}</h1>
+                    </h5>
+                    <br/>
+                    <h5>
+                      Highest Book Expense:
+                      <strong>{Math.max(...bookExp.values())}</strong>
+                     Lowest Book Expense:$
+                      {Math.min(...bookExp.values())}
+                    </h5>
+
+                  </div>
                 </div>
               </div>
             </div>

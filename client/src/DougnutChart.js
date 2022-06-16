@@ -1,5 +1,4 @@
-import {Bar, Doughnut} from 'react-chartjs-2';
-import BookShelf from './BookShelf'
+import {Doughnut} from 'react-chartjs-2';
 
 
 function DoughnutChart(props) {
