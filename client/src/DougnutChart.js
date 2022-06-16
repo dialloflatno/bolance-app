@@ -1,4 +1,4 @@
-import {Doughnut} from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2';
 
 
 function DoughnutChart(props) {
@@ -62,7 +62,7 @@ function DoughnutChart(props) {
         <div>
             <div >
                 {/* <BookShelf /> */}
-          <Doughnut data={data} options={options} />
+          <Pie data={data} options={options} />
         </div>
         </div>
     )

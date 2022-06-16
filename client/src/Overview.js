@@ -109,13 +109,17 @@ console.log(subs.subscribed);
                       bookExp={g.map((d) => d.total)}
                       title={title}
                     />
-                    <h5>
+                    <div>
+
+                    <h5 id='expense'>
                       Expenses {' '}  <h1>${amount ? amount : totalExpenses}</h1>
                     </h5>
+                    <hr/>
+                    </ div>
                     <br/>
                     <h5>
                       Highest Book Expense:
-                      <strong>{Math.max(...bookExp.values())}</strong>
+                      <strong>${Math.max(...bookExp.values())}</strong>
                      Lowest Book Expense:$
                       {Math.min(...bookExp.values())}
                     </h5>

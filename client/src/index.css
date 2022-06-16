@@ -436,7 +436,6 @@ a {
   font-weight: bold;
 }
 .conatier_size {
-  height: 6px;
   text-align: justify;
   box-sizing: content-box;
   align-items: flex-start;
@@ -1940,7 +1939,9 @@ form button:hover {
   background-color: rgb(9, 104, 80);
 }
 .m {
+  margin-top: -103px;
   width: 1210px;
+
 }
 
 .correction-m {
@@ -1964,6 +1965,13 @@ form button:hover {
   flex-direction: row;
   position: static;
   flex-wrap: wrap;
+}
+#expense{
+  font-size: x-large;
+  display: flex;
+  font-size: x-large;
+  justify-content: space-between;
+
 }
 .titleBookShelf {
   column-gap: 170px;
