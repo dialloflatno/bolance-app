@@ -159,8 +159,8 @@ header {
   box-sizing: border-box;
   position: absolute;
   background: #282c34;
-  display: flex;
-  position: fixed;
+  /* display: flex;
+  position: fixed; */
   height: 90px auto;
   align-items: center;
   flex-direction: row;
@@ -188,7 +188,7 @@ header {
 .dropgo {
   font-size: smaller;
   font-weight: bold;
-  /* color: rgb(16, 16, 17); */
+  font-family: sans-serif;
   background-position-x: inherit;
   margin: 19px 4px auto;
   position: unset;
@@ -205,7 +205,7 @@ header {
   background: none;
   font-size: small;
   font-weight: bold;
-  /* color: rgb(16, 16, 17); */
+  font-family: sans-serif;
   background-position-x: inherit;
   background: none;
   box-sizing: border-box;
@@ -213,6 +213,7 @@ header {
   border-radius: 10px;
 }
 .dropgo-NAV {
+  font-family: sans-serif;
   border: none;
   background: none;
   font-size: small;
@@ -515,7 +516,7 @@ a {
   height: 80.1ch;
   font-weight: 600;
 }
-
+/* 
 .abstract {
   border: none;
   border-end-end-radius: 230%;
@@ -530,7 +531,7 @@ a {
   bottom: 42.59%;
   background: #52bdc4;
   padding: 10px;
-}
+} */
 
 img {
   position: absolute;
@@ -775,18 +776,9 @@ img {
 
   form input {
     border: none;
-    left: 62.42%;
-    right: 8.02%;
-    top: 41.13%;
-    bottom: 54.57%;
-    background: #f4f8fa;
-    /* box-shadow: inset 0px 1px 0px rgb(0 0 0 / 25%); */
-    border-radius: 10px;
-    height: 32px;
-    width: 295px;
-    left: 623px;
-    top: 306px;
-    border-radius: 8px;
+    height: 28px;
+    width: 329px;
+    margin: 6px;
   }
   .ahd {
     transition: 0.3s;
@@ -982,22 +974,24 @@ img {
   background: rgba(196, 196, 196, 0.35);
   border-radius: 20px;
   width: inherit;
+  
   left: 10%;
   top: 135px;
   border-radius: 20px;
 }
 .master-class {
   display: flex;
-  width: -webkit-fill-available;
+  background-color: 242843; /* width: -webkit-fill-available;
   flex-direction: column;
-  margin: 60px 61px auto;
+  margin: 60px 61px auto; */
 }
 
 #phrase {
-  font-family: unset;
-  font-size: 48px;
+  font-family: 'Rockwell';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 65px;
   line-height: 70px;
   letter-spacing: 0em;
   text-align: left;
@@ -1716,13 +1710,27 @@ fieldset {
   grid-row-gap: 24px;
   row-gap: 14px;
   background: #101218;
-  width: 357px;
+  width: 241px;
   height: 1000px;
   display: flex;
   margin-block-start: auto;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: flex-start;
+}
+.navUlBar {
+  /* padding-top: 58px; */
+  /* grid-row-gap: 24px; */
+  grid-row-gap: 14px;
+  /* row-gap: 14px; */
+  /* background: #101218; */
+  /* width: 307px; */
+  /* height: 1000px; */
+  /* display: flex; */
+  margin-block-start: auto;
+  /* flex-direction: column; */
+  /* flex-wrap: nowrap; */
+  /* align-items: flex-start; */
 }
 
 select.Form {
@@ -1873,18 +1881,9 @@ textarea {
 }
 form input {
   border: none;
-  left: 62.42%;
-  right: 8.02%;
-  top: 41.13%;
-  bottom: 54.57%;
-  background: #f4f8fa;
-  /* box-shadow: inset 0px 1px 0px rgb(0 0 0 / 25%); */
-  border-radius: 10px;
-  height: 32px;
-  width: 295px;
-  left: 623px;
-  top: 306px;
-  border-radius: 8px;
+  height: 28px;
+  width: 329px;
+  margin: 6px;
 }
 
 .setting {
@@ -1969,7 +1968,7 @@ form button:hover {
 }
 .book-tanker {
   border: solid;
-  margin-left: 396px;
+  margin-left: 281px;
   margin-top: -6px;
   height: -moz-fit-content;
   height: 1000px;
@@ -1999,28 +1998,50 @@ form button:hover {
   font-size: large;
 }
 .bookbindSUB {
-  height: 343px;
-  width: 413px;
-  padding: 14px;
-  background: #f6b900;
-  color: whitesmoke;
-  grid-row-gap: 10px;
-  flex-direction: column;
-  border-end-start-radius: 10px;
+  font-size: unset;
+  color: aliceblue;
+  font-family: sans-serif;
   display: grid;
-  justify-items: start;
+  font-size: unset;
+  color: aliceblue;
+  background: #101218;
+  border-width: 10px;
+  border: #d9e0e7;
+  padding: 18px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  font-weight: 700;
+  align-items: center;
+  justify-items: stretch;
+  border-width: 10px;
+  border: #d9e0e7;
+  margin: 10px;
+  width: -moz-fit-content;
+  margin-left: 6px;
 }
 .bookbind {
-  display: flex;
-  /* height: 456px; */
-  width: 413px;
-  padding: 14px;
-  background: #6595ec;
-  color: whitesmoke;
-  grid-row-gap: 10px;
-  flex-direction: column;
-  /* border-end-start-radius: 10px; */
-  border-start-start-radius: 10px;
+  margin: 10px;
+  font-size: unset;
+  color: aliceblue;
+  font-family: sans-serif;
+  display: grid;
+  font-size: unset;
+  color: aliceblue;
+  background: #101218;
+  border-width: 10px;
+  border: #d9e0e7;
+  padding: 18px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  font-weight: 700;
+  align-items: center;
+  justify-items: stretch;
+  border-width: 10px;
+  border: #d9e0e7;
+  width: -moz-fit-content;
+  margin-left: 6px;
 }
 .notify {
   background-color: red;

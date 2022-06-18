@@ -3,18 +3,18 @@ import gif from './assets/blance.gif'
 function Welcome() {
   return (
     <div>
-      <div className="box-text-c">
+      <div>
         <div>
           <div>
-                <div className="gif">
+                {/* <div className="gif">
                   <img src={gif} alt="Book balancing" />
-                </div>
-            <div className="abstract">
-              <div className="box-text">
+                </div> */}
+            <div>
+              <div>
                 <div className="master-class">
                   <br />
                   <span id="phrase">
-                    Your just trying to Budget Your Expense without a CPA
+                  Catch your money before it goes
                   </span>
                   <button className="new-catch">
                     <h5>Start Budgeting</h5>

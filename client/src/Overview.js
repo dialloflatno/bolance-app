@@ -97,9 +97,7 @@ console.log(subs.subscribed);
             <div className="prop-container">
               <div className="m">
                 <div className="grid-contanier">
-                  {/* <BookForm
-                    user={user} placeBook={placeBook}
-                  /> */}
+                 
                   <div className="cardChart">
                     <DoughnutChart
                       title={o}

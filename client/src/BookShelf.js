@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BookCover from './BookCover'
+import BookForm from './BookForm'
 import Subscript from './Subscript'
 
 function BookShelf({ o, setUp, titleTotal, placeBook, user, subs }) {
@@ -44,7 +45,9 @@ function BookShelf({ o, setUp, titleTotal, placeBook, user, subs }) {
             <hr />
             {layed}
             <div>
-
+              <BookForm
+                user={user} placeBook={placeBook}
+              />
             </div>
             <div className="cardMain">
               <p><h3>  Subcriptions </h3> Monthly Total ${subSum}</p>

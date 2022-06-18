@@ -66,7 +66,8 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <GreetNav /><Welcome />
+            <GreetNav/>
+            <Welcome />
           </Route>
           <Route path="/signup">
             <SignUp setUser={setUser} />
