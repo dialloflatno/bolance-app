@@ -25,8 +25,6 @@ Bolance</span>
           </ul>
         </nav>
       </header>
-      <div></div>
-      <br/>
     </div>
   )
 }

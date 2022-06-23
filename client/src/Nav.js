@@ -81,7 +81,9 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
 <path d="M0 28L44 0L85 28V98H0V28Z" fill="white"/>
 </svg></image>
   Home
-                    </Link><image><svg width="29" height="18" viewBox="0 0 130 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    </Link>
+                    <select className="dropgo-select" onChange={handleRedirectClick} >
+                    <image><svg width="29" height="18" viewBox="0 0 130 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 0H55C60.5228 0 65 4.47715 65 10V70L0 68V0Z" fill="white"/>
 <path d="M65 10C65 4.47715 69.4772 0 75 0H130V68L65 70V10Z" fill="white"/>
 <rect x="13" y="22" width="39" height="4" rx="2" fill="#0B0707"/>
@@ -91,13 +93,21 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
 <rect x="13" y="44" width="39" height="4" rx="2" fill="#0B0707"/>
 <rect x="77" y="44" width="39" height="4" rx="2" fill="#0B0707"/>
 </svg>
-</image>
-                    <select className="dropgo-select" onChange={handleRedirectClick} >
-                      <option>Books</option>
+</image> <option>Books</option>
                       {dropDown}
                     </select>
                     <Link to='/reports' className="dropgo-NAV ">
-                      PMR
+                    <image><svg width="29" height="18" viewBox="0 0 130 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0H55C60.5228 0 65 4.47715 65 10V70L0 68V0Z" fill="white"/>
+<path d="M65 10C65 4.47715 69.4772 0 75 0H130V68L65 70V10Z" fill="white"/>
+<rect x="13" y="22" width="39" height="4" rx="2" fill="#0B0707"/>
+<rect x="77" y="22" width="39" height="4" rx="2" fill="#0B0707"/>
+<rect x="13" y="33" width="39" height="4" rx="2" fill="#0B0707"/>
+<rect x="77" y="33" width="39" height="4" rx="2" fill="#0B0707"/>
+<rect x="13" y="44" width="39" height="4" rx="2" fill="#0B0707"/>
+<rect x="77" y="44" width="39" height="4" rx="2" fill="#0B0707"/>
+</svg>
+</image> PMR
                     </Link>
                     {/* <span className="name">{user.full_name} */}
                       <button className="close" onClick={() => setOpen(true)}>

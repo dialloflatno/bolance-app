@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100;200;300;400;500;600;754;900&display=swap');
 body {
-  margin: 0;
-
-  /* background-color: #075066; */
+  background-color: #242843;
   font-family: 'M PLUS 2', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,6 +11,7 @@ body {
   scroll-behavior: smooth;
   height: 100%;
   max-width: 100%;
+  margin: 30px;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -107,9 +106,6 @@ body {
 }
 .App {
   --font-color: rgb(255, 244, 244);
-  background-color: #282c34;
-  --background-light: rgb(38, 33, 46);
-  transition: all 0.3s;
 }
 .subButton.green {
   color: green;
@@ -117,17 +113,7 @@ body {
 .subButton {
   color: gray;
 }
-.App.dark {
-  --font-color: rgb(255, 244, 244);
-  --background: rgb(50, 50, 50);
-  --background-light: rgb(38, 33, 46);
-  transition: all 0.3s;
-}
 
-.App#top {
-  color: var(--font-color-light);
-  transition: all 0.3s;
-}
 .hambuger {
   display: none;
   background-color: transparent;
@@ -154,17 +140,7 @@ rect {
 }
 
 header {
-  box-shadow: 6px 2px 22px 5px rgb(66 80 94 / 19%);
-  width: -webkit-fill-available;
-  box-sizing: border-box;
-  position: absolute;
-  background: #282c34;
-  /* display: flex;
-  position: fixed; */
   height: 90px auto;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-around;
   padding-top: 1%;
   z-index: 100;
 }
@@ -174,9 +150,7 @@ header {
   display: flex;
   word-break: unset;
   padding: 7px;
-  /* justify-items: stretch; */
   align-items: center;
-  /* width: 96%; */
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
@@ -186,19 +160,43 @@ header {
   height: 20pc;
 }
 .dropgo {
-  font-size: smaller;
-  font-weight: bold;
   font-family: sans-serif;
-  background-position-x: inherit;
-  margin: 19px 4px auto;
-  position: unset;
-  background: #0aa2e2;
-  border: 1px solid #ffffff;
-  box-sizing: border-box;
-  border-radius: 10px;
-  height: 32px;
-  width: 68px;
-  margin: 3px 10px auto;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  background: none;
+  text-align: left;
+  border: none;
+  color: white;
+}
+.aligner {
+  display: flex;
+  justify-content: space-around;
+  grid-column-gap: 30px;
+  column-gap: 142px;
+  flex-wrap: wrap;
+  margin-left: 130px;
+  margin-bottom: 45px;
+}
+.basebottom {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-left: 55px;
+}
+.info-cards {
+  width: 215px;
+  height: 399px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.handimg {
+  margin-left: 300px;
+  margin-top: -122px;
 }
 .dropgo-select {
   border: none;
@@ -974,16 +972,17 @@ img {
   background: rgba(196, 196, 196, 0.35);
   border-radius: 20px;
   width: inherit;
-  
+
   left: 10%;
   top: 135px;
   border-radius: 20px;
 }
 .master-class {
+  margin-top: 60px;
   display: flex;
-  background-color: 242843; /* width: -webkit-fill-available;
+  background-color: 242843;
   flex-direction: column;
-  margin: 60px 61px auto; */
+  align-items: flex-start;
 }
 
 #phrase {
@@ -995,22 +994,24 @@ img {
   line-height: 70px;
   letter-spacing: 0em;
   text-align: left;
-  top: 20%;
-  margin: 20px auto;
-  left: 12%;
+  margin-left: 55px;
   color: #f3fcff;
 }
 
 .new-catch {
-  background-position-x: inherit;
-  margin: 19px 4px auto;
-  position: unset;
-  background: #0aa2e2;
-  border: 1px solid #ffffff;
-  box-sizing: border-box;
-  border-radius: 10px;
-  height: -moz-fit-content;
-  width: fit-content;
+  left: 7.98%;
+  right: 80.89%;
+  top: 38.88%;
+  bottom: 55.53%;
+  margin-left: 55px;
+  background: #f3fcff;
+  border-radius: 2px;
+  border: none;
+  height: 41px;
+  width: 117px;
+  left: 84px;
+  top: 285px;
+  border-radius: 2px;
 }
 
 .lable {
@@ -1048,13 +1049,14 @@ img {
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
-  color: #ffeeee;
-  margin-top: 9%;
+  /* color: #ffeeee; */
+  margin-top: 12%;
 }
 .box-holder {
   width: 496px;
   display: flex;
   height: 12px;
+  margin-top: 51px;
   column-gap: 89px;
 }
 .box-holder-prime {
@@ -1749,10 +1751,26 @@ select.Form {
   border: none;
 }
 .navBar {
-  position: fixed;
   display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.main-breaker {
+  border: solid;
+  color: white;
+  width: 60%;
+  padding: 20p;
+  margin: -44px auto;
+  margin-bottom: 106px;
 }
 
+.base-stripes {
+  width: 1083px;
+  height: 59px;
+  background: #0ade9e;
+  border-radius: 127px;
+  margin: 20px auto;
+}
 .p {
   margin-bottom: 43px;
   height: 45%;
