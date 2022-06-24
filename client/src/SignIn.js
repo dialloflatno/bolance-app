@@ -35,9 +35,9 @@ function SignIn({ setUser }) {
         <div className=' Home '>
             <div className='wall'>
                 <div className='art-wall'>
-                    <SvgSign />
                 </div>
                 <div className='to-form'>
+                    <SvgSign />
                     <form onSubmit={handleSubmit}>
                         <label className='signin-title'>Sign in Bolance</label>
                         <br />
@@ -50,6 +50,7 @@ function SignIn({ setUser }) {
                     </form>
                     <div className='signUplink'>
                         <h5>Not yet a user ? <Link to='/signup' exact><button>Sign Up Now </button></Link></h5>
+                        <h5><Link to='/' exact><button>Back to Welcome page </button></Link></h5>
                     </div>
                 </div>
             </div>

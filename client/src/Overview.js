@@ -2,7 +2,6 @@ import BookShelf from './BookShelf.js'
 import { useEffect, useState } from 'react'
 import DoughnutChart from './DougnutChart.js'
 import Budget from './Budget.js'
-import BookForm from './BookForm.js'
 
 function Overview({ user, setBooks, books, isDarkMode }) {
   const [usersBookPile, setBookPile] = useState([])
@@ -45,7 +44,7 @@ console.log(subs.subscribed);
 
   function placeBook(newBook) {
     console.log('Book Packed')
-    const addBook = [...books, newBook]
+    const addBook = [...books,newBook]
     setBooks(() => addBook)
   }
 

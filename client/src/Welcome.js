@@ -1,4 +1,5 @@
 import gif from './assets/blance.gif'
+import { Link } from 'react-router-dom'
 
 function Welcome() {
   return (
@@ -18,9 +19,9 @@ function Welcome() {
                     <br />
                     before it goes
                   </span>
-                  <button className="new-catch">
+                  <Link to='/signin' exact> <button className="new-catch">
                     <h5>Start Budgeting</h5>
-                  </button>
+                  </button></Link>
                   <div className='basebottom'>
                     <br />
 
@@ -51,7 +52,7 @@ function Welcome() {
                           <p>
                             <span className="lable"> How Much Do I Owe ?</span>
                             <br />
-                            Add your credit balcnce and well show you what your
+                            Add your credit balcnce and we'll show you what your
                             avalible balance is on your card.
                           </p>
                         </div>
@@ -105,24 +106,85 @@ function Welcome() {
                   <div className='aligner'>
 
                     <div className='info-cards'>
-                      <p>Book Shelf    +</p>
+                      <p id='bs-top'>Book Shelf    +</p>
+                      <hr />
+                      <div className='card-info'>
+                        <span>Cars</span>
+                        <span>Book Total : $35,000</span>
+                      </div>
+                      <hr />
+                      <div className='card-info'>
+                        <span>House</span>
+                        <span>Book Total : $235,000</span>
+                      </div>
+                      <hr />
+                      <div className='card-info'>
+                        <span>Mobile</span>
+                        <span>Book Total : $3,500</span>
+                      </div>
+                      <hr />
                     </div>
                     <div className='info-cards'>
-                    <p>$273,500</p>
+                      <p id='ot-top'>$273,500</p>
+                      <span>Overall Total</span>
+                      <div className='diagram' />
+                      <div className='diagram-quart' />
+                      <div className='diagram-chart'>
+                        <span>Expense</span>
+                        <hr />
+                        <span>Highest Expense : $235,000</span>
+                        <span>Lowest Expense : $3,500</span>
+                        <hr />
+                        <div className='budget-welcome-page'>
+                          <span>Budget Tracker
+                            <hr />
+                            <span className='budget-titles'> House<span> Budget: 150,000</span></span><div className='bar' />
+                            <span className='budget-titles'> Mobile<span> Budget: 150,000</span></span><div className='bar' />
+                            <span className='budget-titles'> Cars<span> Budget: 150,000</span></span>
+                          </span>
+                        </div>
+                      </div>
                     </div>
                     <div className='info-cards'>
-                    <p>Subscription</p>
+                      <div className='top-heading'>
+                        <p id='sub-top'>Subscription</p>
+                        <span id="month-top">Monthly Total $45</span>                      </div>
+                      <hr />
+                      <table>
+                        <thead>
+                          <tr className='sub-table-welcome-display'>
+                            <th>Service</th>
+                            <th>Start Date</th>
+                            <th>Monthly Payment</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <td><span>Netflixs  1/31/2022         $15        Subscribed</span>
+                          </td>
+                          <td><span>P.Fitness  1/31/2022   $15        Subscribed</span>
+                          </td>
+                          <td><span>Starz         1/31/2022      $15        Subscribed</span></td>
+                        </tbody>
+                      </table>
                     </div>
 
                   </div>
                   <div className='base-stripes' />
+                  <br />
+                  <div className='base-stripes' />
+                  <br />
+                  <div className='base-stripes' />
+                  <br />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div >
+
   )
 }
 export default Welcome

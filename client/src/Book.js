@@ -171,7 +171,7 @@ function Book() {
                   <h6>
                     {' '}
                     {sum
-                      ? `Total Book Expense: $${sum}`
+                      ? `Total Book Expense: $${t}`
                       : 'Great Work Budgeting !'}
                   </h6>
                 </h6>

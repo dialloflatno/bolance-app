@@ -11,10 +11,15 @@ body {
   scroll-behavior: smooth;
   height: 100%;
   max-width: 100%;
-  margin: 30px;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  /* margin: 30px; */
+  /* overflow: hidden; */
 }
+body::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --blue-background: #c2e9f6;
   --blue-border: #72cce3;
@@ -176,8 +181,9 @@ header {
   grid-column-gap: 30px;
   column-gap: 142px;
   flex-wrap: wrap;
-  margin-left: 130px;
   margin-bottom: 45px;
+  padding: 10px;
+  z-index: 20;
 }
 .basebottom {
   display: flex;
@@ -187,16 +193,106 @@ header {
   margin-left: 55px;
 }
 .info-cards {
+  padding: 10px;
   width: 215px;
   height: 399px;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
+.info-cards .top-heading p {
+  font-size: 19px;
+  font-weight: 500;
+  display: grid;
+  margin: 0px;
+}
+.info-cards .top-heading {
+  display: grid;
+  font-size: 19px;
+  margin: 18px;
+  justify-items: start;
+}
+
+.info-cards hr {
+  width: 206px;
+  height: 0px;
+  border: 1px solid #000000;
+}
+
+#ot-top {
+  margin-bottom: -6px;
+  font-weight: 600;
+  font-size: 22px;
+  font-family: sans-serif;
+}
+#bs-top {
+  display: grid;
+  margin-bottom: -6px;
+  font-weight: 500;
+  font-size: 22px;
+  font-family: sans-serif;
+  justify-items: start;
+  padding: 5px;
+}
+.bar {
+  color: red;
+  width: 20px;
+  height: 4px;
+}
+#sub-top {
+  width: 76px;
+  height: 16px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+#month-top {
+  width: 108px;
+  height: 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #837f7f;
+}
 
 .handimg {
   margin-left: 300px;
   margin-top: -122px;
+}
+.card-info {
+  display: grid;
+  justify-items: start;
+}
+
+.diagram {
+  margin: 20px auto;
+  width: 110px;
+  border-radius: 899px;
+  height: 109px;
+  background: #00aeef;
+  justify-items: center;
+  z-index: 0;
+}
+.diagram-quart {
+  width: 57px;
+  border-start-end-radius: 936px;
+  height: 54px;
+  background: #0c769c;
+  justify-items: center;
+  margin-top: -129px;
+  margin-left: 105px;
+  z-index: 9;
+}
+.diagram-chart {
+  margin: 8px;
+  margin-top: 50px;
+  row-gap: inherit;
+  display: grid;
+  justify-items: start;
+  justify-content: space-between;
 }
 .dropgo-select {
   border: none;
@@ -561,7 +657,6 @@ img {
   }
   ul.navUl {
     background: #101218;
-    /* margin-left: -28px; */
     display: flex;
     margin-block-start: auto;
     justify-content: space-evenly;
@@ -978,11 +1073,11 @@ img {
   border-radius: 20px;
 }
 .master-class {
-  margin-top: 60px;
+  margin-top: 27px;
   display: flex;
   background-color: 242843;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 #phrase {
@@ -1014,6 +1109,11 @@ img {
   border-radius: 2px;
 }
 
+.new-catch:hover {
+  transition: 0.2s;
+  background: #ffffff;
+  width: 122px;
+}
 .lable {
   font-size: 14px;
   font-weight: 650;
@@ -1665,11 +1765,22 @@ fieldset {
   width: 1000px;
   float: right;
   margin-left: 38px;
-  margin-top: 317px;
+  margin-top: 428px;
 }
 .formEntry {
   transition: 0.3s;
   align-items: center;
+}
+.budget-welcome-page span {
+  display: grid;
+  justify-items: start;
+}
+.budget-titles {
+  font-weight: bold;
+  font-family: sans-serif;
+}
+.budget-titles span {
+  display: flex;
 }
 
 .addButton {
@@ -1708,6 +1819,7 @@ fieldset {
 }
 
 .navUl {
+  position: fixed;
   padding-top: 58px;
   grid-row-gap: 24px;
   row-gap: 14px;
@@ -1715,6 +1827,7 @@ fieldset {
   width: 241px;
   height: 1000px;
   display: flex;
+  margin-top: -8px;
   margin-block-start: auto;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -1753,7 +1866,6 @@ select.Form {
 .navBar {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
 }
 .main-breaker {
   border: solid;
@@ -1765,11 +1877,13 @@ select.Form {
 }
 
 .base-stripes {
-  width: 1083px;
-  height: 59px;
+  width: 1069px;
+  height: 52px;
   background: #0ade9e;
   border-radius: 127px;
-  margin: 20px auto;
+  margin: 4px auto;
+  margin-top: -173px;
+  z-index: 0;
 }
 .p {
   margin-bottom: 43px;
@@ -1783,6 +1897,8 @@ select.Form {
   padding: 28px;
 }
 
+.top-heading {
+}
 .p h5 {
   margin-bottom: 48px;
 }
@@ -1825,15 +1941,10 @@ code {
   align-items: center;
 }
 .wall {
-  background: #0baade;
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  background: #242843;
   width: -webkit-fill-available;
 }
+
 .tranv {
   transition: 0.4s;
 }
@@ -1858,9 +1969,8 @@ textarea {
   width: 190px;
   margin: 20px auto;
 }
-.art-wall {
+/* .art-wall {
   width: 53%;
-  background: #0aabde;
   margin-left: -150px;
   height: 123vh;
   display: flex;
@@ -1872,17 +1982,14 @@ textarea {
   position: absolute;
   margin: 160px auto;
   /* margin-left: 143px; */
-}
+/* } */
 .to-form {
-  margin-top: -30%;
-  display: flex;
-  font-size: larger;
-  line-height: 20px;
-  /* width: 175px; */
-  flex-direction: column;
-  align-items: flex-start;
-  align-content: flex-start;
-  justify-content: space-evenly;
+  margin: 60px auto;
+  row-gap: 7px;
+  display: grid;
+  justify-items: center;
+  justify-content: space-around;
+  align-content: stretch;
 }
 
 .to-form form {
@@ -1943,33 +2050,41 @@ form .ph {
 }
 
 form button {
+  display: grid;
   transition: 0.3s;
   font-style: normal;
   font-weight: 300;
   line-height: 14px;
-  width: 45px;
+  width: 122px;
   letter-spacing: 0em;
   text-align: left;
   color: aliceblue;
-  background: #0aa2e2;
+  background: #4052ca;
   border-radius: 102px;
   border: none;
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
   border: none;
-  height: 39px;
-  bottom: 42.34%;
+  height: 32px;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
+  justify-items: start;
+  align-items: center;
+  justify-content: center;
 }
 
 form button:hover {
   transition: 0.3s;
-  background-color: rgb(9, 104, 80);
+  background-color: rgb(174, 190, 245);
 }
+.signUplink button:hover {
+  transition: 0.3s;
+  color: rgb(255, 255, 255);
+}
+
 .m {
   margin-top: -103px;
   width: 1210px;
@@ -2132,10 +2247,7 @@ form button:hover {
   width: -webkit-fill-available;
   transition: 0.3s;
 }
-.Home {
-  background-color: aliceblue;
-  height: 125vh;
-}
+
 .toggle {
   transition: 03ms;
 }
@@ -2178,7 +2290,7 @@ form button:hover {
   display: grid;
 }
 .grand-container {
-  /* background: #367777; */
+  background: #ffffff;
   /* margin: 62px auto; */
 }
 .bckg {
@@ -2220,6 +2332,22 @@ form button:hover {
   font-weight: 100;
 }
 .sub-table table {
+  margin: 2px auto;
+  width: 96%;
+}
+.sub-table-welcome-display {
+  display: inline-flex;
+  grid-column-gap: 9px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+.sub-table-welcome-display th {
+  font-weight: 100;
+}
+.sub-table-welcome-display table {
   margin: 2px auto;
   width: 96%;
 }
