@@ -28,6 +28,6 @@ def my_subs
 end
 
 def sub_params
-  params.permit(:user, :company, :month, :paymentpermonth, :subscribed )
+  params.permit(:user_id , :company, :month, :paymentpermonth, :subscribed)
 end
 

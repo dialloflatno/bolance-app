@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import SubForm from './SubForm'
 
-function BookForm({ user, placeBook }) {
+function BookForm({ user, placeBook, open, onClose }) {
   const [title, setBooksTitle] = useState('')
   const [budget, setBudget] = useState('')
 
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     console.log(user.id)
     fetch('/api/books', {
@@ -26,25 +25,26 @@ function BookForm({ user, placeBook }) {
         setBudget('')
       })
   }
-
+  if (!open) return null
   return (
     <div>
+
       <form className="bookbind" onSubmit={handleSubmit}>
-        <h3> Bookbinding</h3>
+        <h3> Bookbinding <button id='closeButton' onClick = {onClose}>X</button> </h3> 
         <span className="bvpharse">Lets Start Budgeting </span>
         <input
-        value={title}
+          value={title}
           onChange={(e) => setBooksTitle(e.target.value)}
           placeholder="Book Title"
         />
         <input
-        value={budget}
+          value={budget}
           onChange={(e) => setBudget(e.target.value)}
           placeholder="Budget"
         />
         <button type="submit">Shelf</button>
       </form>
-      <SubForm/>
+      <div className='black-background'></div>
     </div>
   )
 }

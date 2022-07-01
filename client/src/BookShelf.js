@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import BookCover from './BookCover'
 import BookForm from './BookForm'
+import SubForm from './SubForm'
 import Subscript from './Subscript'
 
 function BookShelf({ o, setUp, titleTotal, placeBook, user, subs }) {
 
   const [subSum, setSubSum] = useState(subs?.map(sub => sub.paymentpermonth).reduce((p, c) => p + c, 0)
   )
-
+  const [isOpen, setIsOpen] = useState(false)
+  const [isOpenSUB, setIsOpenSUB] = useState(false)
 
   let layed = []
   if (o?.length > 0) {
@@ -41,16 +43,20 @@ function BookShelf({ o, setUp, titleTotal, placeBook, user, subs }) {
       <div>
         <div className="bookslot">
           <div className="book-tanker">
-            <span className='titleBookShelf'><h1>Book Shelf</h1> <button className='buttonBook'>+</button></span>
+            <span className='titleBookShelf'><h1>Book Shelf</h1> <button className='buttonBook' onClick={() => setIsOpen(true)}>+</button></span>
+
             <hr />
             {layed}
             <div>
               <BookForm
+                onClose={() => setIsOpen(false)}
+                open={isOpen}
                 user={user} placeBook={placeBook}
               />
             </div>
             <div className="cardMain">
-              <p><h3>  Subcriptions </h3> Monthly Total ${subSum}</p>
+              <p><h3> Subcriptions </h3> Monthly Total ${subSum}<button className='buttonBookSUB' onClick={() => setIsOpenSUB(true)}>+</button></p>
+
               <hr />
               <table>
                 <thead>
@@ -67,6 +73,12 @@ function BookShelf({ o, setUp, titleTotal, placeBook, user, subs }) {
               </table>
 
             </div>
+
+            <SubForm
+             user = {user}
+             onClose={() => setIsOpenSUB(false)}
+             open={isOpenSUB}
+             />
           </div>
         </div>
       </div>

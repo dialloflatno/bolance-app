@@ -64,7 +64,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
       <div className="conatier_size">
         <div>
             <div>
-              <nav className="navBar">
+              <nav >
                 <div>
                   <ul className="navUl" >
                     <Link to="/">
@@ -74,6 +74,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
 <path d="M199.5 125.921C199.5 151.878 178.01 172.921 151.5 172.921C124.99 172.921 103.5 151.878 103.5 125.921C103.5 99.9631 124.99 78.9205 151.5 78.9205C178.01 78.9205 199.5 99.9631 199.5 125.921Z" fill="#141231"/>
 </svg>
 </image>Bolance</li>
+
                     </Link>
                     {/* <Search user={user} /> */}
                     <Link to="/" className="dropgo-NAV">
@@ -96,7 +97,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
 </image> <option>Books</option>
                       {dropDown}
                     </select>
-                    <Link to='/reports' className="dropgo-NAV ">
+                    {/* <Link to='/reports' className="dropgo-NAV ">
                     <image><svg width="29" height="18" viewBox="0 0 130 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 0H55C60.5228 0 65 4.47715 65 10V70L0 68V0Z" fill="white"/>
 <path d="M65 10C65 4.47715 69.4772 0 75 0H130V68L65 70V10Z" fill="white"/>
@@ -107,11 +108,10 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
 <rect x="13" y="44" width="39" height="4" rx="2" fill="#0B0707"/>
 <rect x="77" y="44" width="39" height="4" rx="2" fill="#0B0707"/>
 </svg>
-</image> PMR
-                    </Link>
-                    {/* <span className="name">{user.full_name} */}
+</image> PMR */}
+                    {/* </Link> */}
                       <button className="close" onClick={() => setOpen(true)}>
-                        ⌄
+                        Profile
                       </button>
                   
                     <div>
@@ -136,6 +136,7 @@ function Nav({ user, setUser, books ,isDarkMode,setIsDarkMode }) {
                     </Link>
                   </ul>
                 </div>
+
                 {/* <div className="stack">
                   <span className="bar"></span>
                   <span className="bar"></span>

@@ -99,8 +99,9 @@ function Book() {
     setShow(!show)
   }
 
-  function handleSwitchOff() {
-    setShow(show)
+  function handleSwitchOff(e) {
+    console.log("this should be closed");
+  setShow(!show)
   }
 
   //// Toggle for Form  ////////////////////////
@@ -196,7 +197,6 @@ function Book() {
                           setToggle={setToggle}
                           toggle={toggle}
                         />
-                        {/* <Categories categoriesArr={categoriesArr} /> */}
                       </div>
                     </div>
 
@@ -218,18 +218,6 @@ function Book() {
           </div>
         </div>
 
-        
-          {/* <div className =' list-expense'>
-          <select
-            onChange={handleReportListClick}
-            className="category-dropdown">
-            <label value={null}> Choose</label>
-            <option value={null} display="All">
-              All
-            </option>
-            {categoriesDropDown}
-          </select>
-        </div> */}
         <List
           handleDeleteItem={handleDeleteItem}
           arrayOfExpenses={listOfExpenses}

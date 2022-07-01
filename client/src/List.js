@@ -32,11 +32,11 @@ console.log(arrayOfExpenses);
 
   return (
     <div> 
-    <div className =' list-expense'>
+    <div className ='list-expense'>
     <select
       onChange={handleReportListClick}
       className="category-dropdown">
-      <label value={null}> Choose</label>
+      <label value={null}>Choose</label>
       <option value={null} display="All">
         All
       </option>
@@ -44,7 +44,7 @@ console.log(arrayOfExpenses);
     </select>
   </div>
       <div className="List">
-        <br></br>
+        <br/>
         <div className='vhm'>
           <div className="base">
             {mappedList}

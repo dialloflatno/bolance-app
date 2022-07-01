@@ -6,13 +6,13 @@ import Budget from './Budget.js'
 function Overview({ user, setBooks, books, isDarkMode }) {
   const [usersBookPile, setBookPile] = useState([])
   const [subs, setSub] = useState(user.subscriptions)
-console.log(subs.subscribed);
+  console.log(subs.subscribed);
 
   useEffect(() => {
     fetch(`/api/books/user/${user.id}`)
       .then((r) => r.json())
       .then((bookPile) => setBookPile(bookPile))
-  },[])
+  }, [])
   const arrayOfExpensesAll = usersBookPile?.map((book) =>
     book.categories
       .map((category) => category.expenses.map((x) => x.cost))
@@ -31,7 +31,7 @@ console.log(subs.subscribed);
   let amountBudget = usersBookPile.map((my) => (
     <Budget
       title={my.title}
-      budget= {my.budget}
+      budget={my.budget}
       category={my.categories}
       mySum={mySum}
     />
@@ -44,7 +44,7 @@ console.log(subs.subscribed);
 
   function placeBook(newBook) {
     console.log('Book Packed')
-    const addBook = [...books,newBook]
+    const addBook = [...books, newBook]
     setBooks(() => addBook)
   }
 
@@ -81,22 +81,22 @@ console.log(subs.subscribed);
 
 
           <div className="maincard">
-          <BookShelf
-                    amountBudget={amountBudget}
-                    titleTotal={titleBookCost}
-                    user={user}
-                    placeBook={placeBook}
-                    o={o}
-                    g={g}
-                    setUp={handleUpdateSubStatus}
-                    subs={subs}
-                    title={title}
-                    totalExpenses={totalExpenses}
-                  />
+            <BookShelf
+              amountBudget={amountBudget}
+              titleTotal={titleBookCost}
+              user={user}
+              placeBook={placeBook}
+              o={o}
+              g={g}
+              setUp={handleUpdateSubStatus}
+              subs={subs}
+              title={title}
+              totalExpenses={totalExpenses}
+            />
             <div className="prop-container">
               <div className="m">
                 <div className="grid-contanier">
-                 
+
                   <div className="cardChart">
                     <DoughnutChart
                       title={o}
@@ -105,23 +105,23 @@ console.log(subs.subscribed);
                     />
                     <div>
 
-                    <h5 id='expense'>
-                      Expenses {' '}  <h1>${amount ? amount : totalExpenses}</h1>
-                    </h5>
-                    <hr/>
+                      <h5 id='expense'>
+                        Expenses {' '}  <h1>${amount ? amount : totalExpenses}</h1>
+                      </h5>
+                      <hr />
                     </ div>
-                    <br/>
+                    <br />
                     <h5>
                       Highest Book Expense:
                       <strong>${Math.max(...bookExp.values())}</strong>
-                     Lowest Book Expense:$
+                      Lowest Book Expense:$
                       {Math.min(...bookExp.values())}
                     </h5>
-                    <hr/>
+                    <hr />
 
                     <div className="cardSide">
                       <h1>Budget Tracker</h1>
-                        {amountBudget}
+                      {amountBudget}
                     </div>
                   </div>
                 </div>
@@ -130,6 +130,9 @@ console.log(subs.subscribed);
           </div>
         </div>
       </div>
+      {/* <footer>
+        Bolance
+      </footer> */}
     </div>
   )
 }

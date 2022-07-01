@@ -48,7 +48,7 @@ function App() {
           <Route path="/books/:book_id">
             <Nav user={user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} setUser={setUser} books={books} />
             <Book usersBooks={books} handleDeletedBook ={handleDeletedBook} />
-            <footer>Bolance App | Your Best Budget ! </footer>
+            <footer id ='user-footer'>Bolance App | Your Best Budget ! </footer>
           </Route>
           <Route to='/reports'>
           <Nav user= {user} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} setUser={setUser} books={books} />
